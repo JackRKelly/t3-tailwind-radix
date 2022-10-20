@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Accordion from "../components/Accordian";
 import { Column } from "../components/Layout";
+import { Navigation } from "../components/Navigation";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
@@ -16,7 +17,9 @@ const Home: NextPage = () => {
       </Head>
 
       <Column>
-        <Accordion />
+        <Navigation />
+
+        {/* <Accordion /> */}
 
         <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[5rem]">
           Create <span className="text-purple-300">T3</span> App
