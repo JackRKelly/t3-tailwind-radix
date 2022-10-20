@@ -24,16 +24,7 @@ const Home: NextPage = () => {
             <Heading className="!text-white">Create Cool App</Heading>
           </div>
 
-          <Heading>
-            Create <span className="text-purple-300">T3</span> App
-          </Heading>
-          <p className="text-2xl text-gray-700">This stack uses:</p>
-
           <Accordion />
-
-          <div className="flex w-full items-center justify-center pt-6 text-2xl text-blue-500">
-            {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
-          </div>
         </Column>
       </PageWrapper>
     </>
