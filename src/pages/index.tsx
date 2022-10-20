@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Accordion from "../components/Accordian";
-import { Column } from "../components/Layout";
+import { Column, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import { Heading } from "../components/Typography";
 import { trpc } from "../utils/trpc";
@@ -16,26 +16,26 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navigation />
+      <PageWrapper>
+        <Navigation />
 
-      <div className="h-96 w-full bg-blue-600">
         <Column>
-          <Heading>Create Cool App</Heading>
+          <div className="h-96 w-full overflow-hidden rounded-xl bg-blue-500">
+            <Heading className="!text-white">Create Cool App</Heading>
+          </div>
+
+          <Heading>
+            Create <span className="text-purple-300">T3</span> App
+          </Heading>
+          <p className="text-2xl text-gray-700">This stack uses:</p>
+
+          <Accordion />
+
+          <div className="flex w-full items-center justify-center pt-6 text-2xl text-blue-500">
+            {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
+          </div>
         </Column>
-      </div>
-
-      <Column>
-        <Heading>
-          Create <span className="text-purple-300">T3</span> App
-        </Heading>
-        <p className="text-2xl text-gray-700">This stack uses:</p>
-
-        <Accordion />
-
-        <div className="flex w-full items-center justify-center pt-6 text-2xl text-blue-500">
-          {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
-        </div>
-      </Column>
+      </PageWrapper>
     </>
   );
 };
