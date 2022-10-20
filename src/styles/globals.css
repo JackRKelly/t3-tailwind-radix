@@ -1,9 +1,9 @@
-@import url("https://rsms.me/inter/inter.css");
+@import "./segment.css";
 
 @tailwind base;
 
 :root {
-  @apply scroll-smooth font-display antialiased;
+  @apply scroll-smooth font-sans antialiased;
 }
 
 html {

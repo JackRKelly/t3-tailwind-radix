@@ -35,7 +35,7 @@ const Skeleton = tw.div`h-12 w-full rounded-md bg-gray-200 dark:bg-gray-700`;
 
 const SkeletonWrapper = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded-md bg-gray-100 p-4 dark:bg-gray-900`;
 
-const NavigationWrapper = tw.div`flex items-center justify-center absolute top-2 left-1/2 transform -translate-x-1/2`;
+const NavigationWrapper = tw.div`flex items-center justify-center absolute top-2 left-1/2 transform -translate-x-1/2 z-50`;
 
 export const Navigation = () => {
   return (
