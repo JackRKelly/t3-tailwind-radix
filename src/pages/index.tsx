@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 							priority={false}
 							height={1880}
 							placeholder="empty"
-							wrapperClass={tw`delay-300 duration-1000`}
+							wrapperClass={tw`delay-[2s] duration-1000`}
 						/>
 					</div>
 
