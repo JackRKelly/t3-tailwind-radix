@@ -35,13 +35,21 @@ const Skeleton = tw.div`h-12 w-full rounded-md bg-gray-200 dark:bg-gray-700`;
 
 const SkeletonWrapper = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded-md bg-gray-100 p-4 dark:bg-gray-900`;
 
-const NavigationWrapper = tw.div`flex items-center justify-center absolute top-2 left-1/2 transform -translate-x-1/2 z-50`;
+const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-50 w-full flex items-center justify-center`;
 
 export const Navigation = () => {
   return (
     <NavigationWrapper>
       <Root>
         <List>
+          {/* <NavigationMenuPrimitive.Item className="flex items-center justify-center">
+            <Link href="/">
+              <img
+                src="https://uploads-ssl.webflow.com/6331d579cfc14f02a29e1f65/63330d2538eafd792ccf6a6e_logo_01.png"
+                className="w-20"
+              />
+            </Link>
+          </NavigationMenuPrimitive.Item> */}
           <NavigationMenuPrimitive.Item>
             <Trigger>Overview</Trigger>
             <Content>
@@ -58,6 +66,7 @@ export const Navigation = () => {
               </div>
             </Content>
           </NavigationMenuPrimitive.Item>
+
           <NavigationMenuPrimitive.Item>
             <Trigger>Resources</Trigger>
             <Content>

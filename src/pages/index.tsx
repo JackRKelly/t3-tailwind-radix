@@ -5,6 +5,7 @@ import { Column, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import { Heading } from "../components/Typography";
 import { trpc } from "../utils/trpc";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
@@ -19,17 +20,30 @@ const Home: NextPage = () => {
       <Navigation />
 
       <Column>
-        <div className="relative w-full overflow-hidden rounded-xl bg-blue-500 py-40 px-32">
-          <img
-            src="https://uploads-ssl.webflow.com/6331d579cfc14f02a29e1f65/6332019bc211b104d2d79ad7_bg_doce.png"
-            className="absolute top-[0%] left-[0%] z-0"
-          />
-          <img
-            src="https://uploads-ssl.webflow.com/6331d579cfc14f02a29e1f65/633c566922aca589155053ba_gradient_test_two.png"
-            className="absolute top-[-120%] left-[-7%] z-10 z-0 h-[1250px] w-[1250px]"
-          />
+        <div className="relative w-full overflow-hidden rounded-xl bg-blue-500 px-8 py-10 md:px-12 md:py-20 lg:py-40 lg:px-28">
+          <div className="opacity-4 60 absolute left-0 bottom-0 top-0">
+            <Image
+              src="/assets/bg_doce.png"
+              layout="intrinsic"
+              alt="bg doce"
+              width={3176}
+              height={1880}
+            />
+          </div>
+
+          <div className="absolute top-1/4 left-[-7%] -translate-y-1/2 transform">
+            <Image
+              src="/assets/gradient_two.png"
+              layout="intrinsic"
+              width={1250}
+              height={1250}
+              alt="gradient"
+            />
+          </div>
+
           <Heading className="relative !text-white">
-            The future of development
+            The future of <br />
+            development
           </Heading>
         </div>
 
