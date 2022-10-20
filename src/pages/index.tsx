@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Accordion from "../components/Accordian";
+import { Column } from "../components/Layout";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
@@ -13,7 +15,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-4">
+      <Column>
+        <Accordion />
+
         <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[5rem]">
           Create <span className="text-purple-300">T3</span> App
         </h1>
@@ -53,7 +57,7 @@ const Home: NextPage = () => {
         <div className="flex w-full items-center justify-center pt-6 text-2xl text-blue-500">
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
         </div>
-      </main>
+      </Column>
     </>
   );
 };
