@@ -21,6 +21,9 @@ module.exports = {
       ],
     },
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       boxShadow: {
         slider: "0 0 0 5px rgba(0, 0, 0, 0.3)",
       },

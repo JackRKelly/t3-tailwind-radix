@@ -5,31 +5,35 @@ import tw from "twin.macro";
 
 const Trigger = tw(
   NavigationMenuPrimitive.Trigger
-)`rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 `;
+)`rounded-md px-3 py-2 text-sm hover:bg-gray-200 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 `;
 
 const Content = tw(
   NavigationMenuPrimitive.Content
-)`absolute top-0 left-0 w-auto rounded-lg radix-motion-from-start:animate-enter-from-left radix-motion-from-end:animate-enter-from-right radix-motion-to-start:animate-exit-to-left radix-motion-to-end:animate-exit-to-right`;
+)`absolute top-0 left-0 w-auto bg-gray-100 rounded-lg radix-motion-from-start:animate-enter-from-left radix-motion-from-end:animate-enter-from-right radix-motion-to-start:animate-exit-to-left radix-motion-to-end:animate-exit-to-right`;
 
 const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
 const List = tw(
   NavigationMenuPrimitive.List
-)`flex flex-row space-x-2 rounded-lg bg-white p-2 dark:bg-gray-800`;
+)`flex flex-row space-x-2 rounded-lg bg-gray-100 p-2 dark:bg-gray-800`;
 
 const Viewport = tw(
   NavigationMenuPrimitive.Viewport
-)`relative mt-2 overflow-hidden rounded-md bg-white shadow-lg dark:bg-gray-800 w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
+)`relative mt-2 overflow-hidden rounded-md bg-gray-100 shadow-lg dark:bg-gray-800 w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
 
 const Indicator = tw(
   NavigationMenuPrimitive.Indicator
 )`z-10 top-[100%] flex h-2 items-end justify-center overflow-hidden transition-[width_transform] duration-[250ms] ease-[ease]`;
 
+const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-gray-100 dark:bg-gray-800`;
+
 const Link = tw(
   NavigationMenuPrimitive.Link
-)`rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100`;
+)`rounded-md px-3 py-2 text-sm hover:bg-gray-200 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100`;
 
-const Spacer = tw.div`h-12 w-full rounded-md bg-white dark:bg-gray-700`;
+const Skeleton = tw.div`h-12 w-full rounded-md bg-gray-200 dark:bg-gray-700`;
+
+const SkeletonWrapper = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded-md bg-gray-100 p-4 dark:bg-gray-900`;
 
 const NavigationWrapper = tw.div`flex items-center justify-center absolute top-2 left-1/2 transform -translate-x-1/2`;
 
@@ -43,13 +47,13 @@ export const Navigation = () => {
             <Content>
               <div className="w-[21rem] p-3 lg:w-[23rem]">
                 <div className="grid grid-cols-6 gap-4">
-                  <div className="col-span-2 w-full rounded-md bg-gray-100 p-4 dark:bg-gray-900"></div>
-                  <div className="col-span-4 flex w-full flex-col space-y-3 rounded-md bg-gray-100 p-4 dark:bg-gray-900">
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                    <Spacer />
-                  </div>
+                  <div className="col-span-2 w-full rounded-md bg-gray-200 p-4 dark:bg-gray-900"></div>
+                  <SkeletonWrapper>
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                  </SkeletonWrapper>
                 </div>
               </div>
             </Content>
@@ -70,7 +74,7 @@ export const Navigation = () => {
                   </Link>
                   <Link href="https://www.radix-ui.com">
                     <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                      radix UI
+                      Radix UI
                     </span>
                     <div className="mt-1 text-sm text-gray-700 dark:text-gray-400">
                       An open-source UI component library for building
@@ -87,7 +91,7 @@ export const Navigation = () => {
             </Link>
           </NavigationMenuPrimitive.Item>
           <Indicator>
-            <div className="relative top-1 h-2 w-2 rotate-45 bg-white dark:bg-gray-800" />
+            <IndicatorInner />
           </Indicator>
         </List>
         <div
