@@ -7,16 +7,7 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props 
 	<button
 		ref={ref}
 		{...props}
-		className={clsx(
-			"inline-flex select-none items-center justify-center rounded-md px-4 py-2 text-sm font-medium",
-			"bg-gray-100 text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-900",
-			"hover:bg-gray-50",
-			"focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75",
-			"group",
-			"radix-state-open:bg-gray-50 dark:radix-state-open:bg-gray-900",
-			"radix-state-on:bg-gray-50 dark:radix-state-on:bg-gray-900",
-			"radix-state-instant-open:bg-gray-50 radix-state-delayed-open:bg-gray-50"
-		)}
+		className="inline-flex select-none bg-button items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-button-type hover:bg-button-bold focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75 group first-line:radix-state-open:bg-button-bold radix-state-on:bg-button-bold first-letter:radix-state-instant-open:bg-button-bold radix-state-delayed-open:bg-button-bold"
 	>
 		{children}
 	</button>

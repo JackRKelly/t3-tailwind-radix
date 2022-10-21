@@ -130,7 +130,14 @@ module.exports = {
 			},
 			colors: {
 				navigation: {
-					DEFAULT: alpha`color-navigation`
+					DEFAULT: alpha`color-navigation`,
+					type: alpha`color-navigation-type`,
+					faint: alpha`color-navigation-faint`
+				},
+				button: {
+					DEFAULT: alpha`color-button`,
+					bold: alpha`color-button-bold`,
+					type: alpha`color-button-type`
 				},
 				type: {
 					DEFAULT: alpha`color-type`

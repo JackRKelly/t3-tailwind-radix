@@ -16,10 +16,10 @@ const Select = () => {
 				</Button>
 			</SelectPrimitive.Trigger>
 			<SelectPrimitive.Content>
-				<SelectPrimitive.ScrollUpButton className="flex items-center justify-center text-gray-700 dark:text-gray-300">
+				<SelectPrimitive.ScrollUpButton className="flex items-center justify-center text-button-type">
 					<ChevronUpIcon />
 				</SelectPrimitive.ScrollUpButton>
-				<SelectPrimitive.Viewport className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg shadow-lg">
+				<SelectPrimitive.Viewport className="bg-button p-2 rounded-lg shadow-lg">
 					<SelectPrimitive.Group>
 						{["Apple", "Banana", "Blueberry", "Strawberry", "Grapes"].map((f, i) => (
 							<SelectPrimitive.Item
@@ -27,9 +27,7 @@ const Select = () => {
 								key={`${f}-${i}`}
 								value={f.toLowerCase()}
 								className={clsx(
-									"relative flex items-center px-8 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300 font-medium focus:bg-gray-200 dark:focus:bg-gray-900",
-									"radix-disabled:opacity-50",
-									"focus:outline-none select-none"
+									"relative flex items-center px-8 py-2 rounded-md text-sm text-button-type font-medium focus:bg-button-bold radix-disabled:opacity-50 focus:outline-none select-none"
 								)}
 							>
 								<SelectPrimitive.ItemText>{f}</SelectPrimitive.ItemText>
@@ -40,7 +38,7 @@ const Select = () => {
 						))}
 					</SelectPrimitive.Group>
 				</SelectPrimitive.Viewport>
-				<SelectPrimitive.ScrollDownButton className="flex items-center justify-center text-gray-700 dark:text-gray-300">
+				<SelectPrimitive.ScrollDownButton className="flex items-center justify-center text-button-type">
 					<ChevronDownIcon />
 				</SelectPrimitive.ScrollDownButton>
 			</SelectPrimitive.Content>

@@ -7,7 +7,6 @@ import Switch from "../components/Switch";
 import { useTheme } from "../components/ThemeProvider";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import tw from "twin.macro";
 
 const Home: NextPage = () => {
 	const { theme, setTheme } = useTheme();
@@ -33,7 +32,7 @@ const Home: NextPage = () => {
 							priority={false}
 							height={1880}
 							placeholder="empty"
-							className={`delay-[2s] duration-[3s]`}
+							className="delay-[2s] duration-[3s]"
 						/>
 					</div>
 
@@ -45,7 +44,7 @@ const Home: NextPage = () => {
 							height={1250}
 							alt="gradient"
 							placeholder="empty"
-							className={`delay-300 duration-1000`}
+							className="delay-300 duration-1000"
 						/>
 					</div>
 
@@ -58,7 +57,7 @@ const Home: NextPage = () => {
 				</div>
 
 				<Section>
-					<InnerColumn halfWidth>
+					<InnerColumn>
 						<p className="text-type">Dark mode:</p>
 
 						<Switch

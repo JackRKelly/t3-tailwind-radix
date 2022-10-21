@@ -1,12 +1,11 @@
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
 import React from "react";
-import tw, { TwStyle } from "twin.macro";
 
 const styles = cva("font-medium tracking-tight", {
 	variants: {
 		size: {
-			xl: "text-8xl",
+			xl: "text-4xl sm:text-5xl md:text-7xl lg:text-8xl",
 			lg: "text-6xl",
 			md: "text-3xl",
 			sm: "text-xl",

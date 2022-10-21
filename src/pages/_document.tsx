@@ -9,11 +9,11 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html>
+			<Html className="bg-app text-type">
 				<Head>
 					<meta name="theme-color" content="#111827" />
 				</Head>
-				<body className="bg-app">
+				<body>
 					<Main />
 					<NextScript />
 				</body>

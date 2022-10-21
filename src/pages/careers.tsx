@@ -7,7 +7,6 @@ import { Navigation } from "../components/Navigation";
 import { Text } from "../components/Typography";
 import type { NextPage } from "next";
 import Head from "next/head";
-import tw from "twin.macro";
 
 const Home: NextPage = () => {
 	return (
@@ -39,7 +38,7 @@ const Home: NextPage = () => {
 					</div>
 
 					<InnerColumn className="py-6 md:py-10 lg:py-20">
-						<Heading variant="4xl" tailwind={tw`relative !text-white text-center`}>
+						<Heading size="xl" className="relative !text-white text-center">
 							Careers
 						</Heading>
 					</InnerColumn>
@@ -47,7 +46,6 @@ const Home: NextPage = () => {
 
 				<Section>
 					<InnerColumn>
-						<Heading></Heading>
 						<Text>
 							We are always looking for talented engineers to join our team. If you are interested,
 							please reach out
