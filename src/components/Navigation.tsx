@@ -37,9 +37,9 @@ const SkeletonColumn = tw.div`col-span-2 w-full rounded-md bg-navigation-faint p
 
 const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-50 w-full flex items-center justify-center`;
 
-const SubText = tw.span`absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-lg p-1 font-bold text-[#F68E9D]`;
+const SubText = tw.span`absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-lg text-xs p-1 font-bold text-[#F68E9D]`;
 
-const CardTitle = tw.span`block text-sm font-medium text-navigation-type`;
+const CardTitle = tw.span`block text-sm font-bold text-navigation-type`;
 
 const CardBody = tw.span`block mt-1 text-sm text-navigation-type`;
 

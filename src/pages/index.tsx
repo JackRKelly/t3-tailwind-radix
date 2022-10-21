@@ -50,7 +50,7 @@ const Home: NextPage = () => {
 					</div>
 
 					<InnerColumn className="py-10 md:py-20 lg:py-40">
-						<Heading className="relative text-white" size="xl">
+						<Heading className="relative text-white" size="xl" weight="semibold">
 							The future of <br />
 							development
 						</Heading>
@@ -73,8 +73,6 @@ const Home: NextPage = () => {
 					</InnerColumn>
 				</Section>
 			</OuterColumn>
-
-			<Footer />
 		</PageWrapper>
 	);
 };

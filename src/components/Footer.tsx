@@ -6,37 +6,45 @@ const LinkAttribute = tw.a`text-base text-footer-type cursor-pointer`;
 
 const RightReserved = tw.p`text-center text-base text-footer-type-faint`;
 
+const FooterWrapper = tw.footer`bg-footer`;
+
+const FooterInnerWrapper = tw.footer`mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8`;
+
+const LinkListWrapper = tw.nav`-my-2 -mx-5 flex flex-wrap justify-center`;
+
+const LinkWrapper = tw.div`py-2 px-5`;
+
 export const Footer: React.FC = (props) => {
 	return (
 		<>
-			<div className="w-full h-1 bg-gradient-to-r from-primary/60 to-secondary/60"></div>
-			<footer className="bg-footer">
-				<div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
-					<nav className="-my-2 -mx-5 flex flex-wrap justify-center" aria-label="Footer">
-						<div className="py-2 px-5">
+			<div className="w-full h-0.5 bg-gradient-to-r from-primary/60 to-secondary"></div>
+			<FooterWrapper>
+				<FooterInnerWrapper>
+					<LinkListWrapper aria-label="Footer">
+						<LinkWrapper>
 							<Link href="/">
 								<LinkAttribute href="/">Home</LinkAttribute>
 							</Link>
-						</div>
+						</LinkWrapper>
 
-						<div className="py-2 px-5">
+						<LinkWrapper>
 							<Link href="/careers">
 								<LinkAttribute href="/careers">Careers</LinkAttribute>
 							</Link>
-						</div>
+						</LinkWrapper>
 
-						<div className="py-2 px-5">
+						<LinkWrapper>
 							<Link href="/careers">
 								<LinkAttribute href="/careers">Careers</LinkAttribute>
 							</Link>
-						</div>
+						</LinkWrapper>
 
-						<div className="py-2 px-5">
+						<LinkWrapper>
 							<Link href="/careers">
 								<LinkAttribute href="/careers">Careers</LinkAttribute>
 							</Link>
-						</div>
-					</nav>
+						</LinkWrapper>
+					</LinkListWrapper>
 
 					<div className="my-5 flex items-center justify-center">
 						<Link href="/components/pages" passHref>
@@ -67,7 +75,7 @@ export const Footer: React.FC = (props) => {
 										</defs>
 									</svg>
 									<strong
-										className="font-display text-2xl font-bold tracking-tight"
+										className="text-2xl font-bold tracking-tight"
 										aria-label="evental homepage"
 									>
 										Evental
@@ -80,8 +88,8 @@ export const Footer: React.FC = (props) => {
 					<RightReserved>
 						&copy; {new Date().getFullYear()} Evental, Inc. All rights reserved.
 					</RightReserved>
-				</div>
-			</footer>
+				</FooterInnerWrapper>
+			</FooterWrapper>
 		</>
 	);
 };

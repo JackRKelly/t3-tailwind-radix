@@ -2,7 +2,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
 import React from "react";
 
-const styles = cva("font-medium tracking-tight", {
+const styles = cva("tracking-tight", {
 	variants: {
 		size: {
 			xl: "text-4xl sm:text-5xl md:text-7xl lg:text-8xl",
@@ -10,7 +10,22 @@ const styles = cva("font-medium tracking-tight", {
 			md: "text-3xl",
 			sm: "text-xl",
 			xs: "text-lg"
+		},
+		weight: {
+			thin: "font-thin",
+			extralight: "font-extralight",
+			light: "font-light",
+			normal: "font-normal",
+			medium: "font-medium",
+			semibold: "font-semibold",
+			bold: "font-bold",
+			extrabold: "font-extrabold",
+			black: "font-black"
 		}
+	},
+	defaultVariants: {
+		size: "lg",
+		weight: "bold"
 	}
 });
 
