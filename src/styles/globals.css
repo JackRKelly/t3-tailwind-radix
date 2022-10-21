@@ -4,17 +4,24 @@
 
 :root,
 html[data-theme="light"] {
+	--color-primary: 0, 102, 255;
+	--color-secondary: 253, 155, 152;
 	--color-type: 0, 0, 0;
 	--color-app: 255, 255, 255;
 	--color-navigation: 243, 244, 246;
 	--color-navigation-faint: 229, 231, 235;
 	--color-navigation-type: 0, 0, 0;
-	--color-button: 229, 231, 235;
+	--color-button: 243, 244, 246;
 	--color-button-bold: 209, 213, 219;
 	--color-button-type: 0, 0, 0;
+	--color-footer: 243, 244, 246;
+	--color-footer-type: 100, 116, 139;
+	--color-footer-type-faint: 170, 174, 179;
 }
 
 html[data-theme="dark"] {
+	--color-primary: 0, 102, 255;
+	--color-secondary: 253, 155, 152;
 	--color-type: 255, 255, 255;
 	--color-app: 31, 41, 55;
 	--color-navigation: 55, 65, 81;
@@ -23,6 +30,9 @@ html[data-theme="dark"] {
 	--color-button: 55, 65, 81;
 	--color-button-bold: 75, 85, 99;
 	--color-button-type: 255, 255, 255;
+	--color-footer: 55, 65, 81;
+	--color-footer-type: 255, 255, 255;
+	--color-footer-type-faint: 209, 213, 219;
 }
 
 :root {

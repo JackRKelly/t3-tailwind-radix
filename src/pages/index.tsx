@@ -1,4 +1,5 @@
 import Accordion from "../components/Accordian";
+import { Footer } from "../components/Footer";
 import { Heading } from "../components/Heading";
 import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
@@ -72,6 +73,8 @@ const Home: NextPage = () => {
 					</InnerColumn>
 				</Section>
 			</OuterColumn>
+
+			<Footer />
 		</PageWrapper>
 	);
 };
