@@ -1,23 +1,15 @@
 import Accordion from "../components/Accordian";
+import Dropdown from "../components/Dropdown";
 import { Heading } from "../components/Heading";
 import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
-import Switch from "../components/Switch";
-import { useTheme } from "../components/ThemeProvider";
+import { Text } from "../components/Typography";
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import Head from "next/head";
 import tw from "twin.macro";
 
 const Home: NextPage = () => {
-	const { theme, setTheme } = useTheme();
-
-	const [isDark, setIsDark] = useState(false);
-
-	useEffect(() => {
-		return setIsDark(theme === "dark");
-	}, [theme]);
-
 	return (
 		<PageWrapper>
 			<Navigation />
@@ -30,10 +22,8 @@ const Home: NextPage = () => {
 							layout="intrinsic"
 							alt="bg doce"
 							width={3176}
-							priority={false}
 							height={1880}
-							placeholder="empty"
-							className={`delay-[2s] duration-[3s]`}
+							className="delay-[2s] duration-[3s]"
 						/>
 					</div>
 
@@ -44,32 +34,25 @@ const Home: NextPage = () => {
 							width={1250}
 							height={1250}
 							alt="gradient"
-							placeholder="empty"
-							className={`delay-300 duration-1000`}
+							className="delay-300 duration-1000"
 						/>
 					</div>
 
-					<InnerColumn className="py-10 md:py-20 lg:py-40">
-						<Heading className="relative text-white" size="xl">
-							The future of <br />
-							development
+					<InnerColumn className="py-6 md:py-10 lg:py-20">
+						<Heading variant="4xl" tailwind={tw`relative !text-white text-center`}>
+							Careers
 						</Heading>
 					</InnerColumn>
 				</div>
 
 				<Section>
-					<InnerColumn halfWidth>
-						<p className="text-type">Dark mode:</p>
-
-						<Switch
-							checked={isDark}
-							onCheckedChange={(val) => {
-								setIsDark(val);
-								setTheme?.(val ? "dark" : "light");
-							}}
-						/>
-
-						<Accordion />
+					<InnerColumn>
+						<Heading></Heading>
+						<Text>
+							We are always looking for talented engineers to join our team. If you are interested,
+							please reach out
+						</Text>
+						<Dropdown />
 					</InnerColumn>
 				</Section>
 			</OuterColumn>

@@ -49,7 +49,7 @@ const ContentInner = tw.div`text-sm text-gray-700 dark:text-gray-400`;
 
 const Accordion = () => {
 	return (
-		<Root type="single" defaultValue="item-1">
+		<Root type="multiple">
 			{items.map(({ header, content }, i) => (
 				<Item key={`header-${i}`} value={`item-${i + 1}`}>
 					<AccordionPrimitive.Header className="w-full">

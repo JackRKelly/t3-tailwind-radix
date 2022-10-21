@@ -2,6 +2,19 @@
 
 @tailwind base;
 
+:root,
+html[data-theme="light"] {
+	--color-type: 0, 0, 0;
+	--color-app: 255, 255, 255;
+	--color-navigation: 0, 0, 0;
+}
+
+html[data-theme="dark"] {
+	--color-type: 255, 255, 255;
+	--color-app: 0, 0, 0;
+	--color-navigation: 0, 0, 0;
+}
+
 :root {
 	@apply scroll-smooth font-sans antialiased;
 }
@@ -36,11 +49,9 @@ html[class*="dark"] {
 }
 
 button {
-	/* Disables tap highlight color on Chrome */
 	-webkit-tap-highlight-color: transparent;
 }
 
-/* Input darkmode fix for checkbox / radio */
 .dark [type="checkbox"]:checked,
 .dark [type="radio"]:checked {
 	background-color: currentColor;

@@ -1,25 +1,30 @@
-import cx from "classnames";
+import { cva } from "class-variance-authority";
+import clsx from "clsx";
 import { ImageProps } from "next/image";
 import NextImage from "next/image";
 import { useState } from "react";
-import { TwStyle } from "twin.macro";
 
-export const Image = (props: ImageProps & { wrapperClass?: TwStyle }) => {
-	const [isReady, setIsReady] = useState(false);
+const styles = cva("transition-opacity", {
+	variants: {
+		ready: {
+			true: "opacity-100",
+			false: "opacity-0"
+		}
+	}
+});
 
-	const { alt, wrapperClass, ...rest } = props;
+export const Image = (props: ImageProps & { className?: string }) => {
+	const [ready, setReady] = useState(false);
+
+	const { alt, className, ...rest } = props;
 
 	return (
-		<div
-			css={[wrapperClass]}
-			className={cx(["transition-opacity", isReady ? "opacity-100" : "opacity-0"])}
-		>
+		<div className={clsx(styles({ ready }), className)}>
 			<NextImage
 				{...rest}
 				alt={alt}
 				onLoadingComplete={() => {
-					setIsReady(true);
-					console.log("loaded");
+					setReady(true);
 				}}
 			/>
 		</div>

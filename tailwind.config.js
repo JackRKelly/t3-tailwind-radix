@@ -1,3 +1,9 @@
+function alpha(variableName) {
+	// some tailwind magic to allow us to specify opacity with CSS variables (eg: bg-app/80)
+	// https://tailwindcss.com/docs/customizing-colors#using-css-variables
+	return `rgba(var(--${variableName[0]}), <alpha-value>)`;
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -123,6 +129,15 @@ module.exports = {
 				"toast-swipe-out": "toast-swipe-out 100ms ease-out forwards"
 			},
 			colors: {
+				navigation: {
+					DEFAULT: alpha`color-navigation`
+				},
+				type: {
+					DEFAULT: alpha`color-type`
+				},
+				app: {
+					DEFAULT: alpha`color-app`
+				},
 				primary: {
 					DEFAULT: "#0066FF",
 					50: "#B8D4FF",

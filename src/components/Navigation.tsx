@@ -1,11 +1,11 @@
+import { tw } from "../utils/tw";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import cx from "classnames";
+import NextLink from "next/link";
 import React from "react";
-import tw from "twin.macro";
 
 const Trigger = tw(
 	NavigationMenuPrimitive.Trigger
-)`rounded-md px-3 py-2 text-sm hover:bg-gray-200 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-primary-500 focus-visible:ring-opacity-75 `;
+)`rounded-md px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-primary-500 focus-visible:ring-opacity-75 `;
 
 const Content = tw(
 	NavigationMenuPrimitive.Content
@@ -29,7 +29,7 @@ const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-gray-100 dark:
 
 const Link = tw(
 	NavigationMenuPrimitive.Link
-)`rounded-md px-3 py-2 text-sm hover:bg-gray-200 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100`;
+)`cursor-pointer rounded-md px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-100`;
 
 const Skeleton = tw.div`h-12 w-full rounded-md bg-gray-200 dark:bg-gray-700`;
 
@@ -91,22 +91,22 @@ export const Navigation = () => {
 						<Link href="https://github.com/ecklf/tailwindcss-radix">GitHub</Link>
 					</NavigationMenuPrimitive.Item>
 					<NavigationMenuPrimitive.Item asChild>
-						<Link href="https://github.com/ecklf/tailwindcss-radix" className="relative">
-							Careers
-							<SubText>3</SubText>
-						</Link>
+						<NextLink href="/careers">
+							<Link className="relative" href="/careers">
+								Careers
+								<SubText>3</SubText>
+							</Link>
+						</NextLink>
 					</NavigationMenuPrimitive.Item>
 					<Indicator>
 						<IndicatorInner />
 					</Indicator>
 				</List>
 				<div
-					css={[
-						{
-							perspective: "2000px"
-						},
-						tw`absolute flex justify-center left-[-20%] top-[100%] w-[140%]`
-					]}
+					className="absolute flex justify-center left-[-20%] top-[100%] w-[140%]"
+					style={{
+						perspective: "2000px"
+					}}
 				>
 					<Viewport />
 				</div>

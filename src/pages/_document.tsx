@@ -12,9 +12,8 @@ class MyDocument extends Document {
 			<Html>
 				<Head>
 					<meta name="theme-color" content="#111827" />
-					<script src="/static/theme.js" />
 				</Head>
-				<body>
+				<body className="bg-app">
 					<Main />
 					<NextScript />
 				</body>
