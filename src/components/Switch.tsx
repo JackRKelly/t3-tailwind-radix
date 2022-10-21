@@ -9,7 +9,7 @@ const Switch: React.FC<Props> = (props) => {
 		<SwitchPrimitive.Root
 			{...props}
 			className={clsx(
-				"group radix-state-checked:bg-primary radix-state-unchecked:bg-button-bold relative inline-flex h-[24px] w-[44px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75"
+				"group radix-state-checked:bg-primary radix-state-unchecked:bg-button-bold relative inline-flex h-[24px] w-[44px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 			)}
 		>
 			<SwitchPrimitive.Thumb

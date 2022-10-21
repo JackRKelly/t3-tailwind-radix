@@ -6,18 +6,19 @@ export const OuterColumn = tw.div`w-full max-w-[1380px] m-auto px-5`;
 
 const innerColumnStyles = cva("w-full m-auto px-5 md:px-8 lg:px-16", {
 	variants: {
-		halfWidth: {
-			true: "max-w-[720px]",
-			false: "max-w-[1080px]"
+		width: {
+			full: "max-w-[1080px]",
+			third: "max-w-[900px]",
+			half: "max-w-[720px]",
+			quarter: "max-w-[560px]"
 		}
 	},
 	defaultVariants: {
-		halfWidth: false
+		width: "full"
 	}
 });
 
 interface InnerColumnProps extends VariantProps<typeof innerColumnStyles> {
-	halfWidth?: boolean;
 	children?: React.ReactNode;
 	className?: string;
 }

@@ -58,7 +58,7 @@ const Home: NextPage = () => {
 				</div>
 
 				<Section>
-					<InnerColumn halfWidth>
+					<InnerColumn width="third">
 						<p className="text-type">Dark mode:</p>
 
 						<Switch

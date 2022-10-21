@@ -129,6 +129,7 @@ module.exports = {
 				"toast-swipe-out": "toast-swipe-out 100ms ease-out forwards"
 			},
 			colors: {
+				// Faint = Moving to middle of palette, Bold = Moving to outer edge of palette
 				navigation: {
 					DEFAULT: alpha`color-navigation`,
 					type: alpha`color-navigation-type`,
@@ -147,6 +148,7 @@ module.exports = {
 				},
 				footer: {
 					DEFAULT: alpha`color-footer`,
+					border: alpha`color-footer-border`,
 					type: { DEFAULT: alpha`color-footer-type`, faint: alpha`color-footer-type-faint` }
 				},
 				primary: {
@@ -154,6 +156,9 @@ module.exports = {
 				},
 				secondary: {
 					DEFAULT: alpha`color-secondary`
+				},
+				highlight: {
+					DEFAULT: alpha`color-highlight`
 				}
 			}
 		}

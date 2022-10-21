@@ -5,7 +5,7 @@ import React from "react";
 
 const Trigger = tw(
 	NavigationMenuPrimitive.Trigger
-)`rounded-md px-3 py-2 hover:bg-navigation-faint text-sm font-medium text-navigation-type focus:outline-none focus-visible:ring focus-visible:ring-primary-500 focus-visible:ring-opacity-75`;
+)`rounded-md px-3 py-2 hover:bg-navigation-faint text-sm font-medium text-navigation-type focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
 const Content = tw(
 	NavigationMenuPrimitive.Content
@@ -29,7 +29,7 @@ const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-navigation`;
 
 const Link = tw(
 	NavigationMenuPrimitive.Link
-)`cursor-pointer rounded-md px-3 py-2 hover:bg-navigation-faint text-sm font-medium text-navigation-type`;
+)`cursor-pointer rounded-md px-3 py-2 hover:bg-navigation-faint text-sm font-medium text-navigation-type focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
 const Skeleton = tw.div`h-12 w-full rounded-md bg-navigation-faint`;
 

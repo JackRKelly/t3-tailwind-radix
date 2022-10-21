@@ -6,6 +6,7 @@
 html[data-theme="light"] {
 	--color-primary: 0, 102, 255;
 	--color-secondary: 253, 155, 152;
+	--color-highlight: 0, 0, 0;
 	--color-type: 0, 0, 0;
 	--color-app: 255, 255, 255;
 	--color-navigation: 243, 244, 246;
@@ -22,6 +23,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
 	--color-primary: 0, 102, 255;
 	--color-secondary: 253, 155, 152;
+	--color-highlight: 255, 255, 255;
 	--color-type: 255, 255, 255;
 	--color-app: 31, 41, 55;
 	--color-navigation: 55, 65, 81;
