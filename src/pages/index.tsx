@@ -26,7 +26,7 @@ const Home: NextPage = () => {
 				<div className="relative w-full overflow-hidden rounded-xl bg-blue-500">
 					<div className="opacity-4 60 absolute left-0 bottom-0 top-0">
 						<Image
-							src="/assets/bg_doce.png"
+							src="/assets/bg_curve.png"
 							layout="intrinsic"
 							alt="bg doce"
 							width={3176}
@@ -50,15 +50,15 @@ const Home: NextPage = () => {
 					</div>
 
 					<InnerColumn className="py-10 md:py-20 lg:py-40">
-						<Heading className="relative text-white" size="xl" weight="semibold">
+						<Heading className="relative text-white text-center" size="xl" weight="semibold">
 							The future of <br />
-							development
+							user interface
 						</Heading>
 					</InnerColumn>
 				</div>
 
 				<Section>
-					<InnerColumn>
+					<InnerColumn halfWidth>
 						<p className="text-type">Dark mode:</p>
 
 						<Switch

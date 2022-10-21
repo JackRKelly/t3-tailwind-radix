@@ -13,7 +13,9 @@ const Content = tw(
 
 const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
-const List = tw(NavigationMenuPrimitive.List)`flex flex-row space-x-2 rounded-lg bg-navigation p-2`;
+const List = tw(
+	NavigationMenuPrimitive.List
+)`flex flex-row space-x-2 rounded-lg bg-navigation bg-opacity-90 backdrop-blur p-2`;
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
@@ -29,7 +31,7 @@ const Link = tw(
 	NavigationMenuPrimitive.Link
 )`cursor-pointer rounded-md px-3 py-2 hover:bg-navigation-faint text-sm font-medium text-navigation-type`;
 
-const Skeleton = tw.div`h-12 w-full rounded-md bg-navigation-faint dark:bg-gray-700`;
+const Skeleton = tw.div`h-12 w-full rounded-md bg-navigation-faint`;
 
 const SkeletonWrapper = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded-md bg-navigation p-4`;
 

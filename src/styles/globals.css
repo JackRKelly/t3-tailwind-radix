@@ -77,5 +77,10 @@ button {
 	background-color: currentColor;
 }
 
+.backdrop-blur {
+	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
+}
+
 @tailwind components;
 @tailwind utilities;
