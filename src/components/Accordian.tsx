@@ -28,7 +28,7 @@ const Root = tw(AccordionPrimitive.Root)`space-y-4`;
 
 const Trigger = tw(
 	AccordionPrimitive.Trigger
-)`radix-state-closed:rounded-lg radix-state-open:rounded-t-lg focus:outline-none inline-flex w-full items-center justify-between bg-primitive px-4 py-2 text-left`;
+)`group radix-state-closed:rounded-lg radix-state-open:rounded-t-lg focus:outline-none inline-flex w-full items-center justify-between bg-primitive px-4 py-2 text-left`;
 
 const Item = tw(
 	AccordionPrimitive.Item
@@ -42,19 +42,21 @@ const TriggerInner = tw.span`text-sm font-medium text-primitive-type`;
 
 const Content = tw(AccordionPrimitive.Content)`pt-1 w-full rounded-b-lg bg-primitive px-4 pb-3`;
 
-const ContentInner = tw.div`text-sm text-primitive-type`;
+const ContentInner = tw.div`text-sm text-primitive-type-faint`;
+
+const Header = tw(AccordionPrimitive.Header)`w-full`;
 
 const Accordion = () => {
 	return (
 		<Root type="multiple">
 			{items.map(({ header, content }, i) => (
 				<Item key={`header-${i}`} value={`item-${i + 1}`}>
-					<AccordionPrimitive.Header className="w-full">
+					<Header>
 						<Trigger className="group">
 							<TriggerInner>{header}</TriggerInner>
 							<ChevronDownIcon />
 						</Trigger>
-					</AccordionPrimitive.Header>
+					</Header>
 					<Content>
 						<ContentInner>{content}</ContentInner>
 					</Content>

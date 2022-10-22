@@ -130,11 +130,6 @@ module.exports = {
 			},
 			colors: {
 				// Faint = Moving to middle of palette, Bold = Moving to outer edge of palette
-				navigation: {
-					DEFAULT: alpha`color-navigation`,
-					type: alpha`color-navigation-type`,
-					faint: alpha`color-navigation-faint`
-				},
 				type: {
 					DEFAULT: alpha`color-type`
 				},
@@ -156,7 +151,10 @@ module.exports = {
 					bold: alpha`color-primitive-bold`,
 					type: {
 						DEFAULT: alpha`color-primitive-type`,
-						faint: alpha`color-primitive-type-faint`
+						faint: alpha`color-primitive-type-faint`,
+						extra: {
+							faint: alpha`color-primitive-type-extra-faint`
+						}
 					}
 				}
 			}
