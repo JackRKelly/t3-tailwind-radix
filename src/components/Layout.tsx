@@ -7,8 +7,8 @@ export const OuterColumn = tw.div`w-full max-w-[1380px] m-auto px-5`;
 const innerColumnStyles = cva("w-full m-auto px-5 md:px-8 lg:px-16", {
 	variants: {
 		width: {
-			full: "max-w-[1080px]",
-			third: "max-w-[900px]",
+			full: "max-w-[1150px]",
+			third: "max-w-[950px]",
 			half: "max-w-[720px]",
 			quarter: "max-w-[560px]"
 		}

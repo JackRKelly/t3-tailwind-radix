@@ -37,7 +37,7 @@ const SkeletonWrapper = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded
 
 const SkeletonColumn = tw.div`col-span-2 w-full rounded-md bg-primitive-faint p-4`;
 
-const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-50 w-full flex items-center justify-center`;
+const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-10 w-full flex items-center justify-center`;
 
 const SubText = tw.span`absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-lg text-xs p-1 font-bold text-[#F68E9D]`;
 

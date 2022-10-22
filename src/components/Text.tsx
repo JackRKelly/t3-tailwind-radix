@@ -2,7 +2,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
 import React from "react";
 
-const styles = cva("tracking-tight text-type", {
+const styles = cva("text-type", {
 	variants: {
 		size: {
 			xl: "text-xl",
@@ -25,7 +25,7 @@ const styles = cva("tracking-tight text-type", {
 	},
 	defaultVariants: {
 		size: "lg",
-		weight: "medium"
+		weight: "normal"
 	}
 });
 

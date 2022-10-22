@@ -1,14 +1,9 @@
-import Accordion from "../components/Accordian";
-import { Footer } from "../components/Footer";
 import { Heading } from "../components/Heading";
 import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
-import Switch from "../components/Switch";
 import { Text } from "../components/Text";
-import { useTheme } from "../components/ThemeProvider";
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
 	return (

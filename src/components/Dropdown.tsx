@@ -16,7 +16,7 @@ import {
 	TransparencyGridIcon
 } from "@radix-ui/react-icons";
 import clsx from "clsx";
-import React, { ReactNode, useState } from "react";
+import { ReactNode, useState } from "react";
 
 interface RadixMenuItem {
 	label: string;
@@ -84,7 +84,9 @@ const CheckboxItem = tw(
 
 const Separator = tw(DropdownMenuPrimitive.Separator)`my-1 h-px bg-primitive-bold`;
 
-const Label = tw(DropdownMenuPrimitive.Label)`select-none px-2 py-2 text-xs text-primitive-type`;
+const Label = tw(
+	DropdownMenuPrimitive.Label
+)`select-none px-2 py-2 text-xs text-primitive-type-extra-faint`;
 
 const SubContent = tw(
 	DropdownMenuPrimitive.SubContent
@@ -98,7 +100,7 @@ const ItemLabelGrow = tw.span`flex-grow text-primitive-type`;
 
 const ItemLabel = tw.span`text-primitive-type`;
 
-const ShortcutLabel = tw.span`text-xs text-primitive-type-faint`;
+const ShortcutLabel = tw.span`text-xs text-primitive-type-extra-faint`;
 
 const DropdownMenu = () => {
 	const [showGrid, setShowGrid] = useState(false);
@@ -116,7 +118,7 @@ const DropdownMenu = () => {
 						<Item key={`${label}-${i}`} className={clsx("")}>
 							{icon}
 							<ItemLabelGrow>{label}</ItemLabelGrow>
-							{shortcut && <span className="text-xs">{shortcut}</span>}
+							{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
 						</Item>
 					))}
 
