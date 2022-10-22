@@ -1,5 +1,6 @@
+import { tw } from "../utils/tw";
+import { Heading } from "./Heading";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
-import cx from "clsx";
 import React from "react";
 
 const TailwindLogo = () => (
@@ -16,52 +17,64 @@ const TailwindLogo = () => (
 	</svg>
 );
 
-interface Props {}
+const Content = tw(
+	HoverCardPrimitive.Content
+)`z-10 border border-primitive-edge radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down max-w-md rounded-lg p-4 md:w-full bg-primitive-faint focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+
+const TriggerWrapper = tw.div`inline-flex h-12 w-12 items-center justify-center rounded-full bg-primitive p-2.5 dark:bg-gray-900`;
+
+const Header = tw.h3`text-sm font-medium text-primitive-type-bold dark:text-gray-100`;
+
+const Body = tw.p`mt-1 text-sm font-normal text-primitive-type dark:text-gray-400`;
+
+const Arrow = tw(HoverCardPrimitive.Arrow)`fill-current text-primitive-edge-faint`;
+
+const ContentWrapper = tw.div`flex h-full w-full space-x-4`;
+
+interface Props
+	extends HoverCardPrimitive.HoverCardProps,
+		Pick<HoverCardPrimitive.HoverCardContentProps, "side" | "sideOffset" | "align"> {}
 
 const HoverCard = (props: Props) => {
-	return (
-		<HoverCardPrimitive.Root>
-			<HoverCardPrimitive.Trigger asChild>
-				<div
-					className={cx(
-						"inline-flex h-12 w-12 items-center justify-center rounded-full bg-primitive p-2.5 dark:bg-gray-900"
-					)}
-				>
-					<TailwindLogo />
-				</div>
-			</HoverCardPrimitive.Trigger>
-			<HoverCardPrimitive.Content
-				align="center"
-				sideOffset={4}
-				className={cx(
-					" radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
-					"max-w-md rounded-lg p-4 md:w-full",
-					"bg-primitive dark:bg-gray-800",
-					"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
-				)}
-			>
-				<HoverCardPrimitive.Arrow className="fill-current text-white dark:text-gray-800" />
+	const {
+		closeDelay,
+		openDelay = 100,
+		open,
+		onOpenChange,
+		defaultOpen,
+		side,
+		sideOffset = 4,
+		align = "center"
+	} = props;
 
-				<div className="flex h-full w-full space-x-4">
-					<div
-						className={cx(
-							"flex h-12 w-12 shrink-0 items-center justify-center rounded-full shadow-inner bg-primitive-faint/60 p-2.5 dark:bg-gray-900"
-						)}
-					>
+	return (
+		<HoverCardPrimitive.Root
+			closeDelay={closeDelay}
+			openDelay={openDelay}
+			open={open}
+			onOpenChange={onOpenChange}
+			defaultOpen={defaultOpen}
+		>
+			<HoverCardPrimitive.Trigger asChild>
+				<TriggerWrapper>
+					<TailwindLogo />
+				</TriggerWrapper>
+			</HoverCardPrimitive.Trigger>
+			<Content align={align} side={side} sideOffset={sideOffset}>
+				<Arrow />
+
+				<ContentWrapper>
+					<TriggerWrapper>
 						<TailwindLogo />
-					</div>
+					</TriggerWrapper>
 
 					<div>
-						<h3 className="text-sm font-medium text-primitive-type-bold dark:text-gray-100">
-							Tailwind CSS
-						</h3>
+						<Heading size="xs">Tailwind CSS</Heading>
 
-						<p className="mt-1 text-sm font-normal text-primitive-type dark:text-gray-400">
-							A utility-first CSS framework for rapidly building custom user interfaces.
-						</p>
+						<Body>A utility-first CSS framework for rapidly building custom user interfaces.</Body>
 					</div>
-				</div>
-			</HoverCardPrimitive.Content>
+				</ContentWrapper>
+			</Content>
 		</HoverCardPrimitive.Root>
 	);
 };

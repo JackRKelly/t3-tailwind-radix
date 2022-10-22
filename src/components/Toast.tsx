@@ -27,7 +27,7 @@ const Toast = () => {
 				onOpenChange={setOpen}
 				className={cx(
 					"z-50 fixed bottom-4 inset-x-4 w-auto md:top-4 md:right-4 md:left-auto md:bottom-auto md:w-full md:max-w-sm shadow-lg rounded-lg",
-					"bg-primitive dark:bg-gray-800",
+					"bg-primitive border border-primitive-edge",
 					"radix-state-open:animate-toast-slide-in-bottom md:radix-state-open:animate-toast-slide-in-right",
 					"radix-state-closed:animate-toast-hide",
 					"radix-swipe-end:animate-toast-swipe-out",

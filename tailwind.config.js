@@ -137,7 +137,8 @@ module.exports = {
 					DEFAULT: alpha`color-app`
 				},
 				primary: {
-					DEFAULT: alpha`color-primary`
+					DEFAULT: alpha`color-primary`,
+					bold: alpha`color-primary-bold`
 				},
 				secondary: {
 					DEFAULT: alpha`color-secondary`

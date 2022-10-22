@@ -22,14 +22,15 @@ Bold = Easier to see on background
 :root,
 html[data-theme="light"] {
 	--color-primary: 0, 102, 255; /* Blue */
+	--color-primary-bold: 0, 85, 212; /* Dark Blue */
 	--color-secondary: 253, 155, 152; /* Pink */
-	--color-highlight: 0, 0, 0; /* Gray 1000 */
-	--color-type: 15, 23, 42; /* Gray 1000 */
-	--color-app: 255, 255, 255; /* Gray 0 */
+	--color-highlight: 0, 0, 0; /* Black */
+	--color-type: 15, 23, 42; /* Dark Gray */
+	--color-app: 255, 255, 255; /* White */
 
 	/* Primitive Background */
 	--color-primitive-bold: 209, 211, 216; /* Gray 200 */
-	--color-primitive: 241, 245, 249; /* Gray 100 */
+	--color-primitive: 234, 239, 245; /* Gray 100 */
 	--color-primitive-faint: 248, 250, 252; /* Gray 50 */
 	/* Primitive Text */
 	--color-primitive-type-bold: 0, 0, 0; /* Gray 1000 */
@@ -44,7 +45,8 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-	--color-primary: 0, 102, 255;
+	--color-primary: 41, 126, 255;
+	--color-primary: 30, 101, 206;
 	--color-secondary: 253, 155, 152;
 	--color-highlight: 255, 255, 255;
 	--color-type: 229, 231, 235;

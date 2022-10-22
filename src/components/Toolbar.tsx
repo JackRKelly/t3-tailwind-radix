@@ -56,7 +56,7 @@ interface Props {}
 
 const Toolbar = (props: Props) => {
 	return (
-		<ToolbarPrimitive.Root className="flex space-x-4 rounded-lg bg-primitive-faint px-2.5 py-2">
+		<ToolbarPrimitive.Root className="flex space-x-4 rounded-lg bg-primitive-faint border border-primitive-edge px-2.5 py-2">
 			<ToolbarPrimitive.ToggleGroup type="multiple" aria-label="Font settings">
 				{fontSettings.map(({ value, label, icon }, i) => (
 					<ToolbarPrimitive.ToggleItem
@@ -64,7 +64,7 @@ const Toolbar = (props: Props) => {
 						value={value}
 						aria-label={label}
 						className={cx(
-							"radix-state-on:bg-primitive-bold bg-primitive border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent dark:radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
+							"radix-state-on:bg-primitive-bold bg-primitive-faint border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent dark:radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 						)}
 					>
 						{React.cloneElement(icon, {
@@ -81,7 +81,7 @@ const Toolbar = (props: Props) => {
 						value={value}
 						aria-label={label}
 						className={cx(
-							"radix-state-on:bg-primitive-bold bg-primitive border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
+							"radix-state-on:bg-primitive-bold bg-primitive-faint border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 						)}
 					>
 						{React.cloneElement(icon, {

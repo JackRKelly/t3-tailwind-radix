@@ -55,7 +55,7 @@ const Components: NextPage = () => {
 					</div>
 
 					<InnerColumn className="py-6 md:py-10 lg:py-20">
-						<Heading size="xl" className="relative !text-white text-center">
+						<Heading size="xxl" className="relative !text-white text-center">
 							Components
 						</Heading>
 					</InnerColumn>
@@ -200,8 +200,10 @@ const Components: NextPage = () => {
 								<Heading size="sm" className="mb-2">
 									Avatar (WIP)
 								</Heading>
-								<Avatar variant={Avatar.variant.Circle} />
-								<Avatar variant={Avatar.variant.Rounded} />
+								<div className="flex space-x-3 flex-wrap">
+									<Avatar variant={Avatar.variant.Circle} />
+									<Avatar variant={Avatar.variant.Rounded} />
+								</div>
 							</div>
 							<div>
 								<Heading size="sm" className="mb-2">

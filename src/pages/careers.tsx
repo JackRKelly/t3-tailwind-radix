@@ -38,7 +38,7 @@ const Careers: NextPage = () => {
 					</div>
 
 					<InnerColumn className="py-6 md:py-10 lg:py-20">
-						<Heading size="xl" className="relative !text-white text-center">
+						<Heading size="xxl" className="relative !text-white text-center">
 							Careers
 						</Heading>
 					</InnerColumn>

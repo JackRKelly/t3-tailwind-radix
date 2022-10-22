@@ -5,11 +5,12 @@ import React from "react";
 const styles = cva("tracking-tight text-type", {
 	variants: {
 		size: {
-			xl: "text-4xl sm:text-5xl md:text-7xl lg:text-8xl",
-			lg: "text-6xl",
-			md: "text-3xl",
-			sm: "text-xl",
-			xs: "text-lg"
+			xxl: "text-4xl sm:text-5xl md:text-7xl lg:text-8xl",
+			xl: "text-6xl",
+			lg: "text-3xl",
+			md: "text-xl",
+			sm: "text-lg",
+			xs: "text-md"
 		},
 		weight: {
 			thin: "font-thin",
@@ -24,7 +25,7 @@ const styles = cva("tracking-tight text-type", {
 		}
 	},
 	defaultVariants: {
-		size: "lg",
+		size: "md",
 		weight: "bold"
 	}
 });

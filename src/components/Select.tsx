@@ -3,14 +3,15 @@ import Button from "./Button";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { SelectItemProps } from "@radix-ui/react-select";
-import clsx from "clsx";
 import React from "react";
 
 const ScrollUpButton = tw(
 	SelectPrimitive.ScrollUpButton
 )`flex items-center justify-center text-primitive-type`;
 
-const Viewport = tw(SelectPrimitive.Viewport)`bg-primitive p-2 rounded-lg shadow-lg`;
+const Viewport = tw(
+	SelectPrimitive.Viewport
+)`bg-primitive-faint p-2 rounded-lg border border-primitive-edge`;
 
 const Group = tw(SelectPrimitive.Group)`z-10`;
 
@@ -22,7 +23,7 @@ const ScrollDownButton = tw(
 
 const Item = tw(
 	SelectPrimitive.Item
-)`relative flex items-center px-8 py-2 rounded-md text-sm text-primitive-type font-medium focus:bg-primitive-bold radix-disabled:opacity-50 focus:outline-none select-none`;
+)`relative flex items-center px-8 py-2 rounded-md text-sm text-primitive-type font-medium focus:bg-primitive radix-disabled:opacity-50 focus:outline-none select-none`;
 
 const Content = tw(SelectPrimitive.Content)`relative z-10`;
 

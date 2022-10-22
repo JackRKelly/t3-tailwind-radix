@@ -72,15 +72,15 @@ const users: User[] = [
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
-)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56 bg-primitive`;
+)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56 bg-primitive-faint border border-primitive-edge`;
 
 const Item = tw(
 	DropdownMenuPrimitive.Item
-)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive-bold min-w-[8rem]`;
+)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive min-w-[8rem]`;
 
 const CheckboxItem = tw(
 	DropdownMenuPrimitive.CheckboxItem
-)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive-bold`;
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive`;
 
 const Separator = tw(DropdownMenuPrimitive.Separator)`my-1 h-px bg-primitive-bold`;
 
@@ -90,11 +90,11 @@ const Label = tw(
 
 const SubContent = tw(
 	DropdownMenuPrimitive.SubContent
-)`origin-radix-dropdown-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive shadow-md`;
+)`origin-radix-dropdown-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive-faint border border-primitive-edge`;
 
 const SubTrigger = tw(
 	DropdownMenuPrimitive.SubTrigger
-)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive-bold`;
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive`;
 
 const ItemLabelGrow = tw.span`flex-grow text-primitive-type`;
 

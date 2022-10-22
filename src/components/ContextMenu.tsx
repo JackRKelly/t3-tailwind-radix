@@ -1,3 +1,4 @@
+import { tw } from "../utils/tw";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import {
 	CaretRightIcon,
@@ -68,6 +69,8 @@ const users: User[] = [
 	}
 ];
 
+const Separator = tw(ContextMenuPrimitive.Separator)`my-1 h-px bg-primitive-edge-faint`;
+
 interface Props {}
 
 const ContextMenu = (props: Props) => {
@@ -77,26 +80,21 @@ const ContextMenu = (props: Props) => {
 	return (
 		<div>
 			<ContextMenuPrimitive.Root>
-				<ContextMenuPrimitive.Trigger className="inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-gray-500 bg-primitive px-3 py-4 dark:border-primitive-bold dark:bg-gray-800">
-					<span className="select-none text-sm font-medium text-primitive-type dark:text-gray-100">
-						Right Click
-					</span>
+				<ContextMenuPrimitive.Trigger className="inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-primitive-edge bg-primitive-faint px-3 py-4">
+					<span className="select-none text-sm font-medium text-primitive-type">Right Click</span>
 				</ContextMenuPrimitive.Trigger>
 
 				<ContextMenuPrimitive.Portal>
 					<ContextMenuPrimitive.Content
 						className={cx(
-							" radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
-							"w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56",
-							"bg-primitive dark:bg-gray-800"
+							"radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint border border-primitive-edge"
 						)}
 					>
 						{generalMenuItems.map(({ label, icon, shortcut }, i) => (
 							<ContextMenuPrimitive.Item
 								key={`${label}-${i}`}
 								className={cx(
-									"flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-									"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
+									"flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive"
 								)}
 							>
 								{icon}
@@ -105,14 +103,13 @@ const ContextMenu = (props: Props) => {
 							</ContextMenuPrimitive.Item>
 						))}
 
-						<ContextMenuPrimitive.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
+						<Separator />
 
 						<ContextMenuPrimitive.CheckboxItem
 							checked={showGrid}
 							onCheckedChange={setShowGrid as any}
 							className={cx(
-								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-								"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
+								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive"
 							)}
 						>
 							{showGrid ? (
@@ -130,8 +127,7 @@ const ContextMenu = (props: Props) => {
 							checked={showUi}
 							onCheckedChange={setShowUi as any}
 							className={cx(
-								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-								"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
+								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none focus:bg-primitive"
 							)}
 						>
 							{showUi ? (
@@ -139,15 +135,15 @@ const ContextMenu = (props: Props) => {
 							) : (
 								<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
 							)}
-							<span className="flex-grow text-primitive-type dark:text-gray-300">Show UI</span>
+							<span className="flex-grow text-primitive-type">Show UI</span>
 							<ContextMenuPrimitive.ItemIndicator>
 								<CheckIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.ItemIndicator>
 						</ContextMenuPrimitive.CheckboxItem>
 
-						<ContextMenuPrimitive.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
+						<Separator />
 
-						<ContextMenuPrimitive.Label className="select-none px-2 py-2 text-xs text-primitive-type dark:text-gray-200">
+						<ContextMenuPrimitive.Label className="select-none px-2 py-2 text-xs text-primitive-type">
 							Region Tools
 						</ContextMenuPrimitive.Label>
 
@@ -156,22 +152,21 @@ const ContextMenu = (props: Props) => {
 								key={`${label}-${i}`}
 								className={cx(
 									"flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-									"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
+									"text-primitive-type focus:bg-primitive"
 								)}
 							>
 								{icon}
-								<span className="flex-grow text-primitive-type dark:text-gray-300">{label}</span>
+								<span className="flex-grow text-primitive-type">{label}</span>
 								{shortcut && <span className="text-xs">{shortcut}</span>}
 							</ContextMenuPrimitive.Item>
 						))}
 
-						<ContextMenuPrimitive.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
+						<Separator />
 
 						<ContextMenuPrimitive.Sub>
 							<ContextMenuPrimitive.SubTrigger
 								className={cx(
-									"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-									"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
+									"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive dark:text-gray-500"
 								)}
 							>
 								<Link2Icon className="mr-2 h-3.5 w-3.5" />
@@ -182,16 +177,16 @@ const ContextMenu = (props: Props) => {
 								<ContextMenuPrimitive.SubContent
 									className={cx(
 										"origin-radix-context-menu radix-side-right:animate-scale-in",
-										"w-full rounded-md px-1 py-1 text-xs shadow-md",
-										"bg-primitive dark:bg-gray-800"
+										"w-full rounded-md px-1 py-1 text-xs",
+										"bg-primitive-faint border border-primitive-edge"
 									)}
 								>
 									{users.map(({ name, url }, i) => (
 										<ContextMenuPrimitive.Item
 											key={`${name}-${i}`}
 											className={cx(
-												"flex w-28 cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none md:w-32",
-												"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
+												"flex w-28 cursor-default select-none items-center rounded-md px-2 py-2 outline-none md:w-32",
+												"text-primitive-type focus:bg-primitive"
 											)}
 										>
 											{url ? (

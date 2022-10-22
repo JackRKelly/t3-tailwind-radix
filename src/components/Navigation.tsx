@@ -17,7 +17,7 @@ const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
 const List = tw(
 	NavigationMenuPrimitive.List
-)`border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive p-2`;
+)`border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive-faint p-2`;
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
