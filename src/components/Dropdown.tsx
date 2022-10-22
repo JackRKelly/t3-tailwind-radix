@@ -1,49 +1,190 @@
+import { tw } from "../utils/tw";
 import Button from "./Button";
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
-import * as SelectPrimitive from "@radix-ui/react-select";
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import {
+	CaretRightIcon,
+	CheckIcon,
+	CropIcon,
+	EyeClosedIcon,
+	EyeOpenIcon,
+	FileIcon,
+	FrameIcon,
+	GridIcon,
+	Link2Icon,
+	MixerHorizontalIcon,
+	PersonIcon,
+	TransparencyGridIcon
+} from "@radix-ui/react-icons";
 import clsx from "clsx";
-import React from "react";
+import React, { ReactNode, useState } from "react";
 
-const Select = () => {
+interface RadixMenuItem {
+	label: string;
+	shortcut?: string;
+	icon?: ReactNode;
+}
+
+interface User {
+	name: string;
+	url?: string;
+}
+
+const generalMenuItems: RadixMenuItem[] = [
+	{
+		label: "New File",
+		icon: <FileIcon className="mr-2 h-3.5 w-3.5" />,
+		shortcut: "⌘+N"
+	},
+	{
+		label: "Settings",
+		icon: <MixerHorizontalIcon className="mr-2 h-3.5 w-3.5" />,
+		shortcut: "⌘+,"
+	}
+];
+
+const regionToolMenuItems: RadixMenuItem[] = [
+	{
+		label: "Frame",
+		icon: <FrameIcon className="mr-2 h-3.5 w-3.5" />,
+		shortcut: "⌘+F"
+	},
+	{
+		label: "Crop",
+		icon: <CropIcon className="mr-2 h-3.5 w-3.5" />,
+		shortcut: "⌘+S"
+	}
+];
+
+const users: User[] = [
+	{
+		name: "Adam",
+		url: "https://github.com/adamwathan.png"
+	},
+	{
+		name: "Steve",
+		url: "https://github.com/steveschoger.png"
+	},
+	{
+		name: "Robin",
+		url: "https://github.com/robinmalfait.png"
+	}
+];
+
+const Content = tw(
+	DropdownMenuPrimitive.Content
+)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56 bg-primitive`;
+
+const Item = tw(
+	DropdownMenuPrimitive.Item
+)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive-bold min-w-[8rem]`;
+
+const CheckboxItem = tw(
+	DropdownMenuPrimitive.CheckboxItem
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive-bold`;
+
+const Separator = tw(DropdownMenuPrimitive.Separator)`my-1 h-px bg-primitive-bold`;
+
+const Label = tw(DropdownMenuPrimitive.Label)`select-none px-2 py-2 text-xs text-primitive-type`;
+
+const SubContent = tw(
+	DropdownMenuPrimitive.SubContent
+)`origin-radix-dropdown-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive shadow-md`;
+
+const SubTrigger = tw(
+	DropdownMenuPrimitive.SubTrigger
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive-bold`;
+
+const ItemLabelGrow = tw.span`flex-grow text-primitive-type`;
+
+const ItemLabel = tw.span`text-primitive-type`;
+
+const ShortcutLabel = tw.span`text-xs text-primitive-type-faint`;
+
+const DropdownMenu = () => {
+	const [showGrid, setShowGrid] = useState(false);
+	const [showUi, setShowUi] = useState(false);
+
 	return (
-		<SelectPrimitive.Root defaultValue="blueberry">
-			<SelectPrimitive.Trigger asChild aria-label="Food">
-				<Button>
-					<SelectPrimitive.Value />
-					<SelectPrimitive.Icon className="ml-2">
-						<ChevronDownIcon />
-					</SelectPrimitive.Icon>
-				</Button>
-			</SelectPrimitive.Trigger>
-			<SelectPrimitive.Content>
-				<SelectPrimitive.ScrollUpButton className="flex items-center justify-center text-button-type">
-					<ChevronUpIcon />
-				</SelectPrimitive.ScrollUpButton>
-				<SelectPrimitive.Viewport className="bg-button p-2 rounded-lg shadow-lg">
-					<SelectPrimitive.Group>
-						{["Apple", "Banana", "Blueberry", "Strawberry", "Grapes"].map((f, i) => (
-							<SelectPrimitive.Item
-								disabled={f === "Grapes"}
-								key={`${f}-${i}`}
-								value={f.toLowerCase()}
-								className={clsx(
-									"relative flex items-center px-8 py-2 rounded-md text-sm text-button-type font-medium focus:bg-button-bold radix-disabled:opacity-50 focus:outline-none select-none"
-								)}
-							>
-								<SelectPrimitive.ItemText>{f}</SelectPrimitive.ItemText>
-								<SelectPrimitive.ItemIndicator className="absolute left-2 inline-flex items-center">
-									<CheckIcon />
-								</SelectPrimitive.ItemIndicator>
-							</SelectPrimitive.Item>
-						))}
-					</SelectPrimitive.Group>
-				</SelectPrimitive.Viewport>
-				<SelectPrimitive.ScrollDownButton className="flex items-center justify-center text-button-type">
-					<ChevronDownIcon />
-				</SelectPrimitive.ScrollDownButton>
-			</SelectPrimitive.Content>
-		</SelectPrimitive.Root>
+		<DropdownMenuPrimitive.Root>
+			<DropdownMenuPrimitive.Trigger asChild>
+				<Button>Click</Button>
+			</DropdownMenuPrimitive.Trigger>
+
+			<DropdownMenuPrimitive.Portal>
+				<Content align="end" sideOffset={5}>
+					{generalMenuItems.map(({ label, icon, shortcut }, i) => (
+						<Item key={`${label}-${i}`} className={clsx("")}>
+							{icon}
+							<ItemLabelGrow>{label}</ItemLabelGrow>
+							{shortcut && <span className="text-xs">{shortcut}</span>}
+						</Item>
+					))}
+
+					<Separator />
+
+					<CheckboxItem checked={showGrid} onCheckedChange={setShowGrid as any}>
+						{showGrid ? (
+							<GridIcon className="mr-2 h-4 w-4" />
+						) : (
+							<TransparencyGridIcon className="mr-2 h-3.5 w-3.5" />
+						)}
+						<ItemLabelGrow>Show Grid</ItemLabelGrow>
+						<DropdownMenuPrimitive.ItemIndicator>
+							<CheckIcon className="h-3.5 w-3.5" />
+						</DropdownMenuPrimitive.ItemIndicator>
+					</CheckboxItem>
+
+					<CheckboxItem checked={showUi} onCheckedChange={setShowUi as any}>
+						{showUi ? (
+							<EyeOpenIcon className="mr-2 h-3.5 w-3.5" />
+						) : (
+							<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
+						)}
+						<ItemLabelGrow>Show UI</ItemLabelGrow>
+						<DropdownMenuPrimitive.ItemIndicator>
+							<CheckIcon className="h-3.5 w-3.5" />
+						</DropdownMenuPrimitive.ItemIndicator>
+					</CheckboxItem>
+
+					<Separator />
+
+					<Label>Region Tools</Label>
+
+					{regionToolMenuItems.map(({ label, icon, shortcut }, i) => (
+						<Item key={`${label}-${i}`}>
+							{icon}
+							<ItemLabelGrow>{label}</ItemLabelGrow>
+							{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
+						</Item>
+					))}
+
+					<Separator />
+
+					<DropdownMenuPrimitive.Sub>
+						<SubTrigger>
+							<Link2Icon className="mr-2 h-3.5 w-3.5" />
+							<ItemLabelGrow>Share</ItemLabelGrow>
+							<CaretRightIcon className="h-3.5 w-3.5" />
+						</SubTrigger>
+						<DropdownMenuPrimitive.Portal>
+							<SubContent>
+								{users.map(({ name, url }, i) => (
+									<Item key={`${name}-${i}`}>
+										{url ? (
+											<img className="mr-2.5 h-6 w-6 rounded-full" src={url} />
+										) : (
+											<PersonIcon className="mr-2.5 h-6 w-6" />
+										)}
+										<ItemLabel>{name}</ItemLabel>
+									</Item>
+								))}
+							</SubContent>
+						</DropdownMenuPrimitive.Portal>
+					</DropdownMenuPrimitive.Sub>
+				</Content>
+			</DropdownMenuPrimitive.Portal>
+		</DropdownMenuPrimitive.Root>
 	);
 };
 
-export default Select;
+export default DropdownMenu;

@@ -7,7 +7,7 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props 
 	<button
 		ref={ref}
 		{...props}
-		className="inline-flex select-none bg-button items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-button-type hover:bg-button-bold focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75 group first-line:radix-state-open:bg-button-bold radix-state-on:bg-button-bold first-letter:radix-state-instant-open:bg-button-bold radix-state-delayed-open:bg-button-bold"
+		className="inline-flex select-none bg-primitive items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-primitive-type hover:bg-primitive-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75 group first-line:radix-state-open:bg-primitive-bold radix-state-on:bg-primitive-bold first-letter:radix-state-instant-open:bg-primitive-bold radix-state-delayed-open:bg-primitive-bold"
 	>
 		{children}
 	</button>

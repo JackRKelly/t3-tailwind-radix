@@ -1,14 +1,15 @@
 import Accordion from "../components/Accordian";
+import Dropdown from "../components/Dropdown";
 import { Heading } from "../components/Heading";
 import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
-import Dropdown from "../components/Select";
+import Select from "../components/Select";
+import Switch from "../components/Switch";
 import { Text } from "../components/Text";
 import type { NextPage } from "next";
-import Head from "next/head";
 
-const Careers: NextPage = () => {
+const Components: NextPage = () => {
 	return (
 		<PageWrapper>
 			<Navigation />
@@ -39,17 +40,57 @@ const Careers: NextPage = () => {
 
 					<InnerColumn className="py-6 md:py-10 lg:py-20">
 						<Heading size="xl" className="relative !text-white text-center">
-							Careers
+							Components
 						</Heading>
 					</InnerColumn>
 				</div>
 
 				<Section>
 					<InnerColumn width="third">
-						<Text>
-							We are always looking for talented engineers to join our team. If you are interested,
-							please reach out
-						</Text>
+						<div className="flex flex-col gap-6">
+							<div>
+								<Text>
+									We are always looking for talented engineers to join our team. If you are
+									interested, please reach out
+								</Text>
+							</div>
+
+							<div>
+								<Heading size="sm" className="mb-2">
+									Dropdown
+								</Heading>
+								<Select
+									ariaLabel="Fruit"
+									options={[
+										{ value: "grapes", textValue: "Grapes", disabled: true },
+										{ value: "apples", textValue: "Apples", disabled: true },
+										{ value: "oranges", textValue: "Oranges", disabled: false },
+										{ value: "pears", textValue: "Pears", disabled: true }
+									]}
+								/>
+							</div>
+
+							<div>
+								<Heading size="sm" className="mb-2">
+									Switch
+								</Heading>
+								<Switch />
+							</div>
+
+							<div>
+								<Heading size="sm" className="mb-2">
+									Accordian
+								</Heading>
+								<Accordion />
+							</div>
+
+							<div>
+								<Heading size="sm" className="mb-2">
+									Dropdown
+								</Heading>
+								<Dropdown />
+							</div>
+						</div>
 					</InnerColumn>
 				</Section>
 			</OuterColumn>
@@ -57,4 +98,4 @@ const Careers: NextPage = () => {
 	);
 };
 
-export default Careers;
+export default Components;

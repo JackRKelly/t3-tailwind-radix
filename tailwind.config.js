@@ -135,21 +135,11 @@ module.exports = {
 					type: alpha`color-navigation-type`,
 					faint: alpha`color-navigation-faint`
 				},
-				button: {
-					DEFAULT: alpha`color-button`,
-					bold: alpha`color-button-bold`,
-					type: alpha`color-button-type`
-				},
 				type: {
 					DEFAULT: alpha`color-type`
 				},
 				app: {
 					DEFAULT: alpha`color-app`
-				},
-				footer: {
-					DEFAULT: alpha`color-footer`,
-					border: alpha`color-footer-border`,
-					type: { DEFAULT: alpha`color-footer-type`, faint: alpha`color-footer-type-faint` }
 				},
 				primary: {
 					DEFAULT: alpha`color-primary`
@@ -159,6 +149,15 @@ module.exports = {
 				},
 				highlight: {
 					DEFAULT: alpha`color-highlight`
+				},
+				primitive: {
+					DEFAULT: alpha`color-primitive`,
+					faint: alpha`color-primitive-faint`,
+					bold: alpha`color-primitive-bold`,
+					type: {
+						DEFAULT: alpha`color-primitive-type`,
+						faint: alpha`color-primitive-type-faint`
+					}
 				}
 			}
 		}

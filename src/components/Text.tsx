@@ -5,11 +5,11 @@ import React from "react";
 const styles = cva("tracking-tight text-type", {
 	variants: {
 		size: {
-			xl: "text-4xl sm:text-5xl md:text-7xl lg:text-8xl",
-			lg: "text-6xl",
-			md: "text-3xl",
-			sm: "text-xl",
-			xs: "text-lg"
+			xl: "text-xl",
+			lg: "text-lg",
+			md: "text-md",
+			sm: "text-sm",
+			xs: "text-xs"
 		},
 		weight: {
 			thin: "font-thin",
@@ -25,22 +25,17 @@ const styles = cva("tracking-tight text-type", {
 	},
 	defaultVariants: {
 		size: "lg",
-		weight: "bold"
+		weight: "medium"
 	}
 });
 
 interface Props extends VariantProps<typeof styles> {
-	level?: 1 | 2 | 3 | 4 | 5 | 6;
 	children?: React.ReactNode;
 	className?: string;
 }
 
-type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+export const Text: React.FC<Props> = (props) => {
+	const { children, className } = props;
 
-export const Heading: React.FC<Props> = (props) => {
-	const { children, level = 1, className } = props;
-
-	const Tag = `h${level}` as HeadingTag;
-
-	return <Tag className={clsx(styles(props), className)}>{children}</Tag>;
+	return <p className={clsx(styles(props), className)}>{children}</p>;
 };

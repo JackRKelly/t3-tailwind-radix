@@ -1,7 +1,9 @@
 import { tw } from "../utils/tw";
+import Switch from "./Switch";
+import { useTheme } from "./ThemeProvider";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import NextLink from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Trigger = tw(
 	NavigationMenuPrimitive.Trigger
@@ -15,7 +17,7 @@ const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
 const List = tw(
 	NavigationMenuPrimitive.List
-)`flex flex-row space-x-2 rounded-lg bg-navigation bg-opacity-90 backdrop-blur p-2`;
+)`flex flex-row space-x-2 rounded-lg bg-navigation bg-opacity-80 backdrop-blur p-2`;
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
@@ -46,6 +48,14 @@ const CardTitle = tw.span`block text-sm font-bold text-navigation-type`;
 const CardBody = tw.span`block mt-1 text-sm text-navigation-type`;
 
 export const Navigation = () => {
+	const { theme, setTheme } = useTheme();
+
+	const [isDark, setIsDark] = useState(false);
+
+	useEffect(() => {
+		return setIsDark(theme === "dark");
+	}, [theme]);
+
 	return (
 		<NavigationWrapper>
 			<Root>
@@ -106,6 +116,25 @@ export const Navigation = () => {
 							</Link>
 						</NextLink>
 					</NavigationMenuPrimitive.Item>
+
+					<NavigationMenuPrimitive.Item asChild>
+						<NextLink href="/components">
+							<Link href="/components">Components</Link>
+						</NextLink>
+					</NavigationMenuPrimitive.Item>
+
+					<NavigationMenuPrimitive.Item asChild>
+						<div className="flex items-center justify-center">
+							<Switch
+								checked={isDark}
+								onCheckedChange={(val) => {
+									setIsDark(val);
+									setTheme?.(val ? "dark" : "light");
+								}}
+							/>
+						</div>
+					</NavigationMenuPrimitive.Item>
+
 					<Indicator>
 						<IndicatorInner />
 					</Indicator>

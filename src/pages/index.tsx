@@ -5,19 +5,12 @@ import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import Switch from "../components/Switch";
+import { Text } from "../components/Text";
 import { useTheme } from "../components/ThemeProvider";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
-	const { theme, setTheme } = useTheme();
-
-	const [isDark, setIsDark] = useState(false);
-
-	useEffect(() => {
-		return setIsDark(theme === "dark");
-	}, [theme]);
-
 	return (
 		<PageWrapper>
 			<Navigation />
@@ -59,17 +52,14 @@ const Home: NextPage = () => {
 
 				<Section>
 					<InnerColumn width="third">
-						<p className="text-type">Dark mode:</p>
-
-						<Switch
-							checked={isDark}
-							onCheckedChange={(val) => {
-								setIsDark(val);
-								setTheme?.(val ? "dark" : "light");
-							}}
-						/>
-
-						<Accordion />
+						<Text>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint perspiciatis
+							voluptatibus fugiat praesentium unde totam accusantium labore, explicabo id hic quos
+							illum accusamus deleniti ut dignissimos, cupiditate exercitationem error commodi?
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam exercitationem expedita
+							laudantium libero eius fugiat quibusdam, beatae ipsam, dicta minus fugit rem eligendi
+							doloremque! Fuga sit provident laborum dolor pariatur!
+						</Text>
 					</InnerColumn>
 				</Section>
 			</OuterColumn>
