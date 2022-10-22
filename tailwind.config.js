@@ -146,10 +146,19 @@ module.exports = {
 					DEFAULT: alpha`color-highlight`
 				},
 				primitive: {
+					bold: alpha`color-primitive-bold`,
 					DEFAULT: alpha`color-primitive`,
 					faint: alpha`color-primitive-faint`,
-					bold: alpha`color-primitive-bold`,
+					edge: {
+						bold: alpha`color-primitive-edge-bold`,
+						DEFAULT: alpha`color-primitive-edge`,
+						faint: alpha`color-primitive-edge-faint`,
+						extra: {
+							bold: alpha`color-primitive-edge-extra-bold`
+						}
+					},
 					type: {
+						bold: alpha`color-primitive-type-bold`,
 						DEFAULT: alpha`color-primitive-type`,
 						faint: alpha`color-primitive-type-faint`,
 						extra: {

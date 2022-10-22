@@ -15,17 +15,19 @@ const Content = tw(
 
 const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
-const List = tw(NavigationMenuPrimitive.List)`flex flex-row space-x-2 rounded-lg bg-primitive p-2`;
+const List = tw(
+	NavigationMenuPrimitive.List
+)`border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive p-2`;
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
-)`relative mt-2 overflow-hidden rounded-md bg-primitive shadow-lg w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
+)`relative mt-2 overflow-hidden rounded-md bg-primitive border border-primitive-edge-faint w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
 
 const Indicator = tw(
 	NavigationMenuPrimitive.Indicator
 )`z-10 top-[100%] flex h-2 items-end justify-center overflow-hidden transition-[width_transform] duration-[250ms] ease-[ease]`;
 
-const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-primitive`;
+const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-primitive-edge-faint`;
 
 const Link = tw(
 	NavigationMenuPrimitive.Link

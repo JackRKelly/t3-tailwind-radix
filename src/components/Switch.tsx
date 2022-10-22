@@ -14,7 +14,7 @@ const Switch: React.FC<Props> = (props) => {
 		>
 			<SwitchPrimitive.Thumb
 				className={clsx(
-					"group-radix-state-checked:translate-x-5 group-radix-state-unchecked:translate-x-0 pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-primitive shadow-lg ring-0 transition duration-200 ease-in-out"
+					"group-radix-state-checked:translate-x-5 group-radix-state-unchecked:translate-x-0 pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
 				)}
 			/>
 		</SwitchPrimitive.Root>

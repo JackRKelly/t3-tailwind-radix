@@ -2,37 +2,68 @@
 
 @tailwind base;
 
+/* 
+Colors (Gray - Slate)
+
+0             | 50            | 100           | 200           | 300           | 400 
+#ffffff       | #f8fafc       | #f1f5f9       | #e2e8f0       | #cbd5e1       | #94a3b8
+255, 255, 255 | 248, 250, 252 | 241, 245, 249 | 226, 232, 240 | 203, 213, 225 | 148, 163, 184
+
+
+500           | 600           | 700           | 800           | 900           | 1000
+#64748b       | #475569       | #334155       | #1e293b       | #0f172a       | #000000
+100, 116, 139 | 71, 85, 105   | 51, 65, 85    | 30, 41, 59    | 15, 23, 42    | 0, 0, 0
+*/
+
+/* 
+Faint = Harder to see on background
+Bold = Easier to see on background
+*/
 :root,
 html[data-theme="light"] {
-	--color-primary: 0, 102, 255;
-	--color-secondary: 253, 155, 152;
-	--color-highlight: 0, 0, 0;
-	--color-type: 0, 0, 0;
-	--color-app: 255, 255, 255;
+	--color-primary: 0, 102, 255; /* Blue */
+	--color-secondary: 253, 155, 152; /* Pink */
+	--color-highlight: 0, 0, 0; /* Gray 1000 */
+	--color-type: 15, 23, 42; /* Gray 1000 */
+	--color-app: 255, 255, 255; /* Gray 0 */
 
-	/* Primitive */
-	--color-primitive: 243, 244, 246;
-	--color-primitive-bold: 229, 231, 235;
-	--color-primitive-faint: 229, 231, 235;
-	--color-primitive-type: 0, 0, 0;
-	--color-primitive-type-faint: 31, 41, 55;
-	--color-primitive-type-extra-faint: 75, 85, 99;
+	/* Primitive Background */
+	--color-primitive-bold: 209, 211, 216; /* Gray 200 */
+	--color-primitive: 241, 245, 249; /* Gray 100 */
+	--color-primitive-faint: 248, 250, 252; /* Gray 50 */
+	/* Primitive Text */
+	--color-primitive-type-bold: 0, 0, 0; /* Gray 1000 */
+	--color-primitive-type: 15, 23, 42; /* Gray 900 */
+	--color-primitive-type-faint: 51, 65, 85; /* Gray 700 */
+	--color-primitive-type-extra-faint: 100, 116, 139; /* Gray 500 */
+	/* Primitive Border */
+	--color-primitive-edge-extra-bold: 153, 157, 162;
+	--color-primitive-edge-bold: 175, 179, 184;
+	--color-primitive-edge: 202, 207, 212;
+	--color-primitive-edge-faint: 216, 221, 226;
 }
 
 html[data-theme="dark"] {
 	--color-primary: 0, 102, 255;
 	--color-secondary: 253, 155, 152;
 	--color-highlight: 255, 255, 255;
-	--color-type: 255, 255, 255;
+	--color-type: 229, 231, 235;
 	--color-app: 31, 41, 55;
 
-	/* Primitive */
-	--color-primitive: 55, 65, 81;
-	--color-primitive-faint: 75, 85, 99;
+	/* Primitive Background */
 	--color-primitive-bold: 75, 85, 99;
-	--color-primitive-type: 255, 255, 255;
-	--color-primitive-type-faint: 229, 231, 235;
-	--color-primitive-type-extra-faint: 156, 163, 175;
+	--color-primitive: 55, 65, 81;
+	--color-primitive-faint: 41, 52, 70;
+	/* Primitive Text */
+	--color-primitive-type-bold: 255, 255, 255;
+	--color-primitive-type: 229, 231, 235;
+	--color-primitive-type-faint: 156, 163, 175;
+	--color-primitive-type-extra-faint: 131, 136, 146;
+	/* Primitive Border */
+	--color-primitive-edge-extra-bold: 131, 148, 171;
+	--color-primitive-edge-bold: 113, 128, 149;
+	--color-primitive-edge: 91, 103, 120;
+	--color-primitive-edge-faint: 74, 84, 98;
 }
 
 :root {

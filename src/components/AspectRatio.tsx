@@ -18,7 +18,7 @@ const AspectRatio = (props: Props) => {
 				</div>
 				<div
 					className={cx(
-						"absolute inset-0 bg-gray-600 object-cover group-hover:bg-gray-500",
+						"absolute inset-0 bg-gray-600 object-cover group-hover:bg-primitive-faint0",
 						"transition-colors duration-300 ease-in-out"
 					)}
 				>

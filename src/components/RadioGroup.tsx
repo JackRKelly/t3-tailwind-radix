@@ -15,7 +15,7 @@ const RadioGroup = (props: Props) => {
 
 	return (
 		<form>
-			<legend className="text-sm font-medium leading-4 text-gray-900 dark:text-gray-100">
+			<legend className="text-sm font-medium leading-4 text-primitive-type-bold dark:text-gray-100">
 				Choose your starter
 			</legend>
 			<RadioGroupPrimitive.Root
@@ -33,18 +33,18 @@ const RadioGroup = (props: Props) => {
 									"peer relative w-4 h-4 rounded-full",
 									// Setting the background in dark properly requires a workaround (see css/tailwind.css)
 									"border border-transparent text-white",
-									"radix-state-checked:bg-purple-600",
-									"radix-state-unchecked:bg-gray-100 dark:radix-state-unchecked:bg-gray-900",
-									"focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-800"
+									"radix-state-checked:bg-primary",
+									"radix-state-unchecked:bg-primitive",
+									"focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 								)}
 							>
 								<RadioGroupPrimitive.Indicator className="absolute inset-0 flex items-center justify-center leading-0">
-									<div className="w-1.5 h-1.5 rounded-full bg-primitive"></div>
+									<div className="w-1.5 h-1.5 rounded-full bg-white"></div>
 								</RadioGroupPrimitive.Indicator>
 							</RadioGroupPrimitive.Item>
 							<label
 								htmlFor={pokemon.id}
-								className="ml-2 block text-sm font-medium text-gray-700 dark:text-gray-400"
+								className="ml-2 block text-sm font-medium text-primitive-type dark:text-gray-400"
 							>
 								{pokemon.title}
 							</label>

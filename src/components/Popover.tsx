@@ -46,7 +46,9 @@ const Popover = (props: Props) => {
 					)}
 				>
 					<PopoverPrimitive.Arrow className="fill-current text-white dark:text-gray-800" />
-					<h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">Dimensions</h3>
+					<h3 className="text-sm font-medium text-primitive-type-bold dark:text-gray-100">
+						Dimensions
+					</h3>
 
 					<form className="mt-4 space-y-2">
 						{items.map(({ id, label, defaultValue }) => {
@@ -55,7 +57,7 @@ const Popover = (props: Props) => {
 									{/* <legend>Choose your favorite monster</legend> */}
 									<label
 										htmlFor={id}
-										className="shrink-0 grow text-xs font-medium text-gray-700 dark:text-gray-400"
+										className="shrink-0 grow text-xs font-medium text-primitive-type dark:text-gray-400"
 									>
 										{label}
 									</label>
@@ -66,9 +68,9 @@ const Popover = (props: Props) => {
 										autoComplete="given-name"
 										className={cx(
 											"block w-1/2 rounded-md",
-											"text-xs text-gray-700 placeholder:text-gray-500 dark:text-gray-400 dark:placeholder:text-gray-600",
+											"text-xs text-primitive-type placeholder:text-gray-500 dark:text-gray-400 dark:placeholder:text-gray-600",
 											"border border-gray-400 focus-visible:border-transparent dark:border-gray-700 dark:bg-gray-800",
-											"focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+											"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 										)}
 									/>
 								</fieldset>
@@ -79,10 +81,10 @@ const Popover = (props: Props) => {
 					<PopoverPrimitive.Close
 						className={cx(
 							"absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1",
-							"focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+							"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 						)}
 					>
-						<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-400" />
+						<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-primitive-type dark:text-gray-500 dark:hover:text-gray-400" />
 					</PopoverPrimitive.Close>
 				</PopoverPrimitive.Content>
 			</PopoverPrimitive.Root>

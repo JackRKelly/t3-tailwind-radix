@@ -69,7 +69,7 @@ const Avatar = ({ variant, isOnline, renderInvalidUrls = false }: Props) => {
 						)}
 						delayMs={600}
 					>
-						<span className="text-sm font-medium uppercase text-gray-700 dark:text-gray-400">
+						<span className="text-sm font-medium uppercase text-primitive-type dark:text-gray-400">
 							{getRandomInitials()}
 						</span>
 					</AvatarPrimitive.Fallback>

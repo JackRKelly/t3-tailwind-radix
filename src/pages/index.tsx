@@ -38,7 +38,7 @@ const Home: NextPage = () => {
 					</div>
 
 					<InnerColumn className="py-10 md:py-20 lg:py-40">
-						<Heading className="relative text-white text-center" size="xl" weight="semibold">
+						<Heading className="relative !text-white text-center" size="xl" weight="semibold">
 							The future of <br />
 							user interface
 						</Heading>

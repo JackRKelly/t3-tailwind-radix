@@ -77,8 +77,8 @@ const ContextMenu = (props: Props) => {
 	return (
 		<div>
 			<ContextMenuPrimitive.Root>
-				<ContextMenuPrimitive.Trigger className="inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-gray-500 bg-primitive px-3 py-4 dark:border-gray-300 dark:bg-gray-800">
-					<span className="select-none text-sm font-medium text-gray-700 dark:text-gray-100">
+				<ContextMenuPrimitive.Trigger className="inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-gray-500 bg-primitive px-3 py-4 dark:border-primitive-bold dark:bg-gray-800">
+					<span className="select-none text-sm font-medium text-primitive-type dark:text-gray-100">
 						Right Click
 					</span>
 				</ContextMenuPrimitive.Trigger>
@@ -96,11 +96,11 @@ const ContextMenu = (props: Props) => {
 								key={`${label}-${i}`}
 								className={cx(
 									"flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-									"text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900"
+									"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
 								)}
 							>
 								{icon}
-								<span className="flex-grow text-gray-700 dark:text-gray-300">{label}</span>
+								<span className="flex-grow text-primitive-type dark:text-gray-300">{label}</span>
 								{shortcut && <span className="text-xs">{shortcut}</span>}
 							</ContextMenuPrimitive.Item>
 						))}
@@ -112,15 +112,15 @@ const ContextMenu = (props: Props) => {
 							onCheckedChange={setShowGrid as any}
 							className={cx(
 								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-								"text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900"
+								"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
 							)}
 						>
 							{showGrid ? (
 								<GridIcon className="mr-2 h-4 w-4" />
 							) : (
-								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5 text-gray-700 dark:text-gray-300" />
+								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5 text-primitive-type dark:text-gray-300" />
 							)}
-							<span className="flex-grow text-gray-700 dark:text-gray-300">Show Grid</span>
+							<span className="flex-grow text-primitive-type dark:text-gray-300">Show Grid</span>
 							<ContextMenuPrimitive.ItemIndicator>
 								<CheckIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.ItemIndicator>
@@ -131,7 +131,7 @@ const ContextMenu = (props: Props) => {
 							onCheckedChange={setShowUi as any}
 							className={cx(
 								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-								"text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900"
+								"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
 							)}
 						>
 							{showUi ? (
@@ -139,7 +139,7 @@ const ContextMenu = (props: Props) => {
 							) : (
 								<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
 							)}
-							<span className="flex-grow text-gray-700 dark:text-gray-300">Show UI</span>
+							<span className="flex-grow text-primitive-type dark:text-gray-300">Show UI</span>
 							<ContextMenuPrimitive.ItemIndicator>
 								<CheckIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.ItemIndicator>
@@ -147,7 +147,7 @@ const ContextMenu = (props: Props) => {
 
 						<ContextMenuPrimitive.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
 
-						<ContextMenuPrimitive.Label className="select-none px-2 py-2 text-xs text-gray-700 dark:text-gray-200">
+						<ContextMenuPrimitive.Label className="select-none px-2 py-2 text-xs text-primitive-type dark:text-gray-200">
 							Region Tools
 						</ContextMenuPrimitive.Label>
 
@@ -156,11 +156,11 @@ const ContextMenu = (props: Props) => {
 								key={`${label}-${i}`}
 								className={cx(
 									"flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-									"text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900"
+									"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
 								)}
 							>
 								{icon}
-								<span className="flex-grow text-gray-700 dark:text-gray-300">{label}</span>
+								<span className="flex-grow text-primitive-type dark:text-gray-300">{label}</span>
 								{shortcut && <span className="text-xs">{shortcut}</span>}
 							</ContextMenuPrimitive.Item>
 						))}
@@ -171,11 +171,11 @@ const ContextMenu = (props: Props) => {
 							<ContextMenuPrimitive.SubTrigger
 								className={cx(
 									"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-									"text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900"
+									"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
 								)}
 							>
 								<Link2Icon className="mr-2 h-3.5 w-3.5" />
-								<span className="flex-grow text-gray-700 dark:text-gray-300">Share</span>
+								<span className="flex-grow text-primitive-type dark:text-gray-300">Share</span>
 								<CaretRightIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.SubTrigger>
 							<ContextMenuPrimitive.Portal>
@@ -191,7 +191,7 @@ const ContextMenu = (props: Props) => {
 											key={`${name}-${i}`}
 											className={cx(
 												"flex w-28 cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none md:w-32",
-												"text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900"
+												"text-gray-400 focus:bg-primitive-faint dark:text-gray-500 dark:focus:bg-gray-900"
 											)}
 										>
 											{url ? (
@@ -199,7 +199,7 @@ const ContextMenu = (props: Props) => {
 											) : (
 												<PersonIcon className="mr-2.5 h-6 w-6" />
 											)}
-											<span className="text-gray-700 dark:text-gray-300">{name}</span>
+											<span className="text-primitive-type dark:text-gray-300">{name}</span>
 										</ContextMenuPrimitive.Item>
 									))}
 								</ContextMenuPrimitive.SubContent>

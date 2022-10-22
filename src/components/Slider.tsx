@@ -14,12 +14,12 @@ const Slider = (props: Props) => {
 			className="relative flex h-5 w-64 touch-none items-center"
 		>
 			<SliderPrimitive.Track className="relative h-1 w-full grow rounded-full bg-primitive dark:bg-gray-800">
-				<SliderPrimitive.Range className="absolute h-full rounded-full bg-purple-600 dark:bg-primitive" />
+				<SliderPrimitive.Range className="absolute h-full rounded-full bg-primary dark:bg-primitive" />
 			</SliderPrimitive.Track>
 			<SliderPrimitive.Thumb
 				className={cx(
-					"block h-5 w-5 rounded-full bg-purple-600 dark:bg-primitive",
-					"focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+					"block h-5 w-5 rounded-full bg-primary dark:bg-primitive",
+					"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 				)}
 			/>
 		</SliderPrimitive.Root>

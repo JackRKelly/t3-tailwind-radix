@@ -56,7 +56,7 @@ interface Props {}
 
 const Toolbar = (props: Props) => {
 	return (
-		<ToolbarPrimitive.Root className="flex space-x-4 rounded-lg bg-primitive px-2.5 py-2 dark:bg-gray-800">
+		<ToolbarPrimitive.Root className="flex space-x-4 rounded-lg bg-primitive-faint px-2.5 py-2">
 			<ToolbarPrimitive.ToggleGroup type="multiple" aria-label="Font settings">
 				{fontSettings.map(({ value, label, icon }, i) => (
 					<ToolbarPrimitive.ToggleItem
@@ -64,15 +64,11 @@ const Toolbar = (props: Props) => {
 						value={value}
 						aria-label={label}
 						className={cx(
-							"radix-state-on:bg-gray-50 dark:radix-state-on:bg-gray-900",
-							"bg-primitive dark:bg-gray-800",
-							"border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x",
-							"border-gray-200 radix-state-on:border-transparent dark:border-gray-600 dark:radix-state-on:border-transparent",
-							"focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+							"radix-state-on:bg-primitive-bold bg-primitive border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent dark:radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 						)}
 					>
 						{React.cloneElement(icon, {
-							className: "w-5 h-5 text-gray-700 dark:text-gray-100"
+							className: "w-5 h-5 text-primitive-type dark:text-gray-100"
 						})}
 					</ToolbarPrimitive.ToggleItem>
 				))}
@@ -85,30 +81,23 @@ const Toolbar = (props: Props) => {
 						value={value}
 						aria-label={label}
 						className={cx(
-							"radix-state-on:bg-gray-50 dark:radix-state-on:bg-gray-900",
-							"bg-primitive dark:bg-gray-800",
-							"border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x",
-							"border-gray-200 radix-state-on:border-transparent dark:border-gray-600 dark:radix-state-on:border-transparent",
-							"focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+							"radix-state-on:bg-primitive-bold bg-primitive border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 						)}
 					>
 						{React.cloneElement(icon, {
-							className: "w-5 h-5 text-gray-700 dark:text-gray-100"
+							className: "w-5 h-5 text-primitive-type dark:text-gray-100"
 						})}
 					</ToolbarPrimitive.ToggleItem>
 				))}
 			</ToolbarPrimitive.ToggleGroup>
 
-			<ToolbarPrimitive.Separator className="mx-4 my-0.5 hidden h-auto w-px dark:bg-gray-600 xl:flex" />
+			<ToolbarPrimitive.Separator className="mx-4 my-0.5 hidden h-auto w-px bg-primitive-edge-bold xl:flex" />
 
 			<span className="hidden items-center pr-2 xl:flex">
 				<ToolbarPrimitive.Link
 					className={cx(
-						"text-sm text-gray-500 dark:text-gray-400",
-						"focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+						"text-sm text-primitive-type-faint focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 					)}
-					href="https://github.com/ecklf/tailwindcss-radix"
-					target="_blank"
 				>
 					Edited 2 hours ago
 				</ToolbarPrimitive.Link>

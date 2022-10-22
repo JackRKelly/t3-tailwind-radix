@@ -37,7 +37,7 @@ const HoverCard = (props: Props) => {
 					" radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
 					"max-w-md rounded-lg p-4 md:w-full",
 					"bg-primitive dark:bg-gray-800",
-					"focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+					"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 				)}
 			>
 				<HoverCardPrimitive.Arrow className="fill-current text-white dark:text-gray-800" />
@@ -45,16 +45,18 @@ const HoverCard = (props: Props) => {
 				<div className="flex h-full w-full space-x-4">
 					<div
 						className={cx(
-							"flex h-12 w-12 shrink-0 items-center justify-center rounded-full shadow-inner bg-gray-50/60 p-2.5 dark:bg-gray-900"
+							"flex h-12 w-12 shrink-0 items-center justify-center rounded-full shadow-inner bg-primitive-faint/60 p-2.5 dark:bg-gray-900"
 						)}
 					>
 						<TailwindLogo />
 					</div>
 
 					<div>
-						<h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">Tailwind CSS</h3>
+						<h3 className="text-sm font-medium text-primitive-type-bold dark:text-gray-100">
+							Tailwind CSS
+						</h3>
 
-						<p className="mt-1 text-sm font-normal text-gray-700 dark:text-gray-400">
+						<p className="mt-1 text-sm font-normal text-primitive-type dark:text-gray-400">
 							A utility-first CSS framework for rapidly building custom user interfaces.
 						</p>
 					</div>
