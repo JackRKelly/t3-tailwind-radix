@@ -13,7 +13,7 @@ const Label = tw(
 
 interface Props {}
 
-const Checkbox = (props: Props) => {
+export const Checkbox = (props: Props) => {
 	return (
 		<form className="flex items-center">
 			<Root id="c1" defaultChecked>
@@ -26,5 +26,3 @@ const Checkbox = (props: Props) => {
 		</form>
 	);
 };
-
-export default Checkbox;

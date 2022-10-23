@@ -8,7 +8,8 @@
 		"postinstall": "prisma generate",
 		"lint": "next lint",
 		"start": "next start",
-		"format": "prettier --write \"./**/*.{js,jsx,md,ts,tsx,json,yml,mjs,cjs,css}\""
+		"format": "prettier --write \"./**/*.{js,jsx,md,ts,tsx,json,yml,mjs,cjs,css}\"",
+		"barrels": "barrelsby --delete --config \"./barrel.config.json\""
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.3",
@@ -59,6 +60,7 @@
 		"@types/react": "18.0.14",
 		"@types/react-dom": "18.0.5",
 		"autoprefixer": "^10.4.7",
+		"barrelsby": "^2.5.1",
 		"postcss": "^8.4.18",
 		"prettier": "^2.7.1",
 		"prettier-plugin-tailwindcss": "^0.1.13",

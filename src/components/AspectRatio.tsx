@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 
 interface Props {}
 
-const AspectRatio = (props: Props) => {
+export const AspectRatio = (props: Props) => {
 	return (
 		<Fragment>
 			<AspectRatioPrimitive.Root
@@ -32,5 +32,3 @@ const AspectRatio = (props: Props) => {
 		</Fragment>
 	);
 };
-
-export default AspectRatio;

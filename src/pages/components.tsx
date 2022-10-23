@@ -1,31 +1,34 @@
-import Accordion from "../components/Accordian";
-import AlertDialog from "../components/AlertDialog";
-import AspectRatio from "../components/AspectRatio";
-import Avatar from "../components/Avatar";
-import Checkbox from "../components/Checkbox";
-import Collapsible from "../components/Collapsible";
-import ContextMenu from "../components/ContextMenu";
-import Dialog from "../components/Dialog";
-import Dropdown from "../components/Dropdown";
-import { Heading } from "../components/Heading";
-import HoverCard from "../components/HoverCard";
-import { Image } from "../components/Image";
-import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
-import { Navigation } from "../components/Navigation";
-import Popover from "../components/Popover";
-import Progress from "../components/Progress";
-import RadioGroup from "../components/RadioGroup";
-import Select from "../components/Select";
-import Slider from "../components/Slider";
-import Switch from "../components/Switch";
-import Tabs from "../components/Tabs";
-import { Text } from "../components/Text";
-import Toast from "../components/Toast";
-import Toggle from "../components/Toggle";
-import ToggleGroup from "../components/ToggleGroup";
-import Toolbar from "../components/Toolbar";
-import Tooltip from "../components/Tooltip";
-import { tw } from "../utils/tw";
+import {
+	Accordion,
+	AlertDialog,
+	AspectRatio,
+	Avatar,
+	Checkbox,
+	Collapsible,
+	ContextMenu,
+	Dialog,
+	Dropdown,
+	Heading,
+	HoverCard,
+	InnerColumn,
+	Navigation,
+	OuterColumn,
+	PageWrapper,
+	Popover,
+	Progress,
+	RadioGroup,
+	Select,
+	Slider,
+	Switch,
+	Tabs,
+	Text,
+	Toast,
+	Toggle,
+	ToggleGroup,
+	Toolbar,
+	Tooltip
+} from "../components";
+import { tw } from "../utils";
 import type { NextPage } from "next";
 
 const FullSpan = tw.div`col-span-3`;

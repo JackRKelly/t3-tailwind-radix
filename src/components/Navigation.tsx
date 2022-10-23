@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Switch from "./Switch";
+import { Switch } from "./Switch";
 import { useTheme } from "./ThemeProvider";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import NextLink from "next/link";

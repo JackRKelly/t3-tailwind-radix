@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import {
 	CaretRightIcon,
@@ -102,7 +102,7 @@ const ItemLabel = tw.span`text-primitive-type`;
 
 const ShortcutLabel = tw.span`text-xs text-primitive-type-extra-faint`;
 
-const DropdownMenu = () => {
+export const Dropdown = () => {
 	const [showGrid, setShowGrid] = useState(false);
 	const [showUi, setShowUi] = useState(false);
 
@@ -188,5 +188,3 @@ const DropdownMenu = () => {
 		</DropdownMenuPrimitive.Root>
 	);
 };
-
-export default DropdownMenu;

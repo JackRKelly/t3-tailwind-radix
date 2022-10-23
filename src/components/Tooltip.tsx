@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 const Content = tw(
@@ -12,7 +12,7 @@ const Body = tw.span`block text-sm leading-none text-primitive-type`;
 
 interface Props {}
 
-const Tooltip = (props: Props) => {
+export const Tooltip = (props: Props) => {
 	return (
 		<TooltipPrimitive.Provider>
 			<TooltipPrimitive.Root>
@@ -27,5 +27,3 @@ const Tooltip = (props: Props) => {
 		</TooltipPrimitive.Provider>
 	);
 };
-
-export default Tooltip;

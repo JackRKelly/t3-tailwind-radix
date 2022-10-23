@@ -48,7 +48,7 @@ const ContentInner = tw.div`text-sm text-primitive-type-faint`;
 
 const Header = tw(AccordionPrimitive.Header)`w-full`;
 
-const Accordion = () => {
+export const Accordion = () => {
 	return (
 		<Root type="multiple">
 			{items.map(({ header, content }, i) => (
@@ -67,5 +67,3 @@ const Accordion = () => {
 		</Root>
 	);
 };
-
-export default Accordion;

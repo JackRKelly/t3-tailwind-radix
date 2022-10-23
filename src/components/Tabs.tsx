@@ -42,7 +42,7 @@ const ContentInner = tw.span`text-sm text-primitive-type`;
 
 interface Props {}
 
-const Tabs = (props: Props) => {
+export const Tabs = (props: Props) => {
 	return (
 		<Root defaultValue="tab1">
 			<List>
@@ -68,5 +68,3 @@ const Tabs = (props: Props) => {
 		</Root>
 	);
 };
-
-export default Tabs;

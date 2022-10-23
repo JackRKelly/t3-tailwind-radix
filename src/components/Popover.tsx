@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import { Input } from "./Input";
 import { Label } from "./Label";
 import { Cross1Icon } from "@radix-ui/react-icons";
@@ -50,7 +50,7 @@ const Close = tw(
 
 const Wrapper = tw.div`relative inline-block text-left`;
 
-const Popover = (props: Props) => {
+export const Popover = (props: Props) => {
 	return (
 		<Wrapper>
 			<PopoverPrimitive.Root>
@@ -88,5 +88,3 @@ const Popover = (props: Props) => {
 		</Wrapper>
 	);
 };
-
-export default Popover;

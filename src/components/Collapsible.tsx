@@ -15,7 +15,7 @@ const CollapsibleItem = tw.div`group ml-12 flex select-none items-center justify
 
 const CollapsibleItemAction = tw.div`hidden items-center space-x-3 group-hover:flex`;
 
-const Collapsible = (props: Props) => {
+export const Collapsible = (props: Props) => {
 	const [isOpen, setIsOpen] = React.useState(true);
 
 	return (
@@ -38,5 +38,3 @@ const Collapsible = (props: Props) => {
 		</CollapsiblePrimitive.Root>
 	);
 };
-
-export default Collapsible;

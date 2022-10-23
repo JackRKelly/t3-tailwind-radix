@@ -12,12 +12,10 @@ const Thumb = tw(
 
 type Props = SwitchPrimitive.SwitchProps & React.RefAttributes<HTMLButtonElement>;
 
-const Switch: React.FC<Props> = (props) => {
+export const Switch: React.FC<Props> = (props) => {
 	return (
 		<Root {...props}>
 			<Thumb />
 		</Root>
 	);
 };
-
-export default Switch;

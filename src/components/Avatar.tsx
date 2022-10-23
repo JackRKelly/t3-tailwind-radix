@@ -84,4 +84,4 @@ const Avatar = ({ variant, isOnline, renderInvalidUrls = false }: Props) => {
 };
 
 Avatar.variant = Variant;
-export default Avatar;
+export { Avatar };

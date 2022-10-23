@@ -12,7 +12,7 @@ const getRandomArbitrary = (min: number, max: number) => {
 	return Math.random() * (max - min) + min;
 };
 
-const Progress = (props: Props) => {
+export const Progress = (props: Props) => {
 	const [progress, setProgress] = React.useState(60);
 
 	useEffect(() => {
@@ -36,5 +36,3 @@ const Progress = (props: Props) => {
 		</Root>
 	);
 };
-
-export default Progress;

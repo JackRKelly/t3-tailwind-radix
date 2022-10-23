@@ -72,7 +72,7 @@ const Separator = tw(
 
 interface Props {}
 
-const Toolbar = (props: Props) => {
+export const Toolbar = (props: Props) => {
 	return (
 		<Root>
 			<ToolbarPrimitive.ToggleGroup type="multiple" aria-label="Font settings">
@@ -103,5 +103,3 @@ const Toolbar = (props: Props) => {
 		</Root>
 	);
 };
-
-export default Toolbar;

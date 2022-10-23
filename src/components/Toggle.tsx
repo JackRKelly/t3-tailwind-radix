@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import { StarFilledIcon, StarIcon } from "@radix-ui/react-icons";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import React, { useState } from "react";
@@ -8,7 +8,7 @@ const Body = tw.span`ml-2 leading-5`;
 
 interface Props {}
 
-const Toggle = (props: Props) => {
+export const Toggle = (props: Props) => {
 	const [starred, setStarred] = useState(false);
 
 	return (
@@ -20,5 +20,3 @@ const Toggle = (props: Props) => {
 		</TogglePrimitive.Root>
 	);
 };
-
-export default Toggle;

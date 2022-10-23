@@ -33,7 +33,7 @@ interface Props
 	extends HoverCardPrimitive.HoverCardProps,
 		Pick<HoverCardPrimitive.HoverCardContentProps, "side" | "sideOffset" | "align"> {}
 
-const HoverCard = (props: Props) => {
+export const HoverCard = (props: Props) => {
 	const {
 		closeDelay,
 		openDelay = 100,
@@ -76,5 +76,3 @@ const HoverCard = (props: Props) => {
 		</HoverCardPrimitive.Root>
 	);
 };
-
-export default HoverCard;

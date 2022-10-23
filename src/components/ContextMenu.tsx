@@ -107,7 +107,7 @@ const SubTrigger = tw(
 	ContextMenuPrimitive.SubTrigger
 )`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive`;
 
-const ContextMenu = (props: Props) => {
+export const ContextMenu = (props: Props) => {
 	const [showGrid, setShowGrid] = useState(false);
 	const [showUi, setShowUi] = useState(false);
 
@@ -195,5 +195,3 @@ const ContextMenu = (props: Props) => {
 		</div>
 	);
 };
-
-export default ContextMenu;

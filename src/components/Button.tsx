@@ -15,11 +15,13 @@ const _Button = tw.button`
 	transition-button focus-visible:border-transparent
 `;
 
-const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => (
-	<_Button ref={ref} {...props}>
-		{children}
-	</_Button>
-));
+const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => {
+	return (
+		<_Button ref={ref} {...props}>
+			{children}
+		</_Button>
+	);
+});
 
 Button.displayName = "Button";
-export default Button;
+export { Button };

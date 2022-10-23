@@ -33,7 +33,7 @@ const Item = tw(
 
 interface Props {}
 
-const ToggleGroup = (props: Props) => {
+export const ToggleGroup = (props: Props) => {
 	return (
 		<ToggleGroupPrimitive.Root type="multiple" aria-label="Font settings">
 			{settings.map(({ value, label, icon }, i) => (
@@ -46,5 +46,3 @@ const ToggleGroup = (props: Props) => {
 		</ToggleGroupPrimitive.Root>
 	);
 };
-
-export default ToggleGroup;

@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import React from "react";
 
@@ -29,7 +29,7 @@ const Close = tw(
 	ToastPrimitive.Close
 )`w-full border border-primitive-edge focus-visible:border-transparent rounded-lg px-4 py-2 flex items-center justify-center text-sm font-medium text-primitive-type hover:bg-primitive focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
-const Toast = () => {
+export const Toast = () => {
 	const [open, setOpen] = React.useState(false);
 
 	return (
@@ -84,5 +84,3 @@ const Toast = () => {
 		</ToastPrimitive.Provider>
 	);
 };
-
-export default Toast;

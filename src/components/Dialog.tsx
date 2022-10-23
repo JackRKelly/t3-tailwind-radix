@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import { Input } from "./Input";
 import { Label } from "./Label";
 import { Transition } from "@headlessui/react";
@@ -35,7 +35,7 @@ const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 
 interface Props {}
 
-const Dialog = (props: Props) => {
+export const Dialog = (props: Props) => {
 	let [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -94,5 +94,3 @@ const Dialog = (props: Props) => {
 		</DialogPrimitive.Root>
 	);
 };
-
-export default Dialog;

@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { SelectItemProps } from "@radix-ui/react-select";
@@ -35,7 +35,7 @@ interface Props {
 	ariaLabel: string;
 }
 
-const Select: React.FC<Props> = (props) => {
+export const Select: React.FC<Props> = (props) => {
 	const { options, ariaLabel, defaultValue } = props;
 
 	return (
@@ -77,5 +77,3 @@ const Select: React.FC<Props> = (props) => {
 		</SelectPrimitive.Root>
 	);
 };
-
-export default Select;

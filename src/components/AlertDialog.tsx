@@ -1,5 +1,5 @@
 import { tw } from "../utils/tw";
-import Button from "./Button";
+import { Button } from "./Button";
 import { Transition } from "@headlessui/react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { Fragment, useState } from "react";
@@ -28,7 +28,7 @@ const Overlay = tw(AlertDialogPrimitive.Overlay)`fixed inset-0 z-20 bg-black/50`
 
 interface Props {}
 
-const AlertDialog = (props: Props) => {
+export const AlertDialog = (props: Props) => {
 	let [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -73,5 +73,3 @@ const AlertDialog = (props: Props) => {
 		</AlertDialogPrimitive.Root>
 	);
 };
-
-export default AlertDialog;

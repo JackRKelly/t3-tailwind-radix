@@ -14,7 +14,7 @@ const Thumb = tw(
 
 interface Props {}
 
-const Slider = (props: Props) => {
+export const Slider = (props: Props) => {
 	return (
 		<Root defaultValue={[50]} max={100} step={1} aria-label="value">
 			<Track>
@@ -24,5 +24,3 @@ const Slider = (props: Props) => {
 		</Root>
 	);
 };
-
-export default Slider;
