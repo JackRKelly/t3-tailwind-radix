@@ -7,11 +7,11 @@ interface Props {}
 
 const Trigger = tw(
 	CollapsiblePrimitive.Trigger
-)`group flex w-full select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint hover:bg-primitive border border-primitive-edge text-primitive-type-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`group flex w-full select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint hover:bg-primitive border border-primitive-edge text-primitive-type-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button focus-visible:border-transparent`;
 
 const Content = tw(CollapsiblePrimitive.Content)`mt-4 flex flex-col space-y-4`;
 
-const CollapsibleItem = tw.div`group ml-12 flex select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint text-primitive-type-bold hover:bg-primitive border border-primitive-edge`;
+const CollapsibleItem = tw.div`group ml-12 flex select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint text-primitive-type-bold hover:bg-primitive border border-primitive-edge transition-colors`;
 
 const CollapsibleItemAction = tw.div`hidden items-center space-x-3 group-hover:flex`;
 

@@ -28,11 +28,11 @@ const Root = tw(AccordionPrimitive.Root)`space-y-4`;
 
 const Trigger = tw(
 	AccordionPrimitive.Trigger
-)`group radix-state-closed:rounded-lg radix-state-open:rounded-t-lg focus:outline-none inline-flex w-full items-center justify-between bg-primitive-faint hover:bg-primitive border-t border-x radix-state-closed:border-b border-primitive-edge px-4 py-2 text-left`;
+)`group radix-state-closed:rounded-lg radix-state-open:rounded-t-lg focus:outline-none inline-flex w-full items-center justify-between bg-primitive-faint hover:bg-primitive border-t border-x radix-state-closed:border-b border-primitive-edge px-4 py-2 text-left focus-visible:border-transparent transition-button`;
 
 const Item = tw(
 	AccordionPrimitive.Item
-)`rounded-lg focus-within:ring focus-within:ring-highlight focus-within:ring-opacity-75 focus:outline-none`;
+)`rounded-lg focus-within:ring focus-within:ring-highlight focus:outline-none`;
 
 const ChevronDownIcon = tw(
 	_ChevronDownIcon

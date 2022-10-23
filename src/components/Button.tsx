@@ -12,7 +12,7 @@ const _Button = tw.button`
 	group first-line:radix-state-open:bg-primitive-bold
   first-letter:radix-state-instant-open:bg-primitive-bold
 	radix-state-delayed-open:bg-primitive-bold
-	transition-button
+	transition-button focus-visible:border-transparent
 `;
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => (

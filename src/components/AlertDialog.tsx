@@ -18,11 +18,11 @@ const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 
 const Cancel = tw(
 	AlertDialogPrimitive.Cancel
-)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primitive-faint hover:bg-primitive text-primitive-type-bold border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primitive-faint hover:bg-primitive text-primitive-type-bold border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
 const Action = tw(
 	AlertDialogPrimitive.Action
-)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primary text-white hover:bg-primary-bold border border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primary text-white hover:bg-primary-bold border border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
 const Overlay = tw(AlertDialogPrimitive.Overlay)`fixed inset-0 z-20 bg-black/50`;
 

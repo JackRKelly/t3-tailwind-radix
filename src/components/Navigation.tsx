@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 
 const Trigger = tw(
 	NavigationMenuPrimitive.Trigger
-)`rounded-md px-3 py-2 hover:bg-primitive-faint text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`rounded-md px-3 py-2 hover:bg-primitive text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-link`;
 
 const Content = tw(
 	NavigationMenuPrimitive.Content
@@ -33,7 +33,7 @@ const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-primitive-edge
 
 const Link = tw(
 	NavigationMenuPrimitive.Link
-)`cursor-pointer rounded-md px-3 py-2 hover:bg-primitive text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`cursor-pointer rounded-md px-3 py-2 hover:bg-primitive text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-link`;
 
 const Skeleton = tw.div`h-12 w-full rounded-md bg-primitive-faint`;
 

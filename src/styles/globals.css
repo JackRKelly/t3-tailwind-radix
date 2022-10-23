@@ -23,10 +23,10 @@ html[data-theme="light"] {
 	--color-primitive: 215, 35%, 93%;
 	--color-primitive-faint: 215, 35%, 97%;
 	/* Primitive Text */
-	--color-primitive-type-bold: 215, 35%, 0%;
+	--color-primitive-type-bold: 215, 35%, 5%;
 	--color-primitive-type: 215, 35%, 15%;
-	--color-primitive-type-faint: 215, 35%, 35%;
-	--color-primitive-type-extra-faint: 215, 35%, 50%;
+	--color-primitive-type-faint: 215, 35%, 30%;
+	--color-primitive-type-extra-faint: 215, 35%, 45%;
 	/* Primitive Border */
 	--color-primitive-edge-extra-bold: 215, 35%, 60%;
 	--color-primitive-edge-bold: 215, 35%, 70%;
@@ -38,9 +38,9 @@ html[data-theme="dark"] {
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: 215, 100%, 60%;
+	--color-primary-bold: 215, 100%, 65%;
 	--color-primary: 215, 90%, 60%;
-	--color-primary-faint: 215, 80%, 60%;
+	--color-primary-faint: 215, 80%, 55%;
 	/* Top-level */
 	--color-highlight: 215, 35%, 100%;
 	--color-type: 215, 35%, 90%;
@@ -51,9 +51,9 @@ html[data-theme="dark"] {
 	--color-primitive-faint: 215, 35%, 18%;
 	/* Primitive Text */
 	--color-primitive-type-bold: 215, 35%, 100%;
-	--color-primitive-type: 215, 35%, 85%;
-	--color-primitive-type-faint: 215, 35%, 65%;
-	--color-primitive-type-extra-faint: 215, 35%, 55%;
+	--color-primitive-type: 215, 35%, 90%;
+	--color-primitive-type-faint: 215, 35%, 75%;
+	--color-primitive-type-extra-faint: 215, 35%, 60%;
 	/* Primitive Border */
 	--color-primitive-edge-extra-bold: 214, 35%, 60%;
 	--color-primitive-edge-bold: 215, 35%, 50%;

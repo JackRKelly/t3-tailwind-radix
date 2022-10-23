@@ -37,7 +37,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
 	const { children } = props;
 
 	return (
-		<div className="mt-[70px]">
+		<div className="py-[70px]">
 			{children}
 			<div className="fixed top-0 bottom-0 left-0 h-full w-full -z-10">
 				<svg className="w-full h-full opacity-5">

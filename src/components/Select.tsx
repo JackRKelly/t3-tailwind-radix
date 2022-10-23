@@ -23,7 +23,7 @@ const ScrollDownButton = tw(
 
 const Item = tw(
 	SelectPrimitive.Item
-)`relative flex items-center px-8 py-2 rounded-md text-sm text-primitive-type font-medium focus:bg-primitive radix-disabled:opacity-50 focus:outline-none select-none`;
+)`relative flex items-center px-8 py-2 rounded-md text-sm text-primitive-type font-medium focus:bg-primitive radix-disabled:opacity-50 focus-visible:border-transparent focus:outline-none select-none`;
 
 const Content = tw(SelectPrimitive.Content)`relative z-10`;
 
