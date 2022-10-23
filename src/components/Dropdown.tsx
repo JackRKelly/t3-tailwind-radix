@@ -76,7 +76,7 @@ const Content = tw(
 
 const Item = tw(
 	DropdownMenuPrimitive.Item
-)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive min-w-[8rem]`;
+)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive w-28 md:w-32`;
 
 const CheckboxItem = tw(
 	DropdownMenuPrimitive.CheckboxItem

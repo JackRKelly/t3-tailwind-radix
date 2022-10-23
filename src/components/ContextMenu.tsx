@@ -69,9 +69,9 @@ const users: User[] = [
 	}
 ];
 
-const Separator = tw(ContextMenuPrimitive.Separator)`my-1 h-px bg-primitive-edge-faint`;
-
 interface Props {}
+
+const Separator = tw(ContextMenuPrimitive.Separator)`my-1 h-px bg-primitive-edge-faint`;
 
 const Trigger = tw(
 	ContextMenuPrimitive.Trigger
@@ -85,7 +85,7 @@ const Content = tw(
 
 const Item = tw(
 	ContextMenuPrimitive.Item
-)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive`;
+)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive w-28 md:w-32`;
 
 const Label = tw.span`flex-grow text-primitive-type`;
 
@@ -177,20 +177,14 @@ const ContextMenu = (props: Props) => {
 							<ContextMenuPrimitive.Portal>
 								<SubContent>
 									{users.map(({ name, url }, i) => (
-										<ContextMenuPrimitive.Item
-											key={`${name}-${i}`}
-											className={cx(
-												"flex w-28 cursor-default select-none items-center rounded-md px-2 py-2 outline-none md:w-32",
-												"text-primitive-type focus:bg-primitive"
-											)}
-										>
+										<Item key={`${name}-${i}`}>
 											{url ? (
 												<img className="mr-2.5 h-6 w-6 rounded-full" src={url} />
 											) : (
 												<PersonIcon className="mr-2.5 h-6 w-6" />
 											)}
 											<span className="text-primitive-type">{name}</span>
-										</ContextMenuPrimitive.Item>
+										</Item>
 									))}
 								</SubContent>
 							</ContextMenuPrimitive.Portal>
