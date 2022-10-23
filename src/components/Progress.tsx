@@ -1,5 +1,10 @@
+import { tw } from "../utils/tw";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 import React, { useEffect } from "react";
+
+const Root = tw(ProgressPrimitive.Root)`h-3 w-full overflow-hidden rounded-full bg-primitive`;
+
+const Indicator = tw(ProgressPrimitive.Indicator)`h-full bg-primary duration-300 ease-in-out`;
 
 interface Props {}
 
@@ -26,15 +31,9 @@ const Progress = (props: Props) => {
 	}, []);
 
 	return (
-		<ProgressPrimitive.Root
-			value={progress}
-			className="h-3 w-full overflow-hidden rounded-full bg-primitive"
-		>
-			<ProgressPrimitive.Indicator
-				style={{ width: `${progress}%` }}
-				className="h-full bg-primary duration-300 ease-in-out"
-			/>
-		</ProgressPrimitive.Root>
+		<Root value={progress}>
+			<Indicator style={{ width: `${progress}%` }} />
+		</Root>
 	);
 };
 

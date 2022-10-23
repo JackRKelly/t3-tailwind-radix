@@ -73,6 +73,40 @@ const Separator = tw(ContextMenuPrimitive.Separator)`my-1 h-px bg-primitive-edge
 
 interface Props {}
 
+const Trigger = tw(
+	ContextMenuPrimitive.Trigger
+)`inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-primitive-edge bg-primitive-faint px-3 py-4`;
+
+const TriggerInner = tw.span`select-none text-sm font-medium text-primitive-type`;
+
+const Content = tw(
+	ContextMenuPrimitive.Content
+)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint border border-primitive-edge`;
+
+const Item = tw(
+	ContextMenuPrimitive.Item
+)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive`;
+
+const Label = tw.span`flex-grow text-primitive-type`;
+
+const SectionLabel = tw(
+	ContextMenuPrimitive.Label
+)`select-none px-2 py-2 text-xs text-primitive-type`;
+
+const Shortcut = tw.span`text-xs`;
+
+const CheckboxItem = tw(
+	ContextMenuPrimitive.CheckboxItem
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive`;
+
+const SubContent = tw(
+	ContextMenuPrimitive.SubContent
+)`origin-radix-context-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive-faint border border-primitive-edge`;
+
+const SubTrigger = tw(
+	ContextMenuPrimitive.SubTrigger
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive`;
+
 const ContextMenu = (props: Props) => {
 	const [showGrid, setShowGrid] = useState(false);
 	const [showUi, setShowUi] = useState(false);
@@ -80,107 +114,68 @@ const ContextMenu = (props: Props) => {
 	return (
 		<div>
 			<ContextMenuPrimitive.Root>
-				<ContextMenuPrimitive.Trigger className="inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-primitive-edge bg-primitive-faint px-3 py-4">
-					<span className="select-none text-sm font-medium text-primitive-type">Right Click</span>
-				</ContextMenuPrimitive.Trigger>
+				<Trigger>
+					<TriggerInner>Right Click</TriggerInner>
+				</Trigger>
 
 				<ContextMenuPrimitive.Portal>
-					<ContextMenuPrimitive.Content
-						className={cx(
-							"radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint border border-primitive-edge"
-						)}
-					>
+					<Content>
 						{generalMenuItems.map(({ label, icon, shortcut }, i) => (
-							<ContextMenuPrimitive.Item
-								key={`${label}-${i}`}
-								className={cx(
-									"flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive"
-								)}
-							>
+							<Item key={`${label}-${i}`}>
 								{icon}
-								<span className="flex-grow text-primitive-type">{label}</span>
-								{shortcut && <span className="text-xs">{shortcut}</span>}
-							</ContextMenuPrimitive.Item>
+								<Label>{label}</Label>
+								{shortcut && <Shortcut>{shortcut}</Shortcut>}
+							</Item>
 						))}
 
 						<Separator />
 
-						<ContextMenuPrimitive.CheckboxItem
-							checked={showGrid}
-							onCheckedChange={setShowGrid as any}
-							className={cx(
-								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive"
-							)}
-						>
+						<CheckboxItem checked={showGrid} onCheckedChange={setShowGrid as any}>
 							{showGrid ? (
 								<GridIcon className="mr-2 h-4 w-4" />
 							) : (
 								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5 text-primitive-type" />
 							)}
-							<span className="flex-grow text-primitive-type">Show Grid</span>
+							<Label>Show Grid</Label>
 							<ContextMenuPrimitive.ItemIndicator>
 								<CheckIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.ItemIndicator>
-						</ContextMenuPrimitive.CheckboxItem>
+						</CheckboxItem>
 
-						<ContextMenuPrimitive.CheckboxItem
-							checked={showUi}
-							onCheckedChange={setShowUi as any}
-							className={cx(
-								"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none focus:bg-primitive"
-							)}
-						>
+						<CheckboxItem checked={showUi} onCheckedChange={setShowUi as any}>
 							{showUi ? (
 								<EyeOpenIcon className="mr-2 h-3.5 w-3.5" />
 							) : (
 								<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
 							)}
-							<span className="flex-grow text-primitive-type">Show UI</span>
+							<Label>Show UI</Label>
 							<ContextMenuPrimitive.ItemIndicator>
 								<CheckIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.ItemIndicator>
-						</ContextMenuPrimitive.CheckboxItem>
+						</CheckboxItem>
 
 						<Separator />
 
-						<ContextMenuPrimitive.Label className="select-none px-2 py-2 text-xs text-primitive-type">
-							Region Tools
-						</ContextMenuPrimitive.Label>
+						<SectionLabel>Region Tools</SectionLabel>
 
 						{regionToolMenuItems.map(({ label, icon, shortcut }, i) => (
-							<ContextMenuPrimitive.Item
-								key={`${label}-${i}`}
-								className={cx(
-									"flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none",
-									"text-primitive-type focus:bg-primitive"
-								)}
-							>
+							<Item key={`${label}-${i}`}>
 								{icon}
-								<span className="flex-grow text-primitive-type">{label}</span>
-								{shortcut && <span className="text-xs">{shortcut}</span>}
-							</ContextMenuPrimitive.Item>
+								<Label>{label}</Label>
+								{shortcut && <Shortcut>{shortcut}</Shortcut>}
+							</Item>
 						))}
 
 						<Separator />
 
 						<ContextMenuPrimitive.Sub>
-							<ContextMenuPrimitive.SubTrigger
-								className={cx(
-									"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive"
-								)}
-							>
+							<SubTrigger>
 								<Link2Icon className="mr-2 h-3.5 w-3.5" />
-								<span className="flex-grow text-primitive-type">Share</span>
+								<Label>Share</Label>
 								<CaretRightIcon className="h-3.5 w-3.5" />
-							</ContextMenuPrimitive.SubTrigger>
+							</SubTrigger>
 							<ContextMenuPrimitive.Portal>
-								<ContextMenuPrimitive.SubContent
-									className={cx(
-										"origin-radix-context-menu radix-side-right:animate-scale-in",
-										"w-full rounded-md px-1 py-1 text-xs",
-										"bg-primitive-faint border border-primitive-edge"
-									)}
-								>
+								<SubContent>
 									{users.map(({ name, url }, i) => (
 										<ContextMenuPrimitive.Item
 											key={`${name}-${i}`}
@@ -197,10 +192,10 @@ const ContextMenu = (props: Props) => {
 											<span className="text-primitive-type">{name}</span>
 										</ContextMenuPrimitive.Item>
 									))}
-								</ContextMenuPrimitive.SubContent>
+								</SubContent>
 							</ContextMenuPrimitive.Portal>
 						</ContextMenuPrimitive.Sub>
-					</ContextMenuPrimitive.Content>
+					</Content>
 				</ContextMenuPrimitive.Portal>
 			</ContextMenuPrimitive.Root>
 		</div>

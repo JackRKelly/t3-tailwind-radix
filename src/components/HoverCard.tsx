@@ -21,7 +21,7 @@ const Content = tw(
 	HoverCardPrimitive.Content
 )`z-10 border border-primitive-edge radix-side-right:animate-slide-left-fade radix-side-top:animate-slide-down-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade max-w-md rounded-lg p-4 md:w-full bg-primitive-faint focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
-const TriggerWrapper = tw.div`inline-flex h-12 w-12 items-center justify-center rounded-full bg-primitive p-2.5`;
+const TriggerWrapper = tw.div`inline-flex h-12 w-12 items-center justify-center rounded-full bg-primitive p-2.5 border-primitive-edge border`;
 
 const Body = tw.p`mt-1 text-sm font-normal text-primitive-type`;
 

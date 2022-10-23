@@ -1,7 +1,7 @@
 function alpha(variableName) {
 	// some tailwind magic to allow us to specify opacity with CSS variables (eg: bg-app/80)
 	// https://tailwindcss.com/docs/customizing-colors#using-css-variables
-	return `rgba(var(--${variableName[0]}), <alpha-value>)`;
+	return `hsla(var(--${variableName[0]}), <alpha-value>)`;
 }
 
 /** @type {import('tailwindcss').Config} */

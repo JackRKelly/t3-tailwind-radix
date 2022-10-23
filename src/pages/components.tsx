@@ -13,6 +13,7 @@ import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import Popover from "../components/Popover";
+import Progress from "../components/Progress";
 import RadioGroup from "../components/RadioGroup";
 import Select from "../components/Select";
 import Slider from "../components/Slider";
@@ -23,6 +24,7 @@ import Toast from "../components/Toast";
 import Toggle from "../components/Toggle";
 import ToggleGroup from "../components/ToggleGroup";
 import Toolbar from "../components/Toolbar";
+import Tooltip from "../components/Tooltip";
 import type { NextPage } from "next";
 
 const Components: NextPage = () => {
@@ -216,6 +218,19 @@ const Components: NextPage = () => {
 									Checkbox
 								</Heading>
 								<Checkbox />
+							</div>
+
+							<div>
+								<Heading size="sm" className="mb-2">
+									Progress
+								</Heading>
+								<Progress />
+							</div>
+							<div>
+								<Heading size="sm" className="mb-2">
+									Tooltip
+								</Heading>
+								<Tooltip />
 							</div>
 						</div>
 					</InnerColumn>

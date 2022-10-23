@@ -7,7 +7,7 @@ import React from "react";
 
 const Root = tw(
 	CheckboxPrimitive.Root
-)`flex h-5 w-5 items-center justify-center rounded radix-state-checked:bg-primary radix-state-unchecked:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+)`flex h-5 w-5 items-center justify-center rounded radix-state-checked:bg-primary radix-state-unchecked:bg-primitive-faint radix-state-unchecked:border border-primitive-edge focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
 const Label = tw(
 	LabelPrimitive.Label

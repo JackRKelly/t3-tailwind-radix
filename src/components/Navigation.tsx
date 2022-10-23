@@ -23,6 +23,8 @@ const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
 )`relative mt-2 overflow-hidden rounded-md bg-primitive-faint border border-primitive-edge-faint w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
 
+const ViewportPerspective = tw.div`absolute flex justify-center left-[-20%] top-[100%] w-[140%]`;
+
 const Indicator = tw(
 	NavigationMenuPrimitive.Indicator
 )`z-10 top-[100%] flex h-2 items-end justify-center overflow-hidden transition-[width_transform] duration-[250ms] ease-[ease]`;
@@ -35,9 +37,13 @@ const Link = tw(
 
 const Skeleton = tw.div`h-12 w-full rounded-md bg-primitive-faint`;
 
-const SkeletonWrapper = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded-md bg-primitive p-4`;
+const SkeletonList = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded-md bg-primitive p-4`;
 
 const SkeletonColumn = tw.div`col-span-2 w-full rounded-md bg-primitive p-4`;
+
+const SkeletonGrid = tw.div`grid grid-cols-6 gap-4`;
+
+const SkeletonGridWrapper = tw.div`w-[21rem] p-3 lg:w-[23rem]`;
 
 const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-20 w-full flex items-center justify-center`;
 
@@ -46,6 +52,10 @@ const SubText = tw.span`absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center j
 const CardTitle = tw.span`block text-sm font-bold text-primitive-type`;
 
 const CardBody = tw.span`block mt-1 text-sm text-primitive-type-faint`;
+
+const LinkList = tw.div`flex w-full flex-col space-y-2`;
+
+const LinkListContainer = tw.div`w-[16rem] p-3 lg:w-[18rem]`;
 
 export const Navigation = () => {
 	const { theme, setTheme } = useTheme();
@@ -71,25 +81,25 @@ export const Navigation = () => {
 					<NavigationMenuPrimitive.Item>
 						<Trigger>Overview</Trigger>
 						<Content>
-							<div className="w-[21rem] p-3 lg:w-[23rem]">
-								<div className="grid grid-cols-6 gap-4">
+							<SkeletonGridWrapper>
+								<SkeletonGrid>
 									<SkeletonColumn />
-									<SkeletonWrapper>
+									<SkeletonList>
 										<Skeleton />
 										<Skeleton />
 										<Skeleton />
 										<Skeleton />
-									</SkeletonWrapper>
-								</div>
-							</div>
+									</SkeletonList>
+								</SkeletonGrid>
+							</SkeletonGridWrapper>
 						</Content>
 					</NavigationMenuPrimitive.Item>
 
 					<NavigationMenuPrimitive.Item>
 						<Trigger>Resources</Trigger>
 						<Content>
-							<div className="w-[16rem] p-3 lg:w-[18rem]">
-								<div className="flex w-full flex-col space-y-2">
+							<LinkListContainer>
+								<LinkList>
 									<Link href="https://tailwindcss.com">
 										<CardTitle>Tailwind CSS</CardTitle>
 										<CardBody>
@@ -103,8 +113,8 @@ export const Navigation = () => {
 											design systems and web apps.
 										</CardBody>
 									</Link>
-								</div>
-							</div>
+								</LinkList>
+							</LinkListContainer>
 						</Content>
 					</NavigationMenuPrimitive.Item>
 
@@ -139,14 +149,13 @@ export const Navigation = () => {
 						<IndicatorInner />
 					</Indicator>
 				</List>
-				<div
-					className="absolute flex justify-center left-[-20%] top-[100%] w-[140%]"
+				<ViewportPerspective
 					style={{
 						perspective: "2000px"
 					}}
 				>
 					<Viewport />
-				</div>
+				</ViewportPerspective>
 			</Root>
 		</NavigationWrapper>
 	);

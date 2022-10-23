@@ -18,6 +18,8 @@ const ActionListWrapper = tw.div`flex flex-col px-3 py-2 space-y-1`;
 
 const TextWrapper = tw.div`w-0 flex-1 flex items-center pl-5 py-4`;
 
+const TextWrapperInner = tw.div`w-full radix`;
+
 const ActionWrapper = tw.div`h-0 flex-1 flex`;
 
 const Action = tw(
@@ -50,13 +52,13 @@ const Toast = () => {
 			<Root open={open} onOpenChange={setOpen}>
 				<FlexWrapper>
 					<TextWrapper>
-						<div className="w-full radix">
+						<TextWrapperInner>
 							<Title>Pull Request Review</Title>
 							<Description>
 								Someone requested your review on{" "}
 								<span className="font-medium">repository/branch</span>
 							</Description>
-						</div>
+						</TextWrapperInner>
 					</TextWrapper>
 					<FlexWrapper>
 						<ActionListWrapper>
