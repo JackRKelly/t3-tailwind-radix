@@ -40,7 +40,7 @@ const Arrow = tw(PopoverPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const Content = tw(
 	PopoverPrimitive.Content
-)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg p-4 shadow-md md:w-56 bg-primitive-faint border border-primitive-edge`;
+)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg p-4 md:w-56 bg-primitive-faint border border-primitive-edge`;
 
 const Fieldset = tw.fieldset`flex items-center`;
 
@@ -50,7 +50,7 @@ const Close = tw(
 
 const Popover = (props: Props) => {
 	return (
-		<div className="relative inline-block text-left">
+		<div className="relative inline-block text-left z-10">
 			<PopoverPrimitive.Root>
 				<PopoverPrimitive.Trigger asChild>
 					<Button>Click</Button>

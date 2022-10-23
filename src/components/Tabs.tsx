@@ -1,3 +1,4 @@
+import { tw } from "../utils/tw";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import cx from "clsx";
 import React from "react";
@@ -23,33 +24,37 @@ const tabs: Tab[] = [
 	}
 ];
 
+const Root = tw(TabsPrimitive.Root)`border border-primitive-edge rounded-lg`;
+
+const List = tw(TabsPrimitive.List)`flex w-full rounded-t-lg bg-primitive-faint`;
+
+const Trigger = tw(
+	TabsPrimitive.Trigger
+)`group first:rounded-tl-lg last:rounded-tr-lg border-b first:border-r last:border-l border-primitive-edge radix-state-active:primitive-faint radix-state-active:border-b-primitive-edge-extra-bold radix-state-active:bg-primitive focus-visible:radix-state-active:border-b-transparent radix-state-inactive:bg-primitive-faint flex-1 px-3 py-2.5 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75 focus:z-10`;
+
+const TriggerInner = tw.span`text-sm font-medium text-primitive-type`;
+
+const Content = tw(
+	TabsPrimitive.Content
+)`relative rounded-b-lg bg-primitive-faint px-6 py-4 focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+
+const ContentInner = tw.span`text-sm text-primitive-type`;
+
 interface Props {}
 
 const Tabs = (props: Props) => {
 	return (
-		<TabsPrimitive.Root defaultValue="tab1" className="border border-primitive-edge rounded-lg">
-			<TabsPrimitive.List className={cx("flex w-full rounded-t-lg bg-primitive-faint")}>
+		<Root defaultValue="tab1">
+			<List>
 				{tabs.map(({ title, value }, i) => (
-					<TabsPrimitive.Trigger
-						key={`tab-trigger-${value}`}
-						value={value}
-						className={cx(
-							"group first:rounded-tl-lg last:rounded-tr-lg border-b first:border-r last:border-l border-primitive-edge radix-state-active:primitive-faint radix-state-active:border-b-primitive-edge-extra-bold radix-state-active:bg-primitive focus-visible:radix-state-active:border-b-transparent radix-state-inactive:bg-primitive-faint flex-1 px-3 py-2.5 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75 focus:z-10"
-						)}
-					>
-						<span className={cx("text-sm font-medium text-primitive-type")}>{title}</span>
-					</TabsPrimitive.Trigger>
+					<Trigger key={`tab-trigger-${value}`} value={value}>
+						<TriggerInner>{title}</TriggerInner>
+					</Trigger>
 				))}
-			</TabsPrimitive.List>
+			</List>
 			{tabs.map(({ value }) => (
-				<TabsPrimitive.Content
-					key={`tab-content-${value}`}
-					value={value}
-					className={cx(
-						"relative rounded-b-lg bg-primitive-faint px-6 py-4 focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
-					)}
-				>
-					<span className="text-sm text-primitive-type">
+				<Content key={`tab-content-${value}`} value={value}>
+					<ContentInner>
 						{
 							{
 								tab1: "Your inbox is empty",
@@ -57,10 +62,10 @@ const Tabs = (props: Props) => {
 								tab3: "Order more coffee"
 							}[value]
 						}
-					</span>
-				</TabsPrimitive.Content>
+					</ContentInner>
+				</Content>
 			))}
-		</TabsPrimitive.Root>
+		</Root>
 	);
 };
 

@@ -108,6 +108,7 @@ module.exports = {
 				"scale-in": "scale-in 0.2s ease-in-out",
 				"slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
 				"slide-up": "slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-right": "slide-right 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
 				// Tooltip
 				"slide-up-fade": "slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
 				"slide-right-fade": "slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
