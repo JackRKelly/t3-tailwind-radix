@@ -11,7 +11,7 @@ const Trigger = tw(
 
 const Content = tw(
 	NavigationMenuPrimitive.Content
-)`absolute top-0 left-0 w-auto bg-primitive rounded-lg radix-motion-from-start:animate-enter-from-left radix-motion-from-end:animate-enter-from-right radix-motion-to-start:animate-exit-to-left radix-motion-to-end:animate-exit-to-right`;
+)`absolute top-0 left-0 w-auto bg-primitive-faint rounded-lg radix-motion-from-start:animate-enter-from-left radix-motion-from-end:animate-enter-from-right radix-motion-to-start:animate-exit-to-left radix-motion-to-end:animate-exit-to-right`;
 
 const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
@@ -21,7 +21,7 @@ const List = tw(
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
-)`relative mt-2 overflow-hidden rounded-md bg-primitive border border-primitive-edge-faint w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
+)`relative mt-2 overflow-hidden rounded-md bg-primitive-faint border border-primitive-edge-faint w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
 
 const Indicator = tw(
 	NavigationMenuPrimitive.Indicator
@@ -31,13 +31,13 @@ const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-primitive-edge
 
 const Link = tw(
 	NavigationMenuPrimitive.Link
-)`cursor-pointer rounded-md px-3 py-2 hover:bg-primitive-faint text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+)`cursor-pointer rounded-md px-3 py-2 hover:bg-primitive text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
 const Skeleton = tw.div`h-12 w-full rounded-md bg-primitive-faint`;
 
 const SkeletonWrapper = tw.div`col-span-4 flex w-full flex-col space-y-3 rounded-md bg-primitive p-4`;
 
-const SkeletonColumn = tw.div`col-span-2 w-full rounded-md bg-primitive-faint p-4`;
+const SkeletonColumn = tw.div`col-span-2 w-full rounded-md bg-primitive p-4`;
 
 const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-20 w-full flex items-center justify-center`;
 

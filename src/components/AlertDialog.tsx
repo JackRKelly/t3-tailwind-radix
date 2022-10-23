@@ -18,7 +18,7 @@ const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 
 const Cancel = tw(
 	AlertDialogPrimitive.Cancel
-)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primitive-faint text-primitive-type-bold hover:bg-primitive-faint border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primitive-faint hover:bg-primitive text-primitive-type-bold border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
 const Action = tw(
 	AlertDialogPrimitive.Action

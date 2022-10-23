@@ -1,12 +1,9 @@
-import Accordion from "../components/Accordian";
 import { Heading } from "../components/Heading";
 import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
-import Dropdown from "../components/Select";
 import { Text } from "../components/Text";
 import type { NextPage } from "next";
-import Head from "next/head";
 
 const Careers: NextPage = () => {
 	return (
@@ -15,7 +12,7 @@ const Careers: NextPage = () => {
 
 			<OuterColumn>
 				<div className="relative w-full overflow-hidden rounded-xl bg-blue-500">
-					<div className="opacity-4 60 absolute left-0 bottom-0 top-0">
+					<div className="opacity-60 absolute left-0 bottom-0 top-0">
 						<Image
 							src="/assets/bg_curve.png"
 							layout="intrinsic"

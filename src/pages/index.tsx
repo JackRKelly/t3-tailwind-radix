@@ -11,8 +11,8 @@ const Home: NextPage = () => {
 			<Navigation />
 
 			<OuterColumn>
-				<div className="relative w-full overflow-hidden rounded-xl bg-blue-500">
-					<div className="opacity-4 60 absolute left-0 bottom-0 top-0">
+				<div className="relative w-full overflow-hidden rounded-xl bg-primary">
+					<div className="opacity-60 absolute left-0 bottom-0 top-0">
 						<Image
 							src="/assets/bg_curve.png"
 							layout="intrinsic"
