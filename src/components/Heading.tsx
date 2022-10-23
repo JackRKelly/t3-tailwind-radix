@@ -2,7 +2,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
 import React from "react";
 
-const styles = cva("tracking-tight text-type", {
+const styles = cva("tracking-tight text-primitive-type", {
 	variants: {
 		size: {
 			xxl: "text-4xl sm:text-5xl md:text-7xl lg:text-8xl",
