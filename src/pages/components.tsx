@@ -28,11 +28,11 @@ import Tooltip from "../components/Tooltip";
 import { tw } from "../utils/tw";
 import type { NextPage } from "next";
 
-const FullSpan = tw.div`col-span-4`;
+const FullSpan = tw.div`col-span-3`;
 
-const TwoSpan = tw.div`col-span-4 md:col-span-2`;
+const TwoSpan = tw.div`col-span-3 md:col-span-2`;
 
-const OneSpan = tw.div`col-span-4 sm:col-span-2 lg:col-span-1`;
+const OneSpan = tw.div`col-span-3 sm:col-span-2 lg:col-span-1`;
 
 const Components: NextPage = () => {
 	return (
@@ -72,7 +72,7 @@ const Components: NextPage = () => {
 
 				<Section>
 					<InnerColumn width="third">
-						<div className="grid grid-cols-4 gap-6 grid-flow-row-dense">
+						<div className="grid grid-cols-3 gap-6 grid-flow-row-dense">
 							<FullSpan>
 								<Text>
 									We are always looking for talented engineers to join our team. If you are
@@ -177,8 +177,9 @@ const Components: NextPage = () => {
 									Avatar
 								</Heading>
 								<div className="grid grid-cols-4 gap-2">
-									<Avatar variant={Avatar.variant.Circle} />
 									<Avatar variant={Avatar.variant.Rounded} />
+									<Avatar variant={Avatar.variant.Rounded} isOnline />
+									<Avatar variant={Avatar.variant.Rounded} renderInvalidUrls />
 								</div>
 							</OneSpan>
 
@@ -189,19 +190,19 @@ const Components: NextPage = () => {
 								<ContextMenu />
 							</OneSpan>
 
-							<TwoSpan>
-								<Heading size="sm" className="mb-2">
-									Collapsible
-								</Heading>
-								<Collapsible />
-							</TwoSpan>
-
-							<TwoSpan>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Slider
 								</Heading>
 								<Slider />
-							</TwoSpan>
+							</OneSpan>
+
+							<OneSpan>
+								<Heading size="sm" className="mb-2">
+									Collapsible
+								</Heading>
+								<Collapsible />
+							</OneSpan>
 
 							<TwoSpan>
 								<Heading size="sm" className="mb-2">
@@ -210,12 +211,12 @@ const Components: NextPage = () => {
 								<AspectRatio />
 							</TwoSpan>
 
-							<TwoSpan>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Checkbox
 								</Heading>
 								<Checkbox />
-							</TwoSpan>
+							</OneSpan>
 
 							<TwoSpan>
 								<Heading size="sm" className="mb-2">
@@ -230,6 +231,7 @@ const Components: NextPage = () => {
 								</Heading>
 								<Toolbar />
 							</FullSpan>
+
 							<FullSpan>
 								<Heading size="sm" className="mb-2">
 									Tabs

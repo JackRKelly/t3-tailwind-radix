@@ -5,9 +5,9 @@ import React from "react";
 const styles = cva("text-type", {
 	variants: {
 		size: {
-			xl: "text-xl",
-			lg: "text-lg",
-			md: "text-base",
+			xl: "text-lg md:text-xl",
+			lg: "text-base md:text-lg",
+			md: "text-sm md:text-base",
 			sm: "text-sm",
 			xs: "text-xs"
 		},

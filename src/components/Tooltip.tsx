@@ -1,8 +1,6 @@
 import { tw } from "../utils/tw";
 import Button from "./Button";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import cx from "clsx";
-import React from "react";
 
 const Content = tw(
 	TooltipPrimitive.Content

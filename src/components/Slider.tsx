@@ -1,6 +1,5 @@
 import { tw } from "../utils/tw";
 import * as SliderPrimitive from "@radix-ui/react-slider";
-import cx from "clsx";
 import React from "react";
 
 const Root = tw(SliderPrimitive.Root)`relative flex h-5 w-64 touch-none items-center`;

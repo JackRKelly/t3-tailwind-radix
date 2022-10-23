@@ -1,17 +1,7 @@
+import { tw } from "../utils/tw";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import cx from "clsx";
 import React, { Fragment } from "react";
-
-enum Variant {
-	Circle,
-	Rounded
-}
-
-type Props = {
-	variant: Variant;
-	renderInvalidUrls?: boolean;
-	isOnline?: boolean;
-};
 
 const getRandomInitials = () => {
 	return Math.random()
@@ -28,18 +18,32 @@ let users = [
 	"https://images.unsplash.com/photo-1546456073-ea246a7bd25f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
 ];
 
+enum Variant {
+	Circle,
+	Rounded
+}
+
+type Props = {
+	variant: Variant;
+	renderInvalidUrls?: boolean;
+	isOnline?: boolean;
+};
+
+const Root = tw(AvatarPrimitive.Root)`relative inline-flex h-10 w-10`;
+
+const Image = tw(AvatarPrimitive.Image)`h-full w-full object-cover`;
+
 const Avatar = ({ variant, isOnline, renderInvalidUrls = false }: Props) => {
 	const urls = renderInvalidUrls ? Array.from({ length: users.length }, () => "") : users;
 
 	return (
 		<Fragment>
 			{urls.map((src, i) => (
-				<AvatarPrimitive.Root key={`avatar-${i}-{src}`} className="relative inline-flex h-10 w-10">
-					<AvatarPrimitive.Image
+				<Root key={`avatar-${i}-{src}`}>
+					<Image
 						src={src}
 						alt="Avatar"
 						className={cx(
-							"h-full w-full object-cover",
 							{
 								[Variant.Circle]: "rounded-full",
 								[Variant.Rounded]: "rounded"
@@ -73,7 +77,7 @@ const Avatar = ({ variant, isOnline, renderInvalidUrls = false }: Props) => {
 							{getRandomInitials()}
 						</span>
 					</AvatarPrimitive.Fallback>
-				</AvatarPrimitive.Root>
+				</Root>
 			))}
 		</Fragment>
 	);

@@ -21,7 +21,7 @@ const Progress = (props: Props) => {
 		timerId = setInterval(() => {
 			const p = Math.ceil(getRandomArbitrary(0, 100) / 10) * 10;
 			setProgress(p);
-		}, 5000);
+		}, 3000);
 
 		return () => {
 			if (timerId) {

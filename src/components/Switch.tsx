@@ -1,6 +1,5 @@
 import { tw } from "../utils/tw";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
-import clsx from "clsx";
 import React from "react";
 
 const Root = tw(

@@ -8,7 +8,6 @@ import {
 	UnderlineIcon
 } from "@radix-ui/react-icons";
 import * as ToolbarPrimitive from "@radix-ui/react-toolbar";
-import cx from "clsx";
 import React, { ReactElement } from "react";
 
 interface ToggleItem {

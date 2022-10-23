@@ -2,9 +2,9 @@ import { tw } from "../utils/tw";
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
 
-export const OuterColumn = tw.div`w-full max-w-[1380px] m-auto px-5`;
+export const OuterColumn = tw.div`w-full max-w-[1380px] m-auto px-3 md:px-6 lg:px-9`;
 
-const innerColumnStyles = cva("w-full m-auto px-5 md:px-8 lg:px-16", {
+const innerColumnStyles = cva("w-full m-auto px-2", {
 	variants: {
 		width: {
 			full: "max-w-[1150px]",
@@ -62,4 +62,4 @@ export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
 	);
 };
 
-export const Section = tw.section`py-12`;
+export const Section = tw.section`py-4 md:py-8 lg:py-12`;

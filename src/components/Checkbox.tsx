@@ -2,8 +2,6 @@ import { tw } from "../utils/tw";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import cx from "clsx";
-import React from "react";
 
 const Root = tw(
 	CheckboxPrimitive.Root

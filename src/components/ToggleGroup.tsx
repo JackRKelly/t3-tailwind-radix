@@ -1,7 +1,6 @@
 import { tw } from "../utils/tw";
 import { FontBoldIcon, FontItalicIcon, UnderlineIcon } from "@radix-ui/react-icons";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
-import cx from "clsx";
 import React, { ReactElement } from "react";
 
 interface ToggleItem {

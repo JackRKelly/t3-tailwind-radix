@@ -1,5 +1,4 @@
 import { tw } from "../utils/tw";
-import clsx from "clsx";
 import React from "react";
 
 type Props = Omit<React.ComponentProps<"button">, "className">;
