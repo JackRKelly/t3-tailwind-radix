@@ -1,4 +1,7 @@
+import { tw } from "../utils/tw";
 import Button from "./Button";
+import { Input } from "./Input";
+import { Label } from "./Label";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import cx from "clsx";
@@ -29,6 +32,22 @@ const items = [
 	}
 ];
 
+const Form = tw.form`mt-4 space-y-2`;
+
+const Header = tw.h3`text-base font-semibold text-primitive-type-bold`;
+
+const Arrow = tw(PopoverPrimitive.Arrow)`fill-current text-primitive-edge`;
+
+const Content = tw(
+	PopoverPrimitive.Content
+)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg p-4 shadow-md md:w-56 bg-primitive-faint border border-primitive-edge`;
+
+const Fieldset = tw.fieldset`flex items-center`;
+
+const Close = tw(
+	PopoverPrimitive.Close
+)`absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+
 const Popover = (props: Props) => {
 	return (
 		<div className="relative inline-block text-left">
@@ -36,57 +55,33 @@ const Popover = (props: Props) => {
 				<PopoverPrimitive.Trigger asChild>
 					<Button>Click</Button>
 				</PopoverPrimitive.Trigger>
-				<PopoverPrimitive.Content
-					align="center"
-					sideOffset={4}
-					className={cx(
-						"radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
-						"w-48 rounded-lg p-4 shadow-md md:w-56",
-						"bg-primitive dark:bg-gray-800"
-					)}
-				>
-					<PopoverPrimitive.Arrow className="fill-current text-white dark:text-gray-800" />
-					<h3 className="text-sm font-medium text-primitive-type-bold dark:text-gray-100">
-						Dimensions
-					</h3>
+				<Content align="center" sideOffset={4}>
+					<Arrow />
+					<Header>Dimensions</Header>
 
-					<form className="mt-4 space-y-2">
+					<Form>
 						{items.map(({ id, label, defaultValue }) => {
 							return (
-								<fieldset key={`popover-items-${id}`} className="flex items-center">
-									{/* <legend>Choose your favorite monster</legend> */}
-									<label
-										htmlFor={id}
-										className="shrink-0 grow text-xs font-medium text-primitive-type dark:text-gray-400"
-									>
+								<Fieldset key={`popover-items-${id}`}>
+									<Label htmlFor={id} className="shrink-0 grow">
 										{label}
-									</label>
-									<input
+									</Label>
+									<Input
 										id={id}
 										type="text"
+										className="w-1/2"
 										defaultValue={defaultValue}
 										autoComplete="given-name"
-										className={cx(
-											"block w-1/2 rounded-md",
-											"text-xs text-primitive-type placeholder:text-gray-500 dark:text-gray-400 dark:placeholder:text-gray-600",
-											"border border-gray-400 focus-visible:border-transparent dark:border-gray-700 dark:bg-gray-800",
-											"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
-										)}
 									/>
-								</fieldset>
+								</Fieldset>
 							);
 						})}
-					</form>
+					</Form>
 
-					<PopoverPrimitive.Close
-						className={cx(
-							"absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1",
-							"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
-						)}
-					>
-						<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-primitive-type dark:text-gray-500 dark:hover:text-gray-400" />
-					</PopoverPrimitive.Close>
-				</PopoverPrimitive.Content>
+					<Close>
+						<Cross1Icon className="h-4 w-4 text-primitive-type hover:text-primitive-type-bold" />
+					</Close>
+				</Content>
 			</PopoverPrimitive.Root>
 		</div>
 	);

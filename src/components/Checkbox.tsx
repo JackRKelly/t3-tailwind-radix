@@ -14,7 +14,7 @@ const Checkbox = (props: Props) => {
 				defaultChecked
 				className={cx(
 					"flex h-5 w-5 items-center justify-center rounded",
-					"radix-state-checked:bg-primary radix-state-unchecked:bg-gray-100 dark:radix-state-unchecked:bg-gray-900",
+					"radix-state-checked:bg-primary radix-state-unchecked:bg-gray-100",
 					"focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 				)}
 			>
@@ -25,7 +25,7 @@ const Checkbox = (props: Props) => {
 
 			<LabelPrimitive.Label
 				htmlFor="c1"
-				className="ml-3 select-none text-sm font-medium text-primitive-type-bold dark:text-gray-100"
+				className="ml-3 select-none text-sm font-medium text-primitive-type-bold"
 			>
 				Accept terms and conditions
 			</LabelPrimitive.Label>

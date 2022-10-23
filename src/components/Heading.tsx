@@ -10,7 +10,7 @@ const styles = cva("tracking-tight text-type", {
 			lg: "text-3xl",
 			md: "text-xl",
 			sm: "text-lg",
-			xs: "text-md"
+			xs: "text-base"
 		},
 		weight: {
 			thin: "font-thin",

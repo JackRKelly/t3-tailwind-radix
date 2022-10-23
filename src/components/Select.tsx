@@ -31,15 +31,18 @@ const SelectIcon = tw(SelectPrimitive.Icon)`ml-2`;
 
 interface Props {
 	options: [SelectItemProps, ...SelectItemProps[]];
+	defaultValue?: string;
 	ariaLabel: string;
 }
 
 const Select: React.FC<Props> = (props) => {
-	const { options, ariaLabel } = props;
+	const { options, ariaLabel, defaultValue } = props;
 
 	return (
 		<SelectPrimitive.Root
-			defaultValue={options.find((option) => !option.disabled)?.value || options[0].value}
+			defaultValue={
+				defaultValue ?? (options.find((option) => !option.disabled)?.value || options[0].value)
+			}
 		>
 			<SelectPrimitive.Trigger asChild aria-label={ariaLabel}>
 				<Button>

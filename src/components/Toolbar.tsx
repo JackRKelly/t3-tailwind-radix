@@ -64,11 +64,11 @@ const Toolbar = (props: Props) => {
 						value={value}
 						aria-label={label}
 						className={cx(
-							"radix-state-on:bg-primitive-bold bg-primitive-faint border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent dark:radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
+							"radix-state-on:bg-primitive-bold bg-primitive-faint border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75"
 						)}
 					>
 						{React.cloneElement(icon, {
-							className: "w-5 h-5 text-primitive-type dark:text-gray-100"
+							className: "w-5 h-5 text-primitive-type"
 						})}
 					</ToolbarPrimitive.ToggleItem>
 				))}
@@ -85,7 +85,7 @@ const Toolbar = (props: Props) => {
 						)}
 					>
 						{React.cloneElement(icon, {
-							className: "w-5 h-5 text-primitive-type dark:text-gray-100"
+							className: "w-5 h-5 text-primitive-type"
 						})}
 					</ToolbarPrimitive.ToggleItem>
 				))}

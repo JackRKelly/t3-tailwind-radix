@@ -7,7 +7,7 @@ const styles = cva("text-type", {
 		size: {
 			xl: "text-xl",
 			lg: "text-lg",
-			md: "text-md",
+			md: "text-base",
 			sm: "text-sm",
 			xs: "text-xs"
 		},

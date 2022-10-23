@@ -15,7 +15,7 @@ const RadioGroup = (props: Props) => {
 
 	return (
 		<form>
-			<legend className="text-sm font-medium leading-4 text-primitive-type-bold dark:text-gray-100">
+			<legend className="text-sm font-medium leading-4 text-primitive-type-bold">
 				Choose your starter
 			</legend>
 			<RadioGroupPrimitive.Root
@@ -44,7 +44,7 @@ const RadioGroup = (props: Props) => {
 							</RadioGroupPrimitive.Item>
 							<label
 								htmlFor={pokemon.id}
-								className="ml-2 block text-sm font-medium text-primitive-type dark:text-gray-400"
+								className="ml-2 block text-sm font-medium text-primitive-type"
 							>
 								{pokemon.title}
 							</label>

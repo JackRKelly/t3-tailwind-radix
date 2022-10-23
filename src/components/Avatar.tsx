@@ -61,7 +61,7 @@ const Avatar = ({ variant, isOnline, renderInvalidUrls = false }: Props) => {
 					)}
 					<AvatarPrimitive.Fallback
 						className={cx(
-							"flex h-full w-full items-center justify-center bg-primitive dark:bg-gray-800",
+							"flex h-full w-full items-center justify-center bg-primitive",
 							{
 								[Variant.Circle]: "rounded-full",
 								[Variant.Rounded]: "rounded"
@@ -69,7 +69,7 @@ const Avatar = ({ variant, isOnline, renderInvalidUrls = false }: Props) => {
 						)}
 						delayMs={600}
 					>
-						<span className="text-sm font-medium uppercase text-primitive-type dark:text-gray-400">
+						<span className="text-sm font-medium uppercase text-primitive-type">
 							{getRandomInitials()}
 						</span>
 					</AvatarPrimitive.Fallback>

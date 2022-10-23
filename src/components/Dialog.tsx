@@ -1,18 +1,16 @@
 import { tw } from "../utils/tw";
 import Button from "./Button";
+import { Input } from "./Input";
+import { Label } from "./Label";
 import { Transition } from "@headlessui/react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import cx from "clsx";
 import React, { Fragment, useState } from "react";
 
-const Title = tw(DialogPrimitive.Title)`text-lg font-semibold text-primitive-type-bold`;
+const Title = tw(DialogPrimitive.Title)`text-base font-semibold text-primitive-type-bold`;
 
 const Description = tw(DialogPrimitive.Description)`mt-2 text-sm font-normal text-primitive-type`;
-
-const Input = tw.input`mt-1 block w-full rounded-md text-sm text-primitive-type placeholder:text-primitive-type-extra-faint border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
-
-const Label = tw.label`text-xs font-medium text-primitive-type dark:text-gray-400`;
 
 const Close = tw(
 	DialogPrimitive.Close
@@ -84,7 +82,7 @@ const Dialog = (props: Props) => {
 						</ButtonWrapper>
 
 						<CloseX>
-							<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-primitive-type dark:text-gray-500 dark:hover:text-gray-400" />
+							<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-primitive-type" />
 						</CloseX>
 					</Content>
 				</Transition.Child>

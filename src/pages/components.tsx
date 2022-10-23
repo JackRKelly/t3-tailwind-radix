@@ -78,10 +78,10 @@ const Components: NextPage = () => {
 								<Select
 									ariaLabel="Fruit"
 									options={[
-										{ value: "grapes", textValue: "Grapes", disabled: true },
-										{ value: "apples", textValue: "Apples", disabled: false },
-										{ value: "oranges", textValue: "Oranges", disabled: false },
-										{ value: "pears", textValue: "Pears", disabled: true }
+										{ value: "grape", textValue: "Grape", disabled: true },
+										{ value: "apple", textValue: "Apple", disabled: false },
+										{ value: "orange", textValue: "Orange", disabled: false },
+										{ value: "pear", textValue: "Pear", disabled: true }
 									]}
 								/>
 							</div>
@@ -109,96 +109,96 @@ const Components: NextPage = () => {
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Toast (WIP)
+									Toast
 								</Heading>
 								<Toast />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Context Menu (WIP)
+									Context Menu
 								</Heading>
 								<ContextMenu />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Dialog (WIP)
+									Dialog
 								</Heading>
 								<Dialog />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Alert Dialog (WIP)
+									Alert Dialog
 								</Heading>
 								<AlertDialog />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Popover (WIP)
+									Popover
 								</Heading>
 								<Popover />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Hover Card (WIP)
+									Hover Card
 								</Heading>
-								<HoverCard />
+								<HoverCard side="right" />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									RadioGroup (WIP)
+									RadioGroup
 								</Heading>
 								<RadioGroup />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Collapsible (WIP)
+									Collapsible
 								</Heading>
 								<Collapsible />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Slider (WIP)
+									Slider
 								</Heading>
 								<Slider />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Toggle (WIP)
+									Toggle
 								</Heading>
 								<Toggle />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Toggle Group (WIP)
+									Toggle Group
 								</Heading>
 								<ToggleGroup />
 							</div>
 
 							<div>
 								<Heading size="sm" className="mb-2">
-									Toolbar (WIP)
+									Toolbar
 								</Heading>
 								<Toolbar />
 							</div>
 							<div>
 								<Heading size="sm" className="mb-2">
-									Tabs (WIP)
+									Tabs
 								</Heading>
 								<Tabs />
 							</div>
 							<div>
 								<Heading size="sm" className="mb-2">
-									Avatar (WIP)
+									Avatar
 								</Heading>
 								<div className="flex space-x-3 flex-wrap">
 									<Avatar variant={Avatar.variant.Circle} />
@@ -207,19 +207,13 @@ const Components: NextPage = () => {
 							</div>
 							<div>
 								<Heading size="sm" className="mb-2">
-									Aspect Ratio (WIP)
+									Aspect Ratio
 								</Heading>
 								<AspectRatio />
 							</div>
 							<div>
 								<Heading size="sm" className="mb-2">
-									Checkbox (WIP)
-								</Heading>
-								<Checkbox />
-							</div>
-							<div>
-								<Heading size="sm" className="mb-2">
-									Checkbox (WIP)
+									Checkbox
 								</Heading>
 								<Checkbox />
 							</div>

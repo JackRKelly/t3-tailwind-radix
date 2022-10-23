@@ -21,22 +21,25 @@ Bold = Easier to see on background
 */
 :root,
 html[data-theme="light"] {
-	--color-primary: 0, 102, 255; /* Blue */
-	--color-primary-bold: 0, 85, 212; /* Dark Blue */
 	--color-secondary: 253, 155, 152; /* Pink */
 	--color-highlight: 0, 0, 0; /* Black */
 	--color-type: 15, 23, 42; /* Dark Gray */
 	--color-app: 255, 255, 255; /* White */
 
+	/* Primary */
+	--color-primary-bold: 0, 85, 212; /* Dark Blue */
+	--color-primary: 0, 102, 255; /* Blue */
+	--color-primary-faint: 35, 123, 255; /* Light Blue */
+
 	/* Primitive Background */
-	--color-primitive-bold: 209, 211, 216; /* Gray 200 */
-	--color-primitive: 234, 239, 245; /* Gray 100 */
-	--color-primitive-faint: 248, 250, 252; /* Gray 50 */
+	--color-primitive-bold: 209, 211, 216;
+	--color-primitive: 234, 239, 245;
+	--color-primitive-faint: 248, 250, 252;
 	/* Primitive Text */
-	--color-primitive-type-bold: 0, 0, 0; /* Gray 1000 */
-	--color-primitive-type: 15, 23, 42; /* Gray 900 */
-	--color-primitive-type-faint: 51, 65, 85; /* Gray 700 */
-	--color-primitive-type-extra-faint: 100, 116, 139; /* Gray 500 */
+	--color-primitive-type-bold: 0, 0, 0;
+	--color-primitive-type: 15, 23, 42;
+	--color-primitive-type-faint: 51, 65, 85;
+	--color-primitive-type-extra-faint: 100, 116, 139;
 	/* Primitive Border */
 	--color-primitive-edge-extra-bold: 153, 157, 162;
 	--color-primitive-edge-bold: 175, 179, 184;
@@ -45,12 +48,15 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-	--color-primary: 41, 126, 255;
-	--color-primary: 30, 101, 206;
 	--color-secondary: 253, 155, 152;
 	--color-highlight: 255, 255, 255;
 	--color-type: 229, 231, 235;
 	--color-app: 31, 41, 55;
+
+	/* Primary */
+	--color-primary-bold: 58, 137, 255; /* Light Blue */
+	--color-primary: 0, 102, 255; /* Blue */
+	--color-primary-faint: 0, 74, 185; /* Dark Blue */
 
 	/* Primitive Background */
 	--color-primitive-bold: 75, 85, 99;

@@ -21,11 +21,11 @@ const Content = tw(
 	HoverCardPrimitive.Content
 )`z-10 border border-primitive-edge radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down max-w-md rounded-lg p-4 md:w-full bg-primitive-faint focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
-const TriggerWrapper = tw.div`inline-flex h-12 w-12 items-center justify-center rounded-full bg-primitive p-2.5 dark:bg-gray-900`;
+const TriggerWrapper = tw.div`inline-flex h-12 w-12 items-center justify-center rounded-full bg-primitive p-2.5`;
 
-const Header = tw.h3`text-sm font-medium text-primitive-type-bold dark:text-gray-100`;
+const Header = tw.h3`text-sm font-medium text-primitive-type-bold`;
 
-const Body = tw.p`mt-1 text-sm font-normal text-primitive-type dark:text-gray-400`;
+const Body = tw.p`mt-1 text-sm font-normal text-primitive-type`;
 
 const Arrow = tw(HoverCardPrimitive.Arrow)`fill-current text-primitive-edge-faint`;
 

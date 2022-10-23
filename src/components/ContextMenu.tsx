@@ -98,7 +98,7 @@ const ContextMenu = (props: Props) => {
 								)}
 							>
 								{icon}
-								<span className="flex-grow text-primitive-type dark:text-gray-300">{label}</span>
+								<span className="flex-grow text-primitive-type">{label}</span>
 								{shortcut && <span className="text-xs">{shortcut}</span>}
 							</ContextMenuPrimitive.Item>
 						))}
@@ -115,9 +115,9 @@ const ContextMenu = (props: Props) => {
 							{showGrid ? (
 								<GridIcon className="mr-2 h-4 w-4" />
 							) : (
-								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5 text-primitive-type dark:text-gray-300" />
+								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5 text-primitive-type" />
 							)}
-							<span className="flex-grow text-primitive-type dark:text-gray-300">Show Grid</span>
+							<span className="flex-grow text-primitive-type">Show Grid</span>
 							<ContextMenuPrimitive.ItemIndicator>
 								<CheckIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.ItemIndicator>
@@ -166,11 +166,11 @@ const ContextMenu = (props: Props) => {
 						<ContextMenuPrimitive.Sub>
 							<ContextMenuPrimitive.SubTrigger
 								className={cx(
-									"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive dark:text-gray-500"
+									"flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive"
 								)}
 							>
 								<Link2Icon className="mr-2 h-3.5 w-3.5" />
-								<span className="flex-grow text-primitive-type dark:text-gray-300">Share</span>
+								<span className="flex-grow text-primitive-type">Share</span>
 								<CaretRightIcon className="h-3.5 w-3.5" />
 							</ContextMenuPrimitive.SubTrigger>
 							<ContextMenuPrimitive.Portal>
@@ -194,7 +194,7 @@ const ContextMenu = (props: Props) => {
 											) : (
 												<PersonIcon className="mr-2.5 h-6 w-6" />
 											)}
-											<span className="text-primitive-type dark:text-gray-300">{name}</span>
+											<span className="text-primitive-type">{name}</span>
 										</ContextMenuPrimitive.Item>
 									))}
 								</ContextMenuPrimitive.SubContent>

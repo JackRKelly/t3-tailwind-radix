@@ -28,8 +28,8 @@ const Collapsible = (props: Props) => {
 					>
 						{title}
 						<div className="hidden items-center space-x-3 group-hover:flex">
-							<Share2Icon className="cursor-pointer text-gray-500 hover:text-primitive-type dark:text-gray-400 dark:hover:text-gray-200" />
-							<PlayIcon className="cursor-pointer text-gray-500 hover:text-primitive-type dark:text-gray-400 dark:hover:text-gray-200" />
+							<Share2Icon className="cursor-pointer text-gray-500 hover:text-primitive-type" />
+							<PlayIcon className="cursor-pointer text-gray-500 hover:text-primitive-type" />
 						</div>
 					</div>
 				))}
