@@ -14,7 +14,7 @@ const Description = tw(ToastPrimitive.Description)`mt-1 text-sm text-primitive-t
 
 const FlexWrapper = tw.div`flex`;
 
-const ActionListWrapper = tw.div`flex flex-col px-3 py-2 space-y-1`;
+const ActionListWrapper = tw.div`flex flex-col px-3 py-2 space-y-2`;
 
 const TextWrapper = tw.div`w-0 flex-1 flex items-center pl-5 py-4`;
 

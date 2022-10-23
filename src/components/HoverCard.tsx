@@ -25,7 +25,7 @@ const TriggerWrapper = tw.div`inline-flex h-12 w-12 items-center justify-center 
 
 const Body = tw.p`mt-1 text-sm font-normal text-primitive-type`;
 
-const Arrow = tw(HoverCardPrimitive.Arrow)`fill-current text-primitive-edge-faint`;
+const Arrow = tw(HoverCardPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const ContentWrapper = tw.div`flex h-full w-full space-x-4 items-center`;
 

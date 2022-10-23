@@ -25,7 +25,14 @@ import Toggle from "../components/Toggle";
 import ToggleGroup from "../components/ToggleGroup";
 import Toolbar from "../components/Toolbar";
 import Tooltip from "../components/Tooltip";
+import { tw } from "../utils/tw";
 import type { NextPage } from "next";
+
+const FullSpan = tw.div`col-span-4`;
+
+const TwoSpan = tw.div`col-span-4 md:col-span-2`;
+
+const OneSpan = tw.div`col-span-4 sm:col-span-2 lg:col-span-1`;
 
 const Components: NextPage = () => {
 	return (
@@ -65,15 +72,15 @@ const Components: NextPage = () => {
 
 				<Section>
 					<InnerColumn width="third">
-						<div className="flex flex-col gap-6">
-							<div>
+						<div className="grid grid-cols-4 gap-6 grid-flow-row-dense">
+							<FullSpan>
 								<Text>
 									We are always looking for talented engineers to join our team. If you are
 									interested, please reach out
 								</Text>
-							</div>
+							</FullSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Select
 								</Heading>
@@ -86,152 +93,156 @@ const Components: NextPage = () => {
 										{ value: "pear", textValue: "Pear", disabled: true }
 									]}
 								/>
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Switch
 								</Heading>
 								<Switch />
-							</div>
+							</OneSpan>
 
-							<div>
-								<Heading size="sm" className="mb-2">
-									Accordian
-								</Heading>
-								<Accordion />
-							</div>
-
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Dropdown
 								</Heading>
 								<Dropdown />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Toast
 								</Heading>
 								<Toast />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Context Menu
 								</Heading>
 								<ContextMenu />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Dialog
 								</Heading>
 								<Dialog />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Alert Dialog
 								</Heading>
 								<AlertDialog />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Popover
 								</Heading>
 								<Popover />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Hover Card
 								</Heading>
 								<HoverCard side="right" />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
-									RadioGroup
+									Radio Group
 								</Heading>
 								<RadioGroup />
-							</div>
+							</OneSpan>
 
-							<div>
-								<Heading size="sm" className="mb-2">
-									Collapsible
-								</Heading>
-								<Collapsible />
-							</div>
-
-							<div>
-								<Heading size="sm" className="mb-2">
-									Slider
-								</Heading>
-								<Slider />
-							</div>
-
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Toggle
 								</Heading>
 								<Toggle />
-							</div>
+							</OneSpan>
 
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Toggle Group
 								</Heading>
 								<ToggleGroup />
-							</div>
+							</OneSpan>
 
-							<div>
-								<Heading size="sm" className="mb-2">
-									Toolbar
-								</Heading>
-								<Toolbar />
-							</div>
-							<div>
-								<Heading size="sm" className="mb-2">
-									Tabs
-								</Heading>
-								<Tabs />
-							</div>
-							<div>
-								<Heading size="sm" className="mb-2">
-									Avatar
-								</Heading>
-								<div className="flex space-x-3 flex-wrap">
-									<Avatar variant={Avatar.variant.Circle} />
-									<Avatar variant={Avatar.variant.Rounded} />
-								</div>
-							</div>
-							<div>
-								<Heading size="sm" className="mb-2">
-									Aspect Ratio
-								</Heading>
-								<AspectRatio />
-							</div>
-							<div>
-								<Heading size="sm" className="mb-2">
-									Checkbox
-								</Heading>
-								<Checkbox />
-							</div>
-
-							<div>
-								<Heading size="sm" className="mb-2">
-									Progress
-								</Heading>
-								<Progress />
-							</div>
-							<div>
+							<OneSpan>
 								<Heading size="sm" className="mb-2">
 									Tooltip
 								</Heading>
 								<Tooltip />
-							</div>
+							</OneSpan>
+
+							<OneSpan>
+								<Heading size="sm" className="mb-2">
+									Avatar
+								</Heading>
+								<div className="grid grid-cols-4 gap-2">
+									<Avatar variant={Avatar.variant.Circle} />
+									<Avatar variant={Avatar.variant.Rounded} />
+								</div>
+							</OneSpan>
+
+							<TwoSpan>
+								<Heading size="sm" className="mb-2">
+									Collapsible
+								</Heading>
+								<Collapsible />
+							</TwoSpan>
+
+							<TwoSpan>
+								<Heading size="sm" className="mb-2">
+									Slider
+								</Heading>
+								<Slider />
+							</TwoSpan>
+
+							<TwoSpan>
+								<Heading size="sm" className="mb-2">
+									Aspect Ratio
+								</Heading>
+								<AspectRatio />
+							</TwoSpan>
+
+							<TwoSpan>
+								<Heading size="sm" className="mb-2">
+									Checkbox
+								</Heading>
+								<Checkbox />
+							</TwoSpan>
+
+							<TwoSpan>
+								<Heading size="sm" className="mb-2">
+									Progress
+								</Heading>
+								<Progress />
+							</TwoSpan>
+
+							<FullSpan>
+								<Heading size="sm" className="mb-2">
+									Toolbar
+								</Heading>
+								<Toolbar />
+							</FullSpan>
+							<FullSpan>
+								<Heading size="sm" className="mb-2">
+									Tabs
+								</Heading>
+								<Tabs />
+							</FullSpan>
+
+							<FullSpan>
+								<Heading size="sm" className="mb-2">
+									Accordian
+								</Heading>
+								<Accordion />
+							</FullSpan>
 						</div>
 					</InnerColumn>
 				</Section>

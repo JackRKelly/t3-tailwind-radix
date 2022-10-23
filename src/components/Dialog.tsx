@@ -12,11 +12,15 @@ const Title = tw(DialogPrimitive.Title)`text-base font-semibold text-primitive-t
 
 const Description = tw(DialogPrimitive.Description)`mt-2 text-sm font-normal text-primitive-type`;
 
-const Close = tw(
+const Action = tw(
 	DialogPrimitive.Close
 )`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primary text-white hover:bg-primary-bold border border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
-const CloseX = tw(
+const Cancel = tw(
+	DialogPrimitive.Close
+)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primitive-faint hover:bg-primitive text-primitive-type-bold border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+
+const Close = tw(
 	DialogPrimitive.Close
 )`absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
@@ -28,7 +32,7 @@ const Content = tw(
 	DialogPrimitive.Content
 )`fixed z-50 w-[95vw] max-w-md rounded-lg p-4 md:w-full top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-app border border-primitive-edge focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
-const ButtonWrapper = tw.div`mt-4 flex justify-end`;
+const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 
 interface Props {}
 
@@ -77,13 +81,14 @@ const Dialog = (props: Props) => {
 							</fieldset>
 						</Form>
 
-						<ButtonWrapper>
-							<Close>Save</Close>
-						</ButtonWrapper>
+						<ActionWrapper>
+							<Cancel>Cancel</Cancel>
+							<Action>Save</Action>
+						</ActionWrapper>
 
-						<CloseX>
+						<Close>
 							<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-primitive-type" />
-						</CloseX>
+						</Close>
 					</Content>
 				</Transition.Child>
 			</Transition.Root>
