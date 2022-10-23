@@ -97,9 +97,9 @@ const Components: NextPage = () => {
 
 							<OneSpan>
 								<Heading size="sm" className="mb-2">
-									Switch
+									Toggle
 								</Heading>
-								<Switch />
+								<Toggle />
 							</OneSpan>
 
 							<OneSpan>
@@ -114,13 +114,6 @@ const Components: NextPage = () => {
 									Toast
 								</Heading>
 								<Toast />
-							</OneSpan>
-
-							<OneSpan>
-								<Heading size="sm" className="mb-2">
-									Context Menu
-								</Heading>
-								<ContextMenu />
 							</OneSpan>
 
 							<OneSpan>
@@ -146,6 +139,13 @@ const Components: NextPage = () => {
 
 							<OneSpan>
 								<Heading size="sm" className="mb-2">
+									Tooltip
+								</Heading>
+								<Tooltip />
+							</OneSpan>
+
+							<OneSpan>
+								<Heading size="sm" className="mb-2">
 									Hover Card
 								</Heading>
 								<HoverCard side="right" />
@@ -160,13 +160,6 @@ const Components: NextPage = () => {
 
 							<OneSpan>
 								<Heading size="sm" className="mb-2">
-									Toggle
-								</Heading>
-								<Toggle />
-							</OneSpan>
-
-							<OneSpan>
-								<Heading size="sm" className="mb-2">
 									Toggle Group
 								</Heading>
 								<ToggleGroup />
@@ -174,9 +167,9 @@ const Components: NextPage = () => {
 
 							<OneSpan>
 								<Heading size="sm" className="mb-2">
-									Tooltip
+									Switch
 								</Heading>
-								<Tooltip />
+								<Switch />
 							</OneSpan>
 
 							<OneSpan>
@@ -187,6 +180,13 @@ const Components: NextPage = () => {
 									<Avatar variant={Avatar.variant.Circle} />
 									<Avatar variant={Avatar.variant.Rounded} />
 								</div>
+							</OneSpan>
+
+							<OneSpan>
+								<Heading size="sm" className="mb-2">
+									Context Menu
+								</Heading>
+								<ContextMenu />
 							</OneSpan>
 
 							<TwoSpan>
