@@ -46,7 +46,7 @@ const Fieldset = tw.fieldset`flex items-center`;
 
 const Close = tw(
 	PopoverPrimitive.Close
-)`absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-60`;
+)`absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-50`;
 
 const Wrapper = tw.div`relative inline-block text-left`;
 

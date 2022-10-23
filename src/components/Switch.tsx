@@ -4,7 +4,7 @@ import React from "react";
 
 const Root = tw(
 	SwitchPrimitive.Root
-)`group radix-state-checked:bg-primary radix-state-unchecked:bg-primitive-bold relative inline-flex h-[24px] w-[44px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-60`;
+)`group radix-state-checked:bg-primary radix-state-unchecked:bg-primitive-bold relative inline-flex h-[24px] w-[44px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-50`;
 
 const Thumb = tw(
 	SwitchPrimitive.Thumb

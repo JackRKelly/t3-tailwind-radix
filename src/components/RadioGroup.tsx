@@ -12,7 +12,7 @@ const items = [
 
 const Item = tw(
 	RadioGroupPrimitive.Item
-)`peer relative w-4 h-4 rounded-full text-white radix-state-checked:bg-primary radix-state-unchecked:bg-primitive-faint radix-state-unchecked:border border-primitive-edge focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-60`;
+)`peer relative w-4 h-4 rounded-full text-white radix-state-checked:bg-primary radix-state-unchecked:bg-primitive-faint radix-state-unchecked:border border-primitive-edge focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-50`;
 
 const Indicator = tw(
 	RadioGroupPrimitive.Indicator
