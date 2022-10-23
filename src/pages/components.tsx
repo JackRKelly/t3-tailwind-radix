@@ -43,7 +43,7 @@ const Components: NextPage = () => {
 				<InnerColumn width="third">
 					<div className="grid grid-cols-3 gap-6 grid-flow-row-dense">
 						<FullSpan>
-							<Heading size="xxl" className="relative text-center mb-4 md:mb-6 mt-2">
+							<Heading size="xxl" className="relative text-center mb-4 md:mb-8 mt-2 md:mt-4">
 								Components
 							</Heading>
 							<Text>
