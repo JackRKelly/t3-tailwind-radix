@@ -11,9 +11,9 @@ html[data-theme="light"] {
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: 215, 100%, 55%;
-	--color-primary: 215, 100%, 50%;
-	--color-primary-faint: 215, 100%, 45%;
+	--color-primary-bold: 215, 80%, 60%;
+	--color-primary: 215, 90%, 60%;
+	--color-primary-faint: 215, 100%, 60%;
 	/* Top-level */
 	--color-highlight: 215, 35%, 0%;
 	--color-type: 215, 35%, 10%;
@@ -24,8 +24,8 @@ html[data-theme="light"] {
 	--color-primitive-faint: 215, 35%, 97%;
 	/* Primitive Text */
 	--color-primitive-type-bold: 215, 35%, 0%;
-	--color-primitive-type: 215, 35%, 10%;
-	--color-primitive-type-faint: 215, 35%, 25%;
+	--color-primitive-type: 215, 35%, 15%;
+	--color-primitive-type-faint: 215, 35%, 35%;
 	--color-primitive-type-extra-faint: 215, 35%, 50%;
 	/* Primitive Border */
 	--color-primitive-edge-extra-bold: 215, 35%, 60%;
@@ -38,9 +38,9 @@ html[data-theme="dark"] {
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: 215, 100%, 45%;
-	--color-primary: 215, 100%, 50%;
-	--color-primary-faint: 215, 100%, 55%;
+	--color-primary-bold: 215, 100%, 60%;
+	--color-primary: 215, 90%, 60%;
+	--color-primary-faint: 215, 80%, 60%;
 	/* Top-level */
 	--color-highlight: 215, 35%, 100%;
 	--color-type: 215, 35%, 90%;
@@ -51,7 +51,7 @@ html[data-theme="dark"] {
 	--color-primitive-faint: 215, 35%, 18%;
 	/* Primitive Text */
 	--color-primitive-type-bold: 215, 35%, 100%;
-	--color-primitive-type: 215, 35%, 90%;
+	--color-primitive-type: 215, 35%, 85%;
 	--color-primitive-type-faint: 215, 35%, 65%;
 	--color-primitive-type-extra-faint: 215, 35%, 55%;
 	/* Primitive Border */
@@ -65,21 +65,8 @@ html[data-theme="dark"] {
 	@apply scroll-smooth font-sans antialiased;
 }
 
-html {
-	@apply bg-white;
-	scrollbar-color: #00000080 transparent;
-	scrollbar-width: auto;
-}
-
-html[class*="dark"] {
-	@apply bg-gray-900;
-	scrollbar-color: #ffffffb3 transparent;
-	scrollbar-width: auto;
-}
-
 ::-webkit-scrollbar {
-	height: 8px;
-	width: 8px;
+	@apply w-2;
 }
 
 ::-webkit-scrollbar-track {
@@ -87,11 +74,11 @@ html[class*="dark"] {
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply rounded-full bg-black/50 dark:bg-white/70;
+	@apply rounded-full bg-type/50;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	@apply bg-black/60 dark:hover:bg-white/80;
+	@apply bg-type/60;
 }
 
 button {
