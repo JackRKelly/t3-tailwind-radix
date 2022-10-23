@@ -22,7 +22,6 @@ const AspectRatio = (props: Props) => {
 						"transition-colors duration-300 ease-in-out"
 					)}
 				>
-					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img
 						src="https://images.unsplash.com/photo-1609825488888-3a766db05542?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
 						alt="Vancouver by Matt Wang"
