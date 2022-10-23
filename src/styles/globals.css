@@ -11,52 +11,54 @@ html[data-theme="light"] {
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: 215, 100%, 42%;
+	--color-primary-bold: 215, 100%, 55%;
 	--color-primary: 215, 100%, 50%;
-	--color-primary-faint: 215, 100%, 57%;
+	--color-primary-faint: 215, 100%, 45%;
 	/* Top-level */
-	--color-highlight: 215, 0%, 0%;
-	--color-type: 215, 47%, 11%;
-	--color-app: 215, 0%, 100%;
+	--color-highlight: 215, 35%, 0%;
+	--color-type: 215, 35%, 10%;
+	--color-app: 215, 35%, 100%;
 	/* Primitive Background */
-	--color-primitive-bold: 215, 8%, 83%;
-	--color-primitive: 215, 35%, 94%;
-	--color-primitive-faint: 215, 40%, 98%;
+	--color-primitive-bold: 215, 35%, 85%;
+	--color-primitive: 215, 35%, 93%;
+	--color-primitive-faint: 215, 35%, 97%;
 	/* Primitive Text */
-	--color-primitive-type-bold: 215, 0%, 0%;
-	--color-primitive-type: 215, 47%, 11%;
-	--color-primitive-type-faint: 215, 25%, 27%;
-	--color-primitive-type-extra-faint: 215, 16%, 47%;
+	--color-primitive-type-bold: 215, 35%, 0%;
+	--color-primitive-type: 215, 35%, 10%;
+	--color-primitive-type-faint: 215, 35%, 25%;
+	--color-primitive-type-extra-faint: 215, 35%, 50%;
 	/* Primitive Border */
-	--color-primitive-edge-extra-bold: 215, 5%, 62%;
-	--color-primitive-edge-bold: 215, 6%, 70%;
-	--color-primitive-edge: 215, 10%, 81%;
-	--color-primitive-edge-faint: 215, 15%, 87%;
+	--color-primitive-edge-extra-bold: 215, 35%, 60%;
+	--color-primitive-edge-bold: 215, 35%, 70%;
+	--color-primitive-edge: 215, 35%, 80%;
+	--color-primitive-edge-faint: 215, 35%, 90%;
 }
 
 html[data-theme="dark"] {
+	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
-	--color-highlight: 215, 0%, 100%;
-	--color-type: 215, 13%, 91%;
-	--color-app: 215, 28%, 17%;
 	/* Primary */
-	--color-primary-bold: 215, 100%, 61%;
+	--color-primary-bold: 215, 100%, 45%;
 	--color-primary: 215, 100%, 50%;
-	--color-primary-faint: 215, 100%, 36%;
+	--color-primary-faint: 215, 100%, 55%;
+	/* Top-level */
+	--color-highlight: 215, 35%, 100%;
+	--color-type: 215, 35%, 90%;
+	--color-app: 215, 35%, 15%;
 	/* Primitive Background */
-	--color-primitive-bold: 215, 14%, 34%;
-	--color-primitive: 215, 19%, 27%;
-	--color-primitive-faint: 215, 26%, 22%;
+	--color-primitive-bold: 215, 35%, 30%;
+	--color-primitive: 215, 35%, 22%;
+	--color-primitive-faint: 215, 35%, 18%;
 	/* Primitive Text */
-	--color-primitive-type-bold: 215, 0%, 100%;
-	--color-primitive-type: 215, 13%, 91%;
-	--color-primitive-type-faint: 215, 11%, 65%;
-	--color-primitive-type-extra-faint: 215, 6%, 54%;
+	--color-primitive-type-bold: 215, 35%, 100%;
+	--color-primitive-type: 215, 35%, 90%;
+	--color-primitive-type-faint: 215, 35%, 65%;
+	--color-primitive-type-extra-faint: 215, 35%, 55%;
 	/* Primitive Border */
-	--color-primitive-edge-extra-bold: 214, 19%, 59%;
-	--color-primitive-edge-bold: 215, 15%, 51%;
-	--color-primitive-edge: 215, 14%, 41%;
-	--color-primitive-edge-faint: 215, 14%, 34%;
+	--color-primitive-edge-extra-bold: 214, 35%, 60%;
+	--color-primitive-edge-bold: 215, 35%, 50%;
+	--color-primitive-edge: 215, 35%, 40%;
+	--color-primitive-edge-faint: 215, 35%, 35%;
 }
 
 :root {
