@@ -169,6 +169,9 @@ module.exports = {
 						}
 					}
 				}
+			},
+			transitionProperty: {
+				button: "box-shadow, background-color, opacity"
 			}
 		}
 	},
