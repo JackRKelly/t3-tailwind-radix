@@ -15,7 +15,7 @@ html[data-theme="light"] {
 	--color-primary: 215, 100%, 60%;
 	--color-primary-faint: 215, 100%, 65%;
 	/* Top-level */
-	--color-highlight: 215, 35%, 30%;
+	--color-highlight: 215, 35%, 40%;
 	--color-type: 215, 35%, 10%;
 	--color-app: 215, 35%, 100%;
 	/* Primitive Background */

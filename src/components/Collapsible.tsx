@@ -7,7 +7,7 @@ interface Props {}
 
 const Trigger = tw(
 	CollapsiblePrimitive.Trigger
-)`group flex w-full select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint hover:bg-primitive border border-primitive-edge text-primitive-type-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
+)`group flex w-full select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint hover:bg-primitive border border-primitive-edge text-primitive-type-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
 
 const Content = tw(CollapsiblePrimitive.Content)`mt-4 flex flex-col space-y-4`;
 
