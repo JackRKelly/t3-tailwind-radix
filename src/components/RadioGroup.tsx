@@ -26,7 +26,7 @@ const ItemWrapper = tw.div`flex items-center`;
 
 const ItemList = tw.div`mt-3 space-y-3`;
 
-const Legend = tw.legend`text-sm font-medium leading-4 text-primitive-type-bold`;
+const Legend = tw.legend`text-sm leading-4 text-primitive-type`;
 
 const RadioGroup = (props: Props) => {
 	const [value, setValue] = React.useState(items[0].title);
