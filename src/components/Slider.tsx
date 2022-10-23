@@ -10,7 +10,7 @@ const Range = tw(SliderPrimitive.Range)`absolute h-full rounded-full bg-primary`
 
 const Thumb = tw(
 	SliderPrimitive.Thumb
-)`block h-5 w-5 rounded-full bg-primary focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-50`;
+)`block h-5 w-5 rounded-full bg-primary focus:outline-none focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75`;
 
 interface Props {}
 

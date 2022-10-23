@@ -8,7 +8,7 @@ const _Button = tw.button`
 	justify-center rounded-md px-4 py-2 text-sm font-medium
 	border border-primitive-edge
 	text-primitive-type hover:bg-primitive focus:outline-none
-	focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-50
+	focus-visible:ring focus-visible:ring-highlight focus-visible:ring-opacity-75
 	group first-line:radix-state-open:bg-primitive-bold
   first-letter:radix-state-instant-open:bg-primitive-bold
 	radix-state-delayed-open:bg-primitive-bold

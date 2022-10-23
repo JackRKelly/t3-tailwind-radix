@@ -11,11 +11,11 @@ html[data-theme="light"] {
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: 215, 80%, 60%;
-	--color-primary: 215, 90%, 60%;
-	--color-primary-faint: 215, 100%, 60%;
+	--color-primary-bold: 215, 100%, 55%;
+	--color-primary: 215, 100%, 60%;
+	--color-primary-faint: 215, 100%, 65%;
 	/* Top-level */
-	--color-highlight: 215, 35%, 0%;
+	--color-highlight: 215, 35%, 30%;
 	--color-type: 215, 35%, 10%;
 	--color-app: 215, 35%, 100%;
 	/* Primitive Background */

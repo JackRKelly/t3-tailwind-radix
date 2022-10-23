@@ -32,7 +32,7 @@ const Trigger = tw(
 
 const Item = tw(
 	AccordionPrimitive.Item
-)`rounded-lg focus-within:ring focus-within:ring-highlight focus-within:ring-opacity-50 focus:outline-none`;
+)`rounded-lg focus-within:ring focus-within:ring-highlight focus-within:ring-opacity-75 focus:outline-none`;
 
 const ChevronDownIcon = tw(
 	_ChevronDownIcon
