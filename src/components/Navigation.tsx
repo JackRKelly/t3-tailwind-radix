@@ -118,14 +118,14 @@ export const Navigation = () => {
 						</Content>
 					</NavigationMenuPrimitive.Item>
 
-					<NavigationMenuPrimitive.Item asChild>
+					{/* <NavigationMenuPrimitive.Item asChild>
 						<NextLink href="/careers">
 							<Link className="relative" href="/careers">
 								Careers
 								<SubText>3</SubText>
 							</Link>
 						</NextLink>
-					</NavigationMenuPrimitive.Item>
+					</NavigationMenuPrimitive.Item> */}
 
 					<NavigationMenuPrimitive.Item asChild>
 						<NextLink href="/components">
