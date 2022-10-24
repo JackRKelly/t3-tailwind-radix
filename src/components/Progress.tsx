@@ -2,9 +2,11 @@ import { tw } from "../utils/tw";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 import React, { useEffect } from "react";
 
-const Root = tw(ProgressPrimitive.Root)`h-3 w-full overflow-hidden rounded-full bg-primitive`;
+const Root = tw(
+	ProgressPrimitive.Root
+)`h-3 w-full overflow-hidden rounded-full bg-primitive transition-colors`;
 
-const Indicator = tw(ProgressPrimitive.Indicator)`h-full bg-primary duration-300 ease-in-out`;
+const Indicator = tw(ProgressPrimitive.Indicator)`h-full bg-primary transition-all`;
 
 interface Props {}
 

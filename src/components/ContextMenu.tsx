@@ -75,7 +75,7 @@ const Separator = tw(ContextMenuPrimitive.Separator)`my-1 h-px bg-primitive-edge
 
 const Trigger = tw(
 	ContextMenuPrimitive.Trigger
-)`inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-primitive-edge bg-primitive-faint px-3 py-4`;
+)`inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-primitive-edge bg-primitive-faint px-3 py-4 transition-colors`;
 
 const TriggerInner = tw.span`select-none text-sm font-medium text-primitive-type`;
 

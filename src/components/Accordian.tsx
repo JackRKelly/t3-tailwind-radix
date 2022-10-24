@@ -36,7 +36,7 @@ const Item = tw(
 
 const ChevronDownIcon = tw(
 	_ChevronDownIcon
-)`ml-2 h-5 w-5 shrink-0 text-primitive-type ease-in-out group-radix-state-open:rotate-180 group-radix-state-open:duration-300`;
+)`ml-2 h-5 w-5 shrink-0 text-primitive-type ease-in-out group-radix-state-open:rotate-180 duration-150`;
 
 const TriggerInner = tw.span`text-sm font-medium text-primitive-type`;
 

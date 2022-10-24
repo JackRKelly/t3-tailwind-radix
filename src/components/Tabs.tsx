@@ -30,15 +30,15 @@ const List = tw(TabsPrimitive.List)`flex w-full rounded-t-lg bg-primitive-faint`
 
 const Trigger = tw(
 	TabsPrimitive.Trigger
-)`group first:rounded-tl-lg last:rounded-tr-lg border-b first:border-r last:border-l border-primitive-edge radix-state-active:primitive-faint radix-state-active:bg-primitive focus-visible:radix-state-active:border-b-transparent radix-state-inactive:bg-primitive-faint flex-1 px-3 py-2.5 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus:z-10 focus-visible:border-transparent transition-button`;
+)`group first:rounded-tl-lg last:rounded-tr-lg border-b first:border-r last:border-l border-primitive-edge radix-state-active:bg-primitive-bold focus-visible:radix-state-active:border-b-transparent radix-state-inactive:hover:bg-primitive radix-state-inactive:bg-primitive-faint flex-1 px-3 py-2.5 focus:outline-none focus-visible:ring focus-visible:ring-highlight focus:z-10 focus-visible:border-transparent transition-button`;
 
 const TriggerInner = tw.span`text-sm font-medium text-primitive-type`;
 
 const Content = tw(
 	TabsPrimitive.Content
-)`relative rounded-b-lg bg-primitive-faint px-6 py-4 focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`relative rounded-b-lg bg-primitive-faint px-6 py-4 focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-colors`;
 
-const ContentInner = tw.span`text-sm text-primitive-type`;
+const ContentInner = tw.span`text-sm text-primitive-type transition-colors`;
 
 interface Props {}
 

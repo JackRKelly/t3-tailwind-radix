@@ -4,9 +4,11 @@ import React from "react";
 
 const Root = tw(SliderPrimitive.Root)`relative flex h-5 w-64 touch-none items-center`;
 
-const Track = tw(SliderPrimitive.Track)`relative h-1 w-full grow rounded-full bg-primitive`;
+const Track = tw(
+	SliderPrimitive.Track
+)`relative h-1 w-full grow rounded-full bg-primitive transition-colors`;
 
-const Range = tw(SliderPrimitive.Range)`absolute h-full rounded-full bg-primary`;
+const Range = tw(SliderPrimitive.Range)`absolute h-full rounded-full bg-primary transition-colors`;
 
 const Thumb = tw(
 	SliderPrimitive.Thumb

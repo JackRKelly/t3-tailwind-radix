@@ -54,7 +54,7 @@ const textSettings: ToggleItem[] = [
 
 const Root = tw(
 	ToolbarPrimitive.Root
-)`flex space-x-4 rounded-lg bg-primitive-faint border border-primitive-edge px-2.5 py-2`;
+)`flex space-x-4 rounded-lg bg-primitive-faint border border-primitive-edge px-2.5 py-2 transition-colors`;
 
 const ToggleItem = tw(
 	ToolbarPrimitive.ToggleItem
@@ -62,13 +62,13 @@ const ToggleItem = tw(
 
 const Link = tw(
 	ToolbarPrimitive.Link
-)`text-sm text-primitive-type-faint focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight`;
+)`text-sm text-primitive-type-faint focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight transition-colors`;
 
 const LinkWrapper = tw.span`hidden items-center pr-2 xl:flex`;
 
 const Separator = tw(
 	ToolbarPrimitive.Separator
-)`mx-4 my-0.5 hidden h-auto w-px bg-primitive-edge-bold xl:flex`;
+)`mx-4 my-0.5 hidden h-auto w-px bg-primitive-edge-bold xl:flex transition-colors`;
 
 interface Props {}
 
