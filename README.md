@@ -9,3 +9,7 @@ Technologies used:
 - [TailwindCSS-Radix](https://github.com/ecklf/tailwindcss-radix)
 - [tRPC](https://trpc.io)
 - [Radix](https://www.radix-ui.com/)
+
+## Motivation
+
+T3 Stack, Radix, and tailwindcss-radix all help reduce the time it takes to start a project. But there is still a lot of foundational work to do, such as: define props and implement animations for radix components, define a highly customizable theme via css variables, etc. This template aims to provide a stronger foundation for building apps with these technologies.
