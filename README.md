@@ -12,4 +12,4 @@ Technologies used:
 
 ## Motivation
 
-T3 Stack, Radix, and tailwindcss-radix all help reduce the time it takes to start a project. But there is still a lot of foundational work to do, such as: define props and implement animations for radix components, define a highly customizable theme via css variables, etc. This template aims to provide a stronger foundation for building apps with these technologies.
+T3 Stack, Radix, and tailwindcss-radix all help reduce the time it takes to start a project. But there is still a lot of foundational work to do, such as: define props and implement animations for radix components, create non-radix primitive components, define a highly customizable theme via css variables, etc. This template aims to provide a stronger foundation for building apps with these technologies.
