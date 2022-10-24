@@ -16,7 +16,7 @@ const Trigger = tw(
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
-)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint border-primitive-edge border`;
+)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint border-primitive-edge border`;
 
 const Arrow = tw(DropdownMenuPrimitive.DropdownMenuArrow)`fill-current text-primitive-edge`;
 
