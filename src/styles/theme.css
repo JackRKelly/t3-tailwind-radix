@@ -51,9 +51,9 @@ Bold = Easier to see on background
 	--color-primitive-type-extra-faint: var(--dark-hue), 35%, 60%;
 	/* Primitive Border */
 	--color-primitive-edge-extra-bold: 214, 35%, 60%;
-	--color-primitive-edge-bold: var(--dark-hue), 35%, 50%;
-	--color-primitive-edge: var(--dark-hue), 35%, 40%;
-	--color-primitive-edge-faint: var(--dark-hue), 35%, 35%;
+	--color-primitive-edge-bold: var(--dark-hue), 35%, 45%;
+	--color-primitive-edge: var(--dark-hue), 35%, 35%;
+	--color-primitive-edge-faint: var(--dark-hue), 35%, 25%;
 }
 
 :root {

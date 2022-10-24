@@ -8,9 +8,10 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html className="bg-app text-type transition-colors">
+			<Html className="bg-app text-type">
 				<Head>
 					<meta name="theme-color" content="#111827" />
+					<script src="/static/theme.js" />
 				</Head>
 				<body>
 					<Main />

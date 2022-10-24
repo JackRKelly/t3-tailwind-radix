@@ -1,8 +1,34 @@
 import { tw } from "../utils/tw";
-import { themes, useTheme } from "./ThemeProvider";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+export type ThemeStyle = "light" | "dark" | "system";
+
+interface Theme {
+	key: ThemeStyle;
+	label: string;
+	icon: React.ReactElement;
+}
+
+export const themes: Theme[] = [
+	{
+		key: "light",
+		label: "Light",
+		icon: <SunIcon />
+	},
+	{
+		key: "dark",
+		label: "Dark",
+		icon: <MoonIcon />
+	},
+
+	{
+		key: "system",
+		label: "System",
+		icon: <Half2Icon />
+	}
+];
 
 const Label = tw.span`flex-grow text-primitive-type-bold`;
 
@@ -28,7 +54,26 @@ interface Props {
 }
 
 const ThemeSwitcher = (props: Props) => {
-	const { theme, setTheme } = useTheme();
+	const [preferredTheme, setPreferredTheme] = useState<null | ThemeStyle>(null);
+
+	useEffect(() => {
+		try {
+			let found = localStorage.getItem("theme") as ThemeStyle | null;
+			setPreferredTheme(found);
+		} catch (error) {}
+	}, []);
+
+	useEffect(() => {
+		const prefersDarkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+		const updateTheme = (_e: MediaQueryListEvent) => {
+			setPreferredTheme("system");
+		};
+		prefersDarkQuery.addEventListener("change", updateTheme);
+
+		return () => {
+			prefersDarkQuery.removeEventListener("change", updateTheme);
+		};
+	}, []);
 
 	const { align, alignOffset, side, sideOffset = 4 } = props;
 
@@ -37,7 +82,7 @@ const ThemeSwitcher = (props: Props) => {
 			<DropdownMenuPrimitive.Root>
 				<Trigger>
 					{(function () {
-						switch (theme) {
+						switch (preferredTheme) {
 							case "light":
 								return <SunIcon className="h-5 w-5 text-primitive-type" />;
 							case "dark":
@@ -56,7 +101,8 @@ const ThemeSwitcher = (props: Props) => {
 								<Item
 									key={`theme-${i}`}
 									onClick={() => {
-										setTheme?.(key);
+										(window as any).__setPreferredTheme(key);
+										setPreferredTheme(key);
 									}}
 								>
 									{React.cloneElement(icon, {

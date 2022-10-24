@@ -1,6 +1,6 @@
 import { tw } from "../utils/tw";
 import { Switch } from "./Switch";
-import { useTheme } from "./ThemeProvider";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
@@ -56,14 +56,6 @@ const LinkList = tw.div`flex w-full flex-col space-y-2`;
 const LinkListContainer = tw.div`w-[16rem] p-3 lg:w-[18rem]`;
 
 export const Navigation = () => {
-	const { theme, setTheme } = useTheme();
-
-	const [isDark, setIsDark] = useState(false);
-
-	useEffect(() => {
-		return setIsDark(theme === "dark");
-	}, [theme]);
-
 	return (
 		<NavigationWrapper>
 			<Root>
@@ -120,6 +112,15 @@ export const Navigation = () => {
 						<NextLink href="/components">
 							<Link href="/components">Components</Link>
 						</NextLink>
+					</NavigationMenuPrimitive.Item>
+
+					<NavigationMenuPrimitive.Item asChild>
+						<NavigationMenuPrimitive.Link
+							className="flex items-center justify-center"
+							href="https://github.com/JackRKelly/t3-tailwind-radix"
+						>
+							<GitHubLogoIcon className="w-6 h-6" />
+						</NavigationMenuPrimitive.Link>
 					</NavigationMenuPrimitive.Item>
 
 					<Indicator>
