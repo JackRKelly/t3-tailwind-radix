@@ -23,8 +23,6 @@ interface Props {}
 const ThemeSwitcher = (props: Props) => {
 	const { theme, setTheme } = useTheme();
 
-	console.log(theme);
-
 	return (
 		<div className="relative inline-block text-left">
 			<DropdownMenuPrimitive.Root>
@@ -49,7 +47,6 @@ const ThemeSwitcher = (props: Props) => {
 									key={`theme-${i}`}
 									onClick={() => {
 										setTheme?.(key);
-										console.log("set theme", key, setTheme);
 									}}
 								>
 									{React.cloneElement(icon, {
