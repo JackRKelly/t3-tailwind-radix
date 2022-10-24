@@ -47,8 +47,6 @@ const SkeletonGridWrapper = tw.div`w-[21rem] p-3 lg:w-[23rem]`;
 
 const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-20 w-full flex items-center justify-center`;
 
-const SubText = tw.span`absolute -top-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-lg text-xs p-1 font-bold text-[#F68E9D]`;
-
 const CardTitle = tw.span`block text-sm font-bold text-primitive-type`;
 
 const CardBody = tw.span`block mt-1 text-sm text-primitive-type-faint`;
@@ -118,31 +116,10 @@ export const Navigation = () => {
 						</Content>
 					</NavigationMenuPrimitive.Item>
 
-					{/* <NavigationMenuPrimitive.Item asChild>
-						<NextLink href="/careers">
-							<Link className="relative" href="/careers">
-								Careers
-								<SubText>3</SubText>
-							</Link>
-						</NextLink>
-					</NavigationMenuPrimitive.Item> */}
-
 					<NavigationMenuPrimitive.Item asChild>
 						<NextLink href="/components">
 							<Link href="/components">Components</Link>
 						</NextLink>
-					</NavigationMenuPrimitive.Item>
-
-					<NavigationMenuPrimitive.Item asChild>
-						<div className="flex items-center justify-center">
-							<Switch
-								checked={isDark}
-								onCheckedChange={(val) => {
-									setIsDark(val);
-									setTheme?.(val ? "dark" : "light");
-								}}
-							/>
-						</div>
 					</NavigationMenuPrimitive.Item>
 
 					<Indicator>

@@ -19,6 +19,7 @@ import { Slider } from "../components/Slider";
 import { Switch } from "../components/Switch";
 import { Tabs } from "../components/Tabs";
 import { Text } from "../components/Text";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 import { Toast } from "../components/Toast";
 import { Toggle } from "../components/Toggle";
 import { ToggleGroup } from "../components/ToggleGroup";
@@ -50,6 +51,13 @@ const Components: NextPage = () => {
 								tailwindcss-radix
 							</Text>
 						</FullSpan>
+
+						<OneSpan>
+							<Heading size="sm" className="mb-2">
+								Toggle
+							</Heading>
+							<ThemeSwitcher />
+						</OneSpan>
 
 						<OneSpan>
 							<Heading size="sm" className="mb-2">
