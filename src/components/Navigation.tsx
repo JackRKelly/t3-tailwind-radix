@@ -68,21 +68,19 @@ export const Navigation = () => {
 						</NextLink>
 					</NavigationMenuPrimitive.Item>
 
-					<NavigationMenuPrimitive.Item>
-						<Trigger>Overview</Trigger>
-						<Content>
-							<SkeletonGridWrapper>
-								<SkeletonGrid>
-									<SkeletonColumn />
-									<SkeletonList>
-										<Skeleton />
-										<Skeleton />
-										<Skeleton />
-										<Skeleton />
-									</SkeletonList>
-								</SkeletonGrid>
-							</SkeletonGridWrapper>
-						</Content>
+					<NavigationMenuPrimitive.Item asChild>
+						<NextLink href="/components">
+							<Link href="/components">Components</Link>
+						</NextLink>
+					</NavigationMenuPrimitive.Item>
+
+					<NavigationMenuPrimitive.Item asChild>
+						<NavigationMenuPrimitive.Link
+							className="flex items-center justify-center"
+							href="https://github.com/JackRKelly/t3-tailwind-radix"
+						>
+							<GitHubLogoIcon className="w-6 h-6 text-primitive-type transition-colors" />
+						</NavigationMenuPrimitive.Link>
 					</NavigationMenuPrimitive.Item>
 
 					<NavigationMenuPrimitive.Item>
@@ -108,19 +106,21 @@ export const Navigation = () => {
 						</Content>
 					</NavigationMenuPrimitive.Item>
 
-					<NavigationMenuPrimitive.Item asChild>
-						<NextLink href="/components">
-							<Link href="/components">Components</Link>
-						</NextLink>
-					</NavigationMenuPrimitive.Item>
-
-					<NavigationMenuPrimitive.Item asChild>
-						<NavigationMenuPrimitive.Link
-							className="flex items-center justify-center"
-							href="https://github.com/JackRKelly/t3-tailwind-radix"
-						>
-							<GitHubLogoIcon className="w-6 h-6" />
-						</NavigationMenuPrimitive.Link>
+					<NavigationMenuPrimitive.Item>
+						<Trigger>Overview</Trigger>
+						<Content>
+							<SkeletonGridWrapper>
+								<SkeletonGrid>
+									<SkeletonColumn />
+									<SkeletonList>
+										<Skeleton />
+										<Skeleton />
+										<Skeleton />
+										<Skeleton />
+									</SkeletonList>
+								</SkeletonGrid>
+							</SkeletonGridWrapper>
+						</Content>
 					</NavigationMenuPrimitive.Item>
 
 					<Indicator>
