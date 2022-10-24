@@ -2,57 +2,82 @@
 Faint = Harder to see on background
 Bold = Easier to see on background
 */
-:root,
-html[data-theme="light"] {
+.light-theme {
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: 215, 100%, 55%;
-	--color-primary: 215, 100%, 60%;
-	--color-primary-faint: 215, 100%, 65%;
+	--color-primary-bold: var(--light-hue), 100%, 55%;
+	--color-primary: var(--light-hue), 100%, 60%;
+	--color-primary-faint: var(--light-hue), 100%, 65%;
 	/* Top-level */
-	--color-highlight: 215, 35%, 40%;
-	--color-type: 215, 35%, 10%;
-	--color-app: 215, 35%, 100%;
+	--color-highlight: var(--light-hue), 35%, 40%;
+	--color-type: var(--light-hue), 35%, 10%;
+	--color-app: var(--light-hue), 35%, 100%;
 	/* Primitive Background */
-	--color-primitive-bold: 215, 35%, 85%;
-	--color-primitive: 215, 35%, 93%;
-	--color-primitive-faint: 215, 35%, 97%;
+	--color-primitive-bold: var(--light-hue), 35%, 85%;
+	--color-primitive: var(--light-hue), 35%, 93%;
+	--color-primitive-faint: var(--light-hue), 35%, 97%;
 	/* Primitive Text */
-	--color-primitive-type-bold: 215, 35%, 5%;
-	--color-primitive-type: 215, 35%, 15%;
-	--color-primitive-type-faint: 215, 35%, 30%;
-	--color-primitive-type-extra-faint: 215, 35%, 45%;
+	--color-primitive-type-bold: var(--light-hue), 35%, 5%;
+	--color-primitive-type: var(--light-hue), 35%, 15%;
+	--color-primitive-type-faint: var(--light-hue), 35%, 30%;
+	--color-primitive-type-extra-faint: var(--light-hue), 35%, 45%;
 	/* Primitive Border */
-	--color-primitive-edge-extra-bold: 215, 35%, 60%;
-	--color-primitive-edge-bold: 215, 35%, 70%;
-	--color-primitive-edge: 215, 35%, 80%;
-	--color-primitive-edge-faint: 215, 35%, 90%;
+	--color-primitive-edge-extra-bold: var(--light-hue), 35%, 60%;
+	--color-primitive-edge-bold: var(--light-hue), 35%, 70%;
+	--color-primitive-edge: var(--light-hue), 35%, 80%;
+	--color-primitive-edge-faint: var(--light-hue), 35%, 90%;
+}
+
+.dark-theme {
+	/* Secondary */
+	--color-secondary: 2, 96%, 79%;
+	/* Primary */
+	--color-primary-bold: var(--dark-hue), 100%, 65%;
+	--color-primary: var(--dark-hue), 90%, 60%;
+	--color-primary-faint: var(--dark-hue), 80%, 55%;
+	/* Top-level */
+	--color-highlight: var(--dark-hue), 35%, 100%;
+	--color-type: var(--dark-hue), 35%, 90%;
+	--color-app: var(--dark-hue), 35%, 15%;
+	/* Primitive Background */
+	--color-primitive-bold: var(--dark-hue), 35%, 30%;
+	--color-primitive: var(--dark-hue), 35%, 22%;
+	--color-primitive-faint: var(--dark-hue), 35%, 18%;
+	/* Primitive Text */
+	--color-primitive-type-bold: var(--dark-hue), 35%, 100%;
+	--color-primitive-type: var(--dark-hue), 35%, 90%;
+	--color-primitive-type-faint: var(--dark-hue), 35%, 75%;
+	--color-primitive-type-extra-faint: var(--dark-hue), 35%, 60%;
+	/* Primitive Border */
+	--color-primitive-edge-extra-bold: 214, 35%, 60%;
+	--color-primitive-edge-bold: var(--dark-hue), 35%, 50%;
+	--color-primitive-edge: var(--dark-hue), 35%, 40%;
+	--color-primitive-edge-faint: var(--dark-hue), 35%, 35%;
+}
+
+:root {
+	--dark-hue: 215;
+	--light-hue: 215;
+}
+
+@media (prefers-color-scheme: light) {
+	html[data-theme="system"] {
+		@apply light-theme;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	html[data-theme="system"] {
+		@apply dark-theme;
+	}
+}
+
+:root,
+html[data-theme="light"] {
+	@apply light-theme;
 }
 
 html[data-theme="dark"] {
-	/* Secondary */
-	--color-secondary: 2, 96%, 79%;
-	/* Primary */
-	--color-primary-bold: 215, 100%, 65%;
-	--color-primary: 215, 90%, 60%;
-	--color-primary-faint: 215, 80%, 55%;
-	/* Top-level */
-	--color-highlight: 215, 35%, 100%;
-	--color-type: 215, 35%, 90%;
-	--color-app: 215, 35%, 15%;
-	/* Primitive Background */
-	--color-primitive-bold: 215, 35%, 30%;
-	--color-primitive: 215, 35%, 22%;
-	--color-primitive-faint: 215, 35%, 18%;
-	/* Primitive Text */
-	--color-primitive-type-bold: 215, 35%, 100%;
-	--color-primitive-type: 215, 35%, 90%;
-	--color-primitive-type-faint: 215, 35%, 75%;
-	--color-primitive-type-extra-faint: 215, 35%, 60%;
-	/* Primitive Border */
-	--color-primitive-edge-extra-bold: 214, 35%, 60%;
-	--color-primitive-edge-bold: 215, 35%, 50%;
-	--color-primitive-edge: 215, 35%, 40%;
-	--color-primitive-edge-faint: 215, 35%, 35%;
+	@apply dark-theme;
 }
