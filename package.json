@@ -60,7 +60,6 @@
 		"@types/react": "18.0.14",
 		"@types/react-dom": "18.0.5",
 		"autoprefixer": "^10.4.7",
-		"barrelsby": "^2.5.1",
 		"postcss": "^8.4.18",
 		"prettier": "^2.7.1",
 		"prettier-plugin-tailwindcss": "^0.1.13",
