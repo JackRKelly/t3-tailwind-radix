@@ -17,7 +17,7 @@ const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
 const List = tw(
 	NavigationMenuPrimitive.List
-)`border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive-faint p-2 backdrop-blur bg-opacity-[85%]`;
+)`pointer-events-auto border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive-faint p-2 backdrop-blur bg-opacity-[85%]`;
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
@@ -45,7 +45,7 @@ const SkeletonGrid = tw.div`grid grid-cols-6 gap-4`;
 
 const SkeletonGridWrapper = tw.div`w-[21rem] p-3 lg:w-[23rem]`;
 
-const NavigationWrapper = tw.div`fixed top-2 left-1/2 transform -translate-x-1/2 z-20 w-full flex items-center justify-center`;
+const NavigationWrapper = tw.div`pointer-events-none fixed top-2 left-1/2 -translate-x-1/2 z-20 w-full flex items-center justify-center`;
 
 const CardTitle = tw.span`block text-sm font-bold text-primitive-type`;
 
