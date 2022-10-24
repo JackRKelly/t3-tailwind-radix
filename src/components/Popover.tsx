@@ -4,7 +4,6 @@ import { Input } from "./Input";
 import { Label } from "./Label";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import cx from "clsx";
 import React from "react";
 
 interface Props {}
@@ -40,7 +39,7 @@ const Arrow = tw(PopoverPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const Content = tw(
 	PopoverPrimitive.Content
-)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg p-4 md:w-56 bg-primitive-faint border border-primitive-edge z-10`;
+)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade w-48 rounded-lg p-4 md:w-56 bg-primitive-faint border border-primitive-edge z-10`;
 
 const Fieldset = tw.fieldset`flex items-center`;
 
