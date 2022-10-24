@@ -153,17 +153,6 @@ const Components: NextPage = () => {
 
 						<OneSpan>
 							<Heading size="sm" className="mb-2">
-								Avatar
-							</Heading>
-							<div className="grid grid-cols-4 gap-2">
-								<Avatar variant={Avatar.variant.Rounded} />
-								<Avatar variant={Avatar.variant.Rounded} isOnline />
-								<Avatar variant={Avatar.variant.Rounded} renderInvalidUrls />
-							</div>
-						</OneSpan>
-
-						<OneSpan>
-							<Heading size="sm" className="mb-2">
 								Context Menu
 							</Heading>
 							<ContextMenu />
@@ -174,6 +163,24 @@ const Components: NextPage = () => {
 								Slider
 							</Heading>
 							<Slider />
+						</OneSpan>
+
+						<OneSpan>
+							<Heading size="sm" className="mb-2">
+								Checkbox
+							</Heading>
+							<Checkbox />
+						</OneSpan>
+
+						<OneSpan>
+							<Heading size="sm" className="mb-2">
+								Avatar
+							</Heading>
+							<div className="grid grid-cols-4 gap-2">
+								<Avatar variant={Avatar.variant.Rounded} />
+								<Avatar variant={Avatar.variant.Rounded} isOnline />
+								<Avatar variant={Avatar.variant.Rounded} renderInvalidUrls />
+							</div>
 						</OneSpan>
 
 						<OneSpan>
@@ -189,13 +196,6 @@ const Components: NextPage = () => {
 							</Heading>
 							<AspectRatio />
 						</TwoSpan>
-
-						<OneSpan>
-							<Heading size="sm" className="mb-2">
-								Checkbox
-							</Heading>
-							<Checkbox />
-						</OneSpan>
 
 						<TwoSpan>
 							<Heading size="sm" className="mb-2">
