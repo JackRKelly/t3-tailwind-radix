@@ -10,7 +10,7 @@ Bold = Easier to see on background
 	--color-primary: var(--light-hue), 100%, 60%;
 	--color-primary-faint: var(--light-hue), 100%, 65%;
 	/* Top-level */
-	--color-highlight: var(--light-hue), 35%, 40%;
+	--color-highlight: var(--light-hue), 35%, 30%;
 	--color-type: var(--light-hue), 35%, 10%;
 	--color-app: var(--light-hue), 35%, 100%;
 	/* Primitive Background */

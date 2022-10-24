@@ -5,7 +5,7 @@ import React from "react";
 
 const Root = tw(
 	ToastPrimitive.Root
-)`z-50 fixed bottom-3 inset-x-4 w-auto md:top-2 md:right-2 md:left-auto md:bottom-auto md:w-full md:max-w-sm rounded-lg bg-primitive-faint border border-primitive-edge radix-state-open:animate-toast-slide-in-bottom md:radix-state-open:animate-toast-slide-in-right radix-state-closed:animate-toast-hide radix-swipe-end:animate-toast-swipe-out translate-x-radix-toast-swipe-move-x radix-swipe-cancel:translate-x-0 radix-swipe-cancel:duration-200 radix-swipe-cancel:ease-[ease] focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`z-50 fixed bottom-3 inset-x-4 w-auto md:top-2 md:right-2 md:left-auto md:bottom-auto md:w-full md:max-w-sm rounded-lg border border-primitive-edge radix-state-open:animate-toast-slide-in-bottom md:radix-state-open:animate-toast-slide-in-right radix-state-closed:animate-toast-hide radix-swipe-end:animate-toast-swipe-out translate-x-radix-toast-swipe-move-x radix-swipe-cancel:translate-x-0 radix-swipe-cancel:duration-200 radix-swipe-cancel:ease-[ease] focus:outline-none focus-visible:ring focus-visible:ring-highlight bg-primitive-faint bg-opacity-[90%] backdrop-blur`;
 
 const Title = tw(ToastPrimitive.Title)`text-base font-semibold text-primitive-type-bold`;
 
@@ -33,7 +33,7 @@ export const Toast = () => {
 	const [open, setOpen] = React.useState(false);
 
 	return (
-		<ToastPrimitive.Provider>
+		<>
 			<Button
 				onClick={() => {
 					if (open) {
@@ -81,6 +81,6 @@ export const Toast = () => {
 			</Root>
 
 			<ToastPrimitive.Viewport />
-		</ToastPrimitive.Provider>
+		</>
 	);
 };

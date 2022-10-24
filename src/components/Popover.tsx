@@ -1,4 +1,4 @@
-import { tw } from "../utils/tw";
+import { styleGroups, tw } from "../utils/tw";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Label } from "./Label";
@@ -6,9 +6,15 @@ import { Cross1Icon } from "@radix-ui/react-icons";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import React from "react";
 
-interface Props {}
+interface PopoverItem {
+	id: string;
+	label: string;
+	defaultValue?: string;
+	type?: React.HTMLInputTypeAttribute;
+	autoComplete?: string;
+}
 
-const items = [
+const items: PopoverItem[] = [
 	{
 		id: "width",
 		label: "Width",
@@ -27,7 +33,8 @@ const items = [
 	{
 		id: "max-height",
 		label: "Max. height",
-		defaultValue: "none"
+		defaultValue: "none",
+		type: "text"
 	}
 ];
 
@@ -39,7 +46,9 @@ const Arrow = tw(PopoverPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const Content = tw(
 	PopoverPrimitive.Content
-)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade w-48 rounded-lg p-4 md:w-56 bg-primitive-faint border border-primitive-edge z-10`;
+)`radix-state-open:radix-side-top:animate-slide-down-fade-in radix-state-closed:radix-side-top:animate-slide-down-fade-out radix-state-open:radix-side-right:animate-slide-left-fade-in radix-state-closed:radix-side-right:animate-slide-left-fade-out radix-state-open:radix-side-bottom:animate-slide-up-fade-in radix-state-closed:radix-side-bottom:animate-slide-up-fade-out radix-state-open:radix-side-left:animate-slide-right-fade-in radix-state-closed:radix-side-left:animate-slide-right-fade-out w-48 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] z-10 rounded-lg`;
+
+const ContentInner = tw.div`border border-primitive-edge rounded-lg p-4`;
 
 const Fieldset = tw.fieldset`flex items-center`;
 
@@ -49,6 +58,8 @@ const Close = tw(
 
 const Wrapper = tw.div`relative inline-block text-left`;
 
+interface Props {}
+
 export const Popover = (props: Props) => {
 	return (
 		<Wrapper>
@@ -56,32 +67,33 @@ export const Popover = (props: Props) => {
 				<PopoverPrimitive.Trigger asChild>
 					<Button>Click</Button>
 				</PopoverPrimitive.Trigger>
+
 				<Content align="center" sideOffset={4}>
-					<Arrow />
-					<Header>Dimensions</Header>
-
-					<Form>
-						{items.map(({ id, label, defaultValue }) => {
-							return (
-								<Fieldset key={`popover-items-${id}`}>
-									<Label htmlFor={id} className="shrink-0 grow">
-										{label}
-									</Label>
-									<Input
-										id={id}
-										type="text"
-										className="w-1/2"
-										defaultValue={defaultValue}
-										autoComplete="given-name"
-									/>
-								</Fieldset>
-							);
-						})}
-					</Form>
-
-					<Close>
-						<Cross1Icon className="h-4 w-4 text-primitive-type hover:text-primitive-type-bold" />
-					</Close>
+					<ContentInner>
+						<Arrow />
+						<Header>Dimensions</Header>
+						<Form>
+							{items.map(({ id, label, defaultValue, autoComplete, type = "text" }) => {
+								return (
+									<Fieldset key={`popover-items-${id}`}>
+										<Label htmlFor={id} className="shrink-0 grow">
+											{label}
+										</Label>
+										<Input
+											id={id}
+											type={type}
+											className="w-1/2"
+											defaultValue={defaultValue}
+											autoComplete={autoComplete}
+										/>
+									</Fieldset>
+								);
+							})}
+						</Form>
+						<Close>
+							<Cross1Icon className="h-4 w-4 text-primitive-type hover:text-primitive-type-bold" />
+						</Close>
+					</ContentInner>
 				</Content>
 			</PopoverPrimitive.Root>
 		</Wrapper>

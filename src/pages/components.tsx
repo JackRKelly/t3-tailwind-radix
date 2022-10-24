@@ -2,6 +2,7 @@ import { Accordion } from "../components/Accordian";
 import { AlertDialog } from "../components/AlertDialog";
 import { AspectRatio } from "../components/AspectRatio";
 import { Avatar } from "../components/Avatar";
+import { Button } from "../components/Button";
 import { Checkbox } from "../components/Checkbox";
 import { Collapsible } from "../components/Collapsible";
 import { ContextMenu } from "../components/ContextMenu";
@@ -120,7 +121,9 @@ const Components: NextPage = () => {
 							<Heading size="sm" className="mb-2">
 								Tooltip
 							</Heading>
-							<Tooltip />
+							<Tooltip text="This is a tooltip component">
+								<Button>Hover</Button>
+							</Tooltip>
 						</OneSpan>
 
 						<OneSpan>

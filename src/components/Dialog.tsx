@@ -46,7 +46,7 @@ export const Dialog = (props: Props) => {
 			<Transition.Root show={isOpen}>
 				<Transition.Child
 					as={Fragment as any}
-					enter="ease-out duration-300"
+					enter="ease-out duration-200"
 					enterFrom="opacity-0"
 					enterTo="opacity-100"
 					leave="ease-in duration-200"
@@ -57,7 +57,7 @@ export const Dialog = (props: Props) => {
 				</Transition.Child>
 				<Transition.Child
 					as={Fragment as any}
-					enter="ease-out duration-300"
+					enter="ease-out duration-200"
 					enterFrom="opacity-0 scale-95"
 					enterTo="opacity-100 scale-100"
 					leave="ease-in duration-200"

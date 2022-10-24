@@ -81,7 +81,7 @@ const TriggerInner = tw.span`select-none text-sm font-medium text-primitive-type
 
 const Content = tw(
 	ContextMenuPrimitive.Content
-)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint border border-primitive-edge z-10`;
+)`radix-state-open:animate-slide-down-fade-in radix-state-closed:animate-slide-down-fade-out w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] border border-primitive-edge z-10`;
 
 const Item = tw(
 	ContextMenuPrimitive.Item
@@ -101,7 +101,7 @@ const CheckboxItem = tw(
 
 const SubContent = tw(
 	ContextMenuPrimitive.SubContent
-)`origin-radix-context-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive-faint border border-primitive-edge z-10`;
+)`origin-radix-context-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive-faint border border-primitive-edge z-10 backdrop-blur bg-opacity-[90%]`;
 
 const SubTrigger = tw(
 	ContextMenuPrimitive.SubTrigger

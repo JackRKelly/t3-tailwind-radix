@@ -42,9 +42,13 @@ const Trigger = tw(
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
-)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint border-primitive-edge border`;
+)`radix-state-open:radix-side-top:animate-slide-down-fade-in radix-state-closed:radix-side-top:animate-slide-down-fade-out radix-state-open:radix-side-right:animate-slide-left-fade-in radix-state-closed:radix-side-right:animate-slide-left-fade-out radix-state-open:radix-side-bottom:animate-slide-up-fade-in radix-state-closed:radix-side-bottom:animate-slide-up-fade-out radix-state-open:radix-side-left:animate-slide-right-fade-in radix-state-closed:radix-side-left:animate-slide-right-fade-out w-48 md:w-56 bg-primitive-faint bg-opacity-[90%] backdrop-blur rounded-lg`;
 
-const Arrow = tw(DropdownMenuPrimitive.DropdownMenuArrow)`fill-current text-primitive-edge`;
+const ContentInner = tw.div`border border-primitive-edge rounded-lg px-1.5 py-1`;
+
+const Arrow = tw(
+	DropdownMenuPrimitive.DropdownMenuArrow
+)`fill-current text-primitive-edge flex w-2 h-1`;
 
 interface Props {
 	side?: DropdownMenuPrimitive.DropdownMenuContentProps["side"];
@@ -94,24 +98,32 @@ const ThemeSwitcher = (props: Props) => {
 				</Trigger>
 
 				<DropdownMenuPrimitive.Portal>
-					<Content sideOffset={sideOffset} side={side} alignOffset={alignOffset} align={align}>
-						<Arrow />
-						{themes.map(({ key, label, icon }, i) => {
-							return (
-								<Item
-									key={`theme-${i}`}
-									onClick={() => {
-										(window as any).__setPreferredTheme(key);
-										setPreferredTheme(key);
-									}}
-								>
-									{React.cloneElement(icon, {
-										className: "w-5 h-5 mr-2 text-primitive-type-extra-faint"
-									})}
-									<Label>{label}</Label>
-								</Item>
-							);
-						})}
+					<Content
+						sideOffset={sideOffset}
+						side={side}
+						alignOffset={alignOffset}
+						align={align}
+						forceMount
+					>
+						<ContentInner>
+							<Arrow />
+							{themes.map(({ key, label, icon }, i) => {
+								return (
+									<Item
+										key={`theme-${i}`}
+										onClick={() => {
+											(window as any).__setPreferredTheme(key);
+											setPreferredTheme(key);
+										}}
+									>
+										{React.cloneElement(icon, {
+											className: "w-5 h-5 mr-2 text-primitive-type-extra-faint"
+										})}
+										<Label>{label}</Label>
+									</Item>
+								);
+							})}
+						</ContentInner>
 					</Content>
 				</DropdownMenuPrimitive.Portal>
 			</DropdownMenuPrimitive.Root>

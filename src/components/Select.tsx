@@ -11,7 +11,7 @@ const ScrollUpButton = tw(
 
 const Viewport = tw(
 	SelectPrimitive.Viewport
-)`bg-primitive-faint p-2 rounded-lg border border-primitive-edge`;
+)`p-2 rounded-lg border border-primitive-edge bg-primitive-faint backdrop-blur bg-opacity-[90%]`;
 
 const Group = tw(SelectPrimitive.Group)`z-10`;
 
@@ -25,7 +25,7 @@ const Item = tw(
 	SelectPrimitive.Item
 )`relative flex items-center px-8 py-2 rounded-md text-sm text-primitive-type font-medium focus:bg-primitive radix-disabled:opacity-50 focus-visible:border-transparent focus:outline-none select-none`;
 
-const Content = tw(SelectPrimitive.Content)`relative z-10`;
+const Content = tw(SelectPrimitive.Content)` relative z-10`;
 
 const SelectIcon = tw(SelectPrimitive.Icon)`ml-2`;
 

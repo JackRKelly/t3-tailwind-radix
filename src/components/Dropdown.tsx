@@ -72,7 +72,9 @@ const users: User[] = [
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
-)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56 bg-primitive-faint border border-primitive-edge`;
+)`radix-state-open:radix-side-top:animate-slide-down-fade-in radix-state-closed:radix-side-top:animate-slide-down-fade-out radix-state-open:radix-side-right:animate-slide-left-fade-in radix-state-closed:radix-side-right:animate-slide-left-fade-out radix-state-open:radix-side-bottom:animate-slide-up-fade-in radix-state-closed:radix-side-bottom:animate-slide-up-fade-out radix-state-open:radix-side-left:animate-slide-right-fade-in radix-state-closed:radix-side-left:animate-slide-right-fade-out w-48 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] z-10 rounded-lg`;
+
+const ContentInner = tw.div`border border-primitive-edge rounded-lg px-1.5 py-1`;
 
 const Item = tw(
 	DropdownMenuPrimitive.Item
@@ -90,7 +92,7 @@ const Label = tw(
 
 const SubContent = tw(
 	DropdownMenuPrimitive.SubContent
-)`origin-radix-dropdown-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive-faint border border-primitive-edge`;
+)`origin-radix-dropdown-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs border border-primitive-edge bg-primitive-faint backdrop-blur bg-opacity-[90%] z-[11]`;
 
 const SubTrigger = tw(
 	DropdownMenuPrimitive.SubTrigger
@@ -125,76 +127,70 @@ export const Dropdown = (props: Props) => {
 
 			<DropdownMenuPrimitive.Portal>
 				<Content align={align} sideOffset={sideOffset} side={side} alignOffset={alignOffset}>
-					<Arrow />
-					{generalMenuItems.map(({ label, icon, shortcut }, i) => (
-						<Item key={`${label}-${i}`} className={clsx("")}>
-							{icon}
-							<ItemLabelGrow>{label}</ItemLabelGrow>
-							{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
-						</Item>
-					))}
-
-					<Separator />
-
-					<CheckboxItem checked={showGrid} onCheckedChange={setShowGrid as any}>
-						{showGrid ? (
-							<GridIcon className="mr-2 h-4 w-4" />
-						) : (
-							<TransparencyGridIcon className="mr-2 h-3.5 w-3.5" />
-						)}
-						<ItemLabelGrow>Show Grid</ItemLabelGrow>
-						<DropdownMenuPrimitive.ItemIndicator>
-							<CheckIcon className="h-3.5 w-3.5" />
-						</DropdownMenuPrimitive.ItemIndicator>
-					</CheckboxItem>
-
-					<CheckboxItem checked={showUi} onCheckedChange={setShowUi as any}>
-						{showUi ? (
-							<EyeOpenIcon className="mr-2 h-3.5 w-3.5" />
-						) : (
-							<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
-						)}
-						<ItemLabelGrow>Show UI</ItemLabelGrow>
-						<DropdownMenuPrimitive.ItemIndicator>
-							<CheckIcon className="h-3.5 w-3.5" />
-						</DropdownMenuPrimitive.ItemIndicator>
-					</CheckboxItem>
-
-					<Separator />
-
-					<Label>Region Tools</Label>
-
-					{regionToolMenuItems.map(({ label, icon, shortcut }, i) => (
-						<Item key={`${label}-${i}`}>
-							{icon}
-							<ItemLabelGrow>{label}</ItemLabelGrow>
-							{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
-						</Item>
-					))}
-
-					<Separator />
-
-					<DropdownMenuPrimitive.Sub>
-						<SubTrigger>
-							<Link2Icon className="mr-2 h-3.5 w-3.5" />
-							<ItemLabelGrow>Share</ItemLabelGrow>
-							<CaretRightIcon className="h-3.5 w-3.5" />
-						</SubTrigger>
-						<DropdownMenuPrimitive.Portal>
-							<SubContent>
-								{users.map(({ name, url }, i) => (
-									<Item key={`${name}-${i}`}>
-										{url ? (
-											<img className="mr-2.5 h-6 w-6 rounded-full" src={url} />
-										) : (
-											<PersonIcon className="mr-2.5 h-6 w-6" />
-										)}
-										<ItemLabel>{name}</ItemLabel>
-									</Item>
-								))}
-							</SubContent>
-						</DropdownMenuPrimitive.Portal>
-					</DropdownMenuPrimitive.Sub>
+					<ContentInner>
+						<Arrow />
+						{generalMenuItems.map(({ label, icon, shortcut }, i) => (
+							<Item key={`${label}-${i}`} className={clsx("")}>
+								{icon}
+								<ItemLabelGrow>{label}</ItemLabelGrow>
+								{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
+							</Item>
+						))}
+						<Separator />
+						<CheckboxItem checked={showGrid} onCheckedChange={setShowGrid as any}>
+							{showGrid ? (
+								<GridIcon className="mr-2 h-4 w-4" />
+							) : (
+								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5" />
+							)}
+							<ItemLabelGrow>Show Grid</ItemLabelGrow>
+							<DropdownMenuPrimitive.ItemIndicator>
+								<CheckIcon className="h-3.5 w-3.5" />
+							</DropdownMenuPrimitive.ItemIndicator>
+						</CheckboxItem>
+						<CheckboxItem checked={showUi} onCheckedChange={setShowUi as any}>
+							{showUi ? (
+								<EyeOpenIcon className="mr-2 h-3.5 w-3.5" />
+							) : (
+								<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
+							)}
+							<ItemLabelGrow>Show UI</ItemLabelGrow>
+							<DropdownMenuPrimitive.ItemIndicator>
+								<CheckIcon className="h-3.5 w-3.5" />
+							</DropdownMenuPrimitive.ItemIndicator>
+						</CheckboxItem>
+						<Separator />
+						<Label>Region Tools</Label>
+						{regionToolMenuItems.map(({ label, icon, shortcut }, i) => (
+							<Item key={`${label}-${i}`}>
+								{icon}
+								<ItemLabelGrow>{label}</ItemLabelGrow>
+								{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
+							</Item>
+						))}
+						<Separator />
+						<DropdownMenuPrimitive.Sub>
+							<SubTrigger>
+								<Link2Icon className="mr-2 h-3.5 w-3.5" />
+								<ItemLabelGrow>Share</ItemLabelGrow>
+								<CaretRightIcon className="h-3.5 w-3.5" />
+							</SubTrigger>
+							<DropdownMenuPrimitive.Portal>
+								<SubContent>
+									{users.map(({ name, url }, i) => (
+										<Item key={`${name}-${i}`}>
+											{url ? (
+												<img className="mr-2.5 h-6 w-6 rounded-full" src={url} />
+											) : (
+												<PersonIcon className="mr-2.5 h-6 w-6" />
+											)}
+											<ItemLabel>{name}</ItemLabel>
+										</Item>
+									))}
+								</SubContent>
+							</DropdownMenuPrimitive.Portal>
+						</DropdownMenuPrimitive.Sub>
+					</ContentInner>
 				</Content>
 			</DropdownMenuPrimitive.Portal>
 		</DropdownMenuPrimitive.Root>

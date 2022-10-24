@@ -1,6 +1,7 @@
 import { tw } from "../utils/tw";
 import { Switch } from "./Switch";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Tooltip } from "./Tooltip";
+import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
@@ -27,7 +28,7 @@ const ViewportPerspective = tw.div`absolute flex justify-center left-[-20%] top-
 
 const Indicator = tw(
 	NavigationMenuPrimitive.Indicator
-)`z-10 top-[100%] flex h-2 items-end justify-center overflow-hidden transition-[width_transform] duration-[250ms] ease-[ease]`;
+)`z-10 top-[100%] flex h-2 items-end justify-center overflow-hidden transition-[width_transform] duration-[250ms] ease-[ease] radix-state-visible:animate-fade-in radix-state-hidden:animate-fade-out`;
 
 const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-primitive-edge-faint`;
 
@@ -76,10 +77,13 @@ export const Navigation = () => {
 
 					<NavigationMenuPrimitive.Item asChild>
 						<NavigationMenuPrimitive.Link
-							className="flex items-center justify-center"
+							className="flex items-center justify-center p-1 group relative w-8 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
 							href="https://github.com/JackRKelly/t3-tailwind-radix"
+							target="_blank"
+							rel="noopener noreferrer"
 						>
-							<GitHubLogoIcon className="w-6 h-6 text-primitive-type transition-colors" />
+							<GitHubLogoIcon className="w-6 h-6 absolute opacity-100 left-1 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type" />
+							<ExternalLinkIcon className="w-6 h-6 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-1 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
 						</NavigationMenuPrimitive.Link>
 					</NavigationMenuPrimitive.Item>
 

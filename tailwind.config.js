@@ -33,22 +33,47 @@ module.exports = {
 					"0%": { opacity: 0, transform: "translateY(10px)" },
 					"100%": { opacity: 1, transform: "translateY(0)" }
 				},
-				// Tooltip
-				"slide-up-fade": {
-					"0%": { opacity: 0, transform: "translateY(2px)" },
-					"100%": { opacity: 1, transform: "translateY(0)" }
+				// Slide Fades (In & Out)
+				"slide-up-fade-in": {
+					"0%": { opacity: 0, transform: "scale(.7) translateY(2px)" },
+					"100%": { opacity: 1, transform: "scale(1) translateY(0)" }
 				},
-				"slide-right-fade": {
-					"0%": { opacity: 0, transform: "translateX(-2px)" },
-					"100%": { opacity: 1, transform: "translateX(0)" }
+				"slide-up-fade-out": {
+					"0%": { opacity: 1, transform: "scale(1) translateY(0)" },
+					"100%": { opacity: 0, transform: "scale(.7) translateY(-2px)" }
 				},
-				"slide-down-fade": {
-					"0%": { opacity: 0, transform: "translateY(-2px)" },
-					"100%": { opacity: 1, transform: "translateY(0)" }
+				"slide-right-fade-in": {
+					"0%": { opacity: 0, transform: "scale(.7) translateX(-2px)" },
+					"100%": { opacity: 1, transform: "scale(1) translateX(0)" }
 				},
-				"slide-left-fade": {
-					"0%": { opacity: 0, transform: "translateX(2px)" },
-					"100%": { opacity: 1, transform: "translateX(0)" }
+				"slide-right-fade-out": {
+					"0%": { opacity: 1, transform: "scale(1) translateX(0)" },
+					"100%": { opacity: 0, transform: "scale(.7) translateX(2px)" }
+				},
+				"slide-down-fade-in": {
+					"0%": { opacity: 0, transform: "scale(.85) translateY(-2px)" },
+					"100%": { opacity: 1, transform: "scale(1) translateY(0)" }
+				},
+				"slide-down-fade-out": {
+					"0%": { opacity: 1, transform: "scale(1) translateY(0)" },
+					"100%": { opacity: 0, transform: "scale(.85) translateY(2px)" }
+				},
+				"slide-left-fade-in": {
+					"0%": { opacity: 0, transform: "scale(.7) translateX(2px)" },
+					"100%": { opacity: 1, transform: "scale(1) translateX(0)" }
+				},
+				"slide-left-fade-out": {
+					"0%": { opacity: 1, transform: "scale(1) translateX()" },
+					"100%": { opacity: 0, transform: "scale(.7) translateX(-2px)" }
+				},
+				// Collapsible
+				"collapsible-in": {
+					"0%": { maxHeight: 0 },
+					"100%": { maxHeight: "var(--radix-collapsible-content-height)" }
+				},
+				"collapsible-out": {
+					"0%": { maxHeight: "var(--radix-collapsible-content-height)" },
+					"100%": { maxHeight: 0 }
 				},
 				// Navigation menu
 				"enter-from-right": {
@@ -109,11 +134,18 @@ module.exports = {
 				"slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
 				"slide-up": "slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
 				"slide-right": "slide-right 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-				// Tooltip
-				"slide-up-fade": "slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-				"slide-right-fade": "slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-				"slide-down-fade": "slide-down-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-				"slide-left-fade": "slide-left-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+				// Slide Fades (In & Out)
+				"slide-up-fade-in": "slide-up-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-up-fade-out": "slide-up-fade-out 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-right-fade-in": "slide-right-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-right-fade-out": "slide-right-fade-out 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-down-fade-in": "slide-down-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-down-fade-out": "slide-down-fade-out 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-left-fade-in": "slide-left-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				"slide-left-fade-out": "slide-left-fade-out 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				// Collapsible
+				"collapsible-in": "collapsible-in 0.2s ease",
+				"collapsible-out": "collapsible-out 0.2s ease",
 				// Navigation menu
 				"enter-from-right": "enter-from-right 0.25s ease",
 				"enter-from-left": "enter-from-left 0.25s ease",

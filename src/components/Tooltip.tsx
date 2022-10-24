@@ -1,29 +1,66 @@
 import { tw } from "../utils/tw";
-import { Button } from "./Button";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 const Content = tw(
 	TooltipPrimitive.Content
-)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade inline-flex items-center rounded-md px-4 py-2.5 bg-primitive-faint border border-primitive-edge`;
+)`radix-state-delayed-open:radix-side-top:animate-slide-down-fade-in radix-state-closed:radix-side-top:animate-slide-down-fade-out radix-state-delayed-open:radix-side-right:animate-slide-left-fade-in radix-state-closed:radix-side-right:animate-slide-left-fade-out radix-state-delayed-open:radix-side-bottom:animate-slide-up-fade-in radix-state-closed:radix-side-bottom:animate-slide-up-fade-out radix-state-delayed-open:radix-side-left:animate-slide-right-fade-in radix-state-closed:radix-side-left:animate-slide-right-fade-out inline-flex items-center bg-primitive-faint backdrop-blur bg-opacity-[90%] rounded-md`;
+
+const ContentInner = tw.div`border border-primitive-edge rounded-md px-4 py-2.5`;
 
 const Arrow = tw(TooltipPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const Body = tw.span`block text-sm leading-none text-primitive-type`;
 
-interface Props {}
+interface Props {
+	text: string;
+	children: React.ReactNode;
+	open?: TooltipPrimitive.TooltipProps["open"];
+	defaultOpen?: TooltipPrimitive.TooltipProps["defaultOpen"];
+	onOpenChange?: TooltipPrimitive.TooltipProps["onOpenChange"];
+	delayDuration?: TooltipPrimitive.TooltipProps["delayDuration"];
+	sideOffset?: TooltipPrimitive.TooltipContentProps["sideOffset"];
+	tabIndex?: TooltipPrimitive.TooltipContentProps["tabIndex"];
+	side?: TooltipPrimitive.TooltipContentProps["side"];
+	alignOffset?: TooltipPrimitive.TooltipContentProps["alignOffset"];
+	align?: TooltipPrimitive.TooltipContentProps["align"];
+	draggable?: TooltipPrimitive.TooltipContentProps["draggable"];
+}
 
 export const Tooltip = (props: Props) => {
+	const {
+		text,
+		children,
+		sideOffset = 4,
+		tabIndex,
+		side,
+		alignOffset,
+		align,
+		defaultOpen,
+		delayDuration = 200,
+		onOpenChange,
+		open
+	} = props;
+
 	return (
-		<TooltipPrimitive.Provider>
-			<TooltipPrimitive.Root>
-				<TooltipPrimitive.Trigger asChild>
-					<Button>Hover</Button>
-				</TooltipPrimitive.Trigger>
-				<Content sideOffset={4}>
+		<TooltipPrimitive.Root
+			defaultOpen={defaultOpen}
+			open={open}
+			delayDuration={delayDuration}
+			onOpenChange={onOpenChange}
+		>
+			<TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
+			<Content
+				sideOffset={sideOffset}
+				align={align}
+				side={side}
+				tabIndex={tabIndex}
+				alignOffset={alignOffset}
+			>
+				<ContentInner>
 					<Arrow />
-					<Body>Sorry, but our princess is in another castle</Body>
-				</Content>
-			</TooltipPrimitive.Root>
-		</TooltipPrimitive.Provider>
+					<Body>{text}</Body>
+				</ContentInner>
+			</Content>
+		</TooltipPrimitive.Root>
 	);
 };
