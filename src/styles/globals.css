@@ -23,6 +23,10 @@
 	@apply bg-type/60;
 }
 
+::selection {
+	@apply bg-type text-app;
+}
+
 button {
 	-webkit-tap-highlight-color: transparent;
 }
