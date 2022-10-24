@@ -11,7 +11,7 @@ const ScrollUpButton = tw(
 
 const Viewport = tw(
 	SelectPrimitive.Viewport
-)`p-2 rounded-lg border border-primitive-edge bg-primitive-faint backdrop-blur bg-opacity-[90%]`;
+)`p-2 rounded-lg border border-primitive-edge bg-primitive-faint backdrop-blur bg-opacity-[85%]`;
 
 const Group = tw(SelectPrimitive.Group)`z-10`;
 
@@ -45,7 +45,7 @@ export const Select: React.FC<Props> = (props) => {
 			}
 		>
 			<SelectPrimitive.Trigger asChild aria-label={ariaLabel}>
-				<Button>
+				<Button className="min-w-[85px]">
 					<SelectPrimitive.Value />
 					<SelectIcon>
 						<ChevronDownIcon />
