@@ -1,7 +1,12 @@
 /* 
-Faint = Harder to see on background
-Bold = Easier to see on background
+Faint = Harder to see on themes background
+Bold = Easier to see on themes background
 */
+:root {
+	--dark-hue: 215;
+	--light-hue: 215;
+}
+
 .light-theme {
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
@@ -54,11 +59,6 @@ Bold = Easier to see on background
 	--color-primitive-edge-bold: var(--dark-hue), 35%, 45%;
 	--color-primitive-edge: var(--dark-hue), 35%, 35%;
 	--color-primitive-edge-faint: var(--dark-hue), 35%, 25%;
-}
-
-:root {
-	--dark-hue: 215;
-	--light-hue: 215;
 }
 
 @media (prefers-color-scheme: light) {
