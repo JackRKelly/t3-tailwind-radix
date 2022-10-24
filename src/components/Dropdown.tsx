@@ -72,7 +72,7 @@ const users: User[] = [
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
-)`radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56 bg-primitive-faint border border-primitive-edge`;
+)`radix-side-top:animate-slide-down-fade radix-side-right:animate-slide-left-fade radix-side-bottom:animate-slide-up-fade radix-side-left:animate-slide-right-fade w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56 bg-primitive-faint border border-primitive-edge`;
 
 const Item = tw(
 	DropdownMenuPrimitive.Item
@@ -102,7 +102,18 @@ const ItemLabel = tw.span`text-primitive-type`;
 
 const ShortcutLabel = tw.span`text-xs text-primitive-type-extra-faint`;
 
-export const Dropdown = () => {
+const Arrow = tw(DropdownMenuPrimitive.Arrow)`fill-current text-primitive-edge`;
+
+interface Props {
+	side?: DropdownMenuPrimitive.DropdownMenuContentProps["side"];
+	sideOffset?: DropdownMenuPrimitive.DropdownMenuContentProps["sideOffset"];
+	align?: DropdownMenuPrimitive.DropdownMenuContentProps["align"];
+	alignOffset?: DropdownMenuPrimitive.DropdownMenuContentProps["alignOffset"];
+}
+
+export const Dropdown = (props: Props) => {
+	const { side, sideOffset = 4, align, alignOffset } = props;
+
 	const [showGrid, setShowGrid] = useState(false);
 	const [showUi, setShowUi] = useState(false);
 
@@ -113,7 +124,8 @@ export const Dropdown = () => {
 			</DropdownMenuPrimitive.Trigger>
 
 			<DropdownMenuPrimitive.Portal>
-				<Content align="end" sideOffset={5}>
+				<Content align={align} sideOffset={sideOffset} side={side} alignOffset={alignOffset}>
+					<Arrow />
 					{generalMenuItems.map(({ label, icon, shortcut }, i) => (
 						<Item key={`${label}-${i}`} className={clsx("")}>
 							{icon}
