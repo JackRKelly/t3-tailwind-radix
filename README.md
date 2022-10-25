@@ -1,6 +1,6 @@
 # T3 Tailwind Radix
 
-This is an app template started from [T3 Stack](https://github.com/t3-oss/create-t3-app) with [tailwindcss-radix](https://github.com/ecklf/tailwindcss-radix) and a nice [tailwind styled component helper](https://github.com/JackRKelly/t3-tailwind-radix/blob/master/src/utils/tw.ts) made by [Brendan](https://github.com/Brendonovich) for [spacedrive](https://github.com/spacedriveapp/spacedrive).
+This is an app template started from [T3 Stack](https://github.com/t3-oss/create-t3-app) with [tailwindcss-radix](https://github.com/ecklf/tailwindcss-radix) and a nice [tailwind styled component helper](https://github.com/JackRKelly/t3-tailwind-radix/blob/master/utils/tw.ts) made by [Brendan](https://github.com/Brendonovich) for [spacedrive](https://github.com/spacedriveapp/spacedrive).
 
 Technologies used:
 

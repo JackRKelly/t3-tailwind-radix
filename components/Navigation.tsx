@@ -1,10 +1,7 @@
 import { tw } from "../utils/tw";
-import { Switch } from "./Switch";
-import { Tooltip } from "./Tooltip";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import NextLink from "next/link";
-import React, { useEffect, useState } from "react";
+import _NextLink from "next/link";
 
 const Trigger = tw(
 	NavigationMenuPrimitive.Trigger
@@ -18,7 +15,7 @@ const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
 const List = tw(
 	NavigationMenuPrimitive.List
-)`pointer-events-auto border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive-faint p-2 backdrop-blur bg-opacity-[85%]`;
+)`border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive-faint p-2 backdrop-blur bg-opacity-[85%]`;
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
@@ -31,6 +28,10 @@ const Indicator = tw(
 )`z-10 top-[100%] flex h-2 items-end justify-center overflow-hidden transition-[width_transform] duration-[250ms] ease-[ease] radix-state-visible:animate-fade-in radix-state-hidden:animate-fade-out`;
 
 const IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-primitive-edge-faint`;
+
+const NextLink = tw(
+	_NextLink
+)`cursor-pointer rounded-md px-3 py-2 hover:bg-primitive text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-link`;
 
 const Link = tw(
 	NavigationMenuPrimitive.Link
@@ -46,7 +47,7 @@ const SkeletonGrid = tw.div`grid grid-cols-6 gap-4`;
 
 const SkeletonGridWrapper = tw.div`w-[21rem] p-3 lg:w-[23rem]`;
 
-const NavigationWrapper = tw.div`pointer-events-none fixed top-2 left-1/2 -translate-x-1/2 z-20 w-full flex items-center justify-center`;
+const NavigationWrapper = tw.div`fixed top-2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center`;
 
 const CardTitle = tw.span`block text-sm font-bold text-primitive-type`;
 
@@ -62,17 +63,11 @@ export const Navigation = () => {
 			<Root>
 				<List>
 					<NavigationMenuPrimitive.Item asChild>
-						<NextLink href="/">
-							<Link className="relative" href="/">
-								Home
-							</Link>
-						</NextLink>
+						<NextLink href="/">Home</NextLink>
 					</NavigationMenuPrimitive.Item>
 
 					<NavigationMenuPrimitive.Item asChild>
-						<NextLink href="/components">
-							<Link href="/components">Components</Link>
-						</NextLink>
+						<NextLink href="/components">Components</NextLink>
 					</NavigationMenuPrimitive.Item>
 
 					<NavigationMenuPrimitive.Item asChild>

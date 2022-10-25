@@ -16,7 +16,6 @@ const Home: NextPage = () => {
 					<div className="opacity-60 absolute left-0 bottom-0 top-0">
 						<Image
 							src="/static/bg_curve.png"
-							layout="intrinsic"
 							alt="bg doce"
 							width={3176}
 							priority={false}
@@ -29,7 +28,6 @@ const Home: NextPage = () => {
 					<div className="absolute top-1/4 left-[-7%] -translate-y-1/2 transform">
 						<Image
 							src="/static/gradient_two.png"
-							layout="intrinsic"
 							width={1250}
 							height={1250}
 							alt="gradient"
