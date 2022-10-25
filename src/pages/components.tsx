@@ -29,11 +29,13 @@ import { Tooltip } from "../components/Tooltip";
 import { tw } from "../utils/tw";
 import type { NextPage } from "next";
 
-const FullSpan = tw.div`col-span-3`;
+const FullSpan = tw.div`col-span-12`;
 
-const TwoSpan = tw.div`col-span-3 md:col-span-2`;
+const TwoSpan = tw.div`col-span-12 lg:col-span-8`;
 
-const OneSpan = tw.div`col-span-3 sm:col-span-2 lg:col-span-1`;
+const OneSpan = tw.div`col-span-12 md:col-span-6 lg:col-span-4`;
+
+const GridWrapper = tw.div`grid grid-cols-12 gap-6 grid-flow-row-dense`;
 
 const Components: NextPage = () => {
 	return (
@@ -42,7 +44,7 @@ const Components: NextPage = () => {
 
 			<OuterColumn>
 				<InnerColumn width="third">
-					<div className="grid grid-cols-3 gap-6 grid-flow-row-dense">
+					<GridWrapper>
 						<FullSpan>
 							<Heading size="xxl" className="relative text-center mb-4 md:mb-8 mt-2 md:mt-4">
 								Components
@@ -234,7 +236,7 @@ const Components: NextPage = () => {
 							</Heading>
 							<Accordion />
 						</FullSpan>
-					</div>
+					</GridWrapper>
 				</InnerColumn>
 			</OuterColumn>
 		</PageWrapper>
