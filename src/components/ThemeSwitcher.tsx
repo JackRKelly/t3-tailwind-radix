@@ -38,7 +38,7 @@ const Item = tw(
 
 const Trigger = tw(
 	DropdownMenuPrimitive.Trigger
-)`inline-flex select-none justify-center rounded-md px-2.5 py-2 text-sm font-medium bg-primitive-faint text-primitive-type hover:bg-primitive border border-primitive-edge focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
+)`inline-flex select-none justify-center rounded-md px-2.5 py-2 text-sm font-medium bg-primitive-faint text-primitive-type hover:bg-primitive border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
