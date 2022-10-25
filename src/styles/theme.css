@@ -15,7 +15,7 @@ Bold = Easier to see on themes background
 	--color-primary: var(--light-hue), 100%, 60%;
 	--color-primary-faint: var(--light-hue), 100%, 65%;
 	/* Top-level */
-	--color-highlight: var(--light-hue), 35%, 30%;
+	--color-highlight: var(--light-hue), 5%, 35%;
 	--color-type: var(--light-hue), 35%, 10%;
 	--color-app: var(--light-hue), 35%, 100%;
 	/* Primitive Background */
@@ -42,7 +42,7 @@ Bold = Easier to see on themes background
 	--color-primary: var(--dark-hue), 90%, 60%;
 	--color-primary-faint: var(--dark-hue), 80%, 55%;
 	/* Top-level */
-	--color-highlight: var(--dark-hue), 35%, 100%;
+	--color-highlight: var(--dark-hue), 5%, 80%;
 	--color-type: var(--dark-hue), 35%, 90%;
 	--color-app: var(--dark-hue), 35%, 15%;
 	/* Primitive Background */
