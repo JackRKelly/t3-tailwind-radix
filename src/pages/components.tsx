@@ -55,7 +55,14 @@ const Components: NextPage = () => {
 
 						<OneSpan>
 							<Heading size="sm" className="mb-2">
-								Toggle
+								Button
+							</Heading>
+							<Button>Click</Button>
+						</OneSpan>
+
+						<OneSpan>
+							<Heading size="sm" className="mb-2">
+								Theme Switcher
 							</Heading>
 							<ThemeSwitcher />
 						</OneSpan>
