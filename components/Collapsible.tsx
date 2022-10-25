@@ -7,7 +7,7 @@ interface Props {}
 
 const Trigger = tw(
 	CollapsiblePrimitive.Trigger
-)`group flex w-full select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint hover:bg-primitive border border-primitive-edge text-primitive-type-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button focus-visible:border-transparent`;
+)`group flex w-full select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint hover:bg-primitive border border-primitive-edge text-primitive-type-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button focus-visible:border-transparent w-full`;
 
 const Content = tw(
 	CollapsiblePrimitive.Content
@@ -17,11 +17,13 @@ const CollapsibleItem = tw.div`group ml-12 flex select-none items-center justify
 
 const CollapsibleItemAction = tw.div`hidden items-center space-x-3 group-hover:flex`;
 
+const Root = tw(CollapsiblePrimitive.Root)`w-full max-w-xl`;
+
 export const Collapsible = (props: Props) => {
 	const [isOpen, setIsOpen] = React.useState(true);
 
 	return (
-		<CollapsiblePrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
+		<Root open={isOpen} onOpenChange={setIsOpen}>
 			<Trigger>
 				<div>My Playlists</div>
 				<TriangleRightIcon className="transform duration-200 ease-in-out group-radix-state-open:rotate-90 text-primitive-type-faint" />
@@ -37,6 +39,6 @@ export const Collapsible = (props: Props) => {
 					</CollapsibleItem>
 				))}
 			</Content>
-		</CollapsiblePrimitive.Root>
+		</Root>
 	);
 };

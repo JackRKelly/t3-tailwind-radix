@@ -29,11 +29,13 @@ import { Tooltip } from "../components/Tooltip";
 import { tw } from "../utils/tw";
 import type { NextPage } from "next";
 
-const FullSpan = tw.div`col-span-12`;
+const FullSpanNoBackground = tw.div`col-span-12`;
 
-const TwoSpan = tw.div`col-span-12 lg:col-span-8`;
+const FullSpan = tw.div`col-span-12 bg-app rounded-lg p-4 flex flex-col border-primitive-edge-faint border items-center justify-center`;
 
-const OneSpan = tw.div`col-span-12 md:col-span-6 lg:col-span-4`;
+const TwoSpan = tw.div`col-span-12 lg:col-span-8 bg-app rounded-lg p-4 flex flex-col border-primitive-edge-faint border items-center justify-center`;
+
+const OneSpan = tw.div`col-span-12 md:col-span-6 lg:col-span-4 bg-app rounded-lg p-4 flex flex-col border-primitive-edge-faint border items-center justify-start`;
 
 const GridWrapper = tw.div`grid grid-cols-12 gap-6 grid-flow-row-dense`;
 
@@ -45,7 +47,7 @@ const Components: NextPage = () => {
 			<OuterColumn>
 				<InnerColumn width="third">
 					<GridWrapper>
-						<FullSpan>
+						<FullSpanNoBackground>
 							<Heading size="xxl" className="relative text-center mb-4 md:mb-8 mt-2 md:mt-4">
 								Components
 							</Heading>
@@ -53,7 +55,7 @@ const Components: NextPage = () => {
 								Checkout our collection of fully styled radix components ported from
 								tailwindcss-radix
 							</Text>
-						</FullSpan>
+						</FullSpanNoBackground>
 
 						<OneSpan>
 							<Heading size="sm" className="mb-2">
@@ -195,26 +197,26 @@ const Components: NextPage = () => {
 							</div>
 						</OneSpan>
 
-						<OneSpan>
+						<FullSpan>
 							<Heading size="sm" className="mb-2">
 								Collapsible
 							</Heading>
 							<Collapsible />
-						</OneSpan>
+						</FullSpan>
 
-						<TwoSpan>
+						<FullSpan>
 							<Heading size="sm" className="mb-2">
 								Aspect Ratio
 							</Heading>
 							<AspectRatio />
-						</TwoSpan>
+						</FullSpan>
 
-						<TwoSpan>
+						<FullSpan>
 							<Heading size="sm" className="mb-2">
 								Progress
 							</Heading>
 							<Progress />
-						</TwoSpan>
+						</FullSpan>
 
 						<FullSpan>
 							<Heading size="sm" className="mb-2">

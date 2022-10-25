@@ -54,7 +54,7 @@ const textSettings: ToggleItem[] = [
 
 const Root = tw(
 	ToolbarPrimitive.Root
-)`flex space-x-4 rounded-lg bg-primitive-faint border border-primitive-edge px-2.5 py-2 transition-colors`;
+)`flex space-x-4 rounded-lg bg-primitive-faint border border-primitive-edge px-2.5 py-2 transition-colors w-full max-w-xl`;
 
 const ToggleItem = tw(
 	ToolbarPrimitive.ToggleItem

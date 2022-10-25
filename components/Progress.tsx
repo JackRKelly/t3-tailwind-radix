@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 const Root = tw(
 	ProgressPrimitive.Root
-)`h-3 w-full overflow-hidden rounded-full bg-primitive transition-colors`;
+)`h-3 w-full overflow-hidden rounded-full bg-primitive transition-colors max-w-xl`;
 
 const Indicator = tw(ProgressPrimitive.Indicator)`h-full bg-primary transition-all`;
 
@@ -23,7 +23,7 @@ export const Progress = (props: Props) => {
 		timerId = setInterval(() => {
 			const p = Math.ceil(getRandomArbitrary(0, 100) / 10) * 10;
 			setProgress(p);
-		}, 3000);
+		}, 2000);
 
 		return () => {
 			if (timerId) {

@@ -24,7 +24,7 @@ const tabs: Tab[] = [
 	}
 ];
 
-const Root = tw(TabsPrimitive.Root)`border border-primitive-edge rounded-lg`;
+const Root = tw(TabsPrimitive.Root)`border border-primitive-edge rounded-lg w-full max-w-xl`;
 
 const List = tw(TabsPrimitive.List)`flex w-full rounded-t-lg bg-primitive-faint`;
 

@@ -6,7 +6,7 @@ interface Props {}
 
 export const AspectRatio = (props: Props) => {
 	return (
-		<Fragment>
+		<div className="w-full max-w-xl">
 			<AspectRatioPrimitive.Root
 				ratio={16 / 9}
 				className="group relative h-full w-full overflow-hidden rounded-lg shadow-md"
@@ -29,6 +29,6 @@ export const AspectRatio = (props: Props) => {
 					/>
 				</div>
 			</AspectRatioPrimitive.Root>
-		</Fragment>
+		</div>
 	);
 };

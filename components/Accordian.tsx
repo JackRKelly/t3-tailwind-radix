@@ -24,7 +24,7 @@ const items: AccordionItem[] = [
 	}
 ];
 
-const Root = tw(AccordionPrimitive.Root)`space-y-4`;
+const Root = tw(AccordionPrimitive.Root)`space-y-4 w-full max-w-xl`;
 
 const Trigger = tw(
 	AccordionPrimitive.Trigger
