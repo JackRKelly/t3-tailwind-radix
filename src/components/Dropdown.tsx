@@ -72,7 +72,7 @@ const users: User[] = [
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
-)`radix-state-open:radix-side-top:animate-slide-down-fade-in radix-state-closed:radix-side-top:animate-slide-down-fade-out radix-state-open:radix-side-right:animate-slide-left-fade-in radix-state-closed:radix-side-right:animate-slide-left-fade-out radix-state-open:radix-side-bottom:animate-slide-up-fade-in radix-state-closed:radix-side-bottom:animate-slide-up-fade-out radix-state-open:radix-side-left:animate-slide-right-fade-in radix-state-closed:radix-side-left:animate-slide-right-fade-out w-48 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] z-10 rounded-lg`;
+)`animate-all-sides w-48 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] z-10 rounded-lg`;
 
 const ContentInner = tw.div`border border-primitive-edge rounded-lg px-1.5 py-1`;
 

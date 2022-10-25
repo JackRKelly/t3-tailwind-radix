@@ -81,7 +81,7 @@ const TriggerInner = tw.span`select-none text-sm font-medium text-primitive-type
 
 const Content = tw(
 	ContextMenuPrimitive.Content
-)`radix-state-open:animate-slide-down-fade-in radix-state-closed:animate-slide-down-fade-out w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] border border-primitive-edge z-10`;
+)`animate-down w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] border border-primitive-edge z-10`;
 
 const Item = tw(
 	ContextMenuPrimitive.Item

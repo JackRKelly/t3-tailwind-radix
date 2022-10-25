@@ -41,5 +41,47 @@ button {
 	-webkit-backdrop-filter: blur(18px);
 }
 
+.animate-close-all-sides {
+	@apply radix-state-closed:radix-side-bottom:animate-slide-up-fade-out
+	radix-state-closed:radix-side-left:animate-slide-right-fade-out
+	radix-state-closed:radix-side-right:animate-slide-left-fade-out
+	radix-state-closed:radix-side-top:animate-slide-down-fade-out;
+}
+
+.animate-open-all-sides {
+	@apply radix-state-open:radix-side-bottom:animate-slide-up-fade-in
+	radix-state-open:radix-side-left:animate-slide-right-fade-in
+	radix-state-open:radix-side-right:animate-slide-left-fade-in
+	radix-state-open:radix-side-top:animate-slide-down-fade-in;
+}
+
+.animate-delayed-open-all-sides {
+	@apply radix-state-delayed-open:radix-side-bottom:animate-slide-up-fade-in
+	radix-state-delayed-open:radix-side-left:animate-slide-right-fade-in
+	radix-state-delayed-open:radix-side-right:animate-slide-left-fade-in
+	radix-state-delayed-open:radix-side-top:animate-slide-down-fade-in;
+}
+
+.origin-all-sides {
+	@apply radix-side-bottom:origin-top
+	radix-side-left:origin-right
+	radix-side-right:origin-left
+	radix-side-top:origin-bottom;
+}
+
+.animate-all-sides {
+	@apply animate-open-all-sides animate-close-all-sides origin-all-sides;
+}
+
+.animate-delayed-all-sides {
+	@apply animate-delayed-open-all-sides animate-close-all-sides origin-all-sides;
+}
+
+.animate-down {
+	@apply origin-top
+	radix-state-closed:animate-slide-down-fade-out
+	radix-state-open:animate-slide-down-fade-in;
+}
+
 @tailwind components;
 @tailwind utilities;

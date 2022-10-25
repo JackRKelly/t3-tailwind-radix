@@ -19,7 +19,7 @@ const TailwindLogo = () => (
 
 const Content = tw(
 	HoverCardPrimitive.Content
-)`radix-state-open:radix-side-top:animate-slide-down-fade-in radix-state-closed:radix-side-top:animate-slide-down-fade-out radix-state-open:radix-side-right:animate-slide-left-fade-in radix-state-closed:radix-side-right:animate-slide-left-fade-out radix-state-open:radix-side-bottom:animate-slide-up-fade-in radix-state-closed:radix-side-bottom:animate-slide-up-fade-out radix-state-open:radix-side-left:animate-slide-right-fade-in radix-state-closed:radix-side-left:animate-slide-right-fade-out backdrop-blur bg-opacity-[90%] z-10 border border-primitive-edge max-w-md rounded-lg p-4 md:w-full bg-primitive-faint focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`animate-all-sides backdrop-blur bg-opacity-[90%] z-10 border border-primitive-edge max-w-md rounded-lg p-4 md:w-full bg-primitive-faint focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
 
 const TriggerWrapper = tw.div`inline-flex h-12 w-12 items-center justify-center rounded-full bg-primitive-faint p-2.5 transition-colors`;
 

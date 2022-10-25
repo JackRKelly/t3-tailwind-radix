@@ -3,7 +3,7 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 const Content = tw(
 	TooltipPrimitive.Content
-)`radix-state-delayed-open:radix-side-top:animate-slide-down-fade-in radix-state-closed:radix-side-top:animate-slide-down-fade-out radix-state-delayed-open:radix-side-right:animate-slide-left-fade-in radix-state-closed:radix-side-right:animate-slide-left-fade-out radix-state-delayed-open:radix-side-bottom:animate-slide-up-fade-in radix-state-closed:radix-side-bottom:animate-slide-up-fade-out radix-state-delayed-open:radix-side-left:animate-slide-right-fade-in radix-state-closed:radix-side-left:animate-slide-right-fade-out inline-flex items-center bg-primitive-faint backdrop-blur bg-opacity-[90%] rounded-md`;
+)`animate-delayed-all-sides inline-flex items-center bg-primitive-faint backdrop-blur bg-opacity-[90%] rounded-md`;
 
 const ContentInner = tw.div`border border-primitive-edge rounded-md px-4 py-2.5`;
 
