@@ -1,9 +1,7 @@
 import { tw } from "../utils/tw";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
-import { PlayIcon, Share2Icon, TriangleRightIcon } from "@radix-ui/react-icons";
-import React from "react";
-
-interface Props {}
+import { CaretRightIcon } from "@radix-ui/react-icons";
+import React, { PropsWithChildren, ReactNode } from "react";
 
 const Trigger = tw(
 	CollapsiblePrimitive.Trigger
@@ -13,32 +11,34 @@ const Content = tw(
 	CollapsiblePrimitive.Content
 )`radix-state-open:animate-collapsible-in radix-state-closed:animate-collapsible-out overflow-y-hidden mt-4 flex flex-col space-y-4`;
 
-const CollapsibleItem = tw.div`group ml-12 flex select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint text-primitive-type-bold hover:bg-primitive border border-primitive-edge transition-colors`;
+const _Item = tw.div`group ml-12 flex select-none items-center justify-between rounded-md px-4 py-2 text-left text-sm font-medium bg-primitive-faint text-primitive-type-bold hover:bg-primitive border border-primitive-edge transition-colors`;
 
-const CollapsibleItemAction = tw.div`hidden items-center space-x-3 group-hover:flex`;
+const _Root = tw(CollapsiblePrimitive.Root)`w-full max-w-xl`;
 
-const Root = tw(CollapsiblePrimitive.Root)`w-full max-w-xl`;
+interface ItemProps extends PropsWithChildren {}
 
-export const Collapsible = (props: Props) => {
+export const Item = (props: ItemProps) => {
+	const { children } = props;
+
+	return <_Item>{children}</_Item>;
+};
+
+interface RootProps extends PropsWithChildren {
+	trigger: ReactNode;
+}
+
+export const Root = (props: RootProps) => {
+	const { children, trigger } = props;
+
 	const [isOpen, setIsOpen] = React.useState(true);
 
 	return (
-		<Root open={isOpen} onOpenChange={setIsOpen}>
+		<_Root open={isOpen} onOpenChange={setIsOpen}>
 			<Trigger>
-				<div>My Playlists</div>
-				<TriangleRightIcon className="transform duration-200 ease-in-out group-radix-state-open:rotate-90 text-primitive-type-faint" />
+				<div>{trigger}</div>
+				<CaretRightIcon className="transform duration-200 ease-in-out group-radix-state-open:rotate-90 text-primitive-type-faint" />
 			</Trigger>
-			<Content>
-				{["80s Synthwave", "Maximale Konzentration", "高人氣金曲"].map((title, i) => (
-					<CollapsibleItem key={`collapsible-${title}-${i}`}>
-						{title}
-						<CollapsibleItemAction>
-							<Share2Icon className="cursor-pointer text-gray-500 hover:text-primitive-type" />
-							<PlayIcon className="cursor-pointer text-gray-500 hover:text-primitive-type" />
-						</CollapsibleItemAction>
-					</CollapsibleItem>
-				))}
-			</Content>
-		</Root>
+			<Content>{children}</Content>
+		</_Root>
 	);
 };

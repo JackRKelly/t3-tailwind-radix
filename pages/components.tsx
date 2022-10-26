@@ -1,9 +1,7 @@
 import { Accordion } from "../components/Accordian";
 import { AspectRatio } from "../components/AspectRatio";
-import { Avatar } from "../components/Avatar";
 import { Button } from "../components/Button";
 import { Checkbox } from "../components/Checkbox";
-import { Collapsible } from "../components/Collapsible";
 import { Heading } from "../components/Heading";
 import { Grid, InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
@@ -19,6 +17,7 @@ import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
 import { AlertDialogExample } from "../components/examples/AlertDialogExample";
 import { AvatarExample } from "../components/examples/AvatarExample";
+import { CollapsibleExample } from "../components/examples/CollapsibleExample";
 import { ContextMenuExample } from "../components/examples/ContextMenuExample";
 import { DialogExample } from "../components/examples/DialogExample";
 import { DropdownExample } from "../components/examples/DropdownExample";
@@ -163,6 +162,12 @@ const components: ComponentEntry[] = [
 		component: <AvatarExample />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("Avatar.tsx")
+	},
+	{
+		title: "Collapsible",
+		component: <CollapsibleExample />,
+		Wrapper: Grid.FullSpan,
+		link: buildGithubLink("Collapsible.tsx")
 	}
 ];
 
@@ -239,13 +244,6 @@ const Components: NextPage = () => {
 								</div>
 							</Wrapper>
 						))}
-
-						<Grid.FullSpan>
-							<Heading size="sm" className="mb-2">
-								Collapsible
-							</Heading>
-							<Collapsible />
-						</Grid.FullSpan>
 
 						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">
