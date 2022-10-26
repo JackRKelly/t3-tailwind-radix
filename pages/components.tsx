@@ -1,5 +1,4 @@
 import { Accordion } from "../components/Accordian";
-import { AspectRatio } from "../components/AspectRatio";
 import { Button } from "../components/Button";
 import { Checkbox } from "../components/Checkbox";
 import { Heading } from "../components/Heading";
@@ -16,6 +15,7 @@ import { Toggle } from "../components/Toggle";
 import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
 import { AlertDialogExample } from "../components/examples/AlertDialogExample";
+import { AspectRatioExample } from "../components/examples/AspectRatioExample";
 import { AvatarExample } from "../components/examples/AvatarExample";
 import { CollapsibleExample } from "../components/examples/CollapsibleExample";
 import { ContextMenuExample } from "../components/examples/ContextMenuExample";
@@ -23,11 +23,13 @@ import { DialogExample } from "../components/examples/DialogExample";
 import { DropdownExample } from "../components/examples/DropdownExample";
 import { HoverCardExample } from "../components/examples/HoverCardExample";
 import { PopoverExample } from "../components/examples/PopoverExample";
+import { ProgressExample } from "../components/examples/ProgressExample";
 import { RadioGroupExample } from "../components/examples/RadioGroupExample";
 import { SelectExample } from "../components/examples/SelectExample";
 import { ToggleGroupExample } from "../components/examples/ToggleGroupExample";
 import { tw } from "../utils/tw";
 import { ClipboardCopyIcon, ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import clsx from "clsx";
 import type { NextPage } from "next";
 import { DetailedHTMLProps, ForwardRefExoticComponent, HTMLAttributes } from "react";
 
@@ -168,6 +170,18 @@ const components: ComponentEntry[] = [
 		component: <CollapsibleExample />,
 		Wrapper: Grid.FullSpan,
 		link: buildGithubLink("Collapsible.tsx")
+	},
+	{
+		title: "Aspect Ratio",
+		component: <AspectRatioExample />,
+		Wrapper: Grid.FullSpan,
+		link: buildGithubLink("AspectRatio.tsx")
+	},
+	{
+		title: "Progress",
+		component: <ProgressExample />,
+		Wrapper: Grid.FullSpan,
+		link: buildGithubLink("Progress.tsx")
 	}
 ];
 
@@ -191,73 +205,64 @@ const Components: NextPage = () => {
 							</Text>
 						</Grid.FullSpanNoBackground>
 
-						{components.map(({ Wrapper, component, title, link, copyToClipboard }, i) => (
-							<Wrapper className="relative rounded-lg" key={`${title}-${i}`}>
-								<WrapperHeader>
-									<Heading size="sm" className="mr-1">
-										{title}
-									</Heading>
-									<div className="flex">
-										{copyToClipboard && (
+						{components.map(({ Wrapper, component, title, link, copyToClipboard }, i) => {
+							return (
+								<Wrapper className="relative rounded-lg" key={`${title}-${i}`}>
+									<WrapperHeader>
+										<Heading size="sm" className={clsx("mr-1 text-center w-full")}>
+											{title}
+										</Heading>
+										<div className="flex absolute right-4">
+											{copyToClipboard && (
+												<Tooltip
+													body={
+														<p>
+															Copy the code snippet for "
+															<span className="font-semibold text-primitive-type-bold">
+																{title}
+															</span>
+															"
+														</p>
+													}
+												>
+													<div className="px-2 p-1 group" onClick={copyToClipboard}>
+														<div className="w-6 h-6 flex items-center justify-center">
+															<ClipboardCopyIcon className="w-5 h-5 text-primitive-type-faint group-hover:text-primitive-type" />
+														</div>
+													</div>
+												</Tooltip>
+											)}
+
 											<Tooltip
 												body={
 													<p>
-														Copy the code snippet for "
+														Checkout the source code for the "
 														<span className="font-semibold text-primitive-type-bold">{title}</span>"
+														component on Github
 													</p>
 												}
 											>
-												<div className="px-2 p-1 group" onClick={copyToClipboard}>
-													<div className="w-6 h-6 flex items-center justify-center">
-														<ClipboardCopyIcon className="w-5 h-5 text-primitive-type-faint group-hover:text-primitive-type" />
+												<a
+													className="px-2 -mr-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+													href={link}
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													<div className="w-6 h-6 relative flex items-center justify-center ">
+														<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type-faint" />
+														<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
 													</div>
-												</div>
+												</a>
 											</Tooltip>
-										)}
+										</div>
+									</WrapperHeader>
 
-										<Tooltip
-											body={
-												<p>
-													Checkout the source code for the "
-													<span className="font-semibold text-primitive-type-bold">{title}</span>"
-													component on Github
-												</p>
-											}
-										>
-											<a
-												className="px-2 -mr-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
-												href={link}
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<div className="w-6 h-6 relative flex items-center justify-center ">
-													<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type-faint" />
-													<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
-												</div>
-											</a>
-										</Tooltip>
+									<div className="p-4 w-full h-full flex items-center justify-center min-h-[8rem]">
+										{component}
 									</div>
-								</WrapperHeader>
-
-								<div className="p-4 w-full h-full flex items-center justify-center">
-									{component}
-								</div>
-							</Wrapper>
-						))}
-
-						<Grid.FullSpan>
-							<Heading size="sm" className="mb-2">
-								Aspect Ratio
-							</Heading>
-							<AspectRatio />
-						</Grid.FullSpan>
-
-						<Grid.FullSpan>
-							<Heading size="sm" className="mb-2">
-								Progress
-							</Heading>
-							<Progress />
-						</Grid.FullSpan>
+								</Wrapper>
+							);
+						})}
 
 						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">

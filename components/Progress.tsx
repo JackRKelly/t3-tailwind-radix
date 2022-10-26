@@ -1,40 +1,20 @@
 import { tw } from "../utils/tw";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
-import React, { useEffect } from "react";
 
 const Root = tw(
 	ProgressPrimitive.Root
 )`h-3 w-full overflow-hidden rounded-full bg-primitive transition-colors max-w-xl`;
 
-const Indicator = tw(ProgressPrimitive.Indicator)`h-full bg-primary transition-all`;
+const Indicator = tw(ProgressPrimitive.Indicator)`h-full bg-primary transition-all duration-500`;
 
-interface Props {}
-
-const getRandomArbitrary = (min: number, max: number) => {
-	return Math.random() * (max - min) + min;
-};
+interface Props extends Pick<ProgressPrimitive.ProgressProps, "value" | "max"> {}
 
 export const Progress = (props: Props) => {
-	const [progress, setProgress] = React.useState(60);
-
-	useEffect(() => {
-		let timerId: null | NodeJS.Timer = null;
-
-		timerId = setInterval(() => {
-			const p = Math.ceil(getRandomArbitrary(0, 100) / 10) * 10;
-			setProgress(p);
-		}, 2000);
-
-		return () => {
-			if (timerId) {
-				clearInterval(timerId);
-			}
-		};
-	}, []);
+	const { value = 0, max } = props;
 
 	return (
-		<Root value={progress}>
-			<Indicator style={{ width: `${progress}%` }} />
+		<Root {...{ value, max }}>
+			<Indicator style={{ width: `${value}%` }} />
 		</Root>
 	);
 };
