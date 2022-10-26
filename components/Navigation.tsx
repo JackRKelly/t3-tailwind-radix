@@ -15,11 +15,11 @@ const Root = tw(NavigationMenuPrimitive.Root)`relative`;
 
 const List = tw(
 	NavigationMenuPrimitive.List
-)`border border-primitive-edge-faint flex flex-row space-x-2 rounded-lg bg-primitive-faint p-2 backdrop-blur bg-opacity-[85%]`;
+)`border border-primitive-edge flex flex-row space-x-2 rounded-lg bg-primitive-faint p-2 backdrop-blur bg-opacity-[85%]`;
 
 const Viewport = tw(
 	NavigationMenuPrimitive.Viewport
-)`relative mt-2 overflow-hidden rounded-md bg-primitive-faint border border-primitive-edge-faint w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
+)`relative mt-2 overflow-hidden rounded-md bg-primitive-faint border border-primitive-edge w-radix-navigation-menu-viewport h-radix-navigation-menu-viewport origin-[top_center] transition-[width_height] duration-300 ease-[ease] radix-state-open:animate-scale-in-content radix-state-closed:animate-scale-out-content`;
 
 const ViewportPerspective = tw.div`absolute flex justify-center left-[-20%] top-[100%] w-[140%]`;
 
@@ -72,14 +72,28 @@ export const Navigation = () => {
 
 					<NavigationMenuPrimitive.Item asChild>
 						<NavigationMenuPrimitive.Link
-							className="flex items-center justify-center p-1 group relative w-8 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+							className="px-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
 							href="https://github.com/JackRKelly/t3-tailwind-radix"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<GitHubLogoIcon className="w-6 h-6 absolute opacity-100 left-1 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type" />
-							<ExternalLinkIcon className="w-6 h-6 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-1 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
+							<div className="w-7 h-7 relative flex items-center justify-center">
+								<GitHubLogoIcon className="w-6 h-6 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150" />
+								<ExternalLinkIcon className="w-6 h-6 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150" />
+							</div>
 						</NavigationMenuPrimitive.Link>
+
+						{/* <NavigationMenuPrimitive.Link
+							className="flex items-center justify-center p-1 px-3 -mx-3 group focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+							href="https://github.com/JackRKelly/t3-tailwind-radix"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<div className="w-6 h-6 relative">
+								<GitHubLogoIcon className="w-6 h-6 absolute opacity-100 left-1 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type" />
+								<ExternalLinkIcon className="w-6 h-6 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-1 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
+							</div>
+						</NavigationMenuPrimitive.Link> */}
 					</NavigationMenuPrimitive.Item>
 
 					<NavigationMenuPrimitive.Item>
