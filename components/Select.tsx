@@ -2,8 +2,7 @@ import { tw } from "../utils/tw";
 import { Button } from "./Button";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { SelectItemProps } from "@radix-ui/react-select";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 const ScrollUpButton = tw(
 	SelectPrimitive.ScrollUpButton

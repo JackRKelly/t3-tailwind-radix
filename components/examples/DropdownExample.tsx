@@ -16,7 +16,7 @@ export const DropdownExample: NextPage = () => {
 	const [dropdownToggle, setDropdownToggle] = useState(false);
 
 	return (
-		<Dropdown.Root trigger={<Button>Click</Button>}>
+		<Dropdown.Root trigger={<Button>Dropdown</Button>}>
 			<Dropdown.Label label="Label" />
 			<Dropdown.CheckboxItem
 				label="Checkbox"
@@ -28,7 +28,7 @@ export const DropdownExample: NextPage = () => {
 				}}
 			/>
 			<Dropdown.Item icon={<BookmarkIcon />} label="Label" />
-			<Dropdown.Sub label="Food" icon={<RocketIcon />} className="min-w-[9rem]">
+			<Dropdown.Sub label="Volume" icon={<SpeakerLoudIcon />} className="min-w-[9rem]">
 				<Dropdown.CheckboxItem label="Loud" icon={<SpeakerLoudIcon />} />
 				<Dropdown.CheckboxItem label="Moderate" icon={<SpeakerModerateIcon />} />
 				<Dropdown.CheckboxItem label="Off" icon={<SpeakerOffIcon />} />

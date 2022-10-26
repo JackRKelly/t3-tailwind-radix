@@ -5,7 +5,7 @@ import React from "react";
 
 const Root = tw(
 	ToastPrimitive.Root
-)`z-50 fixed bottom-3 inset-x-4 w-auto md:top-2 md:right-2 md:left-auto md:bottom-auto md:w-full md:max-w-sm rounded-lg border border-primitive-edge radix-state-open:animate-toast-slide-in-bottom md:radix-state-open:animate-toast-slide-in-right radix-state-closed:animate-toast-hide radix-swipe-end:animate-toast-swipe-out translate-x-radix-toast-swipe-move-x radix-swipe-cancel:translate-x-0 radix-swipe-cancel:duration-200 radix-swipe-cancel:ease-[ease] focus:outline-none focus-visible:ring focus-visible:ring-highlight bg-primitive-faint bg-opacity-[90%] backdrop-blur`;
+)`z-50 fixed bottom-3 inset-x-4 w-auto md:top-2 md:right-2 md:left-auto md:bottom-auto md:w-full md:max-w-sm rounded-lg border border-primitive-edge radix-state-open:animate-toast-slide-in-bottom md:radix-state-open:animate-toast-slide-in-right radix-state-closed:animate-toast-hide radix-swipe-end:animate-toast-swipe-out translate-x-radix-toast-swipe-move-x radix-swipe-cancel:translate-x-0 radix-swipe-cancel:duration-200 radix-swipe-cancel:ease-[ease] focus:outline-none focus-visible:ring focus-visible:ring-highlight bg-primitive-faint bg-opacity-[85%] backdrop-blur`;
 
 const Title = tw(ToastPrimitive.Title)`text-base font-semibold text-primitive-type-bold`;
 
@@ -29,8 +29,22 @@ const Close = tw(
 	ToastPrimitive.Close
 )`w-full border border-primitive-edge focus-visible:border-transparent rounded-lg px-4 py-2 flex items-center justify-center text-sm font-medium text-primitive-type hover:bg-primitive focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
-export const Toast = () => {
+interface ToastItem {
+	title: string;
+	description: string;
+	action: ToastPrimitive.ToastActionProps["onClick"];
+	dismiss: ToastPrimitive.ToastCloseProps["onClick"];
+}
+
+const toast = (title: string, message: string) => {};
+
+interface ToastProps {
+	// toasts: ToastItem[];
+}
+
+export const Toast = (props: ToastProps) => {
 	const [open, setOpen] = React.useState(false);
+	const [toastList, setToastList] = React.useState<ToastItem | null>(null);
 
 	return (
 		<>
@@ -46,7 +60,7 @@ export const Toast = () => {
 					}
 				}}
 			>
-				Click
+				Toast
 			</Button>
 			<Root open={open} onOpenChange={setOpen}>
 				<FlexWrapper>

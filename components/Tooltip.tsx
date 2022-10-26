@@ -21,12 +21,12 @@ interface Props
 			TooltipPrimitive.TooltipContentProps,
 			"sideOffset" | "tabIndex" | "side" | "alignOffset" | "align" | "draggable"
 		> {
-	trigger: ReactNode;
+	body: ReactNode;
 }
 
 export const Tooltip = (props: PropsWithChildren<Props>) => {
 	const {
-		trigger,
+		body,
 		children,
 		sideOffset = 4,
 		tabIndex,
@@ -46,7 +46,7 @@ export const Tooltip = (props: PropsWithChildren<Props>) => {
 			delayDuration={delayDuration}
 			onOpenChange={onOpenChange}
 		>
-			<TooltipPrimitive.Trigger asChild>{trigger}</TooltipPrimitive.Trigger>
+			<TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
 			<Content
 				sideOffset={sideOffset}
 				align={align}
@@ -56,7 +56,7 @@ export const Tooltip = (props: PropsWithChildren<Props>) => {
 			>
 				<ContentInner>
 					<Arrow />
-					<Body>{children}</Body>
+					<Body>{body}</Body>
 				</ContentInner>
 			</Content>
 		</TooltipPrimitive.Root>

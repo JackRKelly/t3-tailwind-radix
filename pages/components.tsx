@@ -1,12 +1,10 @@
 import { Accordion } from "../components/Accordian";
-import { AlertDialog } from "../components/AlertDialog";
 import { AspectRatio } from "../components/AspectRatio";
 import { Avatar } from "../components/Avatar";
 import { Button } from "../components/Button";
 import { Checkbox } from "../components/Checkbox";
 import { Collapsible } from "../components/Collapsible";
 import { ContextMenu } from "../components/ContextMenu";
-import { Dialog } from "../components/Dialog";
 import { Heading } from "../components/Heading";
 import { HoverCard } from "../components/HoverCard";
 import { Grid, InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
@@ -24,6 +22,8 @@ import { Toggle } from "../components/Toggle";
 import { ToggleGroup } from "../components/ToggleGroup";
 import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
+import { AlertDialogExample } from "../components/examples/AlertDialogExample";
+import { DialogExample } from "../components/examples/DialogExample";
 import { DropdownExample } from "../components/examples/DropdownExample";
 import { SelectExample } from "../components/examples/SelectExample";
 import { tw } from "../utils/tw";
@@ -62,6 +62,36 @@ const components: ComponentEntry[] = [
 		component: <SelectExample />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("Select.tsx")
+	},
+	{
+		title: "Theme Switcher",
+		component: <ThemeSwitcher />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("ThemeSwitcher.tsx")
+	},
+	{
+		title: "Toggle",
+		component: <Toggle />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Toggle.tsx")
+	},
+	{
+		title: "Toast",
+		component: <Toast />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Toast.tsx")
+	},
+	{
+		title: "Dialog",
+		component: <DialogExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Dialog.tsx")
+	},
+	{
+		title: "Alert Dialog",
+		component: <AlertDialogExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("AlertDialog.tsx")
 	}
 ];
 
@@ -85,77 +115,30 @@ const Components: NextPage = () => {
 							</Text>
 						</Grid.FullSpanNoBackground>
 
-						{components.map(({ Wrapper, component, title, link }) => (
-							<Wrapper className="relative rounded-lg">
+						{components.map(({ Wrapper, component, title, link }, i) => (
+							<Wrapper className="relative rounded-lg" key={`${title}-${i}`}>
 								<WrapperHeader>
 									<Heading size="sm" className="mr-1">
 										{title}
 									</Heading>
-									<a
-										className="flex items-center justify-center px-2 -mr-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
-										href={link}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<div className="w-6 h-6 relative">
-											<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-1 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150" />
-											<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-1 -right-3 group-hover:opacity-100 transition-all duration-150" />
-										</div>
-									</a>
+									<Tooltip body={`Checkout the code for the ${title} component on Github`}>
+										<a
+											className="px-2 -mx-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+											href={link}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<div className="w-6 h-6 relative flex items-center justify-center ">
+												<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150" />
+												<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150" />
+											</div>
+										</a>
+									</Tooltip>
 								</WrapperHeader>
 
 								<div className="p-4">{component}</div>
 							</Wrapper>
 						))}
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Button
-							</Heading>
-							<Button>Click</Button>
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Theme Switcher
-							</Heading>
-							<ThemeSwitcher />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Toggle
-							</Heading>
-							<Toggle />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Dropdown
-							</Heading>
-							<DropdownExample />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Toast
-							</Heading>
-							<Toast />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Dialog
-							</Heading>
-							<Dialog />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Alert Dialog
-							</Heading>
-							<AlertDialog />
-						</Grid.OneSpan>
 
 						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
@@ -168,7 +151,9 @@ const Components: NextPage = () => {
 							<Heading size="sm" className="mb-2">
 								Tooltip
 							</Heading>
-							<Tooltip trigger={<Button>Hover</Button>}>This is a tooltip component</Tooltip>
+							<Tooltip body={"This is a tooltip component"}>
+								<Button>Hover</Button>
+							</Tooltip>
 						</Grid.OneSpan>
 
 						<Grid.OneSpan>
