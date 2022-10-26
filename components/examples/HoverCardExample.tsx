@@ -22,25 +22,23 @@ const Body = tw.p`mt-1 text-sm font-normal text-primitive-type`;
 
 const ContentWrapper = tw.div`flex h-full w-full space-x-4 items-center`;
 
-export const HoverCardExample = () => {
-	return (
-		<HoverCard.Root
-			trigger={
-				<TriggerWrapper className="border-primitive-edge border">
-					<TailwindLogo />
-				</TriggerWrapper>
-			}
-		>
-			<ContentWrapper>
-				<TriggerWrapper>
-					<TailwindLogo />
-				</TriggerWrapper>
+export const HoverCardExample = () => (
+	<HoverCard.Root
+		trigger={
+			<TriggerWrapper className="border-primitive-edge border">
+				<TailwindLogo />
+			</TriggerWrapper>
+		}
+	>
+		<ContentWrapper>
+			<TriggerWrapper>
+				<TailwindLogo />
+			</TriggerWrapper>
 
-				<div>
-					<Heading size="xs">Tailwind CSS</Heading>
-					<Body>A utility-first CSS framework for rapidly building custom user interfaces.</Body>
-				</div>
-			</ContentWrapper>
-		</HoverCard.Root>
-	);
-};
+			<div>
+				<Heading size="xs">Tailwind CSS</Heading>
+				<Body>A utility-first CSS framework for rapidly building custom user interfaces.</Body>
+			</div>
+		</ContentWrapper>
+	</HoverCard.Root>
+);
