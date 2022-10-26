@@ -133,12 +133,17 @@ const components: ComponentEntry[] = [
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("Switch.tsx")
 	},
-
 	{
 		title: "Context Menu",
 		component: <ContextMenuExample />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("ContextMenu.tsx")
+	},
+	{
+		title: "Slider",
+		component: <Slider orientation="horizontal" />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Slider.tsx")
 	}
 ];
 
@@ -196,13 +201,6 @@ const Components: NextPage = () => {
 								</div>
 							</Wrapper>
 						))}
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Slider
-							</Heading>
-							<Slider />
-						</Grid.OneSpan>
 
 						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
