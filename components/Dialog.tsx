@@ -2,10 +2,9 @@ import { tw } from "../utils/tw";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Label } from "./Label";
-import { Transition } from "@headlessui/react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross1Icon } from "@radix-ui/react-icons";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 const Title = tw(DialogPrimitive.Title)`text-base font-semibold text-primitive-type-bold`;
 
@@ -25,11 +24,13 @@ const Close = tw(
 
 const Form = tw.form`mt-3 space-y-2`;
 
-const Overlay = tw(DialogPrimitive.Overlay)`fixed inset-0 z-20 bg-black/50`;
+const Overlay = tw(
+	DialogPrimitive.Overlay
+)`radix-state-closed:animate-fade-out radix-state-open:animate-fade-in fixed inset-0 z-20 bg-black/50`;
 
 const Content = tw(
 	DialogPrimitive.Content
-)`fixed z-50 w-[95vw] max-w-md rounded-lg p-4 md:w-full top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-app border border-primitive-edge focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
+)`radix-state-closed:animate-fade-out radix-state-open:animate-fade-in fixed z-50 w-[95vw] max-w-md rounded-lg p-4 md:w-full top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-app border border-primitive-edge focus:outline-none focus-visible:ring focus-visible:ring-highlight`;
 
 const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 
@@ -43,54 +44,32 @@ export const Dialog = (props: Props) => {
 			<DialogPrimitive.Trigger asChild>
 				<Button>Click</Button>
 			</DialogPrimitive.Trigger>
-			<Transition.Root show={isOpen}>
-				<Transition.Child
-					as={Fragment as any}
-					enter="ease-out duration-200"
-					enterFrom="opacity-0"
-					enterTo="opacity-100"
-					leave="ease-in duration-200"
-					leaveFrom="opacity-100"
-					leaveTo="opacity-0"
-				>
-					<Overlay forceMount />
-				</Transition.Child>
-				<Transition.Child
-					as={Fragment as any}
-					enter="ease-out duration-200"
-					enterFrom="opacity-0 scale-95"
-					enterTo="opacity-100 scale-100"
-					leave="ease-in duration-200"
-					leaveFrom="opacity-100 scale-100"
-					leaveTo="opacity-0 scale-95"
-				>
-					<Content forceMount>
-						<Title>Edit profile</Title>
-						<Description>
-							Make changes to your profile here. Click save when you&apos;re done.
-						</Description>
-						<Form>
-							<fieldset>
-								<Label htmlFor="firstName">First Name</Label>
-								<Input id="firstName" type="text" placeholder="Tim" autoComplete="given-name" />
-							</fieldset>
-							<fieldset>
-								<Label htmlFor="familyName">Family Name</Label>
-								<Input id="familyName" type="text" placeholder="Cook" autoComplete="family-name" />
-							</fieldset>
-						</Form>
+			<Overlay />
+			<Content>
+				<Title>Edit profile</Title>
+				<Description>
+					Make changes to your profile here. Click save when you&apos;re done.
+				</Description>
+				<Form>
+					<fieldset>
+						<Label htmlFor="firstName">First Name</Label>
+						<Input id="firstName" type="text" placeholder="Tim" autoComplete="given-name" />
+					</fieldset>
+					<fieldset>
+						<Label htmlFor="familyName">Family Name</Label>
+						<Input id="familyName" type="text" placeholder="Cook" autoComplete="family-name" />
+					</fieldset>
+				</Form>
 
-						<ActionWrapper>
-							<Cancel>Cancel</Cancel>
-							<Action>Save</Action>
-						</ActionWrapper>
+				<ActionWrapper>
+					<Cancel>Cancel</Cancel>
+					<Action>Save</Action>
+				</ActionWrapper>
 
-						<Close>
-							<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-primitive-type" />
-						</Close>
-					</Content>
-				</Transition.Child>
-			</Transition.Root>
+				<Close>
+					<Cross1Icon className="h-4 w-4 text-gray-500 hover:text-primitive-type" />
+				</Close>
+			</Content>
 		</DialogPrimitive.Root>
 	);
 };
