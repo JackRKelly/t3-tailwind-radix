@@ -28,11 +28,11 @@ const Root = tw(AccordionPrimitive.Root)`space-y-4 w-full max-w-xl`;
 
 const Trigger = tw(
 	AccordionPrimitive.Trigger
-)`radix-state-closed:rounded-lg radix-state-open:rounded-t-lg group focus:outline-none inline-flex w-full items-center justify-between bg-primitive-faint hover:bg-primitive border-t border-x radix-state-closed:border-b border-primitive-edge px-4 py-2 text-left focus-visible:border-transparent transition-all`;
+)`radix-state-closed:rounded-lg radix-state-open:rounded-t-lg group focus:outline-none inline-flex w-full items-center justify-between bg-primitive-faint hover:bg-primitive border radix-state-open:border-b-transparent border-primitive-edge px-4 py-2 text-left group-focus-within:border-transparent transition-button`;
 
 const Item = tw(
 	AccordionPrimitive.Item
-)`rounded-lg overflow-hidden focus-within:ring focus-within:ring-highlight focus:outline-none`;
+)`rounded-lg overflow-hidden group focus-within:ring focus-within:ring-highlight focus:outline-none transition-button`;
 
 const ChevronDownIcon = tw(
 	_ChevronDownIcon
@@ -44,7 +44,7 @@ const Content = tw(
 	AccordionPrimitive.Content
 )`rounded-b-lg radix-state-open:animate-collapsible-in radix-state-closed:animate-collapsible-out overflow-y-hidden w-full bg-primitive-faint transition-all`;
 
-const ContentInner = tw.div`rounded-b-lg text-sm text-primitive-type-faint px-4 pb-3 pt-1 border-x border-b border-primitive-edge transition-all`;
+const ContentInner = tw.div`rounded-b-lg text-sm text-primitive-type-faint px-4 pb-3 pt-1 border-x border-b border-primitive-edge transition-all group-focus-within:border-transparent`;
 
 const Header = tw(AccordionPrimitive.Header)`w-full`;
 
@@ -54,7 +54,7 @@ export const Accordion = () => {
 			{items.map(({ header, content }, i) => (
 				<Item key={`header-${i}`} value={`item-${i + 1}`}>
 					<Header>
-						<Trigger className="group">
+						<Trigger>
 							<TriggerHeader>{header}</TriggerHeader>
 							<ChevronDownIcon />
 						</Trigger>
