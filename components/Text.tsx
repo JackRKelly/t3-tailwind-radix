@@ -19,8 +19,7 @@ const styles = cva("text-type", {
 			medium: "font-medium",
 			semibold: "font-semibold",
 			bold: "font-bold",
-			extrabold: "font-extrabold",
-			black: "font-black"
+			extrabold: "font-extrabold"
 		}
 	},
 	defaultVariants: {

@@ -18,6 +18,7 @@ import { Toggle } from "../components/Toggle";
 import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
 import { AlertDialogExample } from "../components/examples/AlertDialogExample";
+import { AvatarExample } from "../components/examples/AvatarExample";
 import { ContextMenuExample } from "../components/examples/ContextMenuExample";
 import { DialogExample } from "../components/examples/DialogExample";
 import { DropdownExample } from "../components/examples/DropdownExample";
@@ -141,9 +142,23 @@ const components: ComponentEntry[] = [
 	},
 	{
 		title: "Slider",
-		component: <Slider orientation="horizontal" />,
+		component: <Slider />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("Slider.tsx")
+	},
+	{
+		title: "Checkbox",
+		component: (
+			<Checkbox label="Accept terms and conditions" id="terms-and-conditions" defaultChecked />
+		),
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Checkbox.tsx")
+	},
+	{
+		title: "Avatar",
+		component: <AvatarExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Avatar.tsx")
 	}
 ];
 
@@ -201,24 +216,6 @@ const Components: NextPage = () => {
 								</div>
 							</Wrapper>
 						))}
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Checkbox
-							</Heading>
-							<Checkbox />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Avatar
-							</Heading>
-							<div className="grid grid-cols-4 gap-2">
-								<Avatar variant={Avatar.variant.Rounded} />
-								<Avatar variant={Avatar.variant.Rounded} isOnline />
-								<Avatar variant={Avatar.variant.Rounded} renderInvalidUrls />
-							</div>
-						</Grid.OneSpan>
 
 						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">

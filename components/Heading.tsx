@@ -20,8 +20,7 @@ const styles = cva("tracking-tight text-primitive-type", {
 			medium: "font-medium",
 			semibold: "font-semibold",
 			bold: "font-bold",
-			extrabold: "font-extrabold",
-			black: "font-black"
+			extrabold: "font-extrabold"
 		}
 	},
 	defaultVariants: {
