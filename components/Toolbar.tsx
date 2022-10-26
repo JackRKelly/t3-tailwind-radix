@@ -58,7 +58,7 @@ const Root = tw(
 
 const ToggleItem = tw(
 	ToolbarPrimitive.ToggleItem
-)`radix-state-on:bg-primitive-bold bg-primitive-faint border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:border-transparent transition-button`;
+)`radix-state-on:bg-primitive-bold bg-primitive-faint border-y px-2.5 py-2 first:rounded-l-md first:border-x last:rounded-r-md last:border-x border-primitive-edge radix-state-on:border-transparent focus:relative focus:outline-none focus-visible:z-20 focus-visible:ring focus-visible:ring-highlight focus-visible:border-transparent transition-button hover:bg-primitive`;
 
 const Link = tw(
 	ToolbarPrimitive.Link

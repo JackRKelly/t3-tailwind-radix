@@ -16,7 +16,6 @@ import { Text } from "../components/Text";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import { Toast } from "../components/Toast";
 import { Toggle } from "../components/Toggle";
-import { ToggleGroup } from "../components/ToggleGroup";
 import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
 import { AlertDialogExample } from "../components/examples/AlertDialogExample";
@@ -26,6 +25,7 @@ import { HoverCardExample } from "../components/examples/HoverCardExample";
 import { PopoverExample } from "../components/examples/PopoverExample";
 import { RadioGroupExample } from "../components/examples/RadioGroupExample";
 import { SelectExample } from "../components/examples/SelectExample";
+import { ToggleGroupExample } from "../components/examples/ToggleGroupExample";
 import { tw } from "../utils/tw";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import type { NextPage } from "next";
@@ -120,6 +120,12 @@ const components: ComponentEntry[] = [
 		component: <RadioGroupExample />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("RadioGroup.tsx")
+	},
+	{
+		title: "Toggle Group",
+		component: <ToggleGroupExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("ToggleGroup.tsx")
 	}
 ];
 
@@ -177,13 +183,6 @@ const Components: NextPage = () => {
 								</div>
 							</Wrapper>
 						))}
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Toggle Group
-							</Heading>
-							<ToggleGroup />
-						</Grid.OneSpan>
 
 						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
