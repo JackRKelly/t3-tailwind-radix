@@ -4,7 +4,7 @@ import { PropsWithChildren, ReactNode } from "react";
 
 const Content = tw(
 	TooltipPrimitive.Content
-)`animate-delayed-all-sides inline-flex items-center bg-primitive-faint backdrop-blur bg-opacity-[90%] rounded-md`;
+)`animate-delayed-all-sides inline-flex items-center bg-primitive-faint backdrop-blur bg-opacity-[90%] rounded-md z-10`;
 
 const ContentInner = tw.div`border border-primitive-edge rounded-md px-4 py-2.5`;
 

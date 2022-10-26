@@ -1,5 +1,4 @@
 import { tw } from "../../utils/tw";
-import { Button } from "../Button";
 import { Checkbox } from "../Checkbox";
 import { Heading } from "../Heading";
 import { Grid } from "../Layout";
@@ -7,43 +6,38 @@ import { Slider } from "../Slider";
 import { Switch } from "../Switch";
 import { Toast } from "../Toast";
 import * as Tooltip from "../Tooltip";
-import { AccordianExample } from "./AccordianExample";
-import { AlertDialogExample } from "./AlertDialogExample";
-import { AspectRatioExample } from "./AspectRatioExample";
-import { AvatarExample } from "./AvatarExample";
-import { CollapsibleExample } from "./CollapsibleExample";
-import { ContextMenuExample } from "./ContextMenuExample";
-import { DialogExample } from "./DialogExample";
-import { DropdownExample } from "./DropdownExample";
-import { HoverCardExample } from "./HoverCardExample";
-import { PopoverExample } from "./PopoverExample";
-import { ProgressExample } from "./ProgressExample";
-import { RadioGroupExample } from "./RadioGroupExample";
-import { SelectExample } from "./SelectExample";
-import { TabsExample } from "./TabsExample";
-import { ThemeSwitcherExample } from "./ThemeSwitcherExample";
-import { ToggleExample } from "./ToggleExample";
-import { ToggleGroupExample } from "./ToggleGroupExample";
-import { ToolbarExample } from "./ToolbarExample";
-import { TooltipExample } from "./TooltipExample";
-import {
-	ClipboardCopyIcon,
-	CodeIcon,
-	ExternalLinkIcon,
-	GitHubLogoIcon
-} from "@radix-ui/react-icons";
+import { AccordianExample } from "./Accordian";
+import { AlertDialogExample } from "./AlertDialog";
+import { AspectRatioExample } from "./AspectRatio";
+import { AvatarExample } from "./Avatar";
+import { ButtonExample } from "./Button";
+import { CollapsibleExample } from "./Collapsible";
+import { ContextMenuExample } from "./ContextMenu";
+import { DialogExample } from "./Dialog";
+import { DropdownExample } from "./Dropdown";
+import { HoverCardExample } from "./HoverCard";
+import { PopoverExample } from "./Popover";
+import { ProgressExample } from "./Progress";
+import { RadioGroupExample } from "./RadioGroup";
+import { SelectExample } from "./Select";
+import { TabsExample } from "./Tabs";
+import { ThemeSwitcherExample } from "./ThemeSwitcher";
+import { ToggleExample } from "./Toggle";
+import { ToggleGroupExample } from "./ToggleGroup";
+import { ToolbarExample } from "./Toolbar";
+import { TooltipExample } from "./Tooltip";
+import { CodeIcon, ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
-import link from "next/link";
 import { DetailedHTMLProps, ForwardRefExoticComponent, HTMLAttributes } from "react";
 
 interface ComponentEntry {
 	title: string;
 	component: React.ReactNode;
-	link?: string;
+	sourceLink?: string;
 	Wrapper: ForwardRefExoticComponent<
 		DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 	>;
-	copyToClipboard?: () => void;
+	exampleLink?: string;
 }
 
 const buildGithubLink = (fileName: string) => {
@@ -53,24 +47,23 @@ const buildGithubLink = (fileName: string) => {
 export const exampleComponents: ComponentEntry[] = [
 	{
 		title: "Button",
-		component: <Button>Button</Button>,
+		component: <ButtonExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Button.tsx"),
-		copyToClipboard: () => {
-			navigator.clipboard.writeText(`<Button>Button</Button>`);
-		}
+		sourceLink: buildGithubLink("Button.tsx"),
+		exampleLink: buildGithubLink("examples/Button.tsx")
 	},
 	{
 		title: "Dropdown",
 		component: <DropdownExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Dropdown.tsx")
+		sourceLink: buildGithubLink("Dropdown.tsx"),
+		exampleLink: buildGithubLink("examples/Dropdown.tsx")
 	},
 	{
 		title: "Select",
 		component: <SelectExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Select.tsx")
+		sourceLink: buildGithubLink("Select.tsx")
 	},
 	{
 		title: "Theme Switcher",
@@ -81,73 +74,73 @@ export const exampleComponents: ComponentEntry[] = [
 		title: "Toggle",
 		component: <ToggleExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Toggle.tsx")
+		sourceLink: buildGithubLink("Toggle.tsx")
 	},
 	{
 		title: "Toast",
 		component: <Toast />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Toast.tsx")
+		sourceLink: buildGithubLink("Toast.tsx")
 	},
 	{
 		title: "Dialog",
 		component: <DialogExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Dialog.tsx")
+		sourceLink: buildGithubLink("Dialog.tsx")
 	},
 	{
 		title: "Alert Dialog",
 		component: <AlertDialogExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("AlertDialog.tsx")
+		sourceLink: buildGithubLink("AlertDialog.tsx")
 	},
 	{
 		title: "Popover",
 		component: <PopoverExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Popover.tsx")
+		sourceLink: buildGithubLink("Popover.tsx")
 	},
 	{
 		title: "Tooltip",
 		component: <TooltipExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Tooltip.tsx")
+		sourceLink: buildGithubLink("Tooltip.tsx")
 	},
 	{
 		title: "Hover Card",
 		component: <HoverCardExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("HoverCard.tsx")
+		sourceLink: buildGithubLink("HoverCard.tsx")
 	},
 	{
 		title: "Radio Group",
 		component: <RadioGroupExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("RadioGroup.tsx")
+		sourceLink: buildGithubLink("RadioGroup.tsx")
 	},
 	{
 		title: "Toggle Group",
 		component: <ToggleGroupExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("ToggleGroup.tsx")
+		sourceLink: buildGithubLink("ToggleGroup.tsx")
 	},
 	{
 		title: "Switch",
 		component: <Switch />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Switch.tsx")
+		sourceLink: buildGithubLink("Switch.tsx")
 	},
 	{
 		title: "Context Menu",
 		component: <ContextMenuExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("ContextMenu.tsx")
+		sourceLink: buildGithubLink("ContextMenu.tsx")
 	},
 	{
 		title: "Slider",
 		component: <Slider />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Slider.tsx")
+		sourceLink: buildGithubLink("Slider.tsx")
 	},
 	{
 		title: "Checkbox",
@@ -155,49 +148,49 @@ export const exampleComponents: ComponentEntry[] = [
 			<Checkbox label="Accept terms and conditions" id="terms-and-conditions" defaultChecked />
 		),
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Checkbox.tsx")
+		sourceLink: buildGithubLink("Checkbox.tsx")
 	},
 	{
 		title: "Avatar",
 		component: <AvatarExample />,
 		Wrapper: Grid.OneSpan,
-		link: buildGithubLink("Avatar.tsx")
+		sourceLink: buildGithubLink("Avatar.tsx")
 	},
 	{
 		title: "Collapsible",
 		component: <CollapsibleExample />,
 		Wrapper: Grid.FullSpan,
-		link: buildGithubLink("Collapsible.tsx")
+		sourceLink: buildGithubLink("Collapsible.tsx")
 	},
 	{
 		title: "Aspect Ratio",
 		component: <AspectRatioExample />,
 		Wrapper: Grid.FullSpan,
-		link: buildGithubLink("AspectRatio.tsx")
+		sourceLink: buildGithubLink("AspectRatio.tsx")
 	},
 	{
 		title: "Progress",
 		component: <ProgressExample />,
 		Wrapper: Grid.FullSpan,
-		link: buildGithubLink("Progress.tsx")
+		sourceLink: buildGithubLink("Progress.tsx")
 	},
 	{
 		title: "Toolbar",
 		component: <ToolbarExample />,
 		Wrapper: Grid.FullSpan,
-		link: buildGithubLink("Toolbar.tsx")
+		sourceLink: buildGithubLink("Toolbar.tsx")
 	},
 	{
 		title: "Tabs",
 		component: <TabsExample />,
 		Wrapper: Grid.FullSpan,
-		link: buildGithubLink("Tabs.tsx")
+		sourceLink: buildGithubLink("Tabs.tsx")
 	},
 	{
 		title: "Accordian",
 		component: <AccordianExample />,
 		Wrapper: Grid.FullSpan,
-		link: buildGithubLink("Accordian.tsx")
+		sourceLink: buildGithubLink("Accordian.tsx")
 	}
 ];
 
@@ -206,63 +199,73 @@ const WrapperHeader = tw.div`bg-primitive-faint border-b border-primitive-edge-f
 export const ExampleComponents = () => {
 	return (
 		<Grid.Wrapper>
-			{exampleComponents.map(({ Wrapper, component, title, link, copyToClipboard }, i) => {
-				return (
-					<Wrapper className="relative rounded-lg" key={`${title}-${i}`}>
-						<WrapperHeader>
-							<Heading size="sm" className={clsx("mr-1 text-center w-full")}>
-								{title}
-							</Heading>
-							<div className="flex absolute right-4">
-								{copyToClipboard && (
-									<Tooltip.Root
-										body={
-											<p>
-												Copy the example code snippet for "
-												<span className="font-semibold text-primitive-type-bold">{title}</span>"
-											</p>
-										}
+			{exampleComponents.map(({ Wrapper, component, title, sourceLink, exampleLink }, i) => (
+				<Wrapper className="relative rounded-lg" key={`${title}-${i}`}>
+					<WrapperHeader>
+						<Heading size="sm" className={clsx("mr-1 text-center w-full")}>
+							{title}
+						</Heading>
+
+						<div className="flex absolute left-4">
+							{exampleLink && (
+								<Tooltip.Root
+									sideOffset={-4}
+									body={
+										<p>
+											View the example syntax for the "
+											<span className="font-semibold text-primitive-type-bold">{title}</span>"
+											component
+										</p>
+									}
+								>
+									<a
+										className="p-2 -mr-2 group focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+										href={exampleLink}
+										target="_blank"
+										rel="noopener noreferrer"
 									>
-										<div className="px-2 p-1 group cursor-pointer" onClick={copyToClipboard}>
-											<div className="w-6 h-6 flex items-center justify-center">
-												<ClipboardCopyIcon className="w-5 h-5 text-primitive-type-faint group-hover:text-primitive-type" />
-											</div>
+										<div className="w-6 h-6 relative flex items-center justify-center ">
+											<CodeIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type-faint" />
+											<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
 										</div>
-									</Tooltip.Root>
-								)}
-
-								{link && (
-									<Tooltip.Root
-										body={
-											<p>
-												Checkout the source code for the "
-												<span className="font-semibold text-primitive-type-bold">{title}</span>"
-												component on Github
-											</p>
-										}
-									>
-										<a
-											className="px-2 -mr-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
-											href={link}
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<div className="w-6 h-6 relative flex items-center justify-center ">
-												<CodeIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type-faint" />
-												<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
-											</div>
-										</a>
-									</Tooltip.Root>
-								)}
-							</div>
-						</WrapperHeader>
-
-						<div className="p-4 w-full h-full flex items-center justify-center min-h-[8rem]">
-							{component}
+									</a>
+								</Tooltip.Root>
+							)}
 						</div>
-					</Wrapper>
-				);
-			})}
+
+						<div className="flex absolute right-4">
+							{sourceLink && (
+								<Tooltip.Root
+									sideOffset={-4}
+									body={
+										<p>
+											View the source code for the "
+											<span className="font-semibold text-primitive-type-bold">{title}</span>"
+											component
+										</p>
+									}
+								>
+									<a
+										className="p-2 -mr-2 group focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+										href={sourceLink}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<div className="w-6 h-6 relative flex items-center justify-center ">
+											<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type-faint" />
+											<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
+										</div>
+									</a>
+								</Tooltip.Root>
+							)}
+						</div>
+					</WrapperHeader>
+
+					<div className="p-4 w-full h-full flex items-center justify-center min-h-[8rem]">
+						{component}
+					</div>
+				</Wrapper>
+			))}
 		</Grid.Wrapper>
 	);
 };

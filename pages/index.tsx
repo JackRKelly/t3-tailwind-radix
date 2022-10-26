@@ -3,7 +3,6 @@ import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import { Text } from "../components/Text";
-import ThemeSwitcher from "../components/ThemeSwitcher";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {

@@ -1,5 +1,5 @@
 import { Heading } from "../components/Heading";
-import { Grid, InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
+import { InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import { Text } from "../components/Text";
 import { ExampleComponents } from "../components/examples";
