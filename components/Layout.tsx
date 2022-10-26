@@ -61,7 +61,6 @@ export const PageWrapper = (props: PropsWithChildren) => {
 export const Section = tw.section`py-4 md:py-8 lg:py-12`;
 
 export const Grid = {
-	FullSpanNoBackground: tw.div`col-span-12`,
 	FullSpan: tw.div`col-span-12 bg-app flex flex-col border-primitive-edge-faint border items-center justify-center`,
 	OneSpan: tw.div`col-span-12 md:col-span-6 lg:col-span-4 bg-app flex flex-col border-primitive-edge-faint border items-center justify-start`,
 	Wrapper: tw.div`grid grid-cols-12 gap-6 grid-flow-row-dense`
