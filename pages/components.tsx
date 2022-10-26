@@ -4,7 +4,6 @@ import { Avatar } from "../components/Avatar";
 import { Button } from "../components/Button";
 import { Checkbox } from "../components/Checkbox";
 import { Collapsible } from "../components/Collapsible";
-import { ContextMenu } from "../components/ContextMenu";
 import { Heading } from "../components/Heading";
 import { Grid, InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
@@ -19,6 +18,7 @@ import { Toggle } from "../components/Toggle";
 import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
 import { AlertDialogExample } from "../components/examples/AlertDialogExample";
+import { ContextMenuExample } from "../components/examples/ContextMenuExample";
 import { DialogExample } from "../components/examples/DialogExample";
 import { DropdownExample } from "../components/examples/DropdownExample";
 import { HoverCardExample } from "../components/examples/HoverCardExample";
@@ -132,6 +132,13 @@ const components: ComponentEntry[] = [
 		component: <Switch />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("Switch.tsx")
+	},
+
+	{
+		title: "Context Menu",
+		component: <ContextMenuExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("ContextMenu.tsx")
 	}
 ];
 
@@ -189,13 +196,6 @@ const Components: NextPage = () => {
 								</div>
 							</Wrapper>
 						))}
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Context Menu
-							</Heading>
-							<ContextMenu />
-						</Grid.OneSpan>
 
 						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">

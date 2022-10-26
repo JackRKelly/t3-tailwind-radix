@@ -1,197 +1,185 @@
 import { tw } from "../utils/tw";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
-import {
-	CaretRightIcon,
-	CheckIcon,
-	CropIcon,
-	EyeClosedIcon,
-	EyeOpenIcon,
-	FileIcon,
-	FrameIcon,
-	GridIcon,
-	Link2Icon,
-	MixerHorizontalIcon,
-	PersonIcon,
-	TransparencyGridIcon
-} from "@radix-ui/react-icons";
-import cx from "clsx";
-import React, { ReactNode, useState } from "react";
+import { CaretRightIcon, CheckIcon } from "@radix-ui/react-icons";
+import { PropsWithChildren, ReactElement, ReactNode, cloneElement } from "react";
 
-interface RadixMenuItem {
-	label: string;
-	shortcut?: string;
-	icon?: ReactNode;
-}
+const Content = tw(
+	ContextMenuPrimitive.Content
+)`animate-all-sides w-48 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] z-10 rounded-lg`;
 
-interface User {
-	name: string;
-	url?: string;
-}
+const ContentInner = tw.div`border border-primitive-edge rounded-lg px-1.5 py-1`;
 
-const generalMenuItems: RadixMenuItem[] = [
-	{
-		label: "New File",
-		icon: <FileIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+N"
-	},
-	{
-		label: "Settings",
-		icon: <MixerHorizontalIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+,"
-	}
-];
+const SubContent = tw(
+	ContextMenuPrimitive.SubContent
+)`origin-radix-dropdown-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs border border-primitive-edge bg-primitive-faint backdrop-blur bg-opacity-[90%] z-[11]`;
 
-const regionToolMenuItems: RadixMenuItem[] = [
-	{
-		label: "Frame",
-		icon: <FrameIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+F"
-	},
-	{
-		label: "Crop",
-		icon: <CropIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+S"
-	}
-];
+const SubTrigger = tw(
+	ContextMenuPrimitive.SubTrigger
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive`;
 
-const users: User[] = [
-	{
-		name: "Adam",
-		url: "https://github.com/adamwathan.png"
-	},
-	{
-		name: "Steve",
-		url: "https://github.com/steveschoger.png"
-	},
-	{
-		name: "Robin",
-		url: "https://github.com/robinmalfait.png"
-	}
-];
+const ItemLabelGrow = tw.span`flex-grow text-primitive-type`;
 
-interface Props {}
+const ShortcutLabel = tw.span`text-xs ml-2 text-primitive-type-extra-faint`;
 
-const Separator = tw(ContextMenuPrimitive.Separator)`my-1 h-px bg-primitive-edge-faint`;
+const Arrow = tw(ContextMenuPrimitive.Arrow)`fill-current text-primitive-edge`;
 
-const Trigger = tw(
+export const Separator = tw(ContextMenuPrimitive.Separator)`my-1 h-px bg-primitive-bold`;
+
+const _Trigger = tw(
 	ContextMenuPrimitive.Trigger
 )`inline-flex w-36 items-center justify-center rounded-md border-2 border-dashed border-primitive-edge bg-primitive-faint px-3 py-4 transition-colors`;
 
 const TriggerInner = tw.span`select-none text-sm font-medium text-primitive-type`;
 
-const Content = tw(
-	ContextMenuPrimitive.Content
-)`animate-down w-48 rounded-lg px-1.5 py-1 md:w-56 bg-primitive-faint backdrop-blur bg-opacity-[90%] border border-primitive-edge z-10`;
-
-const Item = tw(
+const _Item = tw(
 	ContextMenuPrimitive.Item
-)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive min-w-[8rem]`;
+)`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive min-w-[8rem]`;
 
-const Label = tw.span`flex-grow text-primitive-type`;
-
-const SectionLabel = tw(
-	ContextMenuPrimitive.Label
-)`select-none px-2 py-2 text-xs text-primitive-type`;
-
-const Shortcut = tw.span`text-xs`;
-
-const CheckboxItem = tw(
+const _CheckboxItem = tw(
 	ContextMenuPrimitive.CheckboxItem
-)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive`;
+)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive`;
 
-const SubContent = tw(
-	ContextMenuPrimitive.SubContent
-)`origin-radix-context-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs bg-primitive-faint border border-primitive-edge z-10 backdrop-blur bg-opacity-[90%]`;
+const _Label = tw(
+	ContextMenuPrimitive.Label
+)`select-none px-2 py-2 text-xs text-primitive-type-extra-faint`;
 
-const SubTrigger = tw(
-	ContextMenuPrimitive.SubTrigger
-)`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type focus:bg-primitive`;
+export const Trigger = (props: PropsWithChildren) => {
+	const { children } = props;
 
-export const ContextMenu = (props: Props) => {
-	const [showGrid, setShowGrid] = useState(false);
-	const [showUi, setShowUi] = useState(false);
+	return <TriggerInner>{children}</TriggerInner>;
+};
+
+interface LabelProps {
+	label: ReactNode;
+}
+
+export const Label = (props: LabelProps) => {
+	const { label } = props;
+
+	return <_Label>{label}</_Label>;
+};
+
+interface SubProps
+	extends PropsWithChildren,
+		Pick<ContextMenuPrimitive.ContextMenuSubProps, "open" | "onOpenChange" | "defaultOpen">,
+		Pick<ContextMenuPrimitive.ContextMenuSubContentProps, "sideOffset" | "alignOffset"> {
+	icon?: ReactElement;
+	label: ReactNode;
+	className?: string;
+}
+
+export const Sub = (props: SubProps) => {
+	const {
+		label,
+		icon,
+		children,
+		className,
+		defaultOpen,
+		onOpenChange,
+		open,
+		alignOffset,
+		sideOffset = 6
+	} = props;
 
 	return (
-		<div>
-			<ContextMenuPrimitive.Root>
-				<Trigger>
-					<TriggerInner>Right Click</TriggerInner>
-				</Trigger>
+		<ContextMenuPrimitive.Sub {...{ defaultOpen, onOpenChange, open }}>
+			<SubTrigger>
+				{icon &&
+					cloneElement(icon, {
+						className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+					})}
+				<ItemLabelGrow>{label}</ItemLabelGrow>
+				<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
+			</SubTrigger>
+			<ContextMenuPrimitive.Portal>
+				<SubContent {...{ className, alignOffset, sideOffset }}>{children}</SubContent>
+			</ContextMenuPrimitive.Portal>
+		</ContextMenuPrimitive.Sub>
+	);
+};
 
-				<ContextMenuPrimitive.Portal>
-					<Content>
-						{generalMenuItems.map(({ label, icon, shortcut }, i) => (
-							<Item key={`${label}-${i}`}>
-								{icon}
-								<Label>{label}</Label>
-								{shortcut && <Shortcut>{shortcut}</Shortcut>}
-							</Item>
-						))}
+interface CheckboxItemProps
+	extends PropsWithChildren,
+		Pick<ContextMenuPrimitive.ContextMenuCheckboxItemProps, "onCheckedChange" | "checked"> {
+	icon?: ReactElement;
+	checkedIcon?: ReactElement;
+	label: ReactNode;
+}
 
-						<Separator />
+export const CheckboxItem = (props: CheckboxItemProps) => {
+	const { label, icon, checked, checkedIcon, onCheckedChange } = props;
 
-						<CheckboxItem checked={showGrid} onCheckedChange={setShowGrid as any}>
-							{showGrid ? (
-								<GridIcon className="mr-2 h-4 w-4" />
-							) : (
-								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5 text-primitive-type" />
-							)}
-							<Label>Show Grid</Label>
-							<ContextMenuPrimitive.ItemIndicator>
-								<CheckIcon className="h-3.5 w-3.5" />
-							</ContextMenuPrimitive.ItemIndicator>
-						</CheckboxItem>
+	return (
+		<_CheckboxItem checked={checked} onCheckedChange={onCheckedChange}>
+			{(() => {
+				if (checked) {
+					return (
+						checkedIcon &&
+						cloneElement(checkedIcon, {
+							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+						})
+					);
+				} else {
+					return (
+						icon &&
+						cloneElement(icon, {
+							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+						})
+					);
+				}
+			})()}
+			<ItemLabelGrow>{label}</ItemLabelGrow>
+			<ContextMenuPrimitive.ItemIndicator>
+				<CheckIcon className="h-3.5 w-3.5" />
+			</ContextMenuPrimitive.ItemIndicator>
+		</_CheckboxItem>
+	);
+};
 
-						<CheckboxItem checked={showUi} onCheckedChange={setShowUi as any}>
-							{showUi ? (
-								<EyeOpenIcon className="mr-2 h-3.5 w-3.5" />
-							) : (
-								<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
-							)}
-							<Label>Show UI</Label>
-							<ContextMenuPrimitive.ItemIndicator>
-								<CheckIcon className="h-3.5 w-3.5" />
-							</ContextMenuPrimitive.ItemIndicator>
-						</CheckboxItem>
+interface ItemProps {
+	icon: ReactElement;
+	shortcut?: string;
+	label: ReactNode;
+}
 
-						<Separator />
+export const Item = (props: ItemProps) => {
+	const { label, icon, shortcut } = props;
 
-						<SectionLabel>Region Tools</SectionLabel>
+	return (
+		<_Item>
+			{icon &&
+				cloneElement(icon, {
+					className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+				})}
+			<ItemLabelGrow>{label}</ItemLabelGrow>
+			{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
+		</_Item>
+	);
+};
 
-						{regionToolMenuItems.map(({ label, icon, shortcut }, i) => (
-							<Item key={`${label}-${i}`}>
-								{icon}
-								<Label>{label}</Label>
-								{shortcut && <Shortcut>{shortcut}</Shortcut>}
-							</Item>
-						))}
+interface RootProps
+	extends PropsWithChildren,
+		Pick<ContextMenuPrimitive.ContextMenuProps, "onOpenChange"> {
+	trigger: ReactNode;
+	className?: string;
+}
 
-						<Separator />
+export const Root = (props: RootProps) => {
+	const { children, trigger, className, onOpenChange } = props;
 
-						<ContextMenuPrimitive.Sub>
-							<SubTrigger>
-								<Link2Icon className="mr-2 h-3.5 w-3.5" />
-								<Label>Share</Label>
-								<CaretRightIcon className="h-3.5 w-3.5" />
-							</SubTrigger>
-							<ContextMenuPrimitive.Portal>
-								<SubContent>
-									{users.map(({ name, url }, i) => (
-										<Item key={`${name}-${i}`}>
-											{url ? (
-												<img className="mr-2.5 h-6 w-6 rounded-full" src={url} />
-											) : (
-												<PersonIcon className="mr-2.5 h-6 w-6" />
-											)}
-											<span className="text-primitive-type">{name}</span>
-										</Item>
-									))}
-								</SubContent>
-							</ContextMenuPrimitive.Portal>
-						</ContextMenuPrimitive.Sub>
-					</Content>
-				</ContextMenuPrimitive.Portal>
-			</ContextMenuPrimitive.Root>
-		</div>
+	return (
+		<ContextMenuPrimitive.Root {...{ className, onOpenChange }}>
+			<_Trigger asChild>
+				<TriggerInner>{trigger}</TriggerInner>
+			</_Trigger>
+			<ContextMenuPrimitive.Portal>
+				<Content>
+					<ContentInner>
+						<Arrow />
+						{children}
+					</ContentInner>
+				</Content>
+			</ContextMenuPrimitive.Portal>
+		</ContextMenuPrimitive.Root>
 	);
 };
