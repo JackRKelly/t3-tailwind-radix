@@ -66,6 +66,15 @@ module.exports = {
 					"0%": { opacity: 1, transform: "scale(1) translateX()" },
 					"100%": { opacity: 0, transform: "scale(.7) translateX(-2px)" }
 				},
+				// Dialog
+				"scale-fade-in": {
+					"0%": { opacity: 0, transform: "scale(.95)" },
+					"100%": { opacity: 1, transform: "scale(1)" }
+				},
+				"scale-fade-out": {
+					"0%": { opacity: 1, transform: "scale(1)" },
+					"100%": { opacity: 1, transform: "scale(.95)" }
+				},
 				// Collapsible
 				"collapsible-in": {
 					"0%": { maxHeight: 0 },
@@ -143,6 +152,9 @@ module.exports = {
 				"slide-down-fade-out": "slide-down-fade-out 200ms cubic-bezier(0.16, 1, 0.3, 1)",
 				"slide-left-fade-in": "slide-left-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1)",
 				"slide-left-fade-out": "slide-left-fade-out 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+				// Dialog
+				"scale-fade-in": "scale-fade-in 0.2s ease-in-out",
+				"scale-fade-out": "scale-fade-out 0.2s ease-in-out",
 				// Collapsible
 				"collapsible-in": "collapsible-in 0.2s ease",
 				"collapsible-out": "collapsible-out 0.2s ease",
