@@ -1,14 +1,14 @@
 import { tw } from "../utils/tw";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 
 export type ThemeStyle = "light" | "dark" | "system";
 
 interface Theme {
 	key: ThemeStyle;
 	label: string;
-	icon: React.ReactElement;
+	icon: ReactElement;
 }
 
 export const themes: Theme[] = [
@@ -85,7 +85,7 @@ const ThemeSwitcher = (props: Props) => {
 		<div className="relative inline-block text-left">
 			<DropdownMenuPrimitive.Root>
 				<Trigger>
-					{(function () {
+					{(() => {
 						switch (preferredTheme) {
 							case "light":
 								return <SunIcon className="h-5 w-5 text-primitive-type" />;
