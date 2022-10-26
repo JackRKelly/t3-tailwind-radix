@@ -1,4 +1,4 @@
-import { Avatar } from "../Avatar";
+import * as Avatar from "../Avatar";
 
 const getRandomInitials = () => {
 	return Math.random()
@@ -20,13 +20,19 @@ export const AvatarExample = () => {
 		<div className="grid grid-cols-4 gap-2">
 			{users.map((user, i) => {
 				return (
-					<Avatar alt="Avatar" src={user} key={`1-${i}`} initials={getRandomInitials()} online />
+					<Avatar.Root
+						alt="Avatar"
+						src={user}
+						key={`1-${i}`}
+						initials={getRandomInitials()}
+						online
+					/>
 				);
 			})}
 			{users.map((user, i) => {
 				return (
-					<Avatar
-						variant={Avatar.variant.Circle}
+					<Avatar.Root
+						variant={Avatar.Variant.Circle}
 						alt="Avatar"
 						key={`2-${i}`}
 						src={user}

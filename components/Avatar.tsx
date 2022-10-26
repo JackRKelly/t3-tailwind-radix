@@ -2,12 +2,12 @@ import { tw } from "../utils/tw";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import cx from "clsx";
 
-enum Variant {
+export enum Variant {
 	Circle,
 	Rounded
 }
 
-const Root = tw(AvatarPrimitive.Root)`relative inline-flex h-10 w-10`;
+const _Root = tw(AvatarPrimitive.Root)`relative inline-flex h-10 w-10`;
 
 const Image = tw(AvatarPrimitive.Image)`h-full w-full object-cover`;
 
@@ -21,7 +21,7 @@ const Fallback = tw(
 	AvatarPrimitive.Fallback
 )`flex h-full w-full items-center justify-center bg-primitive transition-colors`;
 
-interface Props extends Pick<AvatarPrimitive.AvatarImageProps, "alt" | "src"> {
+interface RootProps extends Pick<AvatarPrimitive.AvatarImageProps, "alt" | "src"> {
 	variant?: Variant;
 	renderInvalidUrls?: boolean;
 	online?: boolean;
@@ -29,11 +29,11 @@ interface Props extends Pick<AvatarPrimitive.AvatarImageProps, "alt" | "src"> {
 	fallbackDelayMs?: number;
 }
 
-const Avatar = (props: Props) => {
+const Root = (props: RootProps) => {
 	const { variant = Variant.Rounded, online, initials, src, alt, fallbackDelayMs = 600 } = props;
 
 	return (
-		<Root>
+		<_Root>
 			<Image
 				src={src}
 				alt={alt}
@@ -67,9 +67,9 @@ const Avatar = (props: Props) => {
 			>
 				<Initials>{initials}</Initials>
 			</Fallback>
-		</Root>
+		</_Root>
 	);
 };
 
-Avatar.variant = Variant;
-export { Avatar };
+Root.variant = Variant;
+export { Root };
