@@ -8,11 +8,9 @@
 		"postinstall": "prisma generate",
 		"lint": "next lint",
 		"start": "next start",
-		"format": "prettier --write \"./**/*.{js,jsx,md,ts,tsx,json,yml,mjs,cjs,css}\"",
-		"barrels": "barrelsby --delete --config \"./barrel.config.json\""
+		"format": "prettier --write \"./**/*.{js,jsx,md,ts,tsx,json,yml,mjs,cjs,css}\""
 	},
 	"dependencies": {
-		"@headlessui/react": "^1.7.3",
 		"@prisma/client": "^4.4.0",
 		"@radix-ui/react-accordion": "^1.0.1",
 		"@radix-ui/react-alert-dialog": "^1.0.2",
@@ -50,7 +48,6 @@
 		"next": "^13.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"sharp": "^0.31.1",
 		"superjson": "1.9.1",
 		"tailwindcss-radix": "^2.6.1",
 		"zod": "^3.18.0"
@@ -67,8 +64,5 @@
 		"prisma": "^4.4.0",
 		"tailwindcss": "^3.2.0",
 		"typescript": "^4.8.4"
-	},
-	"ct3aMetadata": {
-		"initVersion": "6.5.0"
 	}
 }
