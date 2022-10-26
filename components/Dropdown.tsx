@@ -66,7 +66,7 @@ export const Sub = (props: SubProps) => {
 		onOpenChange,
 		open,
 		alignOffset,
-		sideOffset
+		sideOffset = 6
 	} = props;
 
 	return (
