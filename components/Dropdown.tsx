@@ -72,7 +72,7 @@ interface Props {
 	align?: DropdownMenuPrimitive.DropdownMenuContentProps["align"];
 	alignOffset?: DropdownMenuPrimitive.DropdownMenuContentProps["alignOffset"];
 	sections: RadixDropdownSection[];
-	children: ReactNode;
+	trigger: ReactNode;
 }
 
 const renderMenuItem = (menuItem: RadixMenuItem, i: number) => {
@@ -138,11 +138,11 @@ const renderMenuItem = (menuItem: RadixMenuItem, i: number) => {
 };
 
 export const Dropdown = (props: Props) => {
-	const { side, sideOffset = 4, align, alignOffset, sections, children } = props;
+	const { side, sideOffset = 4, align, alignOffset, sections, trigger } = props;
 
 	return (
 		<DropdownMenuPrimitive.Root>
-			<DropdownMenuPrimitive.Trigger asChild>{children}</DropdownMenuPrimitive.Trigger>
+			<DropdownMenuPrimitive.Trigger asChild>{trigger}</DropdownMenuPrimitive.Trigger>
 			<DropdownMenuPrimitive.Portal>
 				<Content align={align} sideOffset={sideOffset} side={side} alignOffset={alignOffset}>
 					<ContentInner>

@@ -1,7 +1,7 @@
 import { Button } from "../Button";
 import { Dropdown, RadixDropdownSection } from "../Dropdown";
 import {
-	DashIcon,
+	DotsHorizontalIcon,
 	DrawingPinFilledIcon,
 	DrawingPinIcon,
 	FileIcon,
@@ -26,6 +26,7 @@ export const DropdownExample: NextPage = () => {
 				{
 					type: "item",
 					label: "Settings",
+					shortcut: "⌘+,",
 					icon: <MixerHorizontalIcon />
 				},
 				{
@@ -41,22 +42,24 @@ export const DropdownExample: NextPage = () => {
 				{
 					type: "sub-menu",
 					label: "Sub Menu",
-					icon: <Link2Icon />,
+					icon: <DotsHorizontalIcon />,
 					subMenu: [
 						{
 							type: "item",
-							label: "New File fdsaf ads fsdaf das",
+							label: "New File",
 							icon: <FileIcon />,
 							shortcut: "⌘+N"
 						},
 						{
 							type: "item",
 							label: "Settings",
+							shortcut: "⌘+,",
 							icon: <MixerHorizontalIcon />
 						},
 						{
 							type: "sub-menu",
 							label: "Sub Menu",
+							icon: <DotsHorizontalIcon />,
 							subMenu: [
 								{
 									type: "item",
@@ -89,9 +92,5 @@ export const DropdownExample: NextPage = () => {
 		}
 	];
 
-	return (
-		<Dropdown sections={sections}>
-			<Button>Click</Button>
-		</Dropdown>
-	);
+	return <Dropdown sections={sections} trigger={<Button>Click</Button>} />;
 };
