@@ -1,9 +1,6 @@
 import { tw } from "../../utils/tw";
-import { Checkbox } from "../Checkbox";
 import { Heading } from "../Heading";
 import { Grid } from "../Layout";
-import { Slider } from "../Slider";
-import { Switch } from "../Switch";
 import { Toast } from "../Toast";
 import * as Tooltip from "../Tooltip";
 import { AccordianExample } from "./Accordian";
@@ -11,6 +8,7 @@ import { AlertDialogExample } from "./AlertDialog";
 import { AspectRatioExample } from "./AspectRatio";
 import { AvatarExample } from "./Avatar";
 import { ButtonExample } from "./Button";
+import { CheckboxExample } from "./Checkbox";
 import { CollapsibleExample } from "./Collapsible";
 import { ContextMenuExample } from "./ContextMenu";
 import { DialogExample } from "./Dialog";
@@ -20,6 +18,8 @@ import { PopoverExample } from "./Popover";
 import { ProgressExample } from "./Progress";
 import { RadioGroupExample } from "./RadioGroup";
 import { SelectExample } from "./Select";
+import { SliderExample } from "./Slider";
+import { SwitchExample } from "./Switch";
 import { TabsExample } from "./Tabs";
 import { ThemeSwitcherExample } from "./ThemeSwitcher";
 import { ToggleExample } from "./Toggle";
@@ -63,134 +63,154 @@ export const exampleComponents: ComponentEntry[] = [
 		title: "Select",
 		component: <SelectExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Select.tsx")
+		sourceLink: buildGithubLink("Select.tsx"),
+		exampleLink: buildGithubLink("examples/Select.tsx")
 	},
 	{
 		title: "Theme Switcher",
 		component: <ThemeSwitcherExample />,
-		Wrapper: Grid.OneSpan
+		Wrapper: Grid.OneSpan,
+		exampleLink: buildGithubLink("examples/ThemeSwitcher.tsx")
 	},
 	{
 		title: "Toggle",
 		component: <ToggleExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Toggle.tsx")
+		sourceLink: buildGithubLink("Toggle.tsx"),
+		exampleLink: buildGithubLink("examples/Toggle.tsx")
 	},
 	{
 		title: "Toast",
 		component: <Toast />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Toast.tsx")
+		sourceLink: buildGithubLink("Toast.tsx"),
+		exampleLink: buildGithubLink("examples/Toast.tsx")
 	},
 	{
 		title: "Dialog",
 		component: <DialogExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Dialog.tsx")
+		sourceLink: buildGithubLink("Dialog.tsx"),
+		exampleLink: buildGithubLink("examples/Dialog.tsx")
 	},
 	{
 		title: "Alert Dialog",
 		component: <AlertDialogExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("AlertDialog.tsx")
+		sourceLink: buildGithubLink("AlertDialog.tsx"),
+		exampleLink: buildGithubLink("examples/AlertDialog.tsx")
 	},
 	{
 		title: "Popover",
 		component: <PopoverExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Popover.tsx")
+		sourceLink: buildGithubLink("Popover.tsx"),
+		exampleLink: buildGithubLink("examples/Popover.tsx")
 	},
 	{
 		title: "Tooltip",
 		component: <TooltipExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Tooltip.tsx")
+		sourceLink: buildGithubLink("Tooltip.tsx"),
+		exampleLink: buildGithubLink("examples/Tooltip.tsx")
 	},
 	{
 		title: "Hover Card",
 		component: <HoverCardExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("HoverCard.tsx")
+		sourceLink: buildGithubLink("HoverCard.tsx"),
+		exampleLink: buildGithubLink("examples/HoverCard.tsx")
 	},
 	{
 		title: "Radio Group",
 		component: <RadioGroupExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("RadioGroup.tsx")
+		sourceLink: buildGithubLink("RadioGroup.tsx"),
+		exampleLink: buildGithubLink("examples/RadioGroup.tsx")
 	},
 	{
 		title: "Toggle Group",
 		component: <ToggleGroupExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("ToggleGroup.tsx")
+		sourceLink: buildGithubLink("ToggleGroup.tsx"),
+		exampleLink: buildGithubLink("examples/ToggleGroup.tsx")
 	},
 	{
 		title: "Switch",
-		component: <Switch />,
+		component: <SwitchExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Switch.tsx")
+		sourceLink: buildGithubLink("Switch.tsx"),
+		exampleLink: buildGithubLink("examples/Switch.tsx")
 	},
 	{
 		title: "Context Menu",
 		component: <ContextMenuExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("ContextMenu.tsx")
+		sourceLink: buildGithubLink("ContextMenu.tsx"),
+		exampleLink: buildGithubLink("examples/ContextMenu.tsx")
 	},
 	{
 		title: "Slider",
-		component: <Slider />,
+		component: <SliderExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Slider.tsx")
+		sourceLink: buildGithubLink("Slider.tsx"),
+		exampleLink: buildGithubLink("examples/Slider.tsx")
 	},
 	{
 		title: "Checkbox",
-		component: (
-			<Checkbox label="Accept terms and conditions" id="terms-and-conditions" defaultChecked />
-		),
+		component: <CheckboxExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Checkbox.tsx")
+		sourceLink: buildGithubLink("Checkbox.tsx"),
+		exampleLink: buildGithubLink("examples/Checkbox.tsx")
 	},
 	{
 		title: "Avatar",
 		component: <AvatarExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("Avatar.tsx")
+		sourceLink: buildGithubLink("Avatar.tsx"),
+		exampleLink: buildGithubLink("examples/Avatar.tsx")
 	},
 	{
 		title: "Collapsible",
 		component: <CollapsibleExample />,
 		Wrapper: Grid.FullSpan,
-		sourceLink: buildGithubLink("Collapsible.tsx")
+		sourceLink: buildGithubLink("Collapsible.tsx"),
+		exampleLink: buildGithubLink("examples/Collapsible.tsx")
 	},
 	{
 		title: "Aspect Ratio",
 		component: <AspectRatioExample />,
 		Wrapper: Grid.FullSpan,
-		sourceLink: buildGithubLink("AspectRatio.tsx")
+		sourceLink: buildGithubLink("AspectRatio.tsx"),
+		exampleLink: buildGithubLink("examples/AspectRatio.tsx")
 	},
 	{
 		title: "Progress",
 		component: <ProgressExample />,
 		Wrapper: Grid.FullSpan,
-		sourceLink: buildGithubLink("Progress.tsx")
+		sourceLink: buildGithubLink("Progress.tsx"),
+		exampleLink: buildGithubLink("examples/Progress.tsx")
 	},
 	{
 		title: "Toolbar",
 		component: <ToolbarExample />,
 		Wrapper: Grid.FullSpan,
-		sourceLink: buildGithubLink("Toolbar.tsx")
+		sourceLink: buildGithubLink("Toolbar.tsx"),
+		exampleLink: buildGithubLink("examples/Toolbar.tsx")
 	},
 	{
 		title: "Tabs",
 		component: <TabsExample />,
 		Wrapper: Grid.FullSpan,
-		sourceLink: buildGithubLink("Tabs.tsx")
+		sourceLink: buildGithubLink("Tabs.tsx"),
+		exampleLink: buildGithubLink("examples/Tabs.tsx")
 	},
 	{
 		title: "Accordian",
 		component: <AccordianExample />,
 		Wrapper: Grid.FullSpan,
-		sourceLink: buildGithubLink("Accordian.tsx")
+		sourceLink: buildGithubLink("Accordian.tsx"),
+		exampleLink: buildGithubLink("examples/Accordian.tsx")
 	}
 ];
 

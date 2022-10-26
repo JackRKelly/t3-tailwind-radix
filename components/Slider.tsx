@@ -2,7 +2,7 @@ import { tw } from "../utils/tw";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import React from "react";
 
-const Root = tw(
+const _Root = tw(
 	SliderPrimitive.Root
 )`radix-orientation-vertical:h-64 radix-orientation-horizontal:w-64 radix-orientation-horizontal:h-5 radix-orientation-vertical:w-5 relative flex touch-none items-center justify-center`;
 
@@ -16,7 +16,7 @@ const Thumb = tw(
 	SliderPrimitive.Thumb
 )`block h-5 w-5 rounded-full bg-primary focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
-interface SliderProps
+interface RootProps
 	extends Pick<
 		SliderPrimitive.SliderProps,
 		| "min"
@@ -31,7 +31,7 @@ interface SliderProps
 		| "aria-label"
 	> {}
 
-export const Slider = (props: SliderProps) => {
+export const Root = (props: RootProps) => {
 	const {
 		"aria-label": ariaLabel,
 		defaultValue = [50],
@@ -46,7 +46,7 @@ export const Slider = (props: SliderProps) => {
 	} = props;
 
 	return (
-		<Root
+		<_Root
 			aria-label={ariaLabel}
 			{...{
 				defaultValue,
@@ -64,6 +64,6 @@ export const Slider = (props: SliderProps) => {
 				<Range />
 			</Track>
 			<Thumb />
-		</Root>
+		</_Root>
 	);
 };
