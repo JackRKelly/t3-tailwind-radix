@@ -7,7 +7,6 @@ import { Checkbox } from "../components/Checkbox";
 import { Collapsible } from "../components/Collapsible";
 import { ContextMenu } from "../components/ContextMenu";
 import { Dialog } from "../components/Dialog";
-import { Dropdown } from "../components/Dropdown";
 import { Heading } from "../components/Heading";
 import { HoverCard } from "../components/HoverCard";
 import { InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
@@ -26,6 +25,7 @@ import { Toggle } from "../components/Toggle";
 import { ToggleGroup } from "../components/ToggleGroup";
 import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
+import { DropdownExample } from "../components/examples/DropdownExample";
 import { tw } from "../utils/tw";
 import type { NextPage } from "next";
 
@@ -97,7 +97,7 @@ const Components: NextPage = () => {
 							<Heading size="sm" className="mb-2">
 								Dropdown
 							</Heading>
-							<Dropdown />
+							<DropdownExample />
 						</OneSpan>
 
 						<OneSpan>

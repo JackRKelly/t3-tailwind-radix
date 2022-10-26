@@ -1,74 +1,8 @@
 import { tw } from "../utils/tw";
 import { Button } from "./Button";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import {
-	CaretRightIcon,
-	CheckIcon,
-	CropIcon,
-	EyeClosedIcon,
-	EyeOpenIcon,
-	FileIcon,
-	FrameIcon,
-	GridIcon,
-	Link2Icon,
-	MixerHorizontalIcon,
-	PersonIcon,
-	TransparencyGridIcon
-} from "@radix-ui/react-icons";
-import clsx from "clsx";
-import { ReactNode, useState } from "react";
-
-interface RadixMenuItem {
-	label: string;
-	shortcut?: string;
-	icon?: ReactNode;
-}
-
-interface User {
-	name: string;
-	url?: string;
-}
-
-const generalMenuItems: RadixMenuItem[] = [
-	{
-		label: "New File",
-		icon: <FileIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+N"
-	},
-	{
-		label: "Settings",
-		icon: <MixerHorizontalIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+,"
-	}
-];
-
-const regionToolMenuItems: RadixMenuItem[] = [
-	{
-		label: "Frame",
-		icon: <FrameIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+F"
-	},
-	{
-		label: "Crop",
-		icon: <CropIcon className="mr-2 h-3.5 w-3.5" />,
-		shortcut: "⌘+S"
-	}
-];
-
-const users: User[] = [
-	{
-		name: "Adam",
-		url: "https://github.com/adamwathan.png"
-	},
-	{
-		name: "Steve",
-		url: "https://github.com/steveschoger.png"
-	},
-	{
-		name: "Robin",
-		url: "https://github.com/robinmalfait.png"
-	}
-];
+import { CaretRightIcon, CheckIcon } from "@radix-ui/react-icons";
+import { ReactElement, ReactNode, cloneElement } from "react";
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
@@ -100,96 +34,128 @@ const SubTrigger = tw(
 
 const ItemLabelGrow = tw.span`flex-grow text-primitive-type`;
 
-const ItemLabel = tw.span`text-primitive-type`;
-
-const ShortcutLabel = tw.span`text-xs text-primitive-type-extra-faint`;
+const ShortcutLabel = tw.span`text-xs ml-2 text-primitive-type-extra-faint`;
 
 const Arrow = tw(DropdownMenuPrimitive.Arrow)`fill-current text-primitive-edge`;
+
+type RadixMenuItem =
+	| {
+			type: "item";
+			label: string;
+			shortcut?: string;
+			icon?: ReactElement;
+			onClick?: () => void;
+	  }
+	| {
+			type: "sub-menu";
+			label: string;
+			icon?: ReactElement;
+			subMenu: RadixMenuItem[];
+	  }
+	| {
+			type: "checkbox";
+			label: string;
+			icon?: ReactElement;
+			checkedIcon?: ReactElement;
+			onCheckedChange: DropdownMenuPrimitive.DropdownMenuCheckboxItemProps["onCheckedChange"];
+			checked: DropdownMenuPrimitive.DropdownMenuCheckboxItemProps["checked"];
+	  };
+
+export interface RadixDropdownSection {
+	label?: string;
+	items: RadixMenuItem[];
+}
 
 interface Props {
 	side?: DropdownMenuPrimitive.DropdownMenuContentProps["side"];
 	sideOffset?: DropdownMenuPrimitive.DropdownMenuContentProps["sideOffset"];
 	align?: DropdownMenuPrimitive.DropdownMenuContentProps["align"];
 	alignOffset?: DropdownMenuPrimitive.DropdownMenuContentProps["alignOffset"];
+	sections: RadixDropdownSection[];
+	children: ReactNode;
 }
 
-export const Dropdown = (props: Props) => {
-	const { side, sideOffset = 4, align, alignOffset } = props;
+const renderMenuItem = (menuItem: RadixMenuItem, i: number) => {
+	switch (menuItem.type) {
+		case "sub-menu":
+			return (
+				<DropdownMenuPrimitive.Sub>
+					<SubTrigger>
+						{menuItem.icon &&
+							cloneElement(menuItem.icon, {
+								className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+							})}
+						<ItemLabelGrow>{menuItem.label}</ItemLabelGrow>
+						<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
+					</SubTrigger>
+					<DropdownMenuPrimitive.Portal>
+						<SubContent>
+							{menuItem.subMenu.map((subMenuItem, i) => renderMenuItem(subMenuItem, i))}
+						</SubContent>
+					</DropdownMenuPrimitive.Portal>
+				</DropdownMenuPrimitive.Sub>
+			);
 
-	const [showGrid, setShowGrid] = useState(false);
-	const [showUi, setShowUi] = useState(false);
+		case "checkbox":
+			return (
+				<CheckboxItem checked={menuItem.checked} onCheckedChange={menuItem.onCheckedChange}>
+					{(() => {
+						if (menuItem.checked) {
+							return (
+								menuItem.checkedIcon &&
+								cloneElement(menuItem.checkedIcon, {
+									className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+								})
+							);
+						} else {
+							return (
+								menuItem.icon &&
+								cloneElement(menuItem.icon, {
+									className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+								})
+							);
+						}
+					})()}
+					<ItemLabelGrow>{menuItem.label}</ItemLabelGrow>
+					<DropdownMenuPrimitive.ItemIndicator>
+						<CheckIcon className="h-3.5 w-3.5" />
+					</DropdownMenuPrimitive.ItemIndicator>
+				</CheckboxItem>
+			);
+
+		default:
+			return (
+				<Item key={`${menuItem.label}-${i}`}>
+					{menuItem.icon &&
+						cloneElement(menuItem.icon, {
+							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+						})}
+					<ItemLabelGrow>{menuItem.label}</ItemLabelGrow>
+					{menuItem.shortcut && <ShortcutLabel>{menuItem.shortcut}</ShortcutLabel>}
+				</Item>
+			);
+	}
+};
+
+export const Dropdown = (props: Props) => {
+	const { side, sideOffset = 4, align, alignOffset, sections, children } = props;
 
 	return (
 		<DropdownMenuPrimitive.Root>
-			<DropdownMenuPrimitive.Trigger asChild>
-				<Button>Click</Button>
-			</DropdownMenuPrimitive.Trigger>
-
+			<DropdownMenuPrimitive.Trigger asChild>{children}</DropdownMenuPrimitive.Trigger>
 			<DropdownMenuPrimitive.Portal>
 				<Content align={align} sideOffset={sideOffset} side={side} alignOffset={alignOffset}>
 					<ContentInner>
 						<Arrow />
-						{generalMenuItems.map(({ label, icon, shortcut }, i) => (
-							<Item key={`${label}-${i}`} className={clsx("")}>
-								{icon}
-								<ItemLabelGrow>{label}</ItemLabelGrow>
-								{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
-							</Item>
+						{sections.map((section, sectionIndex) => (
+							<div>
+								{sectionIndex !== 0 && <Separator />}
+								{section.label && <Label>{section.label}</Label>}
+								{section.items.map((menuItem, i) => {
+									return renderMenuItem(menuItem, i);
+								})}
+							</div>
 						))}
-						<Separator />
-						<CheckboxItem checked={showGrid} onCheckedChange={setShowGrid as any}>
-							{showGrid ? (
-								<GridIcon className="mr-2 h-4 w-4" />
-							) : (
-								<TransparencyGridIcon className="mr-2 h-3.5 w-3.5" />
-							)}
-							<ItemLabelGrow>Show Grid</ItemLabelGrow>
-							<DropdownMenuPrimitive.ItemIndicator>
-								<CheckIcon className="h-3.5 w-3.5" />
-							</DropdownMenuPrimitive.ItemIndicator>
-						</CheckboxItem>
-						<CheckboxItem checked={showUi} onCheckedChange={setShowUi as any}>
-							{showUi ? (
-								<EyeOpenIcon className="mr-2 h-3.5 w-3.5" />
-							) : (
-								<EyeClosedIcon className="mr-2 h-3.5 w-3.5" />
-							)}
-							<ItemLabelGrow>Show UI</ItemLabelGrow>
-							<DropdownMenuPrimitive.ItemIndicator>
-								<CheckIcon className="h-3.5 w-3.5" />
-							</DropdownMenuPrimitive.ItemIndicator>
-						</CheckboxItem>
-						<Separator />
-						<Label>Region Tools</Label>
-						{regionToolMenuItems.map(({ label, icon, shortcut }, i) => (
-							<Item key={`${label}-${i}`}>
-								{icon}
-								<ItemLabelGrow>{label}</ItemLabelGrow>
-								{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
-							</Item>
-						))}
-						<Separator />
-						<DropdownMenuPrimitive.Sub>
-							<SubTrigger>
-								<Link2Icon className="mr-2 h-3.5 w-3.5" />
-								<ItemLabelGrow>Share</ItemLabelGrow>
-								<CaretRightIcon className="h-3.5 w-3.5" />
-							</SubTrigger>
-							<DropdownMenuPrimitive.Portal>
-								<SubContent>
-									{users.map(({ name, url }, i) => (
-										<Item key={`${name}-${i}`}>
-											{url ? (
-												<img className="mr-2.5 h-6 w-6 rounded-full" src={url} />
-											) : (
-												<PersonIcon className="mr-2.5 h-6 w-6" />
-											)}
-											<ItemLabel>{name}</ItemLabel>
-										</Item>
-									))}
-								</SubContent>
-							</DropdownMenuPrimitive.Portal>
-						</DropdownMenuPrimitive.Sub>
 					</ContentInner>
 				</Content>
 			</DropdownMenuPrimitive.Portal>
