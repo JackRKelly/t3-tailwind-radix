@@ -12,7 +12,7 @@ const Arrow = tw(TooltipPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const Body = tw.span`block text-sm leading-none text-primitive-type`;
 
-interface Props
+interface RootProps
 	extends Pick<
 			TooltipPrimitive.TooltipProps,
 			"open" | "defaultOpen" | "onOpenChange" | "delayDuration"
@@ -24,7 +24,7 @@ interface Props
 	body: ReactNode;
 }
 
-export const Tooltip = (props: PropsWithChildren<Props>) => {
+export const Root = (props: PropsWithChildren<RootProps>) => {
 	const {
 		body,
 		children,

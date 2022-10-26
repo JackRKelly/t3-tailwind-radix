@@ -18,14 +18,17 @@ let users = [
 export const AvatarExample = () => {
 	return (
 		<div className="grid grid-cols-4 gap-2">
-			{users.map((user) => {
-				return <Avatar alt="Avatar" src={user} initials={getRandomInitials()} online />;
+			{users.map((user, i) => {
+				return (
+					<Avatar alt="Avatar" src={user} key={`1-${i}`} initials={getRandomInitials()} online />
+				);
 			})}
-			{users.map((user) => {
+			{users.map((user, i) => {
 				return (
 					<Avatar
 						variant={Avatar.variant.Circle}
 						alt="Avatar"
+						key={`2-${i}`}
 						src={user}
 						initials={getRandomInitials()}
 					/>

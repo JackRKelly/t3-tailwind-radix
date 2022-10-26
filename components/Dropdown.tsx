@@ -124,17 +124,17 @@ export const CheckboxItem = (props: CheckboxItemProps) => {
 	);
 };
 
-interface ItemProps {
+interface ItemProps extends Pick<DropdownMenuPrimitive.DropdownMenuItemProps, "onClick"> {
 	icon: ReactElement;
 	shortcut?: string;
 	label: ReactNode;
 }
 
 export const Item = (props: ItemProps) => {
-	const { label, icon, shortcut } = props;
+	const { label, icon, shortcut, onClick } = props;
 
 	return (
-		<_Item>
+		<_Item {...{ onClick }}>
 			{icon &&
 				cloneElement(icon, {
 					className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
