@@ -6,12 +6,9 @@ import { Checkbox } from "../components/Checkbox";
 import { Collapsible } from "../components/Collapsible";
 import { ContextMenu } from "../components/ContextMenu";
 import { Heading } from "../components/Heading";
-import { HoverCard } from "../components/HoverCard";
 import { Grid, InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
-import { Popover } from "../components/Popover";
 import { Progress } from "../components/Progress";
-import { RadioGroup } from "../components/RadioGroup";
 import { Slider } from "../components/Slider";
 import { Switch } from "../components/Switch";
 import { Tabs } from "../components/Tabs";
@@ -25,6 +22,9 @@ import { Tooltip } from "../components/Tooltip";
 import { AlertDialogExample } from "../components/examples/AlertDialogExample";
 import { DialogExample } from "../components/examples/DialogExample";
 import { DropdownExample } from "../components/examples/DropdownExample";
+import { HoverCardExample } from "../components/examples/HoverCardExample";
+import { PopoverExample } from "../components/examples/PopoverExample";
+import { RadioGroupExample } from "../components/examples/RadioGroupExample";
 import { SelectExample } from "../components/examples/SelectExample";
 import { tw } from "../utils/tw";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
@@ -92,6 +92,34 @@ const components: ComponentEntry[] = [
 		component: <AlertDialogExample />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("AlertDialog.tsx")
+	},
+	{
+		title: "Popover",
+		component: <PopoverExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Popover.tsx")
+	},
+	{
+		title: "Tooltip",
+		component: (
+			<Tooltip body={"This is a tooltip component"}>
+				<Button>Hover</Button>
+			</Tooltip>
+		),
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Tooltip.tsx")
+	},
+	{
+		title: "Hover Card",
+		component: <HoverCardExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("HoverCard.tsx")
+	},
+	{
+		title: "Radio Group",
+		component: <RadioGroupExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("RadioGroup.tsx")
 	}
 ];
 
@@ -121,7 +149,15 @@ const Components: NextPage = () => {
 									<Heading size="sm" className="mr-1">
 										{title}
 									</Heading>
-									<Tooltip body={`Checkout the code for the ${title} component on Github`}>
+									<Tooltip
+										body={
+											<p>
+												Checkout the code for the "
+												<span className="font-semibold text-primitive-type-bold">{title}</span>"
+												component on Github
+											</p>
+										}
+									>
 										<a
 											className="px-2 -mx-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
 											href={link}
@@ -129,46 +165,18 @@ const Components: NextPage = () => {
 											rel="noopener noreferrer"
 										>
 											<div className="w-6 h-6 relative flex items-center justify-center ">
-												<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150" />
-												<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150" />
+												<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type-faint" />
+												<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type-faint" />
 											</div>
 										</a>
 									</Tooltip>
 								</WrapperHeader>
 
-								<div className="p-4">{component}</div>
+								<div className="p-4 w-full h-full flex items-center justify-center">
+									{component}
+								</div>
 							</Wrapper>
 						))}
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Popover
-							</Heading>
-							<Popover />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Tooltip
-							</Heading>
-							<Tooltip body={"This is a tooltip component"}>
-								<Button>Hover</Button>
-							</Tooltip>
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Hover Card
-							</Heading>
-							<HoverCard side="right" />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Radio Group
-							</Heading>
-							<RadioGroup />
-						</Grid.OneSpan>
 
 						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">

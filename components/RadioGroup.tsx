@@ -1,8 +1,7 @@
 import { tw } from "../utils/tw";
+import { Label } from "./Label";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import React from "react";
-
-interface Props {}
+import React, { PropsWithChildren } from "react";
 
 const items = [
 	{ id: "red", title: "Bulbasaur" },
@@ -10,7 +9,7 @@ const items = [
 	{ id: "blue", title: "Squirtle" }
 ];
 
-const Item = tw(
+const _Item = tw(
 	RadioGroupPrimitive.Item
 )`peer relative w-4 h-4 rounded-full text-white radix-state-checked:bg-primary radix-state-unchecked:bg-primitive-faint radix-state-unchecked:border border-primitive-edge focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-highlight transition-button`;
 
@@ -20,38 +19,48 @@ const Indicator = tw(
 
 const IndicatorInner = tw.div`w-1.5 h-1.5 rounded-full bg-white`;
 
-const Label = tw.label`ml-2 block text-sm font-medium text-primitive-type`;
-
 const ItemWrapper = tw.div`flex items-center`;
 
 const ItemList = tw.div`mt-3 space-y-3`;
 
-const Legend = tw.legend`text-sm leading-4 text-primitive-type`;
+interface ItemProps
+	extends Pick<
+		RadioGroupPrimitive.RadioGroupItemProps,
+		"disabled" | "required" | "value" | "defaultValue"
+	> {
+	id: string;
+	label?: string;
+}
 
-export const RadioGroup = (props: Props) => {
-	const [value, setValue] = React.useState(items[0].title);
+export const Item = (props: ItemProps) => {
+	const { id, value, label, defaultValue, disabled, required } = props;
+	return (
+		<ItemWrapper>
+			<_Item {...{ id, value, defaultValue, disabled, required }}>
+				<Indicator>
+					<IndicatorInner />
+				</Indicator>
+			</_Item>
+			<Label htmlFor={id} size="sm" className="ml-2 block">
+				{label ?? value}
+			</Label>
+		</ItemWrapper>
+	);
+};
+
+interface RootProps
+	extends PropsWithChildren,
+		Pick<
+			RadioGroupPrimitive.RadioGroupProps,
+			"aria-label" | "value" | "defaultValue" | "onValueChange"
+		> {}
+
+export const Root = (props: RootProps) => {
+	const { value, defaultValue, onValueChange, children, "aria-label": ariaLabel } = props;
 
 	return (
-		<form>
-			<Legend>Choose your starter</Legend>
-			<RadioGroupPrimitive.Root
-				aria-label="Pokemon starters"
-				defaultValue={"Bulbasaur"}
-				onValueChange={setValue}
-			>
-				<ItemList>
-					{items.map((item) => (
-						<ItemWrapper key={item.id}>
-							<Item id={item.id} value={item.title}>
-								<Indicator>
-									<IndicatorInner />
-								</Indicator>
-							</Item>
-							<Label htmlFor={item.id}>{item.title}</Label>
-						</ItemWrapper>
-					))}
-				</ItemList>
-			</RadioGroupPrimitive.Root>
-		</form>
+		<RadioGroupPrimitive.Root aria-label={ariaLabel} {...{ value, defaultValue, onValueChange }}>
+			<ItemList>{children}</ItemList>
+		</RadioGroupPrimitive.Root>
 	);
 };

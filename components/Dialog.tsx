@@ -1,10 +1,7 @@
 import { tw } from "../utils/tw";
-import { Button } from "./Button";
-import { Input } from "./Input";
-import { Label } from "./Label";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross1Icon } from "@radix-ui/react-icons";
-import { PropsWithChildren, ReactNode, useState } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 
 const Close = tw(
 	DialogPrimitive.Close
@@ -72,7 +69,7 @@ export const Root = (props: RootProps) => {
 				{children}
 				{showCloseIcon && (
 					<Close>
-						<Cross1Icon className="h-4 w-4 text-primitive-type hover:text-primitive-type" />
+						<Cross1Icon className="h-4 w-4 text-primitive-type hover:text-primitive-type-bold" />
 					</Close>
 				)}
 			</Content>

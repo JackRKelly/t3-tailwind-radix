@@ -1,46 +1,7 @@
 import { tw } from "../utils/tw";
-import { Button } from "./Button";
-import { Input } from "./Input";
-import { Label } from "./Label";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import React from "react";
-
-interface PopoverItem {
-	id: string;
-	label: string;
-	defaultValue?: string;
-	type?: React.HTMLInputTypeAttribute;
-	autoComplete?: string;
-}
-
-const items: PopoverItem[] = [
-	{
-		id: "width",
-		label: "Width",
-		defaultValue: "100%"
-	},
-	{
-		id: "max-width",
-		label: "Max. width",
-		defaultValue: "300px"
-	},
-	{
-		id: "height",
-		label: "Height",
-		defaultValue: "25px"
-	},
-	{
-		id: "max-height",
-		label: "Max. height",
-		defaultValue: "none",
-		type: "text"
-	}
-];
-
-const Form = tw.form`mt-4 space-y-2`;
-
-const Header = tw.h3`text-base font-semibold text-primitive-type-bold`;
+import { PropsWithChildren, ReactNode } from "react";
 
 const Arrow = tw(PopoverPrimitive.Arrow)`fill-current text-primitive-edge`;
 
@@ -50,49 +11,38 @@ const Content = tw(
 
 const ContentInner = tw.div`border border-primitive-edge rounded-lg p-4`;
 
-const Fieldset = tw.fieldset`flex items-center`;
-
 const Close = tw(
 	PopoverPrimitive.Close
 )`absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
 const Wrapper = tw.div`relative inline-block text-left`;
 
-interface Props {}
+interface RootProps
+	extends PropsWithChildren,
+		Pick<PopoverPrimitive.PopoverContentProps, "side" | "sideOffset" | "align"> {
+	showCloseIcon?: boolean;
+	trigger: ReactNode;
+}
 
-export const Popover = (props: Props) => {
+export const Root = (props: RootProps) => {
+	const { children, side, sideOffset = 4, align, showCloseIcon = true, trigger } = props;
+
 	return (
 		<Wrapper>
 			<PopoverPrimitive.Root>
-				<PopoverPrimitive.Trigger asChild>
-					<Button>Click</Button>
-				</PopoverPrimitive.Trigger>
+				<PopoverPrimitive.Trigger asChild>{trigger}</PopoverPrimitive.Trigger>
 
-				<Content align="center" sideOffset={4}>
+				<Content {...{ side, sideOffset, align }}>
 					<ContentInner>
 						<Arrow />
-						<Header>Dimensions</Header>
-						<Form>
-							{items.map(({ id, label, defaultValue, autoComplete, type = "text" }) => {
-								return (
-									<Fieldset key={`popover-items-${id}`}>
-										<Label htmlFor={id} className="shrink-0 grow">
-											{label}
-										</Label>
-										<Input
-											id={id}
-											type={type}
-											className="w-1/2"
-											defaultValue={defaultValue}
-											autoComplete={autoComplete}
-										/>
-									</Fieldset>
-								);
-							})}
-						</Form>
-						<Close>
-							<Cross1Icon className="h-4 w-4 text-primitive-type hover:text-primitive-type-bold" />
-						</Close>
+
+						{children}
+
+						{showCloseIcon && (
+							<Close>
+								<Cross1Icon className="h-4 w-4 text-primitive-type hover:text-primitive-type-bold" />
+							</Close>
+						)}
 					</ContentInner>
 				</Content>
 			</PopoverPrimitive.Root>
