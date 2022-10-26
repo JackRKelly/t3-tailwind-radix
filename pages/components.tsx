@@ -14,7 +14,6 @@ import { Navigation } from "../components/Navigation";
 import { Popover } from "../components/Popover";
 import { Progress } from "../components/Progress";
 import { RadioGroup } from "../components/RadioGroup";
-import { Select } from "../components/Select";
 import { Slider } from "../components/Slider";
 import { Switch } from "../components/Switch";
 import { Tabs } from "../components/Tabs";
@@ -26,6 +25,7 @@ import { ToggleGroup } from "../components/ToggleGroup";
 import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
 import { DropdownExample } from "../components/examples/DropdownExample";
+import { SelectExample } from "../components/examples/SelectExample";
 import { tw } from "../utils/tw";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import type { NextPage } from "next";
@@ -40,18 +40,28 @@ interface ComponentEntry {
 	>;
 }
 
+const buildGithubLink = (fileName: string) => {
+	return `https://github.com/JackRKelly/t3-tailwind-radix/blob/master/components/${fileName}`;
+};
+
 const components: ComponentEntry[] = [
 	{
 		title: "Button",
 		component: <Button>Button</Button>,
 		Wrapper: Grid.OneSpan,
-		link: "https://github.com/JackRKelly/t3-tailwind-radix/blob/master/components/Button.tsx"
+		link: buildGithubLink("Button.tsx")
 	},
 	{
 		title: "Dropdown",
 		component: <DropdownExample />,
 		Wrapper: Grid.OneSpan,
-		link: "https://github.com/JackRKelly/t3-tailwind-radix/blob/master/components/Dropdown.tsx"
+		link: buildGithubLink("Dropdown.tsx")
+	},
+	{
+		title: "Select",
+		component: <SelectExample />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Select.tsx")
 	}
 ];
 
@@ -75,20 +85,22 @@ const Components: NextPage = () => {
 							</Text>
 						</Grid.FullSpanNoBackground>
 
-						{components.map(({ Wrapper, component, title }) => (
+						{components.map(({ Wrapper, component, title, link }) => (
 							<Wrapper className="relative rounded-lg">
 								<WrapperHeader>
 									<Heading size="sm" className="mr-1">
 										{title}
 									</Heading>
 									<a
-										className="relative flex items-center justify-center p-1 group w-6 h-6 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
-										href="https://github.com/JackRKelly/t3-tailwind-radix"
+										className="flex items-center justify-center px-2 -mr-2 group p-1 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+										href={link}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-1 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150" />
-										<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-1 -right-3 group-hover:opacity-100 transition-all duration-150" />
+										<div className="w-6 h-6 relative">
+											<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-1 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150" />
+											<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-1 -right-3 group-hover:opacity-100 transition-all duration-150" />
+										</div>
 									</a>
 								</WrapperHeader>
 
@@ -108,21 +120,6 @@ const Components: NextPage = () => {
 								Theme Switcher
 							</Heading>
 							<ThemeSwitcher />
-						</Grid.OneSpan>
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Select
-							</Heading>
-							<Select
-								ariaLabel="Fruit"
-								options={[
-									{ value: "grape", textValue: "Grape", disabled: true },
-									{ value: "apple", textValue: "Apple", disabled: false },
-									{ value: "orange", textValue: "Orange", disabled: false },
-									{ value: "pear", textValue: "Pear", disabled: true }
-								]}
-							/>
 						</Grid.OneSpan>
 
 						<Grid.OneSpan>

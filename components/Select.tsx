@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { SelectItemProps } from "@radix-ui/react-select";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 const ScrollUpButton = tw(
 	SelectPrimitive.ScrollUpButton
@@ -21,7 +21,7 @@ const ScrollDownButton = tw(
 	SelectPrimitive.ScrollDownButton
 )`flex items-center justify-center text-primitive-type`;
 
-const Item = tw(
+const _Item = tw(
 	SelectPrimitive.Item
 )`relative flex items-center px-8 py-2 rounded-md text-sm text-primitive-type font-medium focus:bg-primitive radix-disabled:opacity-50 focus-visible:border-transparent focus:outline-none select-none`;
 
@@ -29,22 +29,69 @@ const Content = tw(SelectPrimitive.Content)` relative z-10`;
 
 const SelectIcon = tw(SelectPrimitive.Icon)`ml-2`;
 
-interface Props {
-	options: [SelectItemProps, ...SelectItemProps[]];
+interface ItemProps
+	extends PropsWithChildren,
+		Pick<SelectPrimitive.SelectItemProps, "value" | "disabled" | "textValue"> {}
+
+export const Item = (props: ItemProps) => {
+	const { value, children, disabled, textValue } = props;
+
+	return (
+		<_Item {...{ value, children, disabled }}>
+			<SelectPrimitive.ItemText>{textValue ?? value}</SelectPrimitive.ItemText>
+			<ItemIndicator>
+				<CheckIcon />
+			</ItemIndicator>
+		</_Item>
+	);
+};
+
+interface RootProps
+	extends PropsWithChildren,
+		Pick<
+			SelectPrimitive.SelectProps,
+			| "onValueChange"
+			| "open"
+			| "onOpenChange"
+			| "name"
+			| "value"
+			| "disabled"
+			| "defaultOpen"
+			| "defaultValue"
+			| "autoComplete"
+		> {
 	defaultValue?: string;
-	ariaLabel: string;
 }
 
-export const Select: React.FC<Props> = (props) => {
-	const { options, ariaLabel, defaultValue } = props;
+export const Root = (props: RootProps) => {
+	const {
+		defaultValue,
+		children,
+		autoComplete,
+		defaultOpen,
+		disabled,
+		name,
+		onOpenChange,
+		onValueChange,
+		open,
+		value
+	} = props;
 
 	return (
 		<SelectPrimitive.Root
-			defaultValue={
-				defaultValue ?? (options.find((option) => !option.disabled)?.value || options[0].value)
-			}
+			{...{
+				defaultValue,
+				autoComplete,
+				defaultOpen,
+				disabled,
+				name,
+				onOpenChange,
+				onValueChange,
+				open,
+				value
+			}}
 		>
-			<SelectPrimitive.Trigger asChild aria-label={ariaLabel}>
+			<SelectPrimitive.Trigger asChild>
 				<Button className="min-w-[85px]">
 					<SelectPrimitive.Value />
 					<SelectIcon>
@@ -57,18 +104,7 @@ export const Select: React.FC<Props> = (props) => {
 					<ChevronUpIcon />
 				</ScrollUpButton>
 				<Viewport>
-					<Group>
-						{options.map((option, i) => (
-							<Item disabled={option.disabled} key={`${option.value}-${i}`} value={option.value}>
-								<SelectPrimitive.ItemText>
-									{option.textValue ?? option.value}
-								</SelectPrimitive.ItemText>
-								<ItemIndicator>
-									<CheckIcon />
-								</ItemIndicator>
-							</Item>
-						))}
-					</Group>
+					<Group>{children}</Group>
 				</Viewport>
 				<ScrollDownButton>
 					<ChevronDownIcon />
