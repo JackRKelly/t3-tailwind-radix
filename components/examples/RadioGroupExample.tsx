@@ -1,10 +1,9 @@
 import { tw } from "../../utils/tw";
 import * as RadioGroup from "../RadioGroup";
-import type { NextPage } from "next";
 
 const Legend = tw.legend`text-sm leading-4 text-primitive-type`;
 
-export const RadioGroupExample: NextPage = () => {
+export const RadioGroupExample = () => {
 	return (
 		<form>
 			<Legend>Choose your starter</Legend>

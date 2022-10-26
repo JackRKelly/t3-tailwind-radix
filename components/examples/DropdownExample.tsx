@@ -4,15 +4,13 @@ import {
 	BookmarkIcon,
 	DrawingPinFilledIcon,
 	DrawingPinIcon,
-	RocketIcon,
 	SpeakerLoudIcon,
 	SpeakerModerateIcon,
 	SpeakerOffIcon
 } from "@radix-ui/react-icons";
-import type { NextPage } from "next";
 import { useState } from "react";
 
-export const DropdownExample: NextPage = () => {
+export const DropdownExample = () => {
 	const [dropdownToggle, setDropdownToggle] = useState(false);
 
 	return (

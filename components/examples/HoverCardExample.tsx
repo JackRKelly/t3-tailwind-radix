@@ -1,7 +1,6 @@
 import { tw } from "../../utils/tw";
 import { Heading } from "../Heading";
 import * as HoverCard from "../HoverCard";
-import type { NextPage } from "next";
 
 const TailwindLogo = () => (
 	<svg
@@ -23,7 +22,7 @@ const Body = tw.p`mt-1 text-sm font-normal text-primitive-type`;
 
 const ContentWrapper = tw.div`flex h-full w-full space-x-4 items-center`;
 
-export const HoverCardExample: NextPage = () => {
+export const HoverCardExample = () => {
 	return (
 		<HoverCard.Root
 			trigger={

@@ -1,7 +1,6 @@
 import * as Select from "../Select";
-import type { NextPage } from "next";
 
-export const SelectExample: NextPage = () => {
+export const SelectExample = () => {
 	return (
 		<Select.Root defaultValue="orange">
 			<Select.Item value="orange" textValue="Orange" />

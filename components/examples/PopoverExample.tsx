@@ -4,13 +4,12 @@ import { Heading } from "../Heading";
 import { Input } from "../Input";
 import { Label } from "../Label";
 import * as Popover from "../Popover";
-import type { NextPage } from "next";
 
 const Form = tw.form`mt-4 space-y-2`;
 
 const Fieldset = tw.fieldset`flex items-center`;
 
-export const PopoverExample: NextPage = () => (
+export const PopoverExample = () => (
 	<Popover.Root trigger={<Button>Popover</Button>}>
 		<Heading size="xs">Popover</Heading>
 

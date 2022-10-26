@@ -9,7 +9,7 @@ const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 
 const Form = tw.form`mt-3 space-y-2`;
 
-export const DialogExample: NextPage = () => {
+export const DialogExample = () => {
 	return (
 		<Dialog.Root trigger={<Button>Dialog</Button>}>
 			<Dialog.Title>Title</Dialog.Title>
