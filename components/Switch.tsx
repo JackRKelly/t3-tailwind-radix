@@ -10,11 +10,17 @@ const Thumb = tw(
 	SwitchPrimitive.Thumb
 )`group-radix-state-checked:translate-x-5 group-radix-state-unchecked:translate-x-0 pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-lg ring-0 transition-all`;
 
-type Props = SwitchPrimitive.SwitchProps & React.RefAttributes<HTMLButtonElement>;
+interface SwitchProps
+	extends Pick<
+		SwitchPrimitive.SwitchProps,
+		"value" | "name" | "defaultChecked" | "required" | "disabled" | "checked" | "onCheckedChange"
+	> {}
 
-export const Switch: React.FC<Props> = (props) => {
+export const Switch = (props: SwitchProps) => {
+	const { value, name, defaultChecked, required, disabled, checked, onCheckedChange } = props;
+
 	return (
-		<Root {...props}>
+		<Root {...{ value, name, defaultChecked, required, disabled, checked, onCheckedChange }}>
 			<Thumb />
 		</Root>
 	);

@@ -126,6 +126,12 @@ const components: ComponentEntry[] = [
 		component: <ToggleGroupExample />,
 		Wrapper: Grid.OneSpan,
 		link: buildGithubLink("ToggleGroup.tsx")
+	},
+	{
+		title: "Switch",
+		component: <Switch />,
+		Wrapper: Grid.OneSpan,
+		link: buildGithubLink("Switch.tsx")
 	}
 ];
 
@@ -172,7 +178,7 @@ const Components: NextPage = () => {
 										>
 											<div className="w-6 h-6 relative flex items-center justify-center ">
 												<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-0.5 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150 text-primitive-type-faint" />
-												<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type-faint" />
+												<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-0.5 -right-3 group-hover:opacity-100 transition-all duration-150 text-primitive-type" />
 											</div>
 										</a>
 									</Tooltip>
@@ -183,13 +189,6 @@ const Components: NextPage = () => {
 								</div>
 							</Wrapper>
 						))}
-
-						<Grid.OneSpan>
-							<Heading size="sm" className="mb-2">
-								Switch
-							</Heading>
-							<Switch />
-						</Grid.OneSpan>
 
 						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
