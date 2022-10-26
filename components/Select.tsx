@@ -30,14 +30,16 @@ const SelectIcon = tw(SelectPrimitive.Icon)`ml-2`;
 
 interface ItemProps
 	extends PropsWithChildren,
-		Pick<SelectPrimitive.SelectItemProps, "value" | "disabled" | "textValue"> {}
+		Pick<SelectPrimitive.SelectItemProps, "value" | "disabled"> {
+	label?: string;
+}
 
 export const Item = (props: ItemProps) => {
-	const { value, children, disabled, textValue } = props;
+	const { value, children, disabled, label } = props;
 
 	return (
 		<_Item {...{ value, children, disabled }}>
-			<SelectPrimitive.ItemText>{textValue ?? value}</SelectPrimitive.ItemText>
+			<SelectPrimitive.ItemText>{label ?? value}</SelectPrimitive.ItemText>
 			<ItemIndicator>
 				<CheckIcon />
 			</ItemIndicator>
