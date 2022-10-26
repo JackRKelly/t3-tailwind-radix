@@ -3,7 +3,10 @@ import { Image } from "../components/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import { Text } from "../components/Text";
+import { tw } from "../utils/tw";
 import type { NextPage } from "next";
+
+const Link = tw.a`text-primary-bold font-semibold`;
 
 const Home: NextPage = () => {
 	return (
@@ -46,12 +49,26 @@ const Home: NextPage = () => {
 				<Section>
 					<InnerColumn width="third">
 						<Text>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint perspiciatis
-							voluptatibus fugiat praesentium unde totam accusantium labore, explicabo id hic quos
-							illum accusamus deleniti ut dignissimos, cupiditate exercitationem error commodi?
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam exercitationem expedita
-							laudantium libero eius fugiat quibusdam, beatae ipsam, dicta minus fugit rem eligendi
-							doloremque! Fuga sit provident laborum dolor pariatur!
+							When starting a new project you may spend weeks creating the foundation of your
+							app/design system.{" "}
+							<Link href="https://create.t3.gg/" target="_blank" rel="noopener noreferrer">
+								T3 Stack
+							</Link>
+							,{" "}
+							<Link href="https://www.radix-ui.com/" target="_blank" rel="noopener noreferrer">
+								Radix
+							</Link>
+							,{" "}
+							<Link
+								href="https://github.com/ecklf/tailwindcss-radix"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								TailwindCSS-Radix
+							</Link>{" "}
+							all help to reduce this time but there is still a lot of work to do. This template
+							provides a strong starting point with highly configurable components and a design
+							system that is highly customizable.
 						</Text>
 					</InnerColumn>
 				</Section>
