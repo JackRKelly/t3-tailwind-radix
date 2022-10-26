@@ -9,7 +9,7 @@ import { ContextMenu } from "../components/ContextMenu";
 import { Dialog } from "../components/Dialog";
 import { Heading } from "../components/Heading";
 import { HoverCard } from "../components/HoverCard";
-import { InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
+import { Grid, InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
 import { Popover } from "../components/Popover";
 import { Progress } from "../components/Progress";
@@ -27,17 +27,35 @@ import { Toolbar } from "../components/Toolbar";
 import { Tooltip } from "../components/Tooltip";
 import { DropdownExample } from "../components/examples/DropdownExample";
 import { tw } from "../utils/tw";
+import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import type { NextPage } from "next";
+import { DetailedHTMLProps, ForwardRefExoticComponent, HTMLAttributes } from "react";
 
-const FullSpanNoBackground = tw.div`col-span-12`;
+interface ComponentEntry {
+	title: string;
+	component: React.ReactNode;
+	link: string;
+	Wrapper: ForwardRefExoticComponent<
+		DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+	>;
+}
 
-const FullSpan = tw.div`col-span-12 bg-app rounded-lg p-4 flex flex-col border-primitive-edge-faint border items-center justify-center`;
+const components: ComponentEntry[] = [
+	{
+		title: "Button",
+		component: <Button>Button</Button>,
+		Wrapper: Grid.OneSpan,
+		link: "https://github.com/JackRKelly/t3-tailwind-radix/blob/master/components/Button.tsx"
+	},
+	{
+		title: "Dropdown",
+		component: <DropdownExample />,
+		Wrapper: Grid.OneSpan,
+		link: "https://github.com/JackRKelly/t3-tailwind-radix/blob/master/components/Dropdown.tsx"
+	}
+];
 
-const TwoSpan = tw.div`col-span-12 lg:col-span-8 bg-app rounded-lg p-4 flex flex-col border-primitive-edge-faint border items-center justify-center`;
-
-const OneSpan = tw.div`col-span-12 md:col-span-6 lg:col-span-4 bg-app rounded-lg p-4 flex flex-col border-primitive-edge-faint border items-center justify-start`;
-
-const GridWrapper = tw.div`grid grid-cols-12 gap-6 grid-flow-row-dense`;
+const WrapperHeader = tw.div`bg-primitive-faint border-b border-primitive-edge-faint rounded-t-lg w-full p-2 px-4 flex items-center justify-between`;
 
 const Components: NextPage = () => {
 	return (
@@ -46,8 +64,8 @@ const Components: NextPage = () => {
 
 			<OuterColumn>
 				<InnerColumn width="third">
-					<GridWrapper>
-						<FullSpanNoBackground>
+					<Grid.Wrapper>
+						<Grid.FullSpanNoBackground>
 							<Heading size="xxl" className="relative text-center mb-4 md:mb-8 mt-2 md:mt-4">
 								Components
 							</Heading>
@@ -55,23 +73,44 @@ const Components: NextPage = () => {
 								Checkout our collection of fully styled radix components ported from
 								tailwindcss-radix
 							</Text>
-						</FullSpanNoBackground>
+						</Grid.FullSpanNoBackground>
 
-						<OneSpan>
+						{components.map(({ Wrapper, component, title }) => (
+							<Wrapper className="relative rounded-lg">
+								<WrapperHeader>
+									<Heading size="sm" className="mr-1">
+										{title}
+									</Heading>
+									<a
+										className="relative flex items-center justify-center p-1 group w-6 h-6 focus:outline-none focus-visible:ring focus-visible:ring-highlight rounded-md transition-button"
+										href="https://github.com/JackRKelly/t3-tailwind-radix"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<GitHubLogoIcon className="w-5 h-5 absolute opacity-100 left-1 scale-100 group-hover:scale-50 group-hover:-left-3 group-hover:opacity-0 transition-all duration-150" />
+										<ExternalLinkIcon className="w-5 h-5 absolute opacity-0 scale-50 group-hover:scale-100 group-hover:right-1 -right-3 group-hover:opacity-100 transition-all duration-150" />
+									</a>
+								</WrapperHeader>
+
+								<div className="p-4">{component}</div>
+							</Wrapper>
+						))}
+
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Button
 							</Heading>
 							<Button>Click</Button>
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Theme Switcher
 							</Heading>
 							<ThemeSwitcher />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Select
 							</Heading>
@@ -84,109 +123,107 @@ const Components: NextPage = () => {
 									{ value: "pear", textValue: "Pear", disabled: true }
 								]}
 							/>
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Toggle
 							</Heading>
 							<Toggle />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Dropdown
 							</Heading>
 							<DropdownExample />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Toast
 							</Heading>
 							<Toast />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Dialog
 							</Heading>
 							<Dialog />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Alert Dialog
 							</Heading>
 							<AlertDialog />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Popover
 							</Heading>
 							<Popover />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Tooltip
 							</Heading>
-							<Tooltip text="This is a tooltip component">
-								<Button>Hover</Button>
-							</Tooltip>
-						</OneSpan>
+							<Tooltip trigger={<Button>Hover</Button>}>This is a tooltip component</Tooltip>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Hover Card
 							</Heading>
 							<HoverCard side="right" />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Radio Group
 							</Heading>
 							<RadioGroup />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Toggle Group
 							</Heading>
 							<ToggleGroup />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Switch
 							</Heading>
 							<Switch />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Context Menu
 							</Heading>
 							<ContextMenu />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Slider
 							</Heading>
 							<Slider />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Checkbox
 							</Heading>
 							<Checkbox />
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<OneSpan>
+						<Grid.OneSpan>
 							<Heading size="sm" className="mb-2">
 								Avatar
 							</Heading>
@@ -195,50 +232,50 @@ const Components: NextPage = () => {
 								<Avatar variant={Avatar.variant.Rounded} isOnline />
 								<Avatar variant={Avatar.variant.Rounded} renderInvalidUrls />
 							</div>
-						</OneSpan>
+						</Grid.OneSpan>
 
-						<FullSpan>
+						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">
 								Collapsible
 							</Heading>
 							<Collapsible />
-						</FullSpan>
+						</Grid.FullSpan>
 
-						<FullSpan>
+						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">
 								Aspect Ratio
 							</Heading>
 							<AspectRatio />
-						</FullSpan>
+						</Grid.FullSpan>
 
-						<FullSpan>
+						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">
 								Progress
 							</Heading>
 							<Progress />
-						</FullSpan>
+						</Grid.FullSpan>
 
-						<FullSpan>
+						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">
 								Toolbar
 							</Heading>
 							<Toolbar />
-						</FullSpan>
+						</Grid.FullSpan>
 
-						<FullSpan>
+						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">
 								Tabs
 							</Heading>
 							<Tabs />
-						</FullSpan>
+						</Grid.FullSpan>
 
-						<FullSpan>
+						<Grid.FullSpan>
 							<Heading size="sm" className="mb-2">
 								Accordian
 							</Heading>
 							<Accordion />
-						</FullSpan>
-					</GridWrapper>
+						</Grid.FullSpan>
+					</Grid.Wrapper>
 				</InnerColumn>
 			</OuterColumn>
 		</PageWrapper>

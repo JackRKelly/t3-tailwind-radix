@@ -1,12 +1,13 @@
 import { Button } from "../Button";
-import { Dropdown, RadixDropdownSection } from "../Dropdown";
+import * as Dropdown from "../Dropdown";
 import {
-	DotsHorizontalIcon,
+	BookmarkIcon,
 	DrawingPinFilledIcon,
 	DrawingPinIcon,
-	FileIcon,
-	Link2Icon,
-	MixerHorizontalIcon
+	RocketIcon,
+	SpeakerLoudIcon,
+	SpeakerModerateIcon,
+	SpeakerOffIcon
 } from "@radix-ui/react-icons";
 import type { NextPage } from "next";
 import { useState } from "react";
@@ -14,83 +15,26 @@ import { useState } from "react";
 export const DropdownExample: NextPage = () => {
 	const [dropdownToggle, setDropdownToggle] = useState(false);
 
-	const sections: RadixDropdownSection[] = [
-		{
-			items: [
-				{
-					type: "item",
-					label: "New File",
-					icon: <FileIcon />,
-					shortcut: "⌘+N"
-				},
-				{
-					type: "item",
-					label: "Settings",
-					shortcut: "⌘+,",
-					icon: <MixerHorizontalIcon />
-				},
-				{
-					type: "checkbox",
-					label: "Checkbox",
-					icon: <DrawingPinIcon />,
-					checkedIcon: <DrawingPinFilledIcon />,
-					checked: dropdownToggle,
-					onCheckedChange: (value) => {
-						value !== "indeterminate" && setDropdownToggle(value);
-					}
-				},
-				{
-					type: "sub-menu",
-					label: "Sub Menu",
-					icon: <DotsHorizontalIcon />,
-					subMenu: [
-						{
-							type: "item",
-							label: "New File",
-							icon: <FileIcon />,
-							shortcut: "⌘+N"
-						},
-						{
-							type: "item",
-							label: "Settings",
-							shortcut: "⌘+,",
-							icon: <MixerHorizontalIcon />
-						},
-						{
-							type: "sub-menu",
-							label: "Sub Menu",
-							icon: <DotsHorizontalIcon />,
-							subMenu: [
-								{
-									type: "item",
-									label: "New File",
-									icon: <FileIcon />,
-									shortcut: "⌘+N"
-								},
-								{
-									type: "item",
-									label: "Settings",
-									icon: <MixerHorizontalIcon />
-								}
-							]
-						}
-					]
-				}
-			],
-			label: "Section 1"
-		},
-		{
-			label: "Section 2",
-			items: [
-				{
-					type: "item",
-					label: "New File",
-					icon: <FileIcon />,
-					shortcut: "⌘+N"
-				}
-			]
-		}
-	];
-
-	return <Dropdown sections={sections} trigger={<Button>Click</Button>} />;
+	return (
+		<Dropdown.Root trigger={<Button>Click</Button>}>
+			<Dropdown.Label label="Label" />
+			<Dropdown.CheckboxItem
+				label="Checkbox"
+				checkedIcon={<DrawingPinFilledIcon />}
+				icon={<DrawingPinIcon />}
+				checked={dropdownToggle}
+				onCheckedChange={(value) => {
+					value !== "indeterminate" && setDropdownToggle(value);
+				}}
+			/>
+			<Dropdown.Item icon={<BookmarkIcon />} label="Label" />
+			<Dropdown.Sub label="Food" icon={<RocketIcon />} className="min-w-[9rem]">
+				<Dropdown.CheckboxItem label="Loud" icon={<SpeakerLoudIcon />} />
+				<Dropdown.CheckboxItem label="Moderate" icon={<SpeakerModerateIcon />} />
+				<Dropdown.CheckboxItem label="Off" icon={<SpeakerOffIcon />} />
+			</Dropdown.Sub>
+			<Dropdown.Separator />
+			<Dropdown.Item icon={<BookmarkIcon />} label="Label" />
+		</Dropdown.Root>
+	);
 };

@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 const styles = cva("tracking-tight text-primitive-type", {
 	variants: {
@@ -38,7 +38,7 @@ interface Props extends VariantProps<typeof styles> {
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-export const Heading: React.FC<Props> = (props) => {
+export const Heading: React.FC<PropsWithChildren<Props>> = (props) => {
 	const { children, level = 1, className } = props;
 
 	const Tag = `h${level}` as HeadingTag;

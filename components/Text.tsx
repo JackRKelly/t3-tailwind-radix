@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 const styles = cva("text-type", {
 	variants: {
@@ -30,11 +30,10 @@ const styles = cva("text-type", {
 });
 
 interface Props extends VariantProps<typeof styles> {
-	children?: React.ReactNode;
 	className?: string;
 }
 
-export const Text: React.FC<Props> = (props) => {
+export const Text = (props: PropsWithChildren<Props>) => {
 	const { children, className } = props;
 
 	return <p className={clsx(styles(props), className)}>{children}</p>;

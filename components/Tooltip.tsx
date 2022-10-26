@@ -1,5 +1,6 @@
 import { tw } from "../utils/tw";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { PropsWithChildren, ReactNode } from "react";
 
 const Content = tw(
 	TooltipPrimitive.Content
@@ -11,24 +12,21 @@ const Arrow = tw(TooltipPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const Body = tw.span`block text-sm leading-none text-primitive-type`;
 
-interface Props {
-	text: string;
-	children: React.ReactNode;
-	open?: TooltipPrimitive.TooltipProps["open"];
-	defaultOpen?: TooltipPrimitive.TooltipProps["defaultOpen"];
-	onOpenChange?: TooltipPrimitive.TooltipProps["onOpenChange"];
-	delayDuration?: TooltipPrimitive.TooltipProps["delayDuration"];
-	sideOffset?: TooltipPrimitive.TooltipContentProps["sideOffset"];
-	tabIndex?: TooltipPrimitive.TooltipContentProps["tabIndex"];
-	side?: TooltipPrimitive.TooltipContentProps["side"];
-	alignOffset?: TooltipPrimitive.TooltipContentProps["alignOffset"];
-	align?: TooltipPrimitive.TooltipContentProps["align"];
-	draggable?: TooltipPrimitive.TooltipContentProps["draggable"];
+interface Props
+	extends Pick<
+			TooltipPrimitive.TooltipProps,
+			"open" | "defaultOpen" | "onOpenChange" | "delayDuration"
+		>,
+		Pick<
+			TooltipPrimitive.TooltipContentProps,
+			"sideOffset" | "tabIndex" | "side" | "alignOffset" | "align" | "draggable"
+		> {
+	trigger: ReactNode;
 }
 
-export const Tooltip = (props: Props) => {
+export const Tooltip = (props: PropsWithChildren<Props>) => {
 	const {
-		text,
+		trigger,
 		children,
 		sideOffset = 4,
 		tabIndex,
@@ -48,7 +46,7 @@ export const Tooltip = (props: Props) => {
 			delayDuration={delayDuration}
 			onOpenChange={onOpenChange}
 		>
-			<TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
+			<TooltipPrimitive.Trigger asChild>{trigger}</TooltipPrimitive.Trigger>
 			<Content
 				sideOffset={sideOffset}
 				align={align}
@@ -58,7 +56,7 @@ export const Tooltip = (props: Props) => {
 			>
 				<ContentInner>
 					<Arrow />
-					<Body>{text}</Body>
+					<Body>{children}</Body>
 				</ContentInner>
 			</Content>
 		</TooltipPrimitive.Root>

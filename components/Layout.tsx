@@ -1,6 +1,7 @@
 import { tw } from "../utils/tw";
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
+import { PropsWithChildren } from "react";
 
 export const OuterColumn = tw.div`w-full max-w-[1380px] m-auto px-3 md:px-6 lg:px-9`;
 
@@ -19,21 +20,16 @@ const innerColumnStyles = cva("w-full m-auto px-2", {
 });
 
 interface InnerColumnProps extends VariantProps<typeof innerColumnStyles> {
-	children?: React.ReactNode;
 	className?: string;
 }
 
-export const InnerColumn: React.FC<InnerColumnProps> = (props) => {
+export const InnerColumn = (props: PropsWithChildren<InnerColumnProps>) => {
 	const { children, className } = props;
 
 	return <div className={clsx(innerColumnStyles(props), className)}>{children}</div>;
 };
 
-interface PageWrapperProps {
-	children?: React.ReactNode;
-}
-
-export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
+export const PageWrapper = (props: PropsWithChildren) => {
 	const { children } = props;
 
 	return (
@@ -63,3 +59,10 @@ export const PageWrapper: React.FC<PageWrapperProps> = (props) => {
 };
 
 export const Section = tw.section`py-4 md:py-8 lg:py-12`;
+
+export const Grid = {
+	FullSpanNoBackground: tw.div`col-span-12`,
+	FullSpan: tw.div`col-span-12 bg-app flex flex-col border-primitive-edge-faint border items-center justify-center`,
+	OneSpan: tw.div`col-span-12 md:col-span-6 lg:col-span-4 bg-app flex flex-col border-primitive-edge-faint border items-center justify-start`,
+	Wrapper: tw.div`grid grid-cols-12 gap-6 grid-flow-row-dense`
+};

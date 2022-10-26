@@ -1,8 +1,7 @@
 import { tw } from "../utils/tw";
-import { Button } from "./Button";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CaretRightIcon, CheckIcon } from "@radix-ui/react-icons";
-import { ReactElement, ReactNode, cloneElement } from "react";
+import { PropsWithChildren, ReactElement, ReactNode, cloneElement } from "react";
 
 const Content = tw(
 	DropdownMenuPrimitive.Content
@@ -10,17 +9,15 @@ const Content = tw(
 
 const ContentInner = tw.div`border border-primitive-edge rounded-lg px-1.5 py-1`;
 
-const Item = tw(
+const _Item = tw(
 	DropdownMenuPrimitive.Item
 )`flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive min-w-[8rem]`;
 
-const CheckboxItem = tw(
+const _CheckboxItem = tw(
 	DropdownMenuPrimitive.CheckboxItem
 )`flex w-full cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none text-primitive-type-faint focus:bg-primitive`;
 
-const Separator = tw(DropdownMenuPrimitive.Separator)`my-1 h-px bg-primitive-bold`;
-
-const Label = tw(
+const _Label = tw(
 	DropdownMenuPrimitive.Label
 )`select-none px-2 py-2 text-xs text-primitive-type-extra-faint`;
 
@@ -38,124 +35,148 @@ const ShortcutLabel = tw.span`text-xs ml-2 text-primitive-type-extra-faint`;
 
 const Arrow = tw(DropdownMenuPrimitive.Arrow)`fill-current text-primitive-edge`;
 
-type RadixMenuItem =
-	| {
-			type: "item";
-			label: string;
-			shortcut?: string;
-			icon?: ReactElement;
-			onClick?: () => void;
-	  }
-	| {
-			type: "sub-menu";
-			label: string;
-			icon?: ReactElement;
-			subMenu: RadixMenuItem[];
-	  }
-	| {
-			type: "checkbox";
-			label: string;
-			icon?: ReactElement;
-			checkedIcon?: ReactElement;
-			onCheckedChange: DropdownMenuPrimitive.DropdownMenuCheckboxItemProps["onCheckedChange"];
-			checked: DropdownMenuPrimitive.DropdownMenuCheckboxItemProps["checked"];
-	  };
+export const Separator = tw(DropdownMenuPrimitive.Separator)`my-1 h-px bg-primitive-bold`;
 
-export interface RadixDropdownSection {
-	label?: string;
-	items: RadixMenuItem[];
+interface LabelProps {
+	label: ReactNode;
 }
 
-interface Props {
-	side?: DropdownMenuPrimitive.DropdownMenuContentProps["side"];
-	sideOffset?: DropdownMenuPrimitive.DropdownMenuContentProps["sideOffset"];
-	align?: DropdownMenuPrimitive.DropdownMenuContentProps["align"];
-	alignOffset?: DropdownMenuPrimitive.DropdownMenuContentProps["alignOffset"];
-	sections: RadixDropdownSection[];
-	trigger: ReactNode;
-}
+export const Label = (props: LabelProps) => {
+	const { label } = props;
 
-const renderMenuItem = (menuItem: RadixMenuItem, i: number) => {
-	switch (menuItem.type) {
-		case "sub-menu":
-			return (
-				<DropdownMenuPrimitive.Sub>
-					<SubTrigger>
-						{menuItem.icon &&
-							cloneElement(menuItem.icon, {
-								className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-							})}
-						<ItemLabelGrow>{menuItem.label}</ItemLabelGrow>
-						<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
-					</SubTrigger>
-					<DropdownMenuPrimitive.Portal>
-						<SubContent>
-							{menuItem.subMenu.map((subMenuItem, i) => renderMenuItem(subMenuItem, i))}
-						</SubContent>
-					</DropdownMenuPrimitive.Portal>
-				</DropdownMenuPrimitive.Sub>
-			);
-
-		case "checkbox":
-			return (
-				<CheckboxItem checked={menuItem.checked} onCheckedChange={menuItem.onCheckedChange}>
-					{(() => {
-						if (menuItem.checked) {
-							return (
-								menuItem.checkedIcon &&
-								cloneElement(menuItem.checkedIcon, {
-									className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-								})
-							);
-						} else {
-							return (
-								menuItem.icon &&
-								cloneElement(menuItem.icon, {
-									className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-								})
-							);
-						}
-					})()}
-					<ItemLabelGrow>{menuItem.label}</ItemLabelGrow>
-					<DropdownMenuPrimitive.ItemIndicator>
-						<CheckIcon className="h-3.5 w-3.5" />
-					</DropdownMenuPrimitive.ItemIndicator>
-				</CheckboxItem>
-			);
-
-		default:
-			return (
-				<Item key={`${menuItem.label}-${i}`}>
-					{menuItem.icon &&
-						cloneElement(menuItem.icon, {
-							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-						})}
-					<ItemLabelGrow>{menuItem.label}</ItemLabelGrow>
-					{menuItem.shortcut && <ShortcutLabel>{menuItem.shortcut}</ShortcutLabel>}
-				</Item>
-			);
-	}
+	return <_Label>{label}</_Label>;
 };
 
-export const Dropdown = (props: Props) => {
-	const { side, sideOffset = 4, align, alignOffset, sections, trigger } = props;
+interface SubProps
+	extends PropsWithChildren,
+		Pick<DropdownMenuPrimitive.DropdownMenuSubProps, "open" | "onOpenChange" | "defaultOpen">,
+		Pick<DropdownMenuPrimitive.DropdownMenuSubContentProps, "sideOffset" | "alignOffset"> {
+	icon?: ReactElement;
+	label: ReactNode;
+	className?: string;
+}
+
+export const Sub = (props: SubProps) => {
+	const {
+		label,
+		icon,
+		children,
+		className,
+		defaultOpen,
+		onOpenChange,
+		open,
+		alignOffset,
+		sideOffset
+	} = props;
 
 	return (
-		<DropdownMenuPrimitive.Root>
+		<DropdownMenuPrimitive.Sub {...{ defaultOpen, onOpenChange, open }}>
+			<SubTrigger>
+				{icon &&
+					cloneElement(icon, {
+						className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+					})}
+				<ItemLabelGrow>{label}</ItemLabelGrow>
+				<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
+			</SubTrigger>
+			<DropdownMenuPrimitive.Portal>
+				<SubContent {...{ className, alignOffset, sideOffset }}>{children}</SubContent>
+			</DropdownMenuPrimitive.Portal>
+		</DropdownMenuPrimitive.Sub>
+	);
+};
+
+interface CheckboxItemProps
+	extends PropsWithChildren,
+		Pick<DropdownMenuPrimitive.DropdownMenuCheckboxItemProps, "onCheckedChange" | "checked"> {
+	icon?: ReactElement;
+	checkedIcon?: ReactElement;
+	label: ReactNode;
+}
+
+export const CheckboxItem = (props: CheckboxItemProps) => {
+	const { label, icon, checked, checkedIcon, onCheckedChange } = props;
+
+	return (
+		<_CheckboxItem checked={checked} onCheckedChange={onCheckedChange}>
+			{(() => {
+				if (checked) {
+					return (
+						checkedIcon &&
+						cloneElement(checkedIcon, {
+							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+						})
+					);
+				} else {
+					return (
+						icon &&
+						cloneElement(icon, {
+							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+						})
+					);
+				}
+			})()}
+			<ItemLabelGrow>{label}</ItemLabelGrow>
+			<DropdownMenuPrimitive.ItemIndicator>
+				<CheckIcon className="h-3.5 w-3.5" />
+			</DropdownMenuPrimitive.ItemIndicator>
+		</_CheckboxItem>
+	);
+};
+
+interface ItemProps {
+	icon: ReactElement;
+	shortcut?: string;
+	label: ReactNode;
+}
+
+export const Item = (props: ItemProps) => {
+	const { label, icon, shortcut } = props;
+
+	return (
+		<_Item>
+			{icon &&
+				cloneElement(icon, {
+					className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
+				})}
+			<ItemLabelGrow>{label}</ItemLabelGrow>
+			{shortcut && <ShortcutLabel>{shortcut}</ShortcutLabel>}
+		</_Item>
+	);
+};
+
+interface RootProps
+	extends PropsWithChildren,
+		Pick<
+			DropdownMenuPrimitive.DropdownMenuContentProps,
+			"side" | "sideOffset" | "align" | "alignOffset"
+		>,
+		Pick<DropdownMenuPrimitive.DropdownMenuProps, "open" | "onOpenChange"> {
+	trigger: ReactNode;
+	className?: string;
+}
+
+export const Root = (props: RootProps) => {
+	const {
+		side,
+		sideOffset = 4,
+		align,
+		alignOffset,
+		children,
+		trigger,
+		className,
+		onOpenChange,
+		open
+	} = props;
+
+	return (
+		<DropdownMenuPrimitive.Root {...{ className, onOpenChange, open }}>
 			<DropdownMenuPrimitive.Trigger asChild>{trigger}</DropdownMenuPrimitive.Trigger>
 			<DropdownMenuPrimitive.Portal>
-				<Content align={align} sideOffset={sideOffset} side={side} alignOffset={alignOffset}>
+				<Content {...{ align, alignOffset, sideOffset, side }}>
 					<ContentInner>
 						<Arrow />
-						{sections.map((section, sectionIndex) => (
-							<div>
-								{sectionIndex !== 0 && <Separator />}
-								{section.label && <Label>{section.label}</Label>}
-								{section.items.map((menuItem, i) => {
-									return renderMenuItem(menuItem, i);
-								})}
-							</div>
-						))}
+						{children}
 					</ContentInner>
 				</Content>
 			</DropdownMenuPrimitive.Portal>
