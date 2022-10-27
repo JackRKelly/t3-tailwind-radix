@@ -1,8 +1,8 @@
-import { Heading } from "../components/Heading";
-import { InnerColumn, OuterColumn, PageWrapper } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
-import { Text } from "../components/Text";
-import { ExampleComponents } from "../components/examples";
+import { Heading } from "../components/primitives/Heading";
+import { InnerColumn, OuterColumn, PageWrapper } from "../components/primitives/Layout";
+import { Text } from "../components/primitives/Text";
+import { ExampleComponents } from "../components/primitives/examples";
 import type { NextPage } from "next";
 
 const Components: NextPage = () => {

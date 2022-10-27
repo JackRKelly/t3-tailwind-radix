@@ -1,8 +1,8 @@
-import { Heading } from "../components/Heading";
-import { Image } from "../components/Image";
-import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/Layout";
 import { Navigation } from "../components/Navigation";
-import { Text } from "../components/Text";
+import { Heading } from "../components/primitives/Heading";
+import { Image } from "../components/primitives/Image";
+import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/primitives/Layout";
+import { Text } from "../components/primitives/Text";
 import { tw } from "../utils/tw";
 import type { NextPage } from "next";
 
