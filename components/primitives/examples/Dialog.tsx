@@ -3,7 +3,6 @@ import { Button } from "../Button";
 import * as Dialog from "../Dialog";
 import { Input } from "../Input";
 import { Label } from "../Label";
-import type { NextPage } from "next";
 
 const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 

@@ -1,5 +1,5 @@
 import * as LabelPrimitive from "@radix-ui/react-label";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 import clsx from "clsx";
 import { PropsWithChildren } from "react";
 

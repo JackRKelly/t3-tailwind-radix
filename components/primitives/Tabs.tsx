@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { PropsWithChildren } from "react";
+import { tw } from "../../utils/tw";
 
 const _Root = tw(TabsPrimitive.Root)`border border-primitive-edge rounded-lg w-full max-w-xl`;
 

@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import cx from "clsx";
+import { tw } from "../../utils/tw";
 
 export enum Variant {
 	Circle,

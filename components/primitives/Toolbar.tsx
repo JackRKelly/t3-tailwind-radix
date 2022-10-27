@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as ToolbarPrimitive from "@radix-ui/react-toolbar";
 import React, { PropsWithChildren, ReactElement } from "react";
+import { tw } from "../../utils/tw";
 
 const _Root = tw(
 	ToolbarPrimitive.Root

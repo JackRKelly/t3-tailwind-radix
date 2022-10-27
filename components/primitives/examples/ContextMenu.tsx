@@ -1,4 +1,3 @@
-import * as ContextMenu from "../ContextMenu";
 import {
 	BookmarkIcon,
 	DrawingPinFilledIcon,
@@ -8,6 +7,7 @@ import {
 	SpeakerOffIcon
 } from "@radix-ui/react-icons";
 import { useState } from "react";
+import * as ContextMenu from "../ContextMenu";
 
 export const ContextMenuExample = () => {
 	const [contextMenuToggle, setContextMenuToggle] = useState(false);

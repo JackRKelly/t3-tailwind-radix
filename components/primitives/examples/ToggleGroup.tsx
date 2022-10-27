@@ -1,5 +1,5 @@
-import * as ToggleGroup from "../ToggleGroup";
 import { FontBoldIcon, FontItalicIcon, UnderlineIcon } from "@radix-ui/react-icons";
+import * as ToggleGroup from "../ToggleGroup";
 
 export const ToggleGroupExample = () => (
 	<ToggleGroup.Root type="multiple">

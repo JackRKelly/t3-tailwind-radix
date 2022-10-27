@@ -1,7 +1,7 @@
-import { tw } from "../../utils/tw";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
-import React, { PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren, ReactNode } from "react";
+import { tw } from "../../utils/tw";
 
 const _Root = tw(AccordionPrimitive.Root)`space-y-4 w-full max-w-xl`;
 

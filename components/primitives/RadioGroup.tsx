@@ -1,7 +1,7 @@
-import { tw } from "../../utils/tw";
-import { Label } from "./Label";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { PropsWithChildren } from "react";
+import { tw } from "../../utils/tw";
+import { Label } from "./Label";
 
 const _Item = tw(
 	RadioGroupPrimitive.Item

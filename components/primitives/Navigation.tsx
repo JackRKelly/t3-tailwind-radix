@@ -1,8 +1,7 @@
-import { tw } from "../../utils/tw";
-import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import _NextLink from "next/link";
 import { PropsWithChildren } from "react";
+import { tw } from "../../utils/tw";
 
 const _Root = tw(NavigationMenuPrimitive.Root)`relative`;
 

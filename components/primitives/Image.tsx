@@ -1,7 +1,6 @@
 import { cva } from "class-variance-authority";
 import clsx from "clsx";
-import { ImageProps } from "next/image";
-import NextImage from "next/image";
+import NextImage, { ImageProps } from "next/image";
 import { useState } from "react";
 
 const styles = cva("transition-opacity", {

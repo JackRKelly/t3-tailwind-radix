@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { PropsWithChildren, ReactNode } from "react";
+import { tw } from "../../utils/tw";
 
 const _Content = tw(
 	TooltipPrimitive.Content

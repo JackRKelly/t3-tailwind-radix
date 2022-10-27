@@ -1,8 +1,8 @@
-import { tw } from "../../utils/tw";
-import { Label } from "./Label";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { ReactNode } from "react";
+import { tw } from "../../utils/tw";
+import { Label } from "./Label";
 
 const _Root = tw(
 	CheckboxPrimitive.Root

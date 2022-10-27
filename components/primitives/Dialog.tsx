@@ -1,7 +1,7 @@
-import { tw } from "../../utils/tw";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import { PropsWithChildren, ReactNode } from "react";
+import { tw } from "../../utils/tw";
 
 const _Close = tw(
 	DialogPrimitive.Close

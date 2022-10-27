@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import { PropsWithChildren, ReactNode } from "react";
+import { tw } from "../../utils/tw";
 
 const _Content = tw(
 	HoverCardPrimitive.Content

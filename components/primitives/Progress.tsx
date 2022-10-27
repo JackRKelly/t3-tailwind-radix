@@ -1,5 +1,5 @@
-import { tw } from "../../utils/tw";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
+import { tw } from "../../utils/tw";
 
 const Root = tw(
 	ProgressPrimitive.Root

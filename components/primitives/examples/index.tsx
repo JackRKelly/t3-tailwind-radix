@@ -1,3 +1,5 @@
+import { CodeIcon, ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { DetailedHTMLProps, ForwardRefExoticComponent, HTMLAttributes } from "react";
 import { tw } from "../../../utils/tw";
 import { Heading } from "../Heading";
 import { Grid } from "../Layout";
@@ -26,8 +28,6 @@ import { ToggleExample } from "./Toggle";
 import { ToggleGroupExample } from "./ToggleGroup";
 import { ToolbarExample } from "./Toolbar";
 import { TooltipExample } from "./Tooltip";
-import { CodeIcon, ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
-import { DetailedHTMLProps, ForwardRefExoticComponent, HTMLAttributes } from "react";
 
 interface ComponentEntry {
 	title: string;

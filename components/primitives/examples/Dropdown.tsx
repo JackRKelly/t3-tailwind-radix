@@ -1,5 +1,3 @@
-import { Button } from "../Button";
-import * as Dropdown from "../Dropdown";
 import {
 	BookmarkIcon,
 	DrawingPinFilledIcon,
@@ -9,6 +7,8 @@ import {
 	SpeakerOffIcon
 } from "@radix-ui/react-icons";
 import { useState } from "react";
+import { Button } from "../Button";
+import * as Dropdown from "../Dropdown";
 
 export const DropdownExample = () => {
 	const [dropdownToggle, setDropdownToggle] = useState(false);

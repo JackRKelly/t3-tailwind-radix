@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { PropsWithChildren } from "react";
+import { tw } from "../../utils/tw";
 
 const _Root = tw(
 	ToastPrimitive.Root

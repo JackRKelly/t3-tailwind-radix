@@ -1,9 +1,6 @@
 /** @type {import("prettier").Config} */
 module.exports = {
-	plugins: [
-		require.resolve("prettier-plugin-tailwindcss"),
-		require.resolve("@trivago/prettier-plugin-sort-imports")
-	],
+	plugins: [require.resolve("prettier-plugin-tailwindcss")],
 	useTabs: true,
 	printWidth: 100,
 	singleQuote: false,
@@ -12,7 +9,5 @@ module.exports = {
 	quoteProps: "consistent",
 	endOfLine: "lf",
 	bracketSpacing: true,
-	arrowParens: "always",
-	importOrderSeparation: true,
-	importOrderSortSpecifiers: true
+	arrowParens: "always"
 };

@@ -1,10 +1,10 @@
+import type { NextPage } from "next";
 import { Navigation } from "../components/Navigation";
 import { Heading } from "../components/primitives/Heading";
 import { Image } from "../components/primitives/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/primitives/Layout";
 import { Text } from "../components/primitives/Text";
 import { tw } from "../utils/tw";
-import type { NextPage } from "next";
 
 const Link = tw.a`text-primary-bold font-semibold`;
 

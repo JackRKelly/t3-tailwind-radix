@@ -1,6 +1,5 @@
-import { tw } from "../../utils/tw";
 import * as SliderPrimitive from "@radix-ui/react-slider";
-import React from "react";
+import { tw } from "../../utils/tw";
 
 const _Root = tw(
 	SliderPrimitive.Root

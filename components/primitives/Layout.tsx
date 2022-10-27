@@ -1,7 +1,7 @@
-import { tw } from "../../utils/tw";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 import clsx from "clsx";
 import { PropsWithChildren } from "react";
+import { tw } from "../../utils/tw";
 
 export const OuterColumn = tw.div`w-full max-w-[1380px] m-auto px-3 md:px-6 lg:px-9`;
 

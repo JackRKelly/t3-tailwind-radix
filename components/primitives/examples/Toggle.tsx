@@ -1,8 +1,8 @@
+import { StarFilledIcon, StarIcon } from "@radix-ui/react-icons";
+import { useState } from "react";
 import { tw } from "../../../utils/tw";
 import { Button } from "../Button";
 import * as Toggle from "../Toggle";
-import { StarFilledIcon, StarIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
 
 const Body = tw.span`ml-2 leading-5`;
 

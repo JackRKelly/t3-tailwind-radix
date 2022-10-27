@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import React, { PropsWithChildren, ReactElement } from "react";
+import { tw } from "../../utils/tw";
 
 const _Item = tw(
 	ToggleGroupPrimitive.Item

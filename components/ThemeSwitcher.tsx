@@ -1,7 +1,7 @@
-import { Button } from "./primitives/Button";
-import * as Dropdown from "./primitives/Dropdown";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { ReactElement, useEffect, useState } from "react";
+import { Button } from "./primitives/Button";
+import * as Dropdown from "./primitives/Dropdown";
 
 export type ThemeStyle = "light" | "dark" | "system";
 

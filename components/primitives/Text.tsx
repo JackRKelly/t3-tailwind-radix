@@ -1,6 +1,6 @@
-import { VariantProps, cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 import clsx from "clsx";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 const styles = cva("text-type", {
 	variants: {

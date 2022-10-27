@@ -1,7 +1,7 @@
-import { tw } from "../../utils/tw";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { PropsWithChildren, ReactNode } from "react";
+import { tw } from "../../utils/tw";
 
 const _Arrow = tw(PopoverPrimitive.Arrow)`fill-current text-primitive-edge`;
 

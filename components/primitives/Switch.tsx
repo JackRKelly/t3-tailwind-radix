@@ -1,6 +1,5 @@
-import { tw } from "../../utils/tw";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
-import React from "react";
+import { tw } from "../../utils/tw";
 
 const _Root = tw(
 	SwitchPrimitive.Root

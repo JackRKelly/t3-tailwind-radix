@@ -1,6 +1,6 @@
-import { tw } from "../../utils/tw";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { PropsWithChildren, ReactNode } from "react";
+import { tw } from "../../utils/tw";
 
 const _Content = tw(
 	AlertDialogPrimitive.Content

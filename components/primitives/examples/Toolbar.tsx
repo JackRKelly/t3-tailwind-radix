@@ -1,5 +1,3 @@
-import { tw } from "../../../utils/tw";
-import * as Toolbar from "../Toolbar";
 import {
 	FontBoldIcon,
 	FontItalicIcon,
@@ -8,6 +6,8 @@ import {
 	TextAlignRightIcon,
 	UnderlineIcon
 } from "@radix-ui/react-icons";
+import { tw } from "../../../utils/tw";
+import * as Toolbar from "../Toolbar";
 
 const LinkWrapper = tw.span`hidden items-center pr-2 xl:flex`;
 

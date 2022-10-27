@@ -1,7 +1,7 @@
-import { tw } from "../../utils/tw";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { CaretRightIcon } from "@radix-ui/react-icons";
 import React, { PropsWithChildren, ReactNode } from "react";
+import { tw } from "../../utils/tw";
 
 const _Trigger = tw(
 	CollapsiblePrimitive.Trigger
