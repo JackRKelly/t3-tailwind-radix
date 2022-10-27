@@ -12,6 +12,7 @@ import { ContextMenuExample } from "./ContextMenu";
 import { DialogExample } from "./Dialog";
 import { DropdownExample } from "./Dropdown";
 import { HoverCardExample } from "./HoverCard";
+import { NavigationExample } from "./Navigation";
 import { PopoverExample } from "./Popover";
 import { ProgressExample } from "./Progress";
 import { RadioGroupExample } from "./RadioGroup";
@@ -181,6 +182,13 @@ export const exampleComponents: ComponentEntry[] = [
 		Wrapper: Grid.FullSpan,
 		sourceLink: buildGithubLink("primitives/Progress.tsx"),
 		exampleLink: buildGithubLink("primitives/examples/Progress.tsx")
+	},
+	{
+		title: "Navigation",
+		component: <NavigationExample />,
+		Wrapper: Grid.FullSpan,
+		sourceLink: buildGithubLink("primitives/Navigation.tsx"),
+		exampleLink: buildGithubLink("primitives/examples/Navigation.tsx")
 	},
 	{
 		title: "Toolbar",

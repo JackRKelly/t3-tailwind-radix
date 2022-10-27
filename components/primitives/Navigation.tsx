@@ -22,8 +22,6 @@ const _Indicator = tw(
 
 const _IndicatorInner = tw.div`relative top-1 h-2 w-2 rotate-45 bg-primitive-edge-faint`;
 
-const _RootWrapper = tw.div`fixed top-2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center`;
-
 export const Trigger = tw(
 	NavigationMenuPrimitive.Trigger
 )`rounded-md px-3 py-2 hover:bg-primitive text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-link`;
@@ -50,29 +48,29 @@ export const Item = (props: ItemProps) => {
 	return <NavigationMenuPrimitive.Item {...{ asChild }}>{children}</NavigationMenuPrimitive.Item>;
 };
 
-interface RootProps extends PropsWithChildren {}
+interface RootProps extends PropsWithChildren {
+	className?: string;
+}
 
 export const Root = (props: RootProps) => {
-	const { children } = props;
+	const { children, className } = props;
 
 	return (
-		<_RootWrapper>
-			<_Root>
-				<_List>
-					{children}
+		<_Root className={className}>
+			<_List>
+				{children}
 
-					<_Indicator>
-						<_IndicatorInner />
-					</_Indicator>
-				</_List>
-				<_ViewportPerspective
-					style={{
-						perspective: "2000px"
-					}}
-				>
-					<_Viewport />
-				</_ViewportPerspective>
-			</_Root>
-		</_RootWrapper>
+				<_Indicator>
+					<_IndicatorInner />
+				</_Indicator>
+			</_List>
+			<_ViewportPerspective
+				style={{
+					perspective: "2000px"
+				}}
+			>
+				<_Viewport />
+			</_ViewportPerspective>
+		</_Root>
 	);
 };

@@ -19,53 +19,57 @@ const SkeletonGrid = tw.div`grid grid-cols-6 gap-4`;
 
 const SkeletonGridWrapper = tw.div`w-[21rem] p-3 lg:w-[23rem]`;
 
+const RootWrapper = tw.div`fixed top-2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center`;
+
 export const Navigation = () => {
 	return (
-		<NavigationPrimitive.Root>
-			<NavigationPrimitive.Item>
-				<NavigationPrimitive.NextLink href="/">Home</NavigationPrimitive.NextLink>
-			</NavigationPrimitive.Item>
-			<NavigationPrimitive.Item>
-				<NavigationPrimitive.NextLink href="/components">Components</NavigationPrimitive.NextLink>
-			</NavigationPrimitive.Item>
-			<NavigationPrimitive.Item>
-				<NavigationPrimitive.Trigger>Resources</NavigationPrimitive.Trigger>
-				<NavigationPrimitive.Content>
-					<LinkListContainer>
-						<LinkList>
-							<NavigationPrimitive.Link href="https://tailwindcss.com">
-								<CardTitle>Tailwind CSS</CardTitle>
-								<CardBody>
-									A utility-first CSS framework for rapidly building custom user interfaces.
-								</CardBody>
-							</NavigationPrimitive.Link>
-							<NavigationPrimitive.Link href="https://www.radix-ui.com">
-								<CardTitle>Radix UI</CardTitle>
-								<CardBody>
-									An open-source UI component library for building high-quality, accessible design
-									systems and web apps.
-								</CardBody>
-							</NavigationPrimitive.Link>
-						</LinkList>
-					</LinkListContainer>
-				</NavigationPrimitive.Content>
-			</NavigationPrimitive.Item>
-			<NavigationPrimitive.Item>
-				<NavigationPrimitive.Trigger>Overview</NavigationPrimitive.Trigger>
-				<NavigationPrimitive.Content>
-					<SkeletonGridWrapper>
-						<SkeletonGrid>
-							<SkeletonColumn />
-							<SkeletonList>
-								<Skeleton />
-								<Skeleton />
-								<Skeleton />
-								<Skeleton />
-							</SkeletonList>
-						</SkeletonGrid>
-					</SkeletonGridWrapper>
-				</NavigationPrimitive.Content>
-			</NavigationPrimitive.Item>
-		</NavigationPrimitive.Root>
+		<RootWrapper>
+			<NavigationPrimitive.Root>
+				<NavigationPrimitive.Item>
+					<NavigationPrimitive.NextLink href="/">Home</NavigationPrimitive.NextLink>
+				</NavigationPrimitive.Item>
+				<NavigationPrimitive.Item>
+					<NavigationPrimitive.NextLink href="/components">Components</NavigationPrimitive.NextLink>
+				</NavigationPrimitive.Item>
+				<NavigationPrimitive.Item>
+					<NavigationPrimitive.Trigger>Resources</NavigationPrimitive.Trigger>
+					<NavigationPrimitive.Content>
+						<LinkListContainer>
+							<LinkList>
+								<NavigationPrimitive.Link href="https://tailwindcss.com">
+									<CardTitle>Tailwind CSS</CardTitle>
+									<CardBody>
+										A utility-first CSS framework for rapidly building custom user interfaces.
+									</CardBody>
+								</NavigationPrimitive.Link>
+								<NavigationPrimitive.Link href="https://www.radix-ui.com">
+									<CardTitle>Radix UI</CardTitle>
+									<CardBody>
+										An open-source UI component library for building high-quality, accessible design
+										systems and web apps.
+									</CardBody>
+								</NavigationPrimitive.Link>
+							</LinkList>
+						</LinkListContainer>
+					</NavigationPrimitive.Content>
+				</NavigationPrimitive.Item>
+				<NavigationPrimitive.Item>
+					<NavigationPrimitive.Trigger>Overview</NavigationPrimitive.Trigger>
+					<NavigationPrimitive.Content>
+						<SkeletonGridWrapper>
+							<SkeletonGrid>
+								<SkeletonColumn />
+								<SkeletonList>
+									<Skeleton />
+									<Skeleton />
+									<Skeleton />
+									<Skeleton />
+								</SkeletonList>
+							</SkeletonGrid>
+						</SkeletonGridWrapper>
+					</NavigationPrimitive.Content>
+				</NavigationPrimitive.Item>
+			</NavigationPrimitive.Root>
+		</RootWrapper>
 	);
 };
