@@ -62,7 +62,7 @@ export const exampleComponents: ComponentEntry[] = [
 		title: "Theme Switcher",
 		component: <ThemeSwitcherExample />,
 		Wrapper: Grid.OneSpan,
-		sourceLink: buildGithubLink("ThemeSwitcher.tsx")
+		exampleLink: buildGithubLink("ThemeSwitcher.tsx")
 	},
 	{
 		title: "Toggle",
