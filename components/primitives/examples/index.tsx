@@ -1,7 +1,6 @@
 import { tw } from "../../../utils/tw";
 import { Heading } from "../Heading";
 import { Grid } from "../Layout";
-import { Toast } from "../Toast";
 import * as Tooltip from "../Tooltip";
 import { AccordianExample } from "./Accordian";
 import { AlertDialogExample } from "./AlertDialog";
@@ -21,6 +20,7 @@ import { SliderExample } from "./Slider";
 import { SwitchExample } from "./Switch";
 import { TabsExample } from "./Tabs";
 import { ThemeSwitcherExample } from "./ThemeSwitcher";
+import { ToastExample } from "./Toast";
 import { ToggleExample } from "./Toggle";
 import { ToggleGroupExample } from "./ToggleGroup";
 import { ToolbarExample } from "./Toolbar";
@@ -72,7 +72,7 @@ export const exampleComponents: ComponentEntry[] = [
 	},
 	{
 		title: "Toast",
-		component: <Toast />,
+		component: <ToastExample />,
 		Wrapper: Grid.OneSpan,
 		sourceLink: buildGithubLink("primitives/Toast.tsx"),
 		exampleLink: buildGithubLink("primitives/examples/Toast.tsx")

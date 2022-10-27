@@ -12,6 +12,12 @@ const _Arrow = tw(TooltipPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 const _Body = tw.span`block text-sm leading-none text-primitive-type`;
 
+export const Provider = (props: PropsWithChildren) => {
+	const { children } = props;
+
+	return <TooltipPrimitive.Provider>{children}</TooltipPrimitive.Provider>;
+};
+
 interface RootProps
 	extends Pick<
 			TooltipPrimitive.TooltipProps,
