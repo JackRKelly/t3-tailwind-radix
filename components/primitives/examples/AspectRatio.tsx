@@ -4,7 +4,7 @@ export const AspectRatioExample = () => (
 	<div className="w-full max-w-xl">
 		<AspectRatio.Root className="group relative h-full w-full overflow-hidden rounded-lg shadow-md">
 			<div className="absolute inset-0 z-10 flex items-center justify-center">
-				<h3 className="select-none bg-gradient-to-r from-white to-primary-faint bg-clip-text text-3xl font-bold uppercase text-transparent duration-300 ease-in-out group-hover:opacity-0 sm:text-4xl">
+				<h3 className="select-none bg-gradient-to-r from-primary-bold to-primary-faint bg-clip-text text-3xl font-black uppercase text-transparent duration-300 ease-in-out group-hover:opacity-0 sm:text-4xl">
 					Vancouver
 				</h3>
 			</div>

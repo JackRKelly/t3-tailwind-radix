@@ -11,9 +11,9 @@ Bold = Easier to see on themes background
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: var(--light-hue), 100%, 55%;
+	--color-primary-bold: var(--light-hue), 100%, 50%;
 	--color-primary: var(--light-hue), 100%, 60%;
-	--color-primary-faint: var(--light-hue), 100%, 65%;
+	--color-primary-faint: var(--light-hue), 100%, 70%;
 	/* Top-level */
 	--color-highlight: var(--light-hue), 5%, 35%;
 	--color-type: var(--light-hue), 35%, 10%;
@@ -38,9 +38,9 @@ Bold = Easier to see on themes background
 	/* Secondary */
 	--color-secondary: 2, 96%, 79%;
 	/* Primary */
-	--color-primary-bold: var(--dark-hue), 100%, 65%;
+	--color-primary-bold: var(--dark-hue), 100%, 70%;
 	--color-primary: var(--dark-hue), 90%, 60%;
-	--color-primary-faint: var(--dark-hue), 80%, 55%;
+	--color-primary-faint: var(--dark-hue), 80%, 50%;
 	/* Top-level */
 	--color-highlight: var(--dark-hue), 5%, 80%;
 	--color-type: var(--dark-hue), 35%, 90%;
