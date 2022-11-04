@@ -21,6 +21,7 @@ import { RadioGroupExample } from "./RadioGroup";
 import { SelectExample } from "./Select";
 import { SliderExample } from "./Slider";
 import { SwitchExample } from "./Switch";
+import { TableExample } from "./Table";
 import { TabsExample } from "./Tabs";
 import { ThemeSwitcherExample } from "./ThemeSwitcher";
 import { ToastExample } from "./Toast";
@@ -210,6 +211,13 @@ export const exampleComponents: ComponentEntry[] = [
 		Wrapper: Grid.FullSpan,
 		sourceLink: buildGithubLink("primitives/Accordian.tsx"),
 		exampleLink: buildGithubLink("primitives/examples/Accordian.tsx")
+	},
+	{
+		title: "Table",
+		component: <TableExample />,
+		Wrapper: Grid.FullSpan,
+		sourceLink: buildGithubLink("primitives/Table.tsx"),
+		exampleLink: buildGithubLink("primitives/examples/Table.tsx")
 	}
 ];
 

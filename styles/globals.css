@@ -8,7 +8,7 @@
 }
 
 ::-webkit-scrollbar {
-	@apply w-2;
+	@apply h-2 w-2;
 }
 
 ::-webkit-scrollbar-track {
@@ -16,11 +16,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply rounded-full bg-type/50;
+	@apply rounded-full bg-type/30;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	@apply bg-type/60;
+	@apply bg-type/40;
 }
 
 ::selection {
