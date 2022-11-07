@@ -10,7 +10,7 @@ const Form = tw.form`mt-4 space-y-2`;
 const Fieldset = tw.fieldset`flex items-center`;
 
 export const PopoverExample = () => (
-	<Popover.Root trigger={<Button>Popover</Button>}>
+	<Popover.Root trigger={<Button type="button">Popover</Button>}>
 		<Heading size="xs">Popover</Heading>
 
 		<Form>

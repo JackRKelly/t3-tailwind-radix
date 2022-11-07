@@ -5,7 +5,7 @@ import { Button } from "../Button";
 const ActionWrapper = tw.div`mt-4 flex justify-end space-x-2`;
 
 export const AlertDialogExample = () => (
-	<AlertDialog.Root trigger={<Button>Alert Dialog</Button>}>
+	<AlertDialog.Root trigger={<Button type="button">Alert Dialog</Button>}>
 		<AlertDialog.Title>Title</AlertDialog.Title>
 		<AlertDialog.Description>This is an alert dialog</AlertDialog.Description>
 

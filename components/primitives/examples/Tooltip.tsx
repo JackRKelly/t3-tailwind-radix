@@ -4,7 +4,7 @@ import * as Tooltip from "../Tooltip";
 export const TooltipExample = () => (
 	<Tooltip.Provider>
 		<Tooltip.Root body={"This is a tooltip component"}>
-			<Button>Hover</Button>
+			<Button type="button">Hover</Button>
 		</Tooltip.Root>
 	</Tooltip.Provider>
 );

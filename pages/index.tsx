@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { Navigation } from "../components/Navigation";
+import { Button } from "../components/primitives/Button";
 import { Heading } from "../components/primitives/Heading";
 import { Image } from "../components/primitives/Image";
 import { InnerColumn, OuterColumn, PageWrapper, Section } from "../components/primitives/Layout";
@@ -70,6 +71,15 @@ const Home: NextPage = () => {
 							provides a strong starting point with highly configurable components and a design
 							system that is highly customizable.
 						</Text>
+						<Button type="link-native" href="https://github.com" target="_blank">
+							Test Native
+						</Button>
+
+						<Button type="link-next" href="/components">
+							Test Next
+						</Button>
+
+						<Button type="button">Test Button</Button>
 					</InnerColumn>
 				</Section>
 			</OuterColumn>

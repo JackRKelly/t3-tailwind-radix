@@ -14,7 +14,7 @@ export const DropdownExample = () => {
 	const [dropdownToggle, setDropdownToggle] = useState(false);
 
 	return (
-		<Dropdown.Root trigger={<Button>Dropdown</Button>}>
+		<Dropdown.Root trigger={<Button type="button">Dropdown</Button>}>
 			<Dropdown.Label label="Label" />
 			<Dropdown.CheckboxItem
 				label="Checkbox"
