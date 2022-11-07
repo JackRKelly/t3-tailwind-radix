@@ -215,9 +215,9 @@ module.exports = {
 				}
 			},
 			transitionProperty: {
-				button: "box-shadow, background-color, opacity",
-				input: "box-shadow, background-color, opacity",
-				link: "box-shadow, background-color, opacity"
+				button: "box-shadow, background-color, opacity, border-radius",
+				input: "box-shadow, background-color, opacity, border-radius",
+				link: "box-shadow, background-color, opacity, border-radius"
 			}
 		}
 	},
