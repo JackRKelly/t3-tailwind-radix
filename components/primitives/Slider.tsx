@@ -15,50 +15,13 @@ const _Thumb = tw(
 	SliderPrimitive.Thumb
 )`block h-5 w-5 rounded-full bg-primary-bold focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
 
-interface RootProps
-	extends Pick<
-		SliderPrimitive.SliderProps,
-		| "min"
-		| "orientation"
-		| "value"
-		| "onValueCommit"
-		| "onValueChange"
-		| "disabled"
-		| "defaultValue"
-		| "step"
-		| "max"
-		| "aria-label"
-	> {}
+interface RootProps extends SliderPrimitive.SliderProps {}
 
 export const Root = (props: RootProps) => {
-	const {
-		"aria-label": ariaLabel,
-		defaultValue = [50],
-		disabled,
-		max = 100,
-		min,
-		onValueChange,
-		onValueCommit,
-		orientation,
-		step,
-		value
-	} = props;
+	const { "aria-label": ariaLabel, defaultValue = [50], max = 100, ...rest } = props;
 
 	return (
-		<_Root
-			aria-label={ariaLabel}
-			{...{
-				defaultValue,
-				disabled,
-				max,
-				min,
-				onValueChange,
-				onValueCommit,
-				orientation,
-				step,
-				value
-			}}
-		>
+		<_Root aria-label={ariaLabel} {...rest}>
 			<_Track>
 				<_Range />
 			</_Track>
