@@ -21,22 +21,21 @@ const _Fallback = tw(
 	AvatarPrimitive.Fallback
 )`flex h-full w-full items-center justify-center bg-primitive transition-colors`;
 
-interface RootProps extends Pick<AvatarPrimitive.AvatarImageProps, "alt" | "src"> {
+interface RootProps extends AvatarPrimitive.AvatarImageProps {
 	variant?: Variant;
 	renderInvalidUrls?: boolean;
 	online?: boolean;
 	initials?: `${string}${string}`;
-	fallbackDelayMs?: number;
+	delayMs?: number;
 }
 
 const Root = (props: RootProps) => {
-	const { variant = Variant.Rounded, online, initials, src, alt, fallbackDelayMs = 600 } = props;
+	const { variant = Variant.Rounded, online, initials, src, alt, delayMs = 600 } = props;
 
 	return (
 		<_Root>
 			<_Image
-				src={src}
-				alt={alt}
+				{...{ src, alt }}
 				className={cx(
 					{
 						[Variant.Circle]: "rounded-full",
@@ -63,7 +62,7 @@ const Root = (props: RootProps) => {
 						[Variant.Rounded]: "rounded"
 					}[variant]
 				)}
-				delayMs={fallbackDelayMs}
+				delayMs={delayMs}
 			>
 				<_Initials>{initials}</_Initials>
 			</_Fallback>

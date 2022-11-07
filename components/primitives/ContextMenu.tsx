@@ -11,7 +11,7 @@ const _ContentInner = tw.div`border border-primitive-edge rounded-lg px-1.5 py-1
 
 const _SubContent = tw(
 	ContextMenuPrimitive.SubContent
-)`origin-radix-dropdown-menu radix-side-right:animate-scale-in w-full rounded-md px-1 py-1 text-xs border border-primitive-edge bg-primitive-faint backdrop-blur bg-opacity-[90%] z-[11]`;
+)`origin-radix-dropdown-menu animate-open-all-sides animate-close-all-sides w-full rounded-md px-1 py-1 text-xs border border-primitive-edge bg-primitive-faint backdrop-blur bg-opacity-[90%] z-[11]`;
 
 const _SubTrigger = tw(
 	ContextMenuPrimitive.SubTrigger
@@ -61,25 +61,15 @@ export const Label = (props: LabelProps) => {
 
 interface SubProps
 	extends PropsWithChildren,
-		Pick<ContextMenuPrimitive.ContextMenuSubProps, "open" | "onOpenChange" | "defaultOpen">,
-		Pick<ContextMenuPrimitive.ContextMenuSubContentProps, "sideOffset" | "alignOffset"> {
+		ContextMenuPrimitive.ContextMenuSubProps,
+		ContextMenuPrimitive.ContextMenuSubContentProps {
 	icon?: ReactElement;
 	label: ReactNode;
 	className?: string;
 }
 
 export const Sub = (props: SubProps) => {
-	const {
-		label,
-		icon,
-		children,
-		className,
-		defaultOpen,
-		onOpenChange,
-		open,
-		alignOffset,
-		sideOffset = 6
-	} = props;
+	const { label, icon, children, defaultOpen, onOpenChange, open, sideOffset = 6, ...rest } = props;
 
 	return (
 		<ContextMenuPrimitive.Sub {...{ defaultOpen, onOpenChange, open }}>
@@ -92,7 +82,7 @@ export const Sub = (props: SubProps) => {
 				<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
 			</_SubTrigger>
 			<ContextMenuPrimitive.Portal>
-				<_SubContent {...{ className, alignOffset, sideOffset }}>{children}</_SubContent>
+				<_SubContent {...{ sideOffset, ...rest }}>{children}</_SubContent>
 			</ContextMenuPrimitive.Portal>
 		</ContextMenuPrimitive.Sub>
 	);

@@ -18,10 +18,10 @@ const _Thumb = tw(
 interface RootProps extends SliderPrimitive.SliderProps {}
 
 export const Root = (props: RootProps) => {
-	const { "aria-label": ariaLabel, defaultValue = [50], max = 100, ...rest } = props;
+	const { defaultValue = [50], max = 100, ...rest } = props;
 
 	return (
-		<_Root aria-label={ariaLabel} {...rest}>
+		<_Root {...rest}>
 			<_Track>
 				<_Range />
 			</_Track>

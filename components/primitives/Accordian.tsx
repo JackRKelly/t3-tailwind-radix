@@ -23,16 +23,16 @@ export const Header = tw.span`text-sm font-medium text-primitive-type`;
 
 export const Content = tw.div`rounded-b-lg text-sm text-primitive-type-faint px-4 pb-3 pt-1 border-x border-b border-primitive-edge transition-all group-focus-within:border-transparent`;
 
-interface ItemProps extends Pick<AccordionPrimitive.AccordionItemProps, "value"> {
+interface ItemProps extends AccordionPrimitive.AccordionItemProps {
 	header: ReactNode;
 	content: ReactNode;
 }
 
 export const Item = (props: ItemProps) => {
-	const { header, content, value } = props;
+	const { header, content, ...rest } = props;
 
 	return (
-		<_Item {...{ value }}>
+		<_Item {...rest}>
 			<_Header>
 				<_Trigger>
 					{header}
@@ -45,16 +45,7 @@ export const Item = (props: ItemProps) => {
 };
 
 type RootProps = PropsWithChildren &
-	(
-		| Pick<
-				AccordionPrimitive.AccordionSingleProps,
-				"disabled" | "defaultValue" | "onValueChange" | "value" | "type" | "aria-label"
-		  >
-		| Pick<
-				AccordionPrimitive.AccordionMultipleProps,
-				"disabled" | "defaultValue" | "onValueChange" | "value" | "type" | "aria-label"
-		  >
-	);
+	(AccordionPrimitive.AccordionSingleProps | AccordionPrimitive.AccordionMultipleProps);
 
 export const Root = (props: RootProps) => {
 	const {

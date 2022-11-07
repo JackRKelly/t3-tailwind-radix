@@ -48,17 +48,15 @@ export const Title = (props: PropsWithChildren) => {
 	return <_Title>{children}</_Title>;
 };
 
-interface RootProps
-	extends PropsWithChildren,
-		Pick<AlertDialogPrimitive.AlertDialogProps, "onOpenChange" | "open"> {
+interface RootProps extends PropsWithChildren, AlertDialogPrimitive.AlertDialogProps {
 	trigger: ReactNode;
 }
 
 export const Root = (props: RootProps) => {
-	const { trigger, open, children, onOpenChange } = props;
+	const { trigger, children, ...rest } = props;
 
 	return (
-		<AlertDialogPrimitive.Root {...{ open, onOpenChange }}>
+		<AlertDialogPrimitive.Root {...rest}>
 			<AlertDialogPrimitive.Trigger asChild>{trigger}</AlertDialogPrimitive.Trigger>
 			<_Overlay />
 			<_Content>{children}</_Content>

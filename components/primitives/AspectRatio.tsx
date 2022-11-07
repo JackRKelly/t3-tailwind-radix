@@ -1,14 +1,10 @@
 import * as AspectRatioPrimitive from "@radix-ui/react-aspect-ratio";
 import { PropsWithChildren } from "react";
 
-interface Props
-	extends PropsWithChildren,
-		Pick<AspectRatioPrimitive.AspectRatioProps, "className" | "ratio"> {}
+interface Props extends PropsWithChildren, AspectRatioPrimitive.AspectRatioProps {}
 
 export const Root = (props: Props) => {
-	const { className, children, ratio = 16 / 9 } = props;
+	const { children, ...rest } = props;
 
-	return (
-		<AspectRatioPrimitive.Root {...{ className, ratio }}>{children}</AspectRatioPrimitive.Root>
-	);
+	return <AspectRatioPrimitive.Root {...rest}>{children}</AspectRatioPrimitive.Root>;
 };

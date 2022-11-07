@@ -28,17 +28,15 @@ const _Content = tw(SelectPrimitive.Content)` relative z-10`;
 
 const _SelectIcon = tw(SelectPrimitive.Icon)`ml-2`;
 
-interface ItemProps
-	extends PropsWithChildren,
-		Pick<SelectPrimitive.SelectItemProps, "value" | "disabled"> {
+interface ItemProps extends PropsWithChildren, SelectPrimitive.SelectItemProps {
 	label?: string;
 }
 
 export const Item = (props: ItemProps) => {
-	const { value, children, disabled, label } = props;
+	const { value, label, ...rest } = props;
 
 	return (
-		<_Item {...{ value, children, disabled }}>
+		<_Item {...{ value, ...rest }}>
 			<SelectPrimitive.ItemText>{label ?? value}</SelectPrimitive.ItemText>
 			<_ItemIndicator>
 				<CheckIcon />
@@ -47,51 +45,13 @@ export const Item = (props: ItemProps) => {
 	);
 };
 
-interface RootProps
-	extends PropsWithChildren,
-		Pick<
-			SelectPrimitive.SelectProps,
-			| "onValueChange"
-			| "open"
-			| "onOpenChange"
-			| "name"
-			| "value"
-			| "disabled"
-			| "defaultOpen"
-			| "defaultValue"
-			| "autoComplete"
-		> {
-	defaultValue?: string;
-}
+interface RootProps extends PropsWithChildren, SelectPrimitive.SelectProps {}
 
 export const Root = (props: RootProps) => {
-	const {
-		defaultValue,
-		children,
-		autoComplete,
-		defaultOpen,
-		disabled,
-		name,
-		onOpenChange,
-		onValueChange,
-		open,
-		value
-	} = props;
+	const { children, ...rest } = props;
 
 	return (
-		<SelectPrimitive.Root
-			{...{
-				defaultValue,
-				autoComplete,
-				defaultOpen,
-				disabled,
-				name,
-				onOpenChange,
-				onValueChange,
-				open,
-				value
-			}}
-		>
+		<SelectPrimitive.Root {...rest}>
 			<SelectPrimitive.Trigger asChild>
 				<Button className="min-w-[85px]">
 					<SelectPrimitive.Value />
