@@ -1,18 +1,13 @@
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import { PropsWithChildren } from "react";
 
-interface RootProps
-	extends PropsWithChildren,
-		Pick<
-			TogglePrimitive.ToggleProps,
-			"defaultPressed" | "onPressedChange" | "pressed" | "disabled"
-		> {}
+interface RootProps extends PropsWithChildren, TogglePrimitive.ToggleProps {}
 
 export const Root = (props: RootProps) => {
-	const { children, defaultPressed, disabled, onPressedChange, pressed } = props;
+	const { children, ...rest } = props;
 
 	return (
-		<TogglePrimitive.Root {...{ defaultPressed, disabled, onPressedChange, pressed }} asChild>
+		<TogglePrimitive.Root {...rest} asChild>
 			{children}
 		</TogglePrimitive.Root>
 	);

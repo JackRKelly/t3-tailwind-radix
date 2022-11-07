@@ -90,17 +90,17 @@ export const Sub = (props: SubProps) => {
 
 interface CheckboxItemProps
 	extends PropsWithChildren,
-		Pick<ContextMenuPrimitive.ContextMenuCheckboxItemProps, "onCheckedChange" | "checked"> {
+		ContextMenuPrimitive.ContextMenuCheckboxItemProps {
 	icon?: ReactElement;
 	checkedIcon?: ReactElement;
 	label: ReactNode;
 }
 
 export const CheckboxItem = (props: CheckboxItemProps) => {
-	const { label, icon, checked, checkedIcon, onCheckedChange } = props;
+	const { label, icon, checked, checkedIcon, ...rest } = props;
 
 	return (
-		<_CheckboxItem checked={checked} onCheckedChange={onCheckedChange}>
+		<_CheckboxItem {...{ checked, ...rest }}>
 			{(() => {
 				if (checked) {
 					return (
@@ -147,18 +147,16 @@ export const Item = (props: ItemProps) => {
 	);
 };
 
-interface RootProps
-	extends PropsWithChildren,
-		Pick<ContextMenuPrimitive.ContextMenuProps, "onOpenChange"> {
+interface RootProps extends PropsWithChildren, ContextMenuPrimitive.ContextMenuProps {
 	trigger: ReactNode;
 	className?: string;
 }
 
 export const Root = (props: RootProps) => {
-	const { children, trigger, className, onOpenChange } = props;
+	const { children, trigger, ...rest } = props;
 
 	return (
-		<ContextMenuPrimitive.Root {...{ className, onOpenChange }}>
+		<ContextMenuPrimitive.Root {...rest}>
 			<_Trigger asChild>
 				<_TriggerInner>{trigger}</_TriggerInner>
 			</_Trigger>

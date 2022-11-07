@@ -18,15 +18,15 @@ export const Separator = tw(
 	ToolbarPrimitive.Separator
 )`mx-4 my-0.5 hidden h-auto w-px bg-primitive-edge-bold xl:flex transition-colors`;
 
-interface ItemProps extends Pick<ToolbarPrimitive.ToolbarToggleItemProps, "value" | "aria-label"> {
+interface ItemProps extends ToolbarPrimitive.ToolbarToggleItemProps {
 	icon: ReactElement;
 }
 
 export const ToggleGroupItem = (props: ItemProps) => {
-	const { value, "aria-label": ariaLabel, icon } = props;
+	const { icon, ...rest } = props;
 
 	return (
-		<_Item {...{ value }} aria-label={ariaLabel}>
+		<_Item {...rest}>
 			{React.cloneElement(icon, {
 				className: "w-5 h-5 text-primitive-type"
 			})}
@@ -36,43 +36,23 @@ export const ToggleGroupItem = (props: ItemProps) => {
 
 type ToggleGroupProps = PropsWithChildren &
 	(
-		| Pick<
-				ToolbarPrimitive.ToolbarToggleGroupSingleProps,
-				"disabled" | "defaultValue" | "onValueChange" | "value" | "type" | "aria-label"
-		  >
-		| Pick<
-				ToolbarPrimitive.ToolbarToggleGroupMultipleProps,
-				"disabled" | "defaultValue" | "onValueChange" | "value" | "type" | "aria-label"
-		  >
+		| ToolbarPrimitive.ToolbarToggleGroupSingleProps
+		| ToolbarPrimitive.ToolbarToggleGroupMultipleProps
 	);
 
 export const ToggleGroup = (props: ToggleGroupProps) => {
-	const {
-		children,
-		type,
-		value,
-		onValueChange,
-		defaultValue,
-		disabled,
-		"aria-label": ariaLabel
-	} = props;
+	const { children, type, value, onValueChange, defaultValue, ...rest } = props;
 
 	switch (type) {
 		case "single":
 			return (
-				<ToolbarPrimitive.ToggleGroup
-					{...{ type, value, onValueChange, defaultValue, disabled }}
-					aria-label={ariaLabel}
-				>
+				<ToolbarPrimitive.ToggleGroup {...{ type, value, onValueChange, defaultValue, ...rest }}>
 					{children}
 				</ToolbarPrimitive.ToggleGroup>
 			);
 		case "multiple":
 			return (
-				<ToolbarPrimitive.ToggleGroup
-					{...{ type, value, onValueChange, defaultValue, disabled }}
-					aria-label={ariaLabel}
-				>
+				<ToolbarPrimitive.ToggleGroup {...{ type, value, onValueChange, defaultValue, ...rest }}>
 					{children}
 				</ToolbarPrimitive.ToggleGroup>
 			);

@@ -10,8 +10,8 @@ const _Arrow = tw(HoverCardPrimitive.Arrow)`fill-current text-primitive-edge`;
 
 interface RootProps
 	extends PropsWithChildren,
-		Pick<HoverCardPrimitive.HoverCardProps, "closeDelay" | "openDelay" | "open" | "onOpenChange">,
-		Pick<HoverCardPrimitive.HoverCardContentProps, "side" | "sideOffset" | "align"> {
+		HoverCardPrimitive.HoverCardProps,
+		HoverCardPrimitive.HoverCardContentProps {
 	trigger: ReactNode;
 }
 
@@ -21,17 +21,18 @@ export const Root = (props: RootProps) => {
 		openDelay = 100,
 		open,
 		onOpenChange,
-		side,
+		defaultOpen,
 		sideOffset = 4,
 		align = "center",
 		trigger,
-		children
+		children,
+		...rest
 	} = props;
 
 	return (
-		<HoverCardPrimitive.Root {...{ closeDelay, openDelay, open, onOpenChange }}>
+		<HoverCardPrimitive.Root {...{ closeDelay, openDelay, open, onOpenChange, defaultOpen }}>
 			<HoverCardPrimitive.Trigger asChild>{trigger}</HoverCardPrimitive.Trigger>
-			<_Content {...{ side, align, sideOffset }}>
+			<_Content {...{ align, sideOffset, ...rest }}>
 				<_Arrow />
 
 				{children}

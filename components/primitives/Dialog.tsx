@@ -2,6 +2,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import { PropsWithChildren, ReactNode } from "react";
 import { tw } from "../../utils/tw";
+import { buttonStyles } from "./Button";
 
 const _Close = tw(
 	DialogPrimitive.Close
@@ -19,24 +20,20 @@ const _Title = tw(DialogPrimitive.Title)`text-base font-semibold text-primitive-
 
 const _Description = tw(DialogPrimitive.Description)`mt-2 text-sm font-normal text-primitive-type`;
 
-const _Action = tw(
-	DialogPrimitive.Close
-)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primary text-white hover:bg-primary-bold border border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
-
-const _Cancel = tw(
-	DialogPrimitive.Close
-)`inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium bg-primitive-faint hover:bg-primitive text-primitive-type-bold border border-primitive-edge focus-visible:border-transparent focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-button`;
-
 export const Action = (props: PropsWithChildren) => {
 	const { children } = props;
 
-	return <_Action>{children}</_Action>;
+	return (
+		<DialogPrimitive.Close className={buttonStyles({ shade: "primary" })}>
+			{children}
+		</DialogPrimitive.Close>
+	);
 };
 
 export const Cancel = (props: PropsWithChildren) => {
 	const { children } = props;
 
-	return <_Cancel>{children}</_Cancel>;
+	return <DialogPrimitive.Close className={buttonStyles()}>{children}</DialogPrimitive.Close>;
 };
 
 export const Description = (props: PropsWithChildren) => {

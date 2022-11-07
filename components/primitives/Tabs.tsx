@@ -18,25 +18,25 @@ const _Content = tw(
 
 const _ContentInner = tw.span`text-sm text-primitive-type transition-colors`;
 
-interface ContentProps extends PropsWithChildren, Pick<TabsPrimitive.TabsTriggerProps, "value"> {}
+interface ContentProps extends PropsWithChildren, TabsPrimitive.TabsContentProps {}
 
 export const Content = (props: ContentProps) => {
-	const { children, value } = props;
+	const { children, ...rest } = props;
 
 	return (
-		<_Content {...{ value }}>
+		<_Content {...rest}>
 			<_ContentInner>{children}</_ContentInner>
 		</_Content>
 	);
 };
 
-interface TriggerProps extends PropsWithChildren, Pick<TabsPrimitive.TabsTriggerProps, "value"> {}
+interface TriggerProps extends PropsWithChildren, TabsPrimitive.TabsTriggerProps {}
 
 export const Trigger = (props: TriggerProps) => {
-	const { children, value } = props;
+	const { children, ...rest } = props;
 
 	return (
-		<_Trigger {...{ value }}>
+		<_Trigger {...rest}>
 			<TriggerInner>{children}</TriggerInner>
 		</_Trigger>
 	);
@@ -50,12 +50,10 @@ export const List = (props: ListProps) => {
 	return <_List>{children}</_List>;
 };
 
-interface RootProps
-	extends PropsWithChildren,
-		Pick<TabsPrimitive.TabsProps, "onValueChange" | "value" | "defaultValue"> {}
+interface RootProps extends PropsWithChildren, TabsPrimitive.TabsProps {}
 
 export const Root = (props: RootProps) => {
-	const { children, defaultValue, onValueChange, value } = props;
+	const { children, ...rest } = props;
 
-	return <_Root {...{ defaultValue, onValueChange, value }}>{children}</_Root>;
+	return <_Root {...rest}>{children}</_Root>;
 };

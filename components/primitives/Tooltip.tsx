@@ -18,15 +18,7 @@ export const Provider = (props: PropsWithChildren) => {
 	return <TooltipPrimitive.Provider>{children}</TooltipPrimitive.Provider>;
 };
 
-interface RootProps
-	extends Pick<
-			TooltipPrimitive.TooltipProps,
-			"open" | "defaultOpen" | "onOpenChange" | "delayDuration"
-		>,
-		Pick<
-			TooltipPrimitive.TooltipContentProps,
-			"sideOffset" | "tabIndex" | "side" | "alignOffset" | "align" | "draggable"
-		> {
+interface RootProps extends TooltipPrimitive.TooltipProps, TooltipPrimitive.TooltipContentProps {
 	body: ReactNode;
 }
 
@@ -35,31 +27,20 @@ export const Root = (props: PropsWithChildren<RootProps>) => {
 		body,
 		children,
 		sideOffset = 4,
-		tabIndex,
-		side,
-		alignOffset,
-		align,
 		defaultOpen,
 		delayDuration = 200,
 		onOpenChange,
-		open
+		open,
+		disableHoverableContent,
+		...rest
 	} = props;
 
 	return (
 		<TooltipPrimitive.Root
-			defaultOpen={defaultOpen}
-			open={open}
-			delayDuration={delayDuration}
-			onOpenChange={onOpenChange}
+			{...{ defaultOpen, delayDuration, onOpenChange, open, disableHoverableContent }}
 		>
 			<TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
-			<_Content
-				sideOffset={sideOffset}
-				align={align}
-				side={side}
-				tabIndex={tabIndex}
-				alignOffset={alignOffset}
-			>
+			<_Content {...{ sideOffset, ...rest }}>
 				<_ContentInner>
 					<_Arrow />
 					<_Body>{body}</_Body>

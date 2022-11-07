@@ -37,14 +37,12 @@ export const Link = tw(
 	NavigationMenuPrimitive.Link
 )`cursor-pointer rounded-md px-3 py-2 hover:bg-primitive text-sm font-medium text-primitive-type focus:outline-none focus-visible:ring focus-visible:ring-highlight transition-link block`;
 
-interface ItemProps
-	extends PropsWithChildren,
-		Pick<NavigationMenuPrimitive.NavigationMenuItemProps, "asChild"> {}
+interface ItemProps extends PropsWithChildren, NavigationMenuPrimitive.NavigationMenuItemProps {}
 
 export const Item = (props: ItemProps) => {
-	const { children, asChild } = props;
+	const { children, ...rest } = props;
 
-	return <NavigationMenuPrimitive.Item {...{ asChild }}>{children}</NavigationMenuPrimitive.Item>;
+	return <NavigationMenuPrimitive.Item {...rest}>{children}</NavigationMenuPrimitive.Item>;
 };
 
 interface RootProps extends PropsWithChildren {

@@ -17,20 +17,17 @@ const _ItemWrapper = tw.div`flex items-center`;
 
 const _ItemList = tw.div`mt-3 space-y-3`;
 
-interface ItemProps
-	extends Pick<
-		RadioGroupPrimitive.RadioGroupItemProps,
-		"disabled" | "required" | "value" | "defaultValue"
-	> {
+interface ItemProps extends RadioGroupPrimitive.RadioGroupItemProps {
 	id: string;
 	label?: string;
 }
 
 export const Item = (props: ItemProps) => {
-	const { id, value, label, defaultValue, disabled, required } = props;
+	const { id, value, label, ...rest } = props;
+
 	return (
 		<_ItemWrapper>
-			<_Item {...{ id, value, defaultValue, disabled, required }}>
+			<_Item {...{ id, value, ...rest }}>
 				<_Indicator>
 					<_IndicatorInner />
 				</_Indicator>
@@ -42,18 +39,13 @@ export const Item = (props: ItemProps) => {
 	);
 };
 
-interface RootProps
-	extends PropsWithChildren,
-		Pick<
-			RadioGroupPrimitive.RadioGroupProps,
-			"aria-label" | "value" | "defaultValue" | "onValueChange"
-		> {}
+interface RootProps extends PropsWithChildren, RadioGroupPrimitive.RadioGroupProps {}
 
 export const Root = (props: RootProps) => {
-	const { value, defaultValue, onValueChange, children, "aria-label": ariaLabel } = props;
+	const { children, ...rest } = props;
 
 	return (
-		<RadioGroupPrimitive.Root aria-label={ariaLabel} {...{ value, defaultValue, onValueChange }}>
+		<RadioGroupPrimitive.Root {...rest}>
 			<_ItemList>{children}</_ItemList>
 		</RadioGroupPrimitive.Root>
 	);

@@ -11,7 +11,7 @@ const styles = cva(null, {
 			sm: "text-sm",
 			xs: "text-xs"
 		},
-		color: {
+		shade: {
 			bold: "text-primitive-type-bold",
 			normal: "text-primitive-type",
 			faint: "text-primitive-type-faint"
@@ -29,22 +29,22 @@ const styles = cva(null, {
 	defaultVariants: {
 		size: "xs",
 		weight: "medium",
-		color: "normal"
+		shade: "normal"
 	}
 });
 
 interface LabelProps
 	extends PropsWithChildren,
-		Pick<LabelPrimitive.LabelProps, "htmlFor">,
+		LabelPrimitive.LabelProps,
 		VariantProps<typeof styles> {
 	className?: string;
 }
 
 export const Label = (props: LabelProps) => {
-	const { children, htmlFor, className } = props;
+	const { children, className, ...rest } = props;
 
 	return (
-		<LabelPrimitive.Root {...{ htmlFor }} className={clsx(styles(props), className)}>
+		<LabelPrimitive.Root {...rest} className={clsx(styles(props), className)}>
 			{children}
 		</LabelPrimitive.Root>
 	);

@@ -7,13 +7,13 @@ const Root = tw(
 
 const Indicator = tw(ProgressPrimitive.Indicator)`h-full bg-primary transition-all duration-500`;
 
-interface Props extends Pick<ProgressPrimitive.ProgressProps, "value" | "max"> {}
+interface Props extends ProgressPrimitive.ProgressProps {}
 
 export const Progress = (props: Props) => {
-	const { value = 0, max } = props;
+	const { value = 0, ...rest } = props;
 
 	return (
-		<Root {...{ value, max }}>
+		<Root {...{ value, ...rest }}>
 			<Indicator style={{ width: `${value}%` }} />
 		</Root>
 	);

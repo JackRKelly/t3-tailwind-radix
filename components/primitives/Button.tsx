@@ -6,17 +6,17 @@ import React from "react";
 type LinkProps = {
 	type: "link";
 } & React.ComponentProps<"a"> &
-	VariantProps<typeof styles>;
+	VariantProps<typeof buttonStyles>;
 
 type ButtonProps = {
 	type?: "button";
 } & React.ComponentProps<"button"> &
-	VariantProps<typeof styles>;
+	VariantProps<typeof buttonStyles>;
 
 type NextLinkProps = {
 	type: "next-link";
 } & React.ComponentProps<typeof __LinkNext> &
-	VariantProps<typeof styles>;
+	VariantProps<typeof buttonStyles>;
 
 type PolymorphicProps = LinkProps | ButtonProps | NextLinkProps;
 
@@ -26,7 +26,7 @@ type PolymorphicButton = {
 	(props: NextLinkProps): JSX.Element;
 };
 
-const styles = cva(
+export const buttonStyles = cva(
 	"inline-flex select-none items-center justify-center focus:outline-none focus-visible:ring focus-visible:ring-highlight group transition-button focus-visible:border-transparent",
 	{
 		variants: {
@@ -37,7 +37,8 @@ const styles = cva(
 				md: "px-4 py-2"
 			},
 			shade: {
-				primary: "bg-primary text-white",
+				none: "",
+				primary: "bg-primary text-white hover:bg-primary-bold",
 				primitive:
 					"bg-primitive-faint border border-primitive-edge text-primitive-type hover:bg-primitive"
 			},
@@ -75,21 +76,21 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Po
 			case "link":
 				return (
 					//@ts-ignore
-					<a className={clsx(styles(props), className)} ref={ref} {...rest}>
+					<a className={clsx(buttonStyles(props), className)} ref={ref} {...rest}>
 						{children}
 					</a>
 				);
 			case "next-link":
 				return (
 					//@ts-ignore
-					<__LinkNext className={clsx(styles(props), className)} ref={ref} {...rest}>
+					<__LinkNext className={clsx(buttonStyles(props), className)} ref={ref} {...rest}>
 						{children}
 					</__LinkNext>
 				);
 			default:
 				return (
 					//@ts-ignore
-					<button className={clsx(styles(props), className)} ref={ref} {...rest}>
+					<button className={clsx(buttonStyles(props), className)} ref={ref} {...rest}>
 						{children}
 					</button>
 				);

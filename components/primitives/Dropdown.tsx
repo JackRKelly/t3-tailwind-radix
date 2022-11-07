@@ -49,25 +49,15 @@ export const Label = (props: LabelProps) => {
 
 interface SubProps
 	extends PropsWithChildren,
-		Pick<DropdownMenuPrimitive.DropdownMenuSubProps, "open" | "onOpenChange" | "defaultOpen">,
-		Pick<DropdownMenuPrimitive.DropdownMenuSubContentProps, "sideOffset" | "alignOffset"> {
+		DropdownMenuPrimitive.DropdownMenuSubProps,
+		DropdownMenuPrimitive.DropdownMenuSubContentProps {
 	icon?: ReactElement;
 	label: ReactNode;
 	className?: string;
 }
 
 export const Sub = (props: SubProps) => {
-	const {
-		label,
-		icon,
-		children,
-		className,
-		defaultOpen,
-		onOpenChange,
-		open,
-		alignOffset,
-		sideOffset = 6
-	} = props;
+	const { label, icon, children, defaultOpen, onOpenChange, open, sideOffset = 6, ...rest } = props;
 
 	return (
 		<DropdownMenuPrimitive.Sub {...{ defaultOpen, onOpenChange, open }}>
@@ -80,7 +70,7 @@ export const Sub = (props: SubProps) => {
 				<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
 			</_SubTrigger>
 			<DropdownMenuPrimitive.Portal>
-				<_SubContent {...{ className, alignOffset, sideOffset }}>{children}</_SubContent>
+				<_SubContent {...{ sideOffset, ...rest }}>{children}</_SubContent>
 			</DropdownMenuPrimitive.Portal>
 		</DropdownMenuPrimitive.Sub>
 	);
@@ -88,17 +78,17 @@ export const Sub = (props: SubProps) => {
 
 interface CheckboxItemProps
 	extends PropsWithChildren,
-		Pick<DropdownMenuPrimitive.DropdownMenuCheckboxItemProps, "onCheckedChange" | "checked"> {
+		DropdownMenuPrimitive.DropdownMenuCheckboxItemProps {
 	icon?: ReactElement;
 	checkedIcon?: ReactElement;
 	label: ReactNode;
 }
 
 export const CheckboxItem = (props: CheckboxItemProps) => {
-	const { label, icon, checked, checkedIcon, onCheckedChange } = props;
+	const { label, icon, checked, checkedIcon, ...rest } = props;
 
 	return (
-		<_CheckboxItem checked={checked} onCheckedChange={onCheckedChange}>
+		<_CheckboxItem {...{ checked, ...rest }}>
 			{(() => {
 				if (checked) {
 					return (
@@ -124,17 +114,17 @@ export const CheckboxItem = (props: CheckboxItemProps) => {
 	);
 };
 
-interface ItemProps extends Pick<DropdownMenuPrimitive.DropdownMenuItemProps, "onClick"> {
+interface ItemProps extends DropdownMenuPrimitive.DropdownMenuItemProps {
 	icon: ReactElement;
 	shortcut?: string;
 	label: ReactNode;
 }
 
 export const Item = (props: ItemProps) => {
-	const { label, icon, shortcut, onClick } = props;
+	const { label, icon, shortcut, ...rest } = props;
 
 	return (
-		<_Item {...{ onClick }}>
+		<_Item {...rest}>
 			{icon &&
 				cloneElement(icon, {
 					className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
@@ -147,33 +137,31 @@ export const Item = (props: ItemProps) => {
 
 interface RootProps
 	extends PropsWithChildren,
-		Pick<
-			DropdownMenuPrimitive.DropdownMenuContentProps,
-			"side" | "sideOffset" | "align" | "alignOffset"
-		>,
-		Pick<DropdownMenuPrimitive.DropdownMenuProps, "open" | "onOpenChange"> {
+		DropdownMenuPrimitive.DropdownMenuContentProps,
+		DropdownMenuPrimitive.DropdownMenuProps {
 	trigger: ReactNode;
 	className?: string;
 }
 
 export const Root = (props: RootProps) => {
 	const {
-		side,
-		sideOffset = 4,
-		align,
-		alignOffset,
-		children,
-		trigger,
 		className,
 		onOpenChange,
-		open
+		open,
+		modal,
+		defaultOpen,
+		dir,
+		sideOffset = 4,
+		trigger,
+		children,
+		...rest
 	} = props;
 
 	return (
-		<DropdownMenuPrimitive.Root {...{ className, onOpenChange, open }}>
+		<DropdownMenuPrimitive.Root {...{ className, onOpenChange, open, modal, defaultOpen, dir }}>
 			<DropdownMenuPrimitive.Trigger asChild>{trigger}</DropdownMenuPrimitive.Trigger>
 			<DropdownMenuPrimitive.Portal>
-				<_Content {...{ align, alignOffset, sideOffset, side }}>
+				<_Content {...{ sideOffset, ...rest }}>
 					<_ContentInner>
 						<_Arrow />
 						{children}

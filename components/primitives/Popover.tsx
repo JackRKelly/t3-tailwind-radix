@@ -17,22 +17,20 @@ const _Close = tw(
 
 const _Wrapper = tw.div`relative inline-block text-left`;
 
-interface RootProps
-	extends PropsWithChildren,
-		Pick<PopoverPrimitive.PopoverContentProps, "side" | "sideOffset" | "align"> {
+interface RootProps extends PropsWithChildren, PopoverPrimitive.PopoverContentProps {
 	showCloseIcon?: boolean;
 	trigger: ReactNode;
 }
 
 export const Root = (props: RootProps) => {
-	const { children, side, sideOffset = 4, align, showCloseIcon = true, trigger } = props;
+	const { children, sideOffset = 4, showCloseIcon = true, trigger, ...rest } = props;
 
 	return (
 		<_Wrapper>
 			<PopoverPrimitive.Root>
 				<PopoverPrimitive.Trigger asChild>{trigger}</PopoverPrimitive.Trigger>
 
-				<_Content {...{ side, sideOffset, align }}>
+				<_Content {...{ sideOffset, ...rest }}>
 					<_ContentInner>
 						<_Arrow />
 

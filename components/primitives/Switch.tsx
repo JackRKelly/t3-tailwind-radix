@@ -9,17 +9,11 @@ const _Thumb = tw(
 	SwitchPrimitive.Thumb
 )`group-radix-state-checked:translate-x-5 group-radix-state-unchecked:translate-x-0 pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-lg ring-0 transition-all`;
 
-interface RootProps
-	extends Pick<
-		SwitchPrimitive.SwitchProps,
-		"value" | "name" | "defaultChecked" | "required" | "disabled" | "checked" | "onCheckedChange"
-	> {}
+interface RootProps extends SwitchPrimitive.SwitchProps {}
 
 export const Root = (props: RootProps) => {
-	const { value, name, defaultChecked, required, disabled, checked, onCheckedChange } = props;
-
 	return (
-		<_Root {...{ value, name, defaultChecked, required, disabled, checked, onCheckedChange }}>
+		<_Root {...props}>
 			<_Thumb />
 		</_Root>
 	);
