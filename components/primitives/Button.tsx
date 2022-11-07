@@ -3,8 +3,8 @@ import clsx from "clsx";
 import __LinkNext from "next/link";
 import React from "react";
 
-type AnchorProps = {
-	type: "anchor";
+type LinkProps = {
+	type: "link";
 } & React.ComponentProps<"a"> &
 	VariantProps<typeof styles>;
 
@@ -18,10 +18,10 @@ type NextLinkProps = {
 } & React.ComponentProps<typeof __LinkNext> &
 	VariantProps<typeof styles>;
 
-type PolymorphicProps = AnchorProps | ButtonProps | NextLinkProps;
+type PolymorphicProps = LinkProps | ButtonProps | NextLinkProps;
 
 type PolymorphicButton = {
-	(props: AnchorProps): JSX.Element;
+	(props: LinkProps): JSX.Element;
 	(props: ButtonProps): JSX.Element;
 	(props: NextLinkProps): JSX.Element;
 };
@@ -72,7 +72,7 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Po
 		const { type, className, children, ...rest } = props;
 
 		switch (type) {
-			case "anchor":
+			case "link":
 				return (
 					//@ts-ignore
 					<a className={clsx(styles(props), className)} ref={ref} {...rest}>

@@ -71,7 +71,7 @@ const Home: NextPage = () => {
 							provides a strong starting point with highly configurable components and a design
 							system that is highly customizable.
 						</Text>
-						<Button type="anchor" href="https://github.com" target="_blank">
+						<Button type="link" href="https://github.com" target="_blank">
 							Test Native
 						</Button>
 
