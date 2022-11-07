@@ -3,24 +3,28 @@ import clsx from "clsx";
 import __LinkNext from "next/link";
 import React from "react";
 
-type LinkNativeProps = {
-	type: "link-native";
+type AnchorProps = {
+	type: "anchor";
 } & React.ComponentProps<"a"> &
 	VariantProps<typeof styles>;
 
-type ButtonNativeProps = {
-	type: "button";
-} & Omit<React.ComponentProps<"button">, "color"> &
+type ButtonProps = {
+	type?: "button";
+} & React.ComponentProps<"button"> &
 	VariantProps<typeof styles>;
 
-type LinkNextProps = {
-	type: "link-next";
+type NextLinkProps = {
+	type: "next-link";
 } & React.ComponentProps<typeof __LinkNext> &
 	VariantProps<typeof styles>;
 
-type ButtonNewProps = LinkNativeProps | ButtonNativeProps | LinkNextProps;
+type PolymorphicProps = AnchorProps | ButtonProps | NextLinkProps;
 
-type ButtonTypes = "link-native" | "button" | "link-next";
+type PolymorphicButton = {
+	(props: AnchorProps): JSX.Element;
+	(props: ButtonProps): JSX.Element;
+	(props: NextLinkProps): JSX.Element;
+};
 
 const styles = cva(
 	"inline-flex select-none items-center justify-center focus:outline-none focus-visible:ring focus-visible:ring-highlight group transition-button focus-visible:border-transparent",
@@ -58,53 +62,37 @@ const styles = cva(
 			fontWeight: "medium",
 			size: "md",
 			rounded: "md",
-			shade: "primary"
+			shade: "primitive"
 		}
 	}
 );
 
-export const Button = (props: ButtonNewProps) => {
-	const { type, children, ...rest } = props;
+export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, PolymorphicProps>(
+	(props, ref) => {
+		const { type, className, children, ...rest } = props;
 
-	const Component = buttonConstructor(type);
-
-	//@ts-ignore
-	return <Component {...rest}>{children}</Component>;
-};
-
-const buttonConstructor = (type: ButtonTypes) => {
-	switch (type) {
-		case "button":
-			return React.forwardRef<HTMLButtonElement, ButtonNativeProps>(
-				({ children, ...props }, ref) => {
-					const { type, className, ...rest } = props;
-
-					return (
-						<button className={clsx(styles(props), className)} ref={ref} {...rest}>
-							{children}
-						</button>
-					);
-				}
-			);
-		case "link-native":
-			return React.forwardRef<HTMLAnchorElement, LinkNativeProps>(({ children, ...props }, ref) => {
-				const { type, className, ...rest } = props;
-
+		switch (type) {
+			case "anchor":
 				return (
+					//@ts-ignore
 					<a className={clsx(styles(props), className)} ref={ref} {...rest}>
 						{children}
 					</a>
 				);
-			});
-		case "link-next":
-			return React.forwardRef<HTMLAnchorElement, LinkNextProps>(({ children, ...props }, ref) => {
-				const { type, className, ...rest } = props;
-
+			case "next-link":
 				return (
+					//@ts-ignore
 					<__LinkNext className={clsx(styles(props), className)} ref={ref} {...rest}>
 						{children}
 					</__LinkNext>
 				);
-			});
+			default:
+				return (
+					//@ts-ignore
+					<button className={clsx(styles(props), className)} ref={ref} {...rest}>
+						{children}
+					</button>
+				);
+		}
 	}
-};
+) as PolymorphicButton;

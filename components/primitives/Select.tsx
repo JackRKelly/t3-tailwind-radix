@@ -93,7 +93,7 @@ export const Root = (props: RootProps) => {
 			}}
 		>
 			<SelectPrimitive.Trigger asChild>
-				<Button type="button" className="min-w-[85px]">
+				<Button className="min-w-[85px]">
 					<SelectPrimitive.Value />
 					<_SelectIcon>
 						<ChevronDownIcon />

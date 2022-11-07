@@ -19,7 +19,6 @@ export const ToastExample = () => {
 	return (
 		<Toast.Provider>
 			<Button
-				type="button"
 				onClick={() => {
 					setOpen(true);
 				}}

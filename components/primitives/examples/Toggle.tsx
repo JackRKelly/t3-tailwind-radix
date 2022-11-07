@@ -11,7 +11,7 @@ export const ToggleExample = () => {
 
 	return (
 		<Toggle.Root pressed={starred} onPressedChange={setStarred}>
-			<Button type="button">
+			<Button>
 				{starred ? <StarFilledIcon className="h-4 w-4 text-yellow-400" /> : <StarIcon />}
 				<Body>{starred ? "Starred" : "Star"}</Body>
 			</Button>

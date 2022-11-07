@@ -55,7 +55,7 @@ export const ThemeSwitcher = () => {
 	return (
 		<Dropdown.Root
 			trigger={
-				<Button type="button">
+				<Button>
 					{(() => {
 						switch (preferredTheme) {
 							case "light":
