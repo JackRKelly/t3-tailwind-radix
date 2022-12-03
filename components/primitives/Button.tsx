@@ -34,7 +34,8 @@ export const buttonStyles = cva(
 				md: "rounded-md"
 			},
 			size: {
-				md: "px-4 py-2"
+				md: "px-4 py-2",
+				sm: "px-2 py-2"
 			},
 			shade: {
 				none: "",
@@ -75,22 +76,31 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Po
 		switch (type) {
 			case "link":
 				return (
-					//@ts-ignore
-					<a className={clsx(buttonStyles(props), className)} ref={ref} {...rest}>
+					<a
+						className={clsx(buttonStyles(props), className)}
+						ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+						{...(rest as LinkProps)}
+					>
 						{children}
 					</a>
 				);
 			case "next-link":
 				return (
-					//@ts-ignore
-					<__LinkNext className={clsx(buttonStyles(props), className)} ref={ref} {...rest}>
+					<__LinkNext
+						className={clsx(buttonStyles(props), className)}
+						ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+						{...(rest as NextLinkProps)}
+					>
 						{children}
 					</__LinkNext>
 				);
 			default:
 				return (
-					//@ts-ignore
-					<button className={clsx(buttonStyles(props), className)} ref={ref} {...rest}>
+					<button
+						className={clsx(buttonStyles(props), className)}
+						ref={ref as React.ForwardedRef<HTMLButtonElement>}
+						{...(rest as ButtonProps)}
+					>
 						{children}
 					</button>
 				);

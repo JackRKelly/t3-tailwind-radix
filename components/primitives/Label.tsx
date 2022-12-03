@@ -1,9 +1,7 @@
-import * as LabelPrimitive from "@radix-ui/react-label";
 import { cva, VariantProps } from "class-variance-authority";
 import clsx from "clsx";
-import { PropsWithChildren } from "react";
 
-const styles = cva(null, {
+export const labelStyles = cva(null, {
 	variants: {
 		size: {
 			lg: "text-lg",
@@ -27,25 +25,16 @@ const styles = cva(null, {
 		}
 	},
 	defaultVariants: {
-		size: "xs",
+		size: "sm",
 		weight: "medium",
-		shade: "normal"
+		shade: "faint"
 	}
 });
 
-interface LabelProps
-	extends PropsWithChildren,
-		LabelPrimitive.LabelProps,
-		VariantProps<typeof styles> {
-	className?: string;
-}
+type InputProps = React.ComponentProps<"label"> & VariantProps<typeof labelStyles>;
 
-export const Label = (props: LabelProps) => {
-	const { children, className, ...rest } = props;
+export const Label = (props: InputProps) => {
+	const { className, ...rest } = props;
 
-	return (
-		<LabelPrimitive.Root {...rest} className={clsx(styles(props), className)}>
-			{children}
-		</LabelPrimitive.Root>
-	);
+	return <label className={clsx(labelStyles(props), className)} {...rest} />;
 };

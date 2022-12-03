@@ -1,5 +1,5 @@
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
-import React, { PropsWithChildren, ReactElement } from "react";
+import { PropsWithChildren, ReactElement } from "react";
 import { tw } from "../../utils/tw";
 
 const _Item = tw(
@@ -13,13 +13,7 @@ interface ItemProps extends ToggleGroupPrimitive.ToggleGroupItemProps {
 export const Item = (props: ItemProps) => {
 	const { icon, ...rest } = props;
 
-	return (
-		<_Item {...rest}>
-			{React.cloneElement(icon, {
-				className: "w-5 h-5 text-primitive-type"
-			})}
-		</_Item>
-	);
+	return <_Item {...rest}>{icon}</_Item>;
 };
 
 type RootProps = PropsWithChildren &

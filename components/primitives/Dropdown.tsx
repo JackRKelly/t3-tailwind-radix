@@ -1,6 +1,6 @@
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CaretRightIcon, CheckIcon } from "@radix-ui/react-icons";
-import { cloneElement, PropsWithChildren, ReactElement, ReactNode } from "react";
+import { PropsWithChildren, ReactElement, ReactNode } from "react";
 import { tw } from "../../utils/tw";
 
 const _Content = tw(
@@ -62,10 +62,7 @@ export const Sub = (props: SubProps) => {
 	return (
 		<DropdownMenuPrimitive.Sub {...{ defaultOpen, onOpenChange, open }}>
 			<_SubTrigger>
-				{icon &&
-					cloneElement(icon, {
-						className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-					})}
+				{icon}
 				<_ItemLabelGrow>{label}</_ItemLabelGrow>
 				<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
 			</_SubTrigger>
@@ -91,19 +88,9 @@ export const CheckboxItem = (props: CheckboxItemProps) => {
 		<_CheckboxItem {...{ checked, ...rest }}>
 			{(() => {
 				if (checked) {
-					return (
-						checkedIcon &&
-						cloneElement(checkedIcon, {
-							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-						})
-					);
+					return checkedIcon;
 				} else {
-					return (
-						icon &&
-						cloneElement(icon, {
-							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-						})
-					);
+					return icon;
 				}
 			})()}
 			<_ItemLabelGrow>{label}</_ItemLabelGrow>
@@ -125,10 +112,7 @@ export const Item = (props: ItemProps) => {
 
 	return (
 		<_Item {...rest}>
-			{icon &&
-				cloneElement(icon, {
-					className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-				})}
+			{icon}
 			<_ItemLabelGrow>{label}</_ItemLabelGrow>
 			{shortcut && <_ShortcutLabel>{shortcut}</_ShortcutLabel>}
 		</_Item>

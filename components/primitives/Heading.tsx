@@ -30,17 +30,17 @@ const styles = cva("tracking-tight text-primitive-type", {
 });
 
 interface Props extends VariantProps<typeof styles> {
-	level?: 1 | 2 | 3 | 4 | 5 | 6;
+	as?: HeadingTag;
 	children?: React.ReactNode;
 	className?: string;
 }
 
-type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 
 export const Heading: React.FC<PropsWithChildren<Props>> = (props) => {
-	const { children, level = 1, className } = props;
+	const { children, as = "h1", className } = props;
 
-	const Tag = `h${level}` as HeadingTag;
+	const Tag = as as HeadingTag;
 
 	return <Tag className={clsx(styles(props), className)}>{children}</Tag>;
 };

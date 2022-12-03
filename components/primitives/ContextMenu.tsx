@@ -1,6 +1,6 @@
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import { CaretRightIcon, CheckIcon } from "@radix-ui/react-icons";
-import { cloneElement, PropsWithChildren, ReactElement, ReactNode } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { tw } from "../../utils/tw";
 
 const _Content = tw(
@@ -63,8 +63,8 @@ interface SubProps
 	extends PropsWithChildren,
 		ContextMenuPrimitive.ContextMenuSubProps,
 		ContextMenuPrimitive.ContextMenuSubContentProps {
-	icon?: ReactElement;
-	label: ReactNode;
+	icon?: React.ReactNode;
+	label: React.ReactNode;
 	className?: string;
 }
 
@@ -74,10 +74,7 @@ export const Sub = (props: SubProps) => {
 	return (
 		<ContextMenuPrimitive.Sub {...{ defaultOpen, onOpenChange, open }}>
 			<_SubTrigger>
-				{icon &&
-					cloneElement(icon, {
-						className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-					})}
+				{icon}
 				<_ItemLabelGrow>{label}</_ItemLabelGrow>
 				<CaretRightIcon className="h-3.5 w-3.5 text-primitive-type-extra-faint ml-2" />
 			</_SubTrigger>
@@ -91,9 +88,9 @@ export const Sub = (props: SubProps) => {
 interface CheckboxItemProps
 	extends PropsWithChildren,
 		ContextMenuPrimitive.ContextMenuCheckboxItemProps {
-	icon?: ReactElement;
-	checkedIcon?: ReactElement;
-	label: ReactNode;
+	icon?: React.ReactNode;
+	checkedIcon?: React.ReactNode;
+	label: React.ReactNode;
 }
 
 export const CheckboxItem = (props: CheckboxItemProps) => {
@@ -103,19 +100,9 @@ export const CheckboxItem = (props: CheckboxItemProps) => {
 		<_CheckboxItem {...{ checked, ...rest }}>
 			{(() => {
 				if (checked) {
-					return (
-						checkedIcon &&
-						cloneElement(checkedIcon, {
-							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-						})
-					);
+					return checkedIcon;
 				} else {
-					return (
-						icon &&
-						cloneElement(icon, {
-							className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-						})
-					);
+					return icon;
 				}
 			})()}
 			<_ItemLabelGrow>{label}</_ItemLabelGrow>
@@ -127,9 +114,9 @@ export const CheckboxItem = (props: CheckboxItemProps) => {
 };
 
 interface ItemProps {
-	icon: ReactElement;
+	icon: React.ReactNode;
 	shortcut?: string;
-	label: ReactNode;
+	label: React.ReactNode;
 }
 
 export const Item = (props: ItemProps) => {
@@ -137,10 +124,7 @@ export const Item = (props: ItemProps) => {
 
 	return (
 		<_Item>
-			{icon &&
-				cloneElement(icon, {
-					className: "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint"
-				})}
+			{icon}
 			<_ItemLabelGrow>{label}</_ItemLabelGrow>
 			{shortcut && <_ShortcutLabel>{shortcut}</_ShortcutLabel>}
 		</_Item>
@@ -148,7 +132,7 @@ export const Item = (props: ItemProps) => {
 };
 
 interface RootProps extends PropsWithChildren, ContextMenuPrimitive.ContextMenuProps {
-	trigger: ReactNode;
+	trigger: React.ReactNode;
 	className?: string;
 }
 

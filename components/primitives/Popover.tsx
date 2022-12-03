@@ -20,10 +20,18 @@ const _Wrapper = tw.div`relative inline-block text-left`;
 interface RootProps extends PropsWithChildren, PopoverPrimitive.PopoverContentProps {
 	showCloseIcon?: boolean;
 	trigger: ReactNode;
+	contentClassName?: string;
 }
 
 export const Root = (props: RootProps) => {
-	const { children, sideOffset = 4, showCloseIcon = true, trigger, ...rest } = props;
+	const {
+		contentClassName,
+		children,
+		sideOffset = 4,
+		showCloseIcon = true,
+		trigger,
+		...rest
+	} = props;
 
 	return (
 		<_Wrapper>
@@ -31,7 +39,7 @@ export const Root = (props: RootProps) => {
 				<PopoverPrimitive.Trigger asChild>{trigger}</PopoverPrimitive.Trigger>
 
 				<_Content {...{ sideOffset, ...rest }}>
-					<_ContentInner>
+					<_ContentInner className={contentClassName}>
 						<_Arrow />
 
 						{children}

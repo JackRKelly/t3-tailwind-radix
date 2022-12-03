@@ -1,4 +1,5 @@
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import clsx from "clsx";
 import { PropsWithChildren } from "react";
 import { tw } from "../../utils/tw";
 import { Label } from "./Label";
@@ -32,7 +33,7 @@ export const Item = (props: ItemProps) => {
 					<_IndicatorInner />
 				</_Indicator>
 			</_Item>
-			<Label htmlFor={id} size="sm" className="ml-2 block">
+			<Label htmlFor={id} className={clsx("ml-2 block")}>
 				{label ?? value}
 			</Label>
 		</_ItemWrapper>

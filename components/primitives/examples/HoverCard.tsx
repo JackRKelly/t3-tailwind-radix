@@ -36,7 +36,9 @@ export const HoverCardExample = () => (
 			</TriggerWrapper>
 
 			<div>
-				<Heading size="xs">Tailwind CSS</Heading>
+				<Heading size="xs" as="span">
+					Tailwind CSS
+				</Heading>
 				<Body>A utility-first CSS framework for rapidly building custom user interfaces.</Body>
 			</div>
 		</ContentWrapper>

@@ -11,22 +11,24 @@ interface Theme {
 	icon: ReactElement;
 }
 
+const iconClassName = "mr-2 h-3.5 w-3.5 text-primitive-type-extra-faint";
+
 export const themes: Theme[] = [
 	{
 		key: "light",
 		label: "Light",
-		icon: <SunIcon />
+		icon: <SunIcon className={iconClassName} />
 	},
 	{
 		key: "dark",
 		label: "Dark",
-		icon: <MoonIcon />
+		icon: <MoonIcon className={iconClassName} />
 	},
 
 	{
 		key: "system",
 		label: "System",
-		icon: <Half2Icon />
+		icon: <Half2Icon className={iconClassName} />
 	}
 ];
 
@@ -55,7 +57,7 @@ export const ThemeSwitcher = () => {
 	return (
 		<Dropdown.Root
 			trigger={
-				<Button>
+				<Button size="sm">
 					{(() => {
 						switch (preferredTheme) {
 							case "light":

@@ -1,5 +1,6 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
+import clsx from "clsx";
 import { ReactNode } from "react";
 import { tw } from "../../utils/tw";
 import { Label } from "./Label";
@@ -29,7 +30,7 @@ export const Root = (props: RootProps) => {
 				</CheckboxPrimitive.Indicator>
 			</_Root>
 
-			<Label size="sm" className="ml-3 select-none" color="bold" htmlFor={id}>
+			<Label className={clsx("ml-3 select-none")} color="bold" htmlFor={id}>
 				{label}
 			</Label>
 		</>
