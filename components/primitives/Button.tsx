@@ -1,6 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 import clsx from "clsx";
-import __LinkNext from "next/link";
+import Link from "next/link";
 import React from "react";
 
 type LinkProps = {
@@ -15,7 +15,7 @@ type ButtonProps = {
 
 type NextLinkProps = {
 	type: "next-link";
-} & React.ComponentProps<typeof __LinkNext> &
+} & React.ComponentProps<typeof Link> &
 	VariantProps<typeof buttonStyles>;
 
 type PolymorphicProps = LinkProps | ButtonProps | NextLinkProps;
@@ -86,13 +86,13 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Po
 				);
 			case "next-link":
 				return (
-					<__LinkNext
+					<Link
 						className={clsx(buttonStyles(props), className)}
 						ref={ref as React.ForwardedRef<HTMLAnchorElement>}
 						{...(rest as NextLinkProps)}
 					>
 						{children}
-					</__LinkNext>
+					</Link>
 				);
 			default:
 				return (
