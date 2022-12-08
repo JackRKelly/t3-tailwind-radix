@@ -10,7 +10,7 @@ const Share2Icon = tw(
 const PlayIcon = tw(_PlayIcon)`cursor-pointer text-primitive-type-faint hover:text-primitive-type`;
 
 export const CollapsibleExample = () => (
-	<Collapsible.Root trigger={"My Playlists"}>
+	<Collapsible.Root trigger="My Playlists">
 		<Collapsible.Item>
 			80s Synthwave
 			<CollapsibleItemAction>
